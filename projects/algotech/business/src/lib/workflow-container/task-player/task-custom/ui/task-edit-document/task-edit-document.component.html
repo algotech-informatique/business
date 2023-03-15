@@ -1,0 +1,14 @@
+<div class="wf-padding">
+    <div>
+        <at-so-input (keyup)="onValidate()" [(value)]="name"
+            [error]="nameExists" [caption]="'WORKFLOW.TASK.EDIT-DOCUMENT.EDIT' | translate">
+        </at-so-input>
+
+        <at-form-tags *ngIf="taggable" [tagsLists]="tagsLists" [selectedTagsKeys]="tags" (change)="onValidate($event)">
+        </at-form-tags>
+
+        <at-form-metadatas *ngIf="metadatable" [metadatasList]="metadatasList" [metadatas]="metadatas"
+            (metadataChange)="onMetadataChanged($event)">
+        </at-form-metadatas>
+    </div>
+</div>

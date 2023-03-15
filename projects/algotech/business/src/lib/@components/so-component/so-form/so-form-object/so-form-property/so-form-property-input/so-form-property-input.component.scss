@@ -1,0 +1,26 @@
+@import '../../../../../../mixins';
+
+:host {
+    width: 100%;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+}
+
+.disabled {
+    @include disabled();
+}
+
+at-so-input,
+at-so-form-property-input-object {
+    --PADDING-INPUT: 0px;
+}
+
+.comment {
+    --PADDING-INPUT: 0px 0px 0px 0px;
+    --BORDER: none;
+    --BORDER-DANGER: none;
+    --BORDER-HOVER: none;
+}

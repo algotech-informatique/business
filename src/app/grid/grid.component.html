@@ -1,0 +1,50 @@
+<div class="container">
+    <at-grid [configuration]="configuration" class="grid">
+
+        <at-grid-row class="row" *ngFor="let row of data" [id]="row.id" [configuration]="configuration">
+            <at-grid-cell *ngFor="let column of configuration.columns" [width]="column.width" [hide]="column.hide">
+                <at-grid-cell-value [editable]="false" [type]="'string'" [value]="(row.properties | find: 'key': column.key).value">
+                </at-grid-cell-value>
+            </at-grid-cell>
+        </at-grid-row>
+    </at-grid>
+
+    <at-grid #grid [configuration]="configuration2"
+    [newRowPlaceHolder]="'Nouveau Smart Object'" class="grid2" (addNewRow)="onAddNewRow()" (configurationChanged)="onConfigurationChanged()">
+
+        <at-grid-row class="row" *ngFor="let row of data" [id]="row.id" [configuration]="configuration2">
+            <at-grid-group *ngFor="let sticky of ['left', 'none', 'right']" [sticky]="sticky">
+                <at-grid-cell *ngFor="let column of configuration2.columns | filter: 'sticky': sticky"
+                    [width]="column.width" [hide]="column.hide" (cellClick)="onCellClick($event)" [editable]="true">
+                    <at-grid-cell-value
+                        [editable]="true"
+                        [key]="column.key"
+                        [type]="'string'"
+                        [value]="(row.properties | find: 'key': column.key).value"
+                        (changed)="onCellChange($event)">
+                    </at-grid-cell-value>
+                </at-grid-cell>
+            </at-grid-group>
+        </at-grid-row>
+    </at-grid>
+
+    <at-grid [configuration]="configuration3" class="grid3">
+
+        <at-grid-row class="row" *ngFor="let row of data" [id]="row.id" [configuration]="configuration3">
+            <at-grid-cell *ngFor="let column of configuration3.columns" [width]="column.width" [hide]="column.hide">
+                <at-grid-cell-value [editable]="false" [type]="'string'" [value]="(row.properties | find: 'key': column.key).value">
+                </at-grid-cell-value>
+            </at-grid-cell>
+        </at-grid-row>
+    </at-grid>
+
+    <at-grid [configuration]="configuration4" class="grid3">
+
+        <at-grid-row class="row" *ngFor="let row of data" [id]="row.id" [configuration]="configuration4">
+            <at-grid-cell *ngFor="let column of configuration4.columns" [width]="column.width" [hide]="column.hide">
+                <at-grid-cell-value [editable]="false" [type]="'string'" [value]="(row.properties | find: 'key': column.key).value">
+                </at-grid-cell-value>
+            </at-grid-cell>
+        </at-grid-row>
+    </at-grid>
+</div>

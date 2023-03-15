@@ -1,0 +1,45 @@
+<div [id]="zone.custom.key" class="zone" *ngIf="zone" [ngClass]="{
+    'absolute': zone.custom.placement == 'free',
+    'grid': zone.custom.placement== 'grid'
+}">
+    <div
+        class="add active little-button"
+        (click)="OnAddMagnet($event)"
+        *ngIf="canAddMagnet && boardService.zones[zone.custom.key].points"
+        [ngStyle]="{
+            'top': ((boardService.zones[zone.custom.key].points | extremityPoint).y - zone.box.y - 15) + 'px',
+            'left': ((boardService.zones[zone.custom.key].points | extremityPoint).x - zone.box.x - 15) + 'px'
+        }">
+        <i class="fa-solid fa-plus"></i>
+    </div>
+
+    <svg [attr.width]="zone.box.width" [attr.height]="zone.box.height">
+        <path
+            [attr.d]="zone.custom.d"
+            [attr.fill]="zone.css.main['background-color']"
+            [ngClass]="{'hover': zone.displayState?.hover}"></path>
+    </svg>
+
+    <div class="magnets">
+        <div class="magnet"
+            *ngFor="let smartObject of boardService.zones[zone.custom.key].smartObjects"
+            [id]="smartObject.uuid"
+            [ngStyle]="{
+                'top': (smartObject | zone: zone: appModel.key : board)?.position.y -
+                            ((smartObject | magnet: board) ? (smartObject | magnet: board).box.height / 2 : 50) + 'px',
+                'left': (smartObject | zone: zone: appModel.key : board)?.position.x -
+                            ((smartObject | magnet: board) ? (smartObject | magnet: board).box.width / 2 : 50) + 'px'
+            }"
+            >
+            <magnet
+                [appModel]="appModel"
+                [snPage]="snPage"
+                [template]="smartObject | magnet: board"
+                [board]="board"
+                [zone]="zone"
+                [smartObject]="smartObject"
+                [readonly]="readonly"
+                (openActions)="onOpenActions($event)"></magnet>
+        </div>
+    </div>
+</div>

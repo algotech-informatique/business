@@ -1,0 +1,11 @@
+<div class="input">
+    <at-so-input
+        (click)="showListPopup()"
+        [(value)]="value"
+        [error]="error"
+        [caption]="property.displayName |  tlang">
+    </at-so-input>
+    <div  class="ion-activatable ripple-parent reset" (click)="resetValue()">
+        <i class="fa-solid fa-circle-xmark reset-icon"></i>
+    </div>
+</div>

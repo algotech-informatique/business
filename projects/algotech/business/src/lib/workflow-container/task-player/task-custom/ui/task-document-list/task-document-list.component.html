@@ -1,0 +1,48 @@
+<div class="content">
+    <div class="at-list-header">
+        <div class="at-list-search">
+            <div class="search">
+                <at-so-input class="search-input" type="search"
+                    *ngIf="searchVisible" (keyup)="filterElements()" [(value)]="searchValue">
+                </at-so-input>
+            </div>
+            <div class="at-list-menu" [ngClass]="{
+                'disabled': !(listViewsListed | find: 'checked':true)
+            }" #menu (click)="onOpenActions($event, menu)">
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+            </div>
+        </div>
+    </div>
+    <div class="at-list-content">
+        <div class="at-list">
+            <div class="at-list-item" [attr.id]="elt.sysfile.versionID" *ngFor="let elt of listViewsListed"
+                (click)="checkedItem(elt)">
+                <div class="checked-item">
+                    <at-so-input class="checkbox" type="checkbox" [value]="elt.checked">
+                    </at-so-input>
+                    <div class="file-item">
+                        <at-file-component [file]="elt.sysfile"></at-file-component>
+                        <div class="detail">
+                            <div class="subdetail" *ngIf="elt.tags.length !== 0">
+                                <i class="fa-solid fa-tag"></i>
+                                {{elt.tags}}
+                            </div>
+                            <div class="subdetail">
+                                <i class="fa-solid fa-calendar-days"></i>
+                                {{elt.formatedDate}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <i class="{{elt.icon}} img-style">
+                </i>
+            </div>
+        </div>
+        <div style="text-align: center">
+            <button class="at-button outline" *ngIf="moreDataToLoad && listViewsListed.length > 0"
+                [ngClass]="{'disabled': isLoading }" (click)="doInfinite()">
+                {{ 'LIST.LOAD_MORE'| translate }}
+            </button>
+        </div>
+    </div>
+</div>

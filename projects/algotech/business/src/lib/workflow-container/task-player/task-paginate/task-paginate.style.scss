@@ -1,0 +1,53 @@
+@import '../../../mixins';
+
+.detail {
+    width: 100%;
+    height: 100%;
+    display: flex;   
+    flex-direction: row; 
+    justify-content: space-between;       
+    align-items: center;
+    font-size: 30px;
+}
+
+.pagination {
+    color: var(--ALGOTECH-PRIMARY);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: calc(100% - 120px);
+    .page {
+        text-align: center;
+        width: 100%;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .stepName {
+        text-align: center;
+        width: 100%;
+        font-size: 15px;
+        @include text-ellipsis;
+    }
+}
+
+.button {
+    font-size: 40px;
+    min-width: 60px;
+    cursor: pointer;
+    color: var(--ALGOTECH-SUCCESS);
+
+    &.right {
+        text-align: right;
+    }
+    &.left {
+        text-align: left;
+    }
+    &.text {
+        font-size: 20px;
+        @include text-ellipsis;
+    }
+    &.disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+}

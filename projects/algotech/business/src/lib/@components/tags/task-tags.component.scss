@@ -1,0 +1,47 @@
+.tags-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.chip {
+    padding: 7px 12px;
+    border-radius: 20px;
+    margin: 5px;
+    font-weight: bold;
+    font-size: 12px;
+    background-color: var(--ALGOTECH-PRIMARY);
+    color: var(--ALGOTECH-PRIMARY-HOVER);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s;
+
+    * {
+        pointer-events: none;
+    }
+
+    &:hover {
+        opacity: 0.7;
+    }
+    &:focus {
+        outline: none;
+    }
+
+    .icon {
+        font-size: 18px;
+        margin-right: 5px;
+        &.rm {
+            pointer-events: all !important;
+            color: #fff;
+            &:hover {
+                color: var(--ALGOTECH-DANGER-HOVER);
+            }
+        }
+        &.tag {
+            transform: rotate(90deg);
+        }
+    }
+}

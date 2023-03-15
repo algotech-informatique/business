@@ -1,0 +1,37 @@
+<div class="glist">
+    <div class="header">
+        <at-so-input type="search" [autoFocus]="true" (keyup)="search()" [(value)]="searchPattern">
+        </at-so-input>
+    </div>
+
+    <div class="list">
+        <div>
+            <div class="list-item" *ngFor="let item of displayData" (click)="select(item)"
+                [ngClass]="{'selected': item.selected}">
+                <i *ngIf="item.selected" class="fa-solid fa-check check-icon"></i>
+                {{ item.value }}
+            </div>
+            <div style="text-align: center">
+                <button class="at-button outline small" *ngIf="showLoadMore" (click)="loadMore()">
+                    {{ 'LIST.LOAD_MORE'| translate }}
+                </button>
+            </div>
+
+            <div class="no-data" *ngIf="displayData.length === 0">
+                <div>{{ 'WORKFLOW.SO-FORM.PROPERTY.GLIST.NOT-AVAILABLE' | translate: { 'value': searchPattern } }}</div>
+                <div *ngIf="!protected">
+                    {{ 'WORKFLOW.SO-FORM.PROPERTY.GLIST.ADD' | translate }}
+                </div>
+                <div *ngIf="!protected" class="buttons">
+                    <button (click)="resetSearch()">{{ 'DIALOGBOX.CANCEL' | translate }}</button>
+                    <button (click)="addNewValue()">{{ 'DIALOGBOX.ADD' | translate }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="multiple && ((displayData.length > 0 && !protected) || protected)" class="footer">
+        <button (click)="cancel()">{{ 'DIALOGBOX.CANCEL' | translate }}</button>
+        <button (click)="validate()">{{ 'DIALOGBOX.VALIDATE' | translate }}</button>
+    </div>
+</div>

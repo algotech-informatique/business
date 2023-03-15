@@ -1,0 +1,16 @@
+<div class="elements" *ngFor="let location of locations">
+    <at-so-input type="number" [caption]="'WORKFLOW.TASK.LOCATION.LATITUDE' | translate"
+        [(value)]="location.coordinates[0]" (changed)="updateLatLng(location)"></at-so-input>
+
+    <at-so-input type="number" [caption]="'WORKFLOW.TASK.LOCATION.LONGITUDE' | translate"
+        [(value)]="location.coordinates[1]" (changed)="updateLatLng(location)"></at-so-input>
+    
+    <at-so-form-property-input-object
+        [display]="inputLoc.title | translate"
+        [text]="inputLoc.valueDisplay"
+        [icon]="inputLoc.icon"
+        [isUndefined]="inputLoc.value === null || inputLoc.value === undefined"
+        (click)="onClickMore(location)">
+    </at-so-form-property-input-object>
+</div>
+

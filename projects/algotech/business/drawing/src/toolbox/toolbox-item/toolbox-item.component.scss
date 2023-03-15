@@ -1,0 +1,117 @@
+@import '../mixins';
+
+:host {
+    height: 100%;
+    width: fit-content;
+}
+
+.content {
+    display: inherit;
+    height: 100%;
+
+    .popup {
+        position: absolute;
+        z-index: 2;
+        top: calc(var(--TOOLBAR-HEIGHT) + var(--TOOLBAR-POPUP-OFFSET, 0px));
+        left: calc(var(--TOOLBAR-WIDTH) + var(--TOOLBAR-POPUP-OFFSET, 0px));
+    }
+
+    .item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        margin: var(--TOOLBAR-ITEM-MARGIN);
+
+        &.widget {
+            justify-content: flex-end;
+        }
+
+        .icon {
+            position: relative;
+            height: var(--TOOLBAR-ITEM-HEIGHT);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            width: var(--TOOLBAR-ITEM-WIDTH);
+            border-radius: var(--TOOLBAR-ITEM-RADIUS);
+
+            &.disabled {
+                pointer-events: none;
+                opacity: 0.2 !important;
+
+                * {
+                    pointer-events: none;
+                }
+            }
+
+            .iconFa {
+                height: 100%;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &.widget {
+                    background-color: var(--TOOLBAR-ITEM-ACTION) !important;
+                    border-radius: 0em 0.2em 0.2em 0;
+                    box-shadow: 4px 0px 4px rgba(0, 0, 0, 0.25);
+                }
+    
+                &.action {
+                    color: var(--TOOLBAR-ITEM-ACTION) !important;
+                }
+            }
+
+            .tooltiptext {
+                visibility: hidden;
+                user-select: none;
+                background-color: var(--TOOLBAR-ITEM-TOOLTIP-BG);
+                color: var(--TOOLBAR-ITEM-TOOLTIP-COLOR) !important;
+                opacity: var(--TOOLBAR-ITEM-TOOLTIP-OPACITY);
+                text-align: left;
+                border-radius: 5px;
+                padding: 6px;
+                top: calc(var(--TOOLBAR-HEIGHT, 0px) + 8px);
+                left: calc(var(--TOOLBAR-WIDTH, 0px) + 8px);
+                position: absolute;
+                font-weight: bold !important;
+                font-size: 12px;
+                @include text-ellipsis;
+                z-index: 2;
+            }
+
+            .line {
+                width: calc(var(--TOOLBAR-ITEM-WIDTH) - 5px);
+            }
+
+            .dropdown {
+                position: absolute;
+                right: 6px;
+                bottom: 6px;
+                font-size: 11px;
+
+                &.rightDirection {
+                    transform: rotate(270deg);
+                    bottom: inherit;
+                    right: 2px;
+                }
+            }
+
+            &:hover {
+                .tooltiptext {
+                    visibility: visible;
+                }
+
+                &:not(.widget) {
+                    &:not(.active) {
+                        background-color: var(--TOOLBAR-ITEM-HOVER) !important;
+                    }
+                }
+
+                cursor: pointer;
+            }
+        }
+    }
+}

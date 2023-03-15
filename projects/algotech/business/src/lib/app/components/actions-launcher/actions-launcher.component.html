@@ -1,0 +1,113 @@
+<ion-content>
+    
+    <ion-progress-bar class="progress" type="indeterminate" *ngIf="loading"></ion-progress-bar>
+    
+    <div class="content" [ngClass]="{'scollable': !modalControl}">
+        <div class="topbar" *ngIf="modalControl">
+            <div class="at-button" (click)="onBack()">
+                <i class="fa-solid fa-chevron-left"></i>
+            </div>
+            <span>{{ activeDisplay ?
+                (activeDisplay.workflow.displayName | tlang) :
+                ('SETTINGS.WORKFLOWS.APP.SELECTACTION' | translate)
+                }}</span>
+        </div>
+
+        <!-- Actions -->
+        <div class="at-list-content">
+            <div *ngIf="!activeDisplay">
+                <div class="at-list">
+                    <div class="at-list-item no-padding" *ngFor="let action of actionsDisplay" (click)="onClick(action)">
+                        <span class="type">{{ action.displayType }}</span>
+                        <div class="at-list-item-content" [ngClass]="{'disabled': action.workflow?.disabled}">
+                            <span class="action-content">
+                                <span class="action-icon">
+                                    <i [class]="action.iconName"></i>
+                                </span>
+
+                                <div class="action-caption">
+                                    <span class="title">{{ action.displayName }}</span>
+
+                                    <span class="loader" *ngIf="action.workflow && action.workflow.instances === null">
+                                        <ion-spinner name="dots"></ion-spinner>
+                                    </span>
+                                    <span class="description instance" *ngIf="action.workflow?.instances?.length > 0">
+                                        {{'WORKFLOW-INSTANCES-LAUNCHED' | translate:{ length: action.workflow?.instances.length }
+                                        }}
+                                    </span>
+                                    <span class="description no-instance" *ngIf="action.workflow?.instances?.length === 0">
+                                        {{'WORKFLOW-INSTANCES-NO-INSTANCE' | translate}}
+                                    </span>
+                                </div>
+
+                                <i class="fa-solid fa-chevron-right chevron" *ngIf="action.workflow?.instances?.length > 0"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instances (back + add) -->
+            <div *ngIf="activeDisplay">
+                <div class="at-list">
+                    <div class="at-list-item back" (click)="onBack()" *ngIf="!modalControl">
+                        <span class="action-content">
+                            <i class="fa-solid fa-chevron-left chevron"></i>
+                            <div class="action-caption">
+                                <span class="back">{{activeDisplay.workflow.displayName | tlang}}</span>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="at-list-item" (click)="onLaunchWorkflow(activeDisplay)"
+                        [ngClass]="{'disabled': activeDisplay.unique}">
+                        <span class="action-content">
+                            <span class="action-icon">
+                                <i class="fa-solid fa-circle-plus new"></i>
+                            </span>
+                            <div class="action-caption">
+                                <span class="title">
+                                    {{'WORKFLOW-NEW' | translate}}
+                                </span>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="at-list-item" [attr.id]="instance.uuid"
+                        *ngFor="let instance of activeDisplay.instances, let i = index"
+                        (click)="onLaunchInstance(instance)"
+                        [ngClass]="{'disabled': instance.waiting}">
+
+                        <span class="action-content">
+                            <span class="action-icon">
+                                <i class="fa-solid" [ngClass]="{
+                                                'fa-play-circle': !instance.waiting,
+                                                'fa-pause-circle': instance.waiting
+                                            }"></i>
+                                <span class="participants" *ngIf="instance.participants.length > 1">
+                                    <i class="fa-solid fa-user"></i>
+                                    <i class="fa-solid fa-user"></i>
+                                </span>
+                            </span>
+                            <div class="action-caption deletable">
+                                <span class="title">
+                                    {{instance.updateDate | localeDate: 'medium' }}
+                                </span>
+                                <span class="description task-info">
+                                    {{'WORKFLOW-INSTANCES-INFO' |
+                                    translate:{
+                                    step: instance.step?.displayName | tlang,
+                                    task: instance.task?.general.displayName | tlang
+                                    }
+                                    }}
+                                </span>
+                            </div>
+
+                            <i class="fa-solid fa-trash remove" (click)="remove($event, i)"
+                                [ngClass]="{'disabled': instance.participants.length > 1}">
+                            </i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>

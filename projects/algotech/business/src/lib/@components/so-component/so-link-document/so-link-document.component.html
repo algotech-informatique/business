@@ -1,0 +1,61 @@
+<div class="container" #scrollable>
+    <div class="at-list-header">
+        <div class="at-list-actions">
+            <div
+                class="cart"
+                [ngClass]="{'active': cartView}" 
+                *ngIf="multipleSelection && mode === 'cart'"
+                (click)="cartClick()">
+                <i class="fa-solid fa-cubes"></i>
+                <span>{{cart.length}}</span>
+            </div>
+        </div>
+        <div class="at-list-search">
+            <at-so-input class="search-input" type="search"
+                *ngIf="searchVisible" (keyup)="filterElements()" [(value)]="searchValue">
+            </at-so-input>
+        </div>
+    </div>
+
+    <div class="at-list-content">
+        <div *ngIf="!cartView">
+            <div class="at-list">
+                <div class="at-list-item"
+                    (click)="element.deletable ? onDelete(element) : onSelect(element)"
+                    *ngFor="let element of elementsListed">
+                    
+                    <at-so-document
+                        [checkable]="multipleSelection"
+                        [element]="element">
+                    </at-so-document>
+
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="cartView">
+            <div class="at-list" *ngIf="cartView">
+                <div class="at-list-item"
+                    (click)="onDelete(element)"
+                    *ngFor="let element of cart">
+                        
+                        <at-so-document
+                            [checkable]="true"
+                            [element]="element">
+                        </at-so-document> 
+
+                    </div>
+            </div>
+        </div>
+    
+        <div style="text-align: center">
+            <button class="at-button outline" *ngIf="moreDataToLoad && !cartView && elements.length > 0"
+                [ngClass]="{'disabled': isLoading }" (click)="loadMoreResults()">
+                {{ 'LIST.LOAD_MORE'| translate }}
+            </button>
+        </div>
+    </div>
+    <div class="at-spinner-container" *ngIf="isLoading">
+        <spinner></spinner>
+    </div>
+</div>

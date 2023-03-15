@@ -1,0 +1,26 @@
+<div class="header">
+    <at-so-input
+        class="checkbox"
+        [type]="'checkbox'"
+        [value]="allSelected"
+        (changed)="selectAll($event)">
+    </at-so-input>
+
+    <at-so-input class="search-input" type="search" (keyup)="filterElements()" [(value)]="searchValue">
+    </at-so-input>
+</div>
+
+<div class="content">
+    <ng-container *ngFor="let column of configuration.columns">
+        <div class="item" *ngIf="display | includes: column.key" (click)="showColumn(column)">
+            <at-so-input
+                class="checkbox"
+                [type]="'checkbox'"
+                [value]="!column.hide">
+            </at-so-input>
+            <span class="caption">
+                {{ column.name }}
+            </span>
+        </div>
+    </ng-container>
+</div>

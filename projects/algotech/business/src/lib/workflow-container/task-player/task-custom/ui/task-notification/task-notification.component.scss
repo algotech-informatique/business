@@ -1,0 +1,70 @@
+@import '../../../../../mixins';
+
+
+.wf-padding {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    i {
+        font-size: 50px;
+        margin-bottom: 20px;
+        color: var(--ALGOTECH-SUCCESS);
+    }
+}
+.content {
+    background: var(--ALGOTECH-BACKGROUND);
+    border: 1px solid var(--ALGOTECH-BACKGROUND-BORDER);
+    border-radius: 3px;
+    box-shadow:0 0px 3px 0px var(--ALGOTECH-BACKGROUND-BORDER);
+
+    font-size: 14px;
+
+    .to {
+        padding: 15px 10px;
+        display: flex;
+        align-items: center;
+
+        button {
+            color: var(--ALGOTECH-PRIMARY);
+            background-color: var(--ALGOTECH-PRIMARY-HOVER);
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            pointer-events: none;
+            margin-right: 5px;
+        }
+        span {
+            color: var(--ALGOTECH-SECONDARY);
+            font-style: italic;
+        }
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        background: transparent;
+        border: none;
+        color: var(--ALGOTECH-TERTIARY);
+        padding: 20px 10px;
+        transition: border-color 0.2s;
+
+        &:focus {
+            outline: none;
+        }
+
+        &::placeholder {
+            font-style: italic;
+        }
+    }
+    input, .to {
+        border-bottom: 1px solid var(--ALGOTECH-BACKGROUND-BORDER);
+        box-shadow: 0 0px 1px 0px var(--ALGOTECH-BACKGROUND-BORDER);
+    }
+
+    textarea {
+        @include scrollbar();
+        resize: none;
+        height: 10em;
+        font-size: 16px;
+    }
+}

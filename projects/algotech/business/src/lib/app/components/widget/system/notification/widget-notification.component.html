@@ -1,0 +1,28 @@
+<div id="notification" class="main" [ngStyle]="_widget?.css?.main" (click)="onClick()">
+    <div class="layout" [ngStyle]="_widget?.css?.layout">
+        <i *ngIf="_widget?.custom?.icon" [class]="_widget?.custom?.icon"
+            [ngStyle]="_widget?.css?.icon"
+        ></i>
+    </div>
+    
+    <div class="widget-counter" [ngStyle]="_widget?.css?.counter"
+        *ngIf="notificationService.unread > 0">
+        <div class="counter">
+            {{ notificationService.unread }}
+        </div>
+    </div>
+</div>
+
+<notification-list
+    *ngIf="menuNotificationOpen"
+    [notifications]="notificationService.notifications"
+    [lang]="lang"
+    [unreadFullMessage]="notificationService.unreadFullMessage"
+    [widget]="_widget"
+    [snPage]="snPage"
+    [state]="state"
+    (selectNotification)="onSelectNotification($event)"
+    (openNotification)="onOpenNotification($event)"
+    (endNotification)="onEndNotification()"
+    (stateClick)="onStateClick($event)"
+></notification-list>

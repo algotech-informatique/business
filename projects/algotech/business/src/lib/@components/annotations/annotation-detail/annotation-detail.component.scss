@@ -1,0 +1,174 @@
+@import '../../../mixins';
+
+:host,
+.content,
+.container,
+.photo,
+.photo-content {
+    height: 100%;
+    width: 100%;
+}
+
+.content {
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        .photo {
+            width: 80%;
+            @media only screen and (max-width: 500px) {
+                width: 100%;
+            }
+
+            .filename {
+                @include title-text(var(--ALGOTECH-SECONDARY));
+                margin-left: 5px;
+            }
+
+
+            .photo-content {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: calc(100% - 25px);
+
+                .no-preview {
+                    color: var(--ALGOTECH-MEDIUM);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    opacity: 0.3;
+                    margin-top: 20px;
+
+                    i {
+                        font-size: 200px;
+                    }
+
+                    .no-message {
+                        font-size: 30px;
+                        text-align: center;
+                    }
+                }
+
+                .image {
+                    cursor: pointer;
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+
+                    img {
+                        pointer-events: none;
+                        object-fit: contain;
+                        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                        min-height: 100px;
+                        min-width: 100px;
+                    }
+                    &.edition {
+                        opacity: 0.5;
+                        cursor: crosshair;
+                        img {
+                            box-shadow: 0 4px 8px 0 var(--ALGOTECH-SUCCESS), 0 6px 20px 0 var(--ALGOTECH-SUCCESS);
+                        }
+                    }
+
+                    &.lock {
+                        .annotation-container {
+                            pointer-events: none;
+                        }
+                    }
+
+                    .at-list-menu {
+                        top: 0px;
+                        right: 0px;
+                        position: absolute;
+                        z-index: 99999;
+                        color: var(--ALGOTECH-PRIMARY);
+                        cursor: pointer;
+
+                        &:hover {
+                            i {
+                                background-color: var(--ALGOTECH-BACKGROUND-HOVER);
+                            }
+                        }
+
+                        i {
+                            width: 50px;
+                            height: 50px;
+                            font-size: 20px;
+                            padding: 10px 0px 0px 30px;
+                            border-radius: 0px 0px 0px 65px;
+                            opacity: 0.7;
+                            background-color: var(--ALGOTECH-BACKGROUND);
+                        }
+                    }
+
+                    .annotation-container {
+                        position: absolute;
+                        background-color: transparent;
+                        text-align: center;
+
+                        .menus {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            transition: height 0.3s ease;
+                            
+                            height: 0px;
+                            overflow: hidden;
+                            &.visible {
+                                height: 100px;
+                            }
+                            .menu {
+                                margin: 2px;
+                                
+                                .icon {
+                                    position: relative;
+                                    @include at-round-button();
+                                }
+                            }
+                        }
+
+                        .annotation {
+                            max-width: 200px;
+                            opacity: 0.7;
+                            display: inline-flex;
+                            flex-direction: row;
+                            text-align: center;
+                            border-radius: 5px;
+                            position: relative;
+                            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                            z-index: auto;
+
+                            .annotation-text {
+                                @include text-ellipsis();
+                                line-height: 30px;
+                                padding: 0 10px;
+                                color: white;
+                                margin-right: 15px;
+                            }
+
+                            .top-icon {
+                                position: absolute;
+                                font-size: 12px;
+                                background-color: transparent;
+                                top: -3px;
+                                right: 5px;
+                                line-height: 30px;
+                                color: white
+                            }
+
+                            &:hover {
+                                cursor: pointer;
+                                opacity: 0.7;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

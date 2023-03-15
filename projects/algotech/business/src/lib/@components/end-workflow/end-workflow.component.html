@@ -1,0 +1,16 @@
+<div class="content" *ngIf="display" [class]="display.className">
+
+    <i [class]="display.icon + ' icon'"></i>
+    <div class="title">
+        <span *ngIf="display.title">{{display.title}}</span>
+        <div class="line"></div>
+    </div>
+    <div class="message">
+        {{display.message}}
+    </div>
+    <ion-button *ngIf="openPlatform" fill="outline" (click)="backToVision()">
+        <i class="fa-solid fa-diamond-turn-right"></i>
+        {{'SMART-LINK-WORKFLOW-BACK-TO-VISION' | translate}}
+    </ion-button>
+
+</div>

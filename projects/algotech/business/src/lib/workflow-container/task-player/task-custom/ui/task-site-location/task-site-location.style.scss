@@ -1,0 +1,35 @@
+@import '../../../../../mixins';
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    height: 100%;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    color: var(--ALGOTECH-SECONDARY);
+}
+
+.at-button {
+    @include at-button();
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    i {
+        color: var(--ALGOTECH-PRIMARY);
+        margin-bottom: 10px;
+        font-size: 50px;
+    }
+}
+
+.error {
+    @include at-error();
+}

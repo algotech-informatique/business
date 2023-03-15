@@ -1,0 +1,8 @@
+<div class="content" [style.width.px]="width" [ngClass]="{'hide': hide}">
+    <div class="cell" #cell [ngClass]="{
+        'clickable': clickable,
+        'editable': editable
+    }">
+        <ng-content></ng-content>
+    </div>
+</div>

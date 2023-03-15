@@ -1,0 +1,24 @@
+<div #board
+    class="board" 
+    [ngStyle]="_widget.css.main"
+    [style.height]="widget.box.height + 'px'"
+    [style.width]="widget.box.width + 'px'">
+    <img [src]="_widget.custom?.imageUuid | uuid2image">
+    <div  *ngFor="let child of _widget.group.widgets">
+        <widget-zone
+            class="zone-content"
+            [id]="child.custom.key"
+            *ngIf="child.typeKey === 'zone' && boardService.zones[child.custom.key]"
+            [style.left]="child.box.x + 'px'"
+            [style.top]="child.box.y + 'px'"
+            [style.height]="child.box.height + 'px'"
+            [style.width]="child.box.width + 'px'"
+            [appModel]="appModel"
+            [snPage]="snPage"
+            [readonly]="readonly"
+            [board]="_widget"
+            [zone]="child"
+            (addMagnet)="onAddMagnet($event)"
+            (openActions)="onOpenActions($event)"></widget-zone>
+    </div>
+</div>

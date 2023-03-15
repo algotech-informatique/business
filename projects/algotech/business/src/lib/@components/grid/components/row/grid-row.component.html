@@ -1,0 +1,28 @@
+<div class="row" [id]="id" [ngClass]="{
+    'clickable': clickable,
+    'content': content
+}">
+
+    <div class="mask-selector"></div>
+
+    <at-grid-group class="group" [sticky]="'left'">
+        <div class="actions" *ngIf="configuration?.hasActions" [ngClass]="{'hidden': configuration.selection?.selected?.length === 0}"
+            (click)="onActionClick($event)">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+        </div>
+        <div class="checkbox-container" *ngIf="configuration?.selection">
+    
+            <at-so-input
+                *ngIf="configuration.selection.multiselection || id !== '*'"
+                class="checkbox"
+                type="checkbox"
+                [value]="configuration.selection.selected | gridIsSelected : id: configuration.selection"
+                (changed)="onCheck()">
+            </at-so-input>
+        </div>
+    </at-grid-group>
+
+    <div class="content">
+        <ng-content></ng-content>
+    </div>
+</div>

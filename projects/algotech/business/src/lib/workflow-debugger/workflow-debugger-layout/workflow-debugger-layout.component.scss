@@ -1,0 +1,77 @@
+:host {
+    --COLOR-ACTIVE: #27AE60;
+    --DESKTOP-SIZE-WIDTH: 550px;
+    --DESKTOP-SIZE-HEIGHT: 650px;
+    --MOBILE-WIDTH: 344px;
+    --MOBILE-HEIGHT: 704px;
+    --MOBILE-MARGIN: 14px;
+    --FRAME-RADIUS: 0px;
+    --FRAME-BACKGROUND: linear-gradient(0deg, rgba(25, 31, 44, 0.95), rgba(25, 31, 44, 0.95)),
+        url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAdVBMVEUAAAD///+Tk5Pb29vt7e0ICAjX19dVVVXAwMBaWlpDQ0O4uLgWFhb8/Py9vb0jIyP29vbMzMw+Pj6Ghobl5eVoaGioqKg3NzcwMDAqKip+fn7Y2Njf398PDw8gICAbGxtJSUmcnJyLi4tzc3NqamqXl5ejo6PGJSApAAACxElEQVR4nO3dW3OiQBiEYQQUPIBAQE0ExMP6/3/ipirX3VvFFkaTt++7yJPxar6amSDQCWc6C9Obx6aYmOLa9FLT25jezPQQIkSIECFChAgRIkSIECFChAgRIkSIECHCzxxd8dHCbqzwrW5lclcsda9tKpn9vdQ573VxML0yMHqnqDLdi0+mGJkPhqaXjF2nscKVE24nEC4RIkSIECFChAgRIkSIECFChAgRIkSIEOE3CU0v7k2xfbgw1lmbWlXrXltt31U2eXRUaS8n2euXrewdo2CuE3QyQZgVMqUpnupMx86eTM/9oLqZ/kMLt7wvM11jQooQIUKECBEiRIgQIUKECBEiRIgQIUKEEwqfakd4boV7mUOoz1vU6UEX92Wkc13KJLtooRLtEl1savPBQG/4Z24yszKTgnpjipy3UGFCihAhQoQIESJEiBAhQoQIESJEiBAhQoTfJTS9Fzpv0R9U3hPTayvZO/RlLROfh0TmGutibXpJsJHx5y3mnep1fW2GGoP5b+dmmUq3TGPX92Wma0xIESJEiBAhQoQIESJEiBAhQoQIESJEiBDhfwgn2vOWlyjZMVGge1kWmLcvdo3O1fTym6zdmlweGlksLtVKpWqOpriXvdVq9Aseple4FzweP10bKfwFE1KECBEiRIgQIUKECBEiRIgQIUKECBEi/EVCNwyxe97dBMLxtyi96Zx3On9M72Od6ribsO6md3Y3YaW5jsO72VPkis91m9lI4c+fHyJEiBAhQoQIESJEiBAhQoQIESJEiBAhwq/YPe/CFIcJhP4WJT0pKHd6UrC8mRHDetCnH6rUvTzey5fHt417eVyf0/DnLUbPnp7rNjPT+/nzQ4QIESJEiBAhQoQIESJEiBAhQoQIESJE+G9h5YTuvMXRfPBiepO8Wr24fsiERliYcxp3N5cq77ropjazS6jzF+ICC8AMT4YKAAAAAElFTkSuQmCC');
+}
+
+.debugger-layout {
+    height: 100%;
+    width: 100%;
+    background: var(--FRAME-BACKGROUND);
+    border-radius: var(--FRAME-RADIUS);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    .debugger-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 15px;
+        width: 100%;
+
+        i {
+            font-size: 24px;
+        }
+
+        .active {
+            pointer-events: none;
+            color: var(--COLOR-ACTIVE);
+        }
+    }
+
+    .debugger {
+        position: relative;
+
+        iframe,
+        .loader {
+            border: 0;
+            background: #FFFFFF;
+            height: 100%;
+            width: 100%;
+        }
+
+        .loader {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &.desktop {
+            height: var(--DESKTOP-SIZE-HEIGHT);
+            width: var(--DESKTOP-SIZE-WIDTH);
+        }
+
+        &.mobile {
+            background-size: contain;
+            background-repeat: no-repeat;
+            height: var(--MOBILE-HEIGHT);
+            width: var(--MOBILE-WIDTH);
+
+            iframe {
+                height: calc(100% - var(--MOBILE-MARGIN)*2) !important;
+                width: calc(100% - var(--MOBILE-MARGIN)*2) !important;
+                margin: var(--MOBILE-MARGIN);
+                border-radius: 32px;
+            }
+        }
+    }
+}

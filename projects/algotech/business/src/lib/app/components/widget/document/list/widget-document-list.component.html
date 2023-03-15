@@ -1,0 +1,25 @@
+<ng-container *ngFor="let file of files; index as i">
+    <div *ngIf="i < nbShowed && !file.hidden" [ngClass]="{'ripple': mobile}" class="file-item" (click)="clickFileItem(file)">
+
+        <at-so-input *ngIf="mode === 'selection'" type="checkbox" [value]="file.checked">
+        </at-so-input>
+        
+        <div class="file-info">
+            <at-file-component [file]="file" (click)="openDocument($event, file)">
+            </at-file-component>
+            <div class="tags">
+                <div *ngFor="let tag of file.displayTags" class="chip" [ngStyle]="{'background-color': tag.color}">
+                    {{ tag.displayName | tlang }}
+                </div>
+            </div>
+        </div>
+        <div class="buttons">
+            <div *ngIf="mobile && file.downloaded" class="downloaded">
+                <i class="fa-solid fa-circle circle-icon"></i>
+                <i class="fa-solid fa-check check-icon"></i>
+            </div>
+            <i *ngIf="!mobile && showInfo" (click)="clickInfo($event, file)" class="info-button fa-solid fa-circle-info"></i>
+            <i *ngIf="mobile && mode === 'open'" (click)="clickMore($event, file)" class="info-button fa-solid fa-ellipsis-vertical"></i>
+        </div>
+    </div>
+</ng-container>

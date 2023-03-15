@@ -1,0 +1,77 @@
+<ion-slides pager="true" class="slides" [options]="slideOpts">
+
+    <ion-slide>
+        <at-workflow-debugger-layout
+            *ngIf="!loading && myWorkflow" [workflow]="myWorkflow" [glists]="settingsDataService.glists"
+            [groups]="settingsDataService.groups" [settings]="settingsDataService.settings"
+            [smartmodels]="settingsDataService.smartmodels" [tags]="settingsDataService.tags"
+            [apps]="settingsDataService.apps" (retry)="onRetry()"
+            class="debugger">
+        </at-workflow-debugger-layout>
+    </ion-slide>
+
+    <ion-slide>
+        <div class="drawing">
+            <svg id="svg">
+                <g id="container"></g>
+            </svg>
+            <div class="drawing-toolbox">
+                <toolbox-drawing [svgID]="'svg'" [containerID]="'container'"></toolbox-drawing>
+            </div>
+        </div>
+    </ion-slide>
+
+    <ion-slide>
+        <div class="container" *ngIf="!loading">
+            <div>
+                <ion-button (click)="launchPopover()">Open Popup</ion-button>
+            </div>
+
+            <div>
+                <ion-button (click)="openContext($event, 'agenda')">Agenda</ion-button>
+                <ion-button (click)="openContext($event, 'document')">Context Document</ion-button>
+                <ion-button (click)="openContext($event, 'smart-object')">Context Smart Object</ion-button>
+                <ion-button (click)="openContext($event, 'export')">Context Export</ion-button>
+                <ion-button (click)="openContext($event, 'poi')">Context POI</ion-button>
+                <ion-button (click)="openContext($event, 'add-poi')">Context Add POI</ion-button>
+            </div>
+
+            <div>
+                <ion-button (click)="openSchedule($event)">Schedule</ion-button>
+            </div>
+        </div>
+    </ion-slide>
+
+    <ion-slide>
+        <ion-content>
+            <at-workflow-sync *ngIf="!loading" [title]='synchTitle'>
+            </at-workflow-sync>
+        </ion-content>
+    </ion-slide>
+
+    <ion-slide style="display: flex; flex-direction: column;">
+        Moment date formulas
+        <div>
+        <select name="moment" [(ngModel)]="dateFuntion" (change)="executeCustomFormula()">
+            <option value="">--Please choose a Date function--</option>
+            <option value="DATETOSTR">DATETOSTR</option>
+            <option value="STRTODATE">STRTODATE</option>
+            <option value="DATESUBTRACT">DATESUBTRACT</option>
+            <option value="DATEADD">DATEADD</option>
+            <option value="STRINGIFY">STRINGIFY</option>
+            <option value="PARSE">PARSE</option>ion>
+        </select>
+            <label *ngIf='dateFuntion !==""'>( </label>
+            <input *ngIf='dateFuntion !==""' type="text" [(ngModel)]="p1" (change)="executeCustomFormula()">
+            <label *ngIf='dateFuntion !=="" && dateFuntion !== "STRINGIFY" && dateFuntion !== "PARSE"'> , </label>
+            <input *ngIf='dateFuntion !=="" && dateFuntion !== "STRINGIFY" && dateFuntion !== "PARSE"' type="text" [(ngModel)]="p2" (change)="executeCustomFormula()">
+            <label *ngIf='dateFuntion !== "" && dateFuntion !== "DATETOSTR" && dateFuntion !== "STRTODATE" && dateFuntion !== "STRINGIFY" && dateFuntion !== "PARSE"'> , </label>
+            <input *ngIf='dateFuntion !== "" && dateFuntion !== "DATETOSTR" && dateFuntion !== "STRTODATE" && dateFuntion !== "STRINGIFY" && dateFuntion !== "PARSE"' type="text"[(ngModel)]="p3" (change)="executeCustomFormula()">
+            <label *ngIf='dateFuntion !==""'> )</label>
+        </div>
+        <div>
+            <label> result = </label>
+            <input [disabled]=true type="text" [(ngModel)]="calculatedDate">
+        </div>
+    </ion-slide>
+</ion-slides>

@@ -1,0 +1,29 @@
+<div class="debugger-layout">
+    <div class="debugger-header">
+        <div class="debugger-retry">
+            <ion-button (click)="onRetry()">
+                <i class="fa-solid fa-repeat"></i>
+            </ion-button>
+        </div>
+        <div class="debugger-platform">
+            <ion-button [ngClass]="{'active': platform === 'mobile'}" (click)="changePlatform('mobile')">
+                <i class="fa-solid fa-mobile-screen"></i>
+            </ion-button>
+            <ion-button [ngClass]="{'active': platform === 'desktop'}" (click)="changePlatform('desktop')">
+                <i class="fa-solid fa-desktop"></i>
+            </ion-button>
+        </div>
+    </div>
+    <div *ngIf="workflow" class="debugger" [ngClass]="{
+        'mobile': platform === 'mobile',
+        'desktop': platform === 'desktop'
+    }"
+        [ngStyle]="{'background-image': platform === 'mobile' ? 'url('+mobileImage+')' : 'none'}">
+        <div class="loader" *ngIf="!frameInit">
+            <ion-spinner name="dots"></ion-spinner>
+        </div>
+        <iframe [src]="(baseHref + 'debugger') | safe" #iframe>
+        </iframe>
+    </div>
+    <div></div>
+</div>

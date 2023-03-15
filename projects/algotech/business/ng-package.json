@@ -1,0 +1,29 @@
+{
+  "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
+  "assets": [
+    "./assets",
+    "./drawing/_variables.scss",
+    "./src/lib/_mixins.scss"
+  ],  "dest": "../../../dist/algotech/business",
+  "lib": {
+    "entryFile": "public_api.ts"
+  },
+  "allowedNonPeerDependencies": [
+    "angular-expressions",
+    "docxtemplater",
+    "docxtemplater-image-module",
+    "docxtemplater-xlsx-module",
+    "signature_pad",
+    "pizzip",
+    "papaparse",
+    "ngx-dropzone",
+    "mathjs",
+    "html5-qrcode",
+    "@capacitor-community/barcode-scanner",
+    "@capacitor/camera",
+    "@proteansoftware/capacitor-start-navigation",
+    "@ionic-native/core",
+    "@ionic-native/file",
+    "@ionic-native/file-opener"
+  ]
+}

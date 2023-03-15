@@ -1,0 +1,8 @@
+<ion-card>
+    <ion-card-header>
+        <ion-card-title style='text-align: left;'>{{displayName}}</ion-card-title>
+        <ion-card-subtitle *ngFor='let item of values' style='text-align: left;'>
+            {{ item.key | translate }} {{ item.value }}
+        </ion-card-subtitle>
+    </ion-card-header>
+</ion-card>

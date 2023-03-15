@@ -1,0 +1,18 @@
+@import '../../../mixins';
+
+.margin {
+    margin-bottom: 12px;
+    display: block;
+}
+
+.content {
+    padding: 20px 10px;
+}
+
+.disabled {
+    @include disabled();
+}  
+
+at-so-form-property-input-object {
+    --PADDING-INPUT: 10px;
+}

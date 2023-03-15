@@ -1,0 +1,41 @@
+@import '../../mixins';
+
+:root {
+    //position: relative;
+    height: 100%;
+    width: 100%;
+    background: var(--ALGOTECH-BACKGROUND);
+    --TASK-HEADER-HEIGHT: 70px;
+    --TASK-FOOTER-HEIGHT: 70px;
+}
+
+.task-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+
+#at-task-header {
+    width: 100%;
+    height: var(--TASK-HEADER-HEIGHT);
+}
+
+#at-task-custom {
+    display: flex;
+    height: calc(100% - var(--TASK-HEADER-HEIGHT) - var(--TASK-FOOTER-HEIGHT));
+    width: 100%;
+    background: var(--ALGOTECH-BACKGROUND-CONTENT);
+    @include scrollbar();
+    padding: 10px 0px;
+
+    .wf-padding {
+        @include padding(10px);
+    }
+}
+
+#at-task-paginate {
+    width: 100%;
+    padding: 0px 15px;
+    height: var(--TASK-FOOTER-HEIGHT);
+}

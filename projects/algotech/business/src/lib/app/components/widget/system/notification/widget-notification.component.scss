@@ -1,0 +1,113 @@
+@import '../../../../../mixins';
+
+:host {
+    --FONT-SIZE: 12px;
+}
+
+.main {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .icon {       
+        font-size: var(--FONT-SIZE);
+        padding: 10px;
+        margin: 0px 6px;
+    }
+
+    .layout {
+        display: flex;
+        height: 100%;
+        width: 100%;
+    }
+
+    .widget-counter {
+        position: absolute;
+        background-color: var(--ALGOTECH-WARNING);
+        border-radius: 9px;
+        height: 18px;
+        width: 18px;
+        text-decoration: none;
+        font-weight: bold;
+        bottom: -4px;
+        right: -4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        .counter {
+            font-size: 11px;
+            color: var(--ALGOTECH-BACKGROUND);
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        .icon {
+            backdrop-filter: contrast(0.8);
+        }
+    }
+}
+
+.pop-up-notifications {
+    background: var(--ALGOTECH-BACKGROUND);
+    position: absolute;
+    z-index: 1;
+    margin: 5px;
+    top: 100%;
+    left: 0px;
+    text-align: left;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 -1px 8px 0px rgba(0, 0, 0, 0.19), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 0px 5px 5px 5px;
+
+    .content {
+        background: var(--ALGOTECH-BACKGROUND-CONTENT);
+        max-height: 500px;
+        width: 400px;
+        @include scrollbar(auto);
+    }
+}
+
+.content::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.content::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: var(--ALGOTECH-PRIMARY);
+}
+
+.message {
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 400px;
+    font-size: 12px;
+    text-align: center;
+    color: var(--ALGOTECH-PRIMARY);
+
+    .segment-container {
+
+        .segment {
+            height: 25px;
+            border: 1px solid var(--ALGOTECH-SECONDARY);
+            margin: 2px;
+            color: var(--ALGOTECH-PRIMARY);
+            @include fontTitle();
+        }
+
+        .selected {
+            color: #fff !important;
+            background-color: var(--ALGOTECH-PRIMARY);
+        }
+    }
+}
+
+.infinite-spinner {
+    --color: var(--ALGOTECH-SECONDARY);
+}

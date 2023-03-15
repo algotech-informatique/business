@@ -1,0 +1,65 @@
+@import '../../../../../../../mixins';
+
+:host {
+    --MARGIN-INPUT: 0px;
+    padding: var(--PADDING-INPUT);
+}
+
+.content {
+    position: relative;
+    color: var(--ALGOTECH-SECONDARY);
+    padding: 5px 0px;
+    border-bottom: 1px solid var(--ALGOTECH-SECONDARY-BORDER);
+    cursor: pointer;
+
+    &:hover {
+        background: var(--ALGOTECH-PRIMARY-HOVER);
+    }
+
+    &.error {
+        .display {
+            color: var(--ALGOTECH-DANGER);
+        }
+
+        border-bottom: 1px solid var(--ALGOTECH-DANGER-BORDER);
+    }
+
+    .display {
+        margin-bottom: 15px;
+        font-size: 0.75em;
+    }
+
+    .item-container {
+        display: flex;
+        align-items: center;
+        margin-left: 5px;
+
+        .icon {
+            width: 40px;
+        }
+
+        .item-content {
+            font-size: .75em;
+            font-style: italic;
+            width: calc(100% - 80px);
+
+            .text {
+                @include text-ellipsis();
+            }
+        }
+
+        .options {
+            @include at-icon-menu();
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            right: 0px;
+            bottom: 5px;
+        }
+    }
+}
+
+.error-caption {
+    color: var(--ALGOTECH-DANGER);
+    font-size: 0.75em;
+}

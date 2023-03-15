@@ -1,0 +1,65 @@
+<div class="container" #scrollable>
+    <div class="at-list-header">
+        <div class="at-list-actions">
+            <div
+                class="cart"
+                [ngClass]="{'active': cartView}" 
+                *ngIf="multipleSelection && mode === 'cart'"
+                (click)="cartClick()">
+                <i class="fa-solid fa-cubes"></i>
+                <span>{{cart.length}}</span>
+            </div>
+
+            <div class="filter" [ngClass]="{'active': isFilterProperty}" *ngIf="filterProperty && filterPropertyDisplay"
+                (click)="filterClick()">
+                <i class="fa-solid fa-filter"></i>
+            </div>
+        </div>
+        <div class="at-list-search">
+            <at-so-input class="search-input" type="search"
+                *ngIf="searchVisible" (keyup)="filterElements()" [(value)]="searchValue">
+            </at-so-input>
+        </div>
+    </div>
+
+    <div class="at-list-content">
+        <div *ngIf="!cartView">
+            <div class="at-list">
+                <div class="at-list-item"
+                    [ngClass]="{
+                        'disabled': element.disable
+                    }"
+                    (click)="element.deletable ? onDelete(element) : onSelect(element)"
+                    *ngFor="let element of elements, let i = index">
+                    <at-so-item
+                        [checkable]="multipleSelection"
+                        [object]="element">
+                    </at-so-item>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="cartView">
+            <div class="at-list" *ngIf="cartView">
+                <div class="at-list-item"
+                    (click)="onDelete(element)"
+                    *ngFor="let element of cart, let i = index">
+                    <at-so-item
+                        [checkable]="true"
+                        [object]="element">
+                    </at-so-item>
+                </div>
+            </div>
+        </div>
+    
+        <div style="text-align: center">
+            <button class="at-button outline" *ngIf="moreDataToLoad && !cartView && elements.length > 0"
+                [ngClass]="{'disabled': isLoading }" (click)="loadMore()">
+                {{ 'LIST.LOAD_MORE'| translate }}
+            </button>
+        </div>
+    </div>
+    <div class="at-spinner-container" *ngIf="isLoading">
+        <spinner></spinner>
+    </div>
+</div>

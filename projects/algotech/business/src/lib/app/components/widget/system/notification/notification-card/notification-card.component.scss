@@ -1,0 +1,119 @@
+ @import '../../../../../../mixins';
+
+:host {
+    height: 100%;
+    width: 100%;
+}
+
+.accordion:hover {
+    cursor: pointer;
+}
+
+.accordion {
+    margin: 0px 0px 0px 0px !important;
+    background-color: transparent;
+    border-bottom-width: 1px solid var(--ALGOTECH-PRIMARY-BORDER);
+
+    .notification {
+        display: flex;
+        flex-direction: column;
+
+        &.unread {
+            font-weight: bold;
+            background-color: var(--ALGOTECH-BACKGROUND-HOVER) !important;
+        } 
+        border-bottom: 1px solid var(--ALGOTECH-BACKGROUND-BORDER);
+
+        .notification-header {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 9px 18px;
+            position: relative;
+        
+            .md-notification-icon {
+                text-align: center;
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                color: #fff;
+                text-shadow: none;
+                border-radius: 50%;
+                border: 1px solid var(--ALGOTECH-PRIMARY);
+                color: var(--ALGOTECH-PRIMARY);
+            }
+            
+            .notification-information {
+                flex-direction: column;
+                margin-left: 10px;
+                width: calc(100% - 50px);
+            
+                .md-notification-item {
+                    padding: 0px 0px 5px 0px;
+                }
+            
+                .md-notification-from {
+                    font-size: 11px;
+                    color: var(--ALGOTECH-TERTIARY);
+                    @include text-ellipsis;
+                }
+                
+                .md-notification-title {
+                    font-size: 14px;
+                    color: var(--ALGOTECH-TERTIARY);
+                    @include text-ellipsis;
+                }
+                
+                .md-notification-date {
+                    font-size: 12px;
+                    color: var(--ALGOTECH-TERTIARY);
+                    @include text-ellipsis;
+                }
+            
+                .link {
+                    font-weight: bold;
+                    color: var(--ALGOTECH-PRIMARY);
+                }
+
+                .author {
+                    color: var(--ALGOTECH-SECONDARY);
+                }
+            }
+
+            .notification-collapse {
+                position: absolute;
+                top: 30px;
+                right: 15px;
+
+                .icon {
+                    font-size: 13px;
+                    color: var(--ALGOTECH-PRIMARY);
+                }
+            }
+        }
+    }
+
+    .notification-content {
+        overflow: hidden;
+        white-space: pre-line;
+        
+        .message {
+            font-size: 14px;
+            padding: 0 10px 10px 16px;
+            color: var(--ALGOTECH-TERTIARY);
+
+            .action {
+                font-weight: bold;
+                text-align: right;
+                padding: 0 10px;
+                font-size: 16px;
+                color: var(--ALGOTECH-PRIMARY);
+            }
+
+            .action:hover {
+                opacity: 0.5;
+                cursor: pointer;
+            }
+        }
+    }
+}

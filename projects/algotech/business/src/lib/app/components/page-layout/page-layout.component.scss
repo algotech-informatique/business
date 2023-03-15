@@ -1,0 +1,99 @@
+@import '../../../mixins';
+
+@mixin scale {
+    @supports (zoom: 1) {
+        zoom: var(--ZOOM);
+    }
+    @supports not (zoom: 1) {
+        transform: scale(var(--ZOOM));
+    }
+}
+
+:host {
+    width: 100%;
+    height: 100%;
+}
+
+.page-content {
+    &.zoom {
+        width: 100%;
+        height: 100%;
+    }
+    display: flex;
+    flex-direction: column;
+}
+
+.page-frame {
+    display: flex;
+    flex-direction: column;
+    height: 100%;}
+
+#page-layout {
+    display: flex;
+    transform-origin: left top;
+    height: fit-content;
+    width: 0;
+
+    &.scale {
+        @include scale();
+    };
+}
+
+.header-content {
+    height: 100%;
+
+    &.scrollbar {
+        @include scrollbar(overlay);
+    }
+}
+
+.at-spinner-container {
+    @include spinner-container();
+}
+
+.container {
+    transform-origin: left top;
+    display: block;
+    width: 0;
+    position: relative;   
+}
+
+.widget, .spacing-footer {
+    position: absolute;
+}
+
+.widget {
+    pointer-events: none;
+}
+
+.spacing-footer {
+    height: 1px;
+    width: 1px;
+}
+
+.hidden {
+    display: none;
+}
+
+.header {
+    top: 0;
+    position: sticky;
+}
+
+.footer {
+    bottom: 0;
+}
+
+.header, .footer {
+    flex-shrink: 0;
+    z-index: 1000;
+    display: flex;
+    width: 100%;
+}
+
+.transform-footer, .transform-header {
+    transform-origin: left top;
+    display: flex;
+    height: 0;
+    @include scale();
+}

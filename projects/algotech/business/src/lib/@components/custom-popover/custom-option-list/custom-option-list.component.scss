@@ -1,0 +1,77 @@
+@import '../../../mixins';
+
+at-custom-option-list {
+    $BG_COLOR: var(--ion-color-light, #343943);
+    $success-color: var(--ion-color-success, #E17A40);
+    $text-color: var(--ion-color-medium,  rgb(54, 54, 54));
+
+    ::ng-deep .dx-htmleditor-content img {
+        vertical-align: middle;
+        padding-right: 10px;
+    }
+
+    ion-title {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        font-size: 12pt;
+    }
+
+    .top{
+        display: flex;
+        flex-direction: column;   
+        height: 15px;
+        background-color: $BG_COLOR;     
+    }
+
+    .button-close{
+        position: absolute;
+        background-color: $BG_COLOR;
+        right:  5px;
+        top:  5px;
+    }
+
+    .item-list {
+        padding: 0px;
+    }
+
+    .item-group {
+        background-color: $BG_COLOR;
+        //color: var(--ion-color-light);
+        padding: 0px;       
+        margin: 0px; 
+    }
+
+    .item-item:active {
+        --background: $BG_COLOR;
+    }
+
+    .content {
+        max-height: 500px;
+        @include scrollbar(auto);
+    }
+
+    .item-item {
+        background: $BG_COLOR;
+        color: $text-color;
+    }
+
+    .border {
+        border: 0.5px solid $text-color;
+    }
+
+    .item-item:hover {
+        cursor: pointer;
+        color : $BG_COLOR;
+        background-color: $success-color;
+    }
+
+    .content::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+
+    .content::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: $BG_COLOR;
+    }
+}

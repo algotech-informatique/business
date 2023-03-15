@@ -1,0 +1,14 @@
+@import '../../../../../../../mixins';
+
+:host {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.file {
+    @include at-icon-button(var(--ALGOTECH-SUCCESS), transparent);
+    padding: 0;
+    font-size: 20px;
+}

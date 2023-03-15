@@ -1,0 +1,56 @@
+.pop-up-apps {
+    width: max-content;
+    position: absolute;
+    display: grid;
+    z-index: 1;
+    background: var(--ALGOTECH-BACKGROUND-CONTENT);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 -1px 8px 0px rgba(0, 0, 0, 0.19), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 0px 0px 5px 5px;
+    padding: 10px;
+    grid-template-columns: 1fr 1fr;
+
+    &.moreThanTwo {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+.app:hover {
+    cursor: pointer;
+    transform-origin: center;
+    transform: scale(1.1);
+    background-color: var(--ALGOTECH-BACKGROUND-HOVER);
+    border-radius: 2px;
+}
+.app {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    transition: all 0.2s ease-in-out;
+    align-items: center;
+    margin: 5px;
+    justify-content: center;
+
+    img {
+        max-width: 35px;
+    }
+
+    i {
+        font-size: 35px;
+    }
+
+    span {
+        margin: 5px 0px;
+        font-size: 11pt;
+    }
+    color: var(--ALGOTECH-PRIMARY);
+}
+
+.app.current {
+    background-color: var(--ALGOTECH-SUCCESS-HOVER);
+    color: var(--ALGOTECH-SUCCESS);
+    border-radius: 2px;
+    transition: all 0.2s ease-in-out;
+}
+
+a {
+    text-decoration: none;
+}

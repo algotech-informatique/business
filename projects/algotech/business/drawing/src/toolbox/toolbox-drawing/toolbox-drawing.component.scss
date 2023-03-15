@@ -1,0 +1,14 @@
+.toolbox {
+    background: var(--TOOLBAR-BACKGROUND);
+    border-radius: var(--TOOLBAR-ITEM-RADIUS);
+
+    display: flex;
+    flex-direction: var(--TOOLBAR-DIRECTION);
+
+    justify-content: space-between;
+
+    .option {
+        display: inherit;
+        flex-direction: inherit;
+    }
+}

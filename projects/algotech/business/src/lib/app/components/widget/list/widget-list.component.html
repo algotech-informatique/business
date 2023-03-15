@@ -1,0 +1,66 @@
+<div class="content" [ngStyle]="_widget?.css?.main" [ngClass]="{
+    'search': widget.custom.search
+}">
+    <div class="at-search" *ngIf="_widget.custom.search">
+        <at-so-input class="search-input" type="search" (keyup)="filter($event)">
+        </at-so-input>
+    </div>
+    <ion-content *ngIf="widget.custom?.scrollbar" scrollbar>
+        <ng-container *ngTemplateOutlet="listTemplate"></ng-container>
+    </ion-content>
+
+    <div class="overflow" *ngIf="!widget.custom?.scrollbar">
+        <ng-container *ngTemplateOutlet="listTemplate"></ng-container>
+    </div>
+</div>
+
+<ng-template #listTemplate>
+    <div
+        *ngIf="_widget.group"
+        class="widget-list"
+        [ngStyle]="_widget?.css?.layout"
+        [style.flex-wrap]="_widget?.custom?.direction === 'row' ? 'wrap' : 'nowrap'"
+        [style.flex-direction]="_widget?.custom?.direction">
+    
+        <div class="widget-list-item-content" *ngFor="let element of elements, trackBy: trackById">
+            
+            <div class="widget-list-item"
+                [style.height.px]="height"
+                [style.width.px]="width">
+                <div   
+                    class="widget-child"
+                    *ngFor="let child of element.widget.group.widgets"
+                    [style.left.px]="child.box.x"
+                    [style.top.px]="child.box.y"
+                    [style.height.px]="child.box.height"
+                    [style.width.px]="child.box.width">
+        
+                    <widget
+                        class="item"
+                        [ngClass]="{'hidden': child?.custom?.hidden}"
+                        [appModel]="appModel"
+                        [snPage]="snPage"
+                        [widget]="child"
+                        [item]="element.item"
+                        [readonly]="readonly"
+                        [types]="types">
+                    </widget>
+                </div>
+            </div>
+        </div>
+        <div class="at-spinner-container" *ngIf="loading">
+            <ion-spinner name="bubbles"></ion-spinner>
+        </div>    
+
+        <div class="at-button-container" *ngIf="moreDataToLoad && !loading && _widget?.custom?.paginate?.mode === 'button'">
+            <button class="at-button outline" size="small" (click)="loadMore()">
+                {{ 'LIST.LOAD_MORE'| translate }}
+            </button>
+        </div>
+        
+        <ion-infinite-scroll *ngIf="moreDataToLoad && !loading && _widget?.custom?.paginate?.mode === 'infinite'" (ionInfinite)="loadMore()">
+            <ion-infinite-scroll-content loadingSpinner="bubbles">
+            </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+    </div>
+</ng-template>

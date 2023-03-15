@@ -1,0 +1,18 @@
+.popup {
+    --TOOLBAR-ITEM-ACTIVE: var(--TOOLBAR-ITEM-HOVER);
+    --TOOLBAR-ITEM-ACTIVE-COLOR:var(--TOOLBAR-COLOR);
+    --TOOLBAR-HEIGHT: 40px;
+    --TOOLBAR-WIDTH: 0px;
+    --TOOLBAR-ITEM-MARGIN: 5px;
+    --TOOLBAR-ITEM-RADIUS: 20px;
+    --TOOLBAR-ITEM-WIDTH: var(--TOOLBAR-HEIGHT);
+    --TOOLBAR-ITEM-HEIGHT: var(--TOOLBAR-HEIGHT);
+    
+    background: var(--TOOLBAR-BACKGROUND);
+    margin: var(--TOOLBAR-ITEM-MARGIN);
+    border-radius: 5px;
+
+    .pen-list, .color, .scale {
+        display: flex;
+    }
+}

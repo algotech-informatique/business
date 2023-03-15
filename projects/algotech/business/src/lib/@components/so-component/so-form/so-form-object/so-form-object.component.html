@@ -1,0 +1,20 @@
+<div *ngFor="let item of properties, let i = index">
+    <div class="container" *ngIf="item.property.showed">
+        <at-so-form-property
+            [autoFocus]="i === 0 && !item.property.disabled"
+            [property]="item.property.model"
+            [value]="item.property.value"
+            [disabled]="item.property.disabled"
+            [comment]="item.comment"
+            [file]="item.file"
+            (changeView)="onChangeView($event)"
+            (changeValue)="onChangeValue($event)"
+        >
+        </at-so-form-property>
+    </div>
+</div>
+<at-form-tags *ngIf="taggable"
+    [tagsLists]="tagsLists"
+    [selectedTagsKeys]="tags"
+    (change)="onTagsChanged($event)">
+</at-form-tags>

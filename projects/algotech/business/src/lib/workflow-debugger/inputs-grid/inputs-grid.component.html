@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="inputs-grid">
+        <div class="header">
+            {{ 'WF-DEBUGGER.INPUTS-GRID.INPUTS' | translate }}
+        </div>
+
+        <at-inputs-list class="content" [inputs]="inputs" [variables]="workflow.variables"
+            (update)="onUpdateValue($event)">
+        </at-inputs-list>
+
+    </div>
+    <div class="start-button" (click)="startWorkflow()">
+        <button>{{ 'WF-DEBUGGER.INPUTS-GRID.START' | translate }}</button>
+    </div>
+</div>

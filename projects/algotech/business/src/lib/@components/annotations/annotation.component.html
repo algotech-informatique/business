@@ -1,0 +1,49 @@
+<div class="content">
+
+    <div class="container">
+        <at-annotation-detail
+            class="annotation"
+            [edition]="edition"
+            [consultation]="consultation"
+            [photo]="photo"
+            [fileNameVisible]="fileNameVisible"
+            [currentPhoto]="currentPhoto"
+            (annotationsChange)="onAnnotationChange()"
+            (deleteImage)="onDeleteImage()"
+            (resetImages)="onResetImages()"
+            (downloadDoc)="onDownloadDoc($event)"
+        >
+        </at-annotation-detail>
+
+        <div class="paginate">
+            <div class="prev"
+                [ngClass]="{'disabled': listImages.length > 0 && listImages[0] === currentPhoto }"
+                *ngIf="multiple && currentPhoto" (click)="selectPrev()">
+                <i class="fa-solid fa-chevron-left"></i>
+            </div>
+            <div class="next"
+                [ngClass]="{'disabled': listImages.length > 0 && listImages[listImages.length - 1] === currentPhoto }"
+                *ngIf="multiple  && currentPhoto"(click)="selectNext()">
+                <i class="fa-solid fa-chevron-right"></i>
+            </div>               
+        </div>
+    </div>
+
+    <div class="list-photos" *ngIf="multiple"
+        [ngClass]="{'disabled': listImages.length === 1 }">
+        <span *ngFor="let photo of listImages" class="dot"
+            [ngStyle]="{
+                'background-color': (photo === currentPhoto) ? 'var(--ALGOTECH-SUCCESS)' : 'var(--ALGOTECH-SECONDARY-HOVER)'
+            }"
+            (click)="currentPhoto = photo">
+        </span>
+    </div>
+    
+    <at-form-tags *ngIf="taggable && currentPhoto"
+        class="tags"
+        [tagsLists]="tagsLists"
+        [selectedTagsKeys]="tags"
+        (change)="onTagChanged($event)">
+    </at-form-tags>
+
+</div>

@@ -1,0 +1,48 @@
+<div class="wf-padding">
+    <div class="container">
+        <at-so-input
+            type="text" 
+            (changed)="changeData()"
+            [(value)]="titleWorkflow"
+            [caption]="'TASK-MODEL-GUI.TASK.CREATE-SCHEDULE.TITLE' | translate">
+        </at-so-input>
+
+        <at-so-input *ngIf="visibleOptionAgenda"
+            type="select" 
+            (changed)="changeData()"
+            [(value)]="typeKey"
+            [items]="listAgenda"
+            [caption]="'TASK-MODEL-GUI.TASK.CREATE-SCHEDULE.SCHEDULE-TYPE' | translate">
+        </at-so-input>
+
+        <at-so-input
+            type="datetime" 
+            (changed)="changeData()"
+            [(value)]="startDate"
+            [caption]="'TASK-MODEL-GUI.TASK.CREATE-SCHEDULE.START-DATE' | translate">
+        </at-so-input>
+        
+        <at-so-input
+            type="datetime" 
+            (changed)="changeData()"
+            [(value)]="endDate"
+            [caption]="'TASK-MODEL-GUI.TASK.CREATE-SCHEDULE.END-DATE' | translate">
+        </at-so-input>
+
+        <at-so-input
+            type="select" 
+            (changed)="changeData()"
+            [(value)]="repetitionMode"
+            [items]="repetition"
+            [caption]="'TASK-MODEL-GUI.TASK.CREATE-SCHEDULE.REPETITION-MODE' | translate">
+        </at-so-input>
+
+        <at-so-input
+            type="select" 
+            (changed)="changeData()"
+            [(value)]="scheduleStatus"
+            [items]="listscheduleStatus"
+            [caption]="'TASK-MODEL-GUI.TASK.CREATE-SCHEDULE.SCHEDULE-STATUS' | translate">
+        </at-so-input>
+    </div>
+</div>

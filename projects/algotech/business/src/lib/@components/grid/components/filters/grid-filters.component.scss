@@ -1,0 +1,35 @@
+@import '../../../../mixins';
+
+.content {
+    min-height: 40px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+
+    .filter {
+
+        height: 30px;
+        padding: 0px 10px;
+        gap: 5px;
+        border-radius: 15px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-size: 12px;
+        border: 1px solid var(--ALGOTECH-BACKGROUND-BORDER);
+        background-color: var(--ALGOTECH-BACKGROUND-HOVER);
+        color: var(--ALGOTECH-PRIMARY);
+
+        .caption {
+            @include text-ellipsis;
+            max-width: 50px;
+        }
+
+        .rm {
+            cursor: pointer;
+            font-weight: bold;
+        }
+    }
+}

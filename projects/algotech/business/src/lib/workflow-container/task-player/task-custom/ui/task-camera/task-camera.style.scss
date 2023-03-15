@@ -1,0 +1,28 @@
+@import '../../../../../mixins';
+
+.content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+
+    at-annotation {
+        height:  calc(100% - 55px);
+    }
+
+    .footer {
+        height: 45px;
+        .round {
+            @include at-round-button();
+        }
+        .empty {
+            width: 26px;
+        }
+        display: flex;
+        width: 80%;
+        justify-content: space-between;
+    }
+}

@@ -1,0 +1,26 @@
+@import '../../../../../mixins';
+
+.zone {
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    .add {
+        @include at-round-button();
+        border-radius: 5px !important;
+        position: absolute;
+        z-index: 1;
+    }
+
+    svg,
+    .magnet {
+        position: absolute;
+    }
+
+    .hover {
+        stroke-width: 3px;
+        stroke-dasharray: 5, 5;
+        stroke: var(--ALGOTECH-SUCCESS);
+        fill: #00000025;
+    }
+}

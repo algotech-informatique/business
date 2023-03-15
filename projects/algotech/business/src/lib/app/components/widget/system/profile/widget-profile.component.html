@@ -1,0 +1,15 @@
+<div #container id="profile" class="main" [ngStyle]="_widget?.css?.main" (click)="onClick()">
+    <div class="layout" [ngStyle]="_widget?.css?.layout">
+        <i *ngIf="_widget?.custom?.icon" [class]="_widget?.custom?.icon"
+            [ngStyle]="_widget?.css?.icon"></i>
+    </div>
+    
+    <widget-popup-profile *ngIf="menuProfileOpen"
+        [currentUser]="currentUser"
+        [userInfo]="userInfo"
+        [widget]="_widget"
+        [snPage]="snPage"
+    >
+    </widget-popup-profile>
+
+</div>

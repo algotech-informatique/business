@@ -1,0 +1,65 @@
+<div class="page-frame" [style.--ZOOM]="frame.clientWidth | scale: snPage.pageWidth" #frame>
+
+    <div class="at-spinner-container" *ngIf="!loaded">
+        <spinner></spinner>
+    </div>
+
+    <div class="header-content" [ngClass]="{'scrollbar': !snPage.custom?.zoom}"
+        (scroll)="onScroll()" #content>
+        <div *ngIf="loaded && snPage.header"
+            class="header"
+            [style.height.px]="snPage.header.box.height | scale : (1 / (frame.clientWidth | scale: snPage.pageWidth))"
+            [@toggle]="headerIsVisible ? 'show' : 'hide'">
+            <div class="transform-header">
+                <widget class="widget"
+                    [appModel]="appModel"
+                    [snPage]="snPage"
+                    [widget]="snPage.header"
+                    [readonly]="readonly"
+                    [style.left.px]="snPage.header.box.x"
+                    [style.height.px]="snPage.header.box.height"
+                    [style.width.px]="snPage.header.box.width"
+                    [types]="widgetTypes">
+                </widget>
+            </div>
+        </div>
+        
+        <div [id]="snPage.id" class="page-content" [ngClass]="{'zoom': this.snPage.custom?.zoom}" #content>
+            <div id="page-layout" [ngClass]="{'scale': !this.snPage.custom?.zoom}">
+                <div class="container" *ngIf="loaded">
+                    <div
+                        class="widget"
+                        *ngFor="let widget of snPage.widgets; trackBy: trackById"
+                        [id]="widget.id"
+                        [style.left.px]="widget.box.x"
+                        [style.top.px]="widget.box.y"
+                        [style.height.px]="widget.box.height"
+                        [style.width.px]="widget.box.width">
+        
+                        <widget [appModel]="appModel" [snPage]="snPage" [widget]="widget" [readonly]="readonly" [types]="widgetTypes"></widget>
+                    </div>
+                    <div *ngIf="snPage.footer" class="spacing-footer" [style.top]="snPage | spacingFooter"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div *ngIf="snPage.footer && loaded"
+        class="footer"
+        [style.height.px]="snPage.footer.box.height | scale: (1 / (frame.clientWidth | scale: snPage.pageWidth))">
+        <div class="transform-footer">
+            <widget class="widget"
+                [appModel]="appModel"
+                [snPage]="snPage"
+                [widget]="snPage.footer"
+                [readonly]="readonly"
+                [style.left.px]="snPage.footer.box.x"
+                [style.height.px]="snPage.footer.box.height"
+                [style.width.px]="snPage.footer.box.width"
+                [types]="widgetTypes">
+            </widget>
+        </div>
+    </div>
+
+</div>

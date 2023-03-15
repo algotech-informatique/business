@@ -1,0 +1,118 @@
+<div class="container at-grid" [id]="configuration.id" (clickOutside)="onClickOutside()">
+
+    <div class="filter">
+        <div class="at-search" *ngIf="configuration.search" >
+            <at-so-input class="search-input" type="search" (keyup)="filter($event)">
+            </at-so-input>
+        </div>
+        <at-grid-filters *ngIf="showFilters"
+            [save]="saveConfiguration || saveQuery"
+            [currentQuery]="currentQuery"
+            [configuration]="configuration"
+            (queryChanged)="onQueryChanged()">
+        </at-grid-filters>
+    </div>
+    
+    <ion-content class="grid" scrollbar [forceOverscroll]="forceOverscroll" [scrollX]="true" [ngClass]="{
+        'selection': configuration.selection,
+        'actions': configuration.hasActions
+    }" [style.--GRID-ROW-HEIGHT]="configuration.rowHeight + 'px'">
+        <div class="table" [ngClass]="{
+            'hide': !display,
+            'loading': loading,
+            'newRowPlaceHolder': newRowPlaceHolder,
+            'paginateButton': !loading && moreDataToLoad && paginate === 'button'
+        }">
+    
+            <div class="mask-container" [ngClass]="{
+                'colSelectable': configuration.colSelectable
+            }"
+            >
+                <at-grid-group class="group" *ngFor="let sticky of ['left', 'none', 'right']"
+                    [sticky]="sticky">
+                    <ng-container *ngFor="let column of configuration.columns | filter: 'sticky': sticky">
+                        <div
+                            *ngIf="!column.hide"
+                            class="mask widget-child"
+                            [ngClass]="{
+                                'selected': column.selected
+                            }"
+                            [id]="column?.id ? column.id : column?.key"
+                            [style.width.px]="column.width">
+                            <div class="inside"></div>
+                        </div>
+                </ng-container>
+                </at-grid-group>
+            </div>
+    
+            <div class="header-content" *ngIf="configuration?.columns.length > 0">
+                <div class="header">
+                    <at-grid-row
+                        class="row"
+                        [id]="'*'"
+                        [content]="false"
+                        [configuration]="configuration"
+                        (select)="onSelect($event)"
+                        (actionClick)="onActionClick($event)">
+        
+                        <at-grid-group class="group" *ngFor="let sticky of ['left', 'none', 'right']"
+                            [sticky]="sticky">
+                            <at-grid-column
+                                *ngFor="let column of configuration.columns | filter: 'sticky': sticky"
+                                [column]="column"
+                                [hide]="column.hide"
+                                [name]="column.name"
+                                [width]="column.width"
+                                [resize]="configuration.headerEditable && column.resize"
+                                [icon]="configuration.icons ? (configuration.icons | find: 'key': column.type)?.value : null"
+                                [order]="currentQuery?.order | gridColumnOrder:column.key"
+                                [hasFilter]="currentQuery?.filter && !!(currentQuery.filter | find: 'key': column.key)"
+                                (click)="onColumnClick($event, column.key)">
+                            </at-grid-column>
+
+                            <at-grid-column *ngIf="sticky === 'right' && configuration.headerEditable"
+                                class="add-column"
+                                [width]="configuration.rowHeight"
+                                [icon]="'fa-solid fa-table-columns'"
+                                (click)="onManageColumn($event)">
+                            </at-grid-column>
+                        </at-grid-group>
+                    </at-grid-row>
+                </div>
+            </div>
+    
+            <div class="content" [ngStyle]="{'pointer-events': configuration.colSelectable ? 'none' : 'inherit'}">
+                <ng-content></ng-content>
+            </div>
+    
+            <div class="at-spinner-container" *ngIf="loading" [style.width.px]="width">
+                <ion-spinner class="spinner" name="bubbles"></ion-spinner>
+            </div>
+        
+            <div class="at-button-container" [style.width.px]="width">
+                <button class="at-button outline" size="small" (click)="loadMore()">
+                    {{ 'LIST.LOAD_MORE'| translate }}
+                </button>
+            </div>
+            
+            <ion-infinite-scroll *ngIf="!loading && moreDataToLoad && paginate === 'infinite'" (ionInfinite)="loadMore()">
+                <ion-infinite-scroll-content class="spinner" loadingSpinner="bubbles">
+                </ion-infinite-scroll-content>
+            </ion-infinite-scroll>
+        </div>
+        <at-grid-row
+            *ngIf="newRowPlaceHolder"
+            class="new-row"
+            [clickable]="true"
+            [content]="false"
+            (click)="onAddNewRow()">
+            <div class="content">
+                <div class="text"><i class="fa-solid fa-plus"></i>{{newRowPlaceHolder}}</div>
+            </div>
+        </at-grid-row>
+    </ion-content>
+    <div class="no-data" *ngIf="empty && !loading">
+        {{ 'GRID.EMPTY' | translate }}
+    </div>
+    <popover [showPopup]="showPopup" [dismissPopup]="dismissPopup"></popover>
+</div>

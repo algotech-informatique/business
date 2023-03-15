@@ -1,0 +1,97 @@
+@import '../../../../../mixins';
+
+.container {
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .image {
+        height: 162px;
+        width: 162px;
+        display: block;
+        margin: 5px;
+        position: relative;
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 3px;
+            background: var(--ALGOTECH-BACKGROUND-HOVER);
+        }
+
+        &:hover,
+        &.mobile-selection {
+            .mask {
+                background-color: rgba(104, 114, 136, .8);
+                transition: background-color 0.3s;
+            }
+
+            .content {
+                .checkbox {
+                    display: block !important;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .mask,
+        .content {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+        }
+
+        .content {
+
+            cursor: pointer;
+            .checkbox.unchecked,
+            .title,
+            .open,
+            .info-button {
+                display: none;
+            }
+
+            .open {
+                position: absolute;
+                bottom: 5px;
+                right: 5px;
+                font-size: 30px;
+                &:hover {
+                    opacity: 0.5;
+                }
+            }
+            .info-button {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                &:hover {
+                    opacity: 0.5;
+                }
+            }
+
+            .checkbox.checked {
+                color: var(--ALGOTECH-SUCCESS);
+            }
+
+            .title {
+                font-size: 12px;
+                @include text-ellipsis;
+            }
+
+            padding: 10px;
+            color: #FFF;
+
+            &:hover {
+
+                .title,
+                .info-button,
+                .open {
+                    display: block;
+                }
+            }
+        }
+    }
+}

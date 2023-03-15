@@ -1,0 +1,23 @@
+@import '../../../../mixins';
+
+:host,
+at-theme-englober,
+.content {
+    height: 100%;
+    width: 100%;
+}
+
+.content {
+    background: var(--ALGOTECH-BACKGROUND);
+
+    .topbar {
+        @include at-top-bar();
+    }
+
+    .so-list {
+        display: block;
+        height: calc(100% - 50px);
+        width: 100%;
+        padding-top: 20px;
+    }
+}

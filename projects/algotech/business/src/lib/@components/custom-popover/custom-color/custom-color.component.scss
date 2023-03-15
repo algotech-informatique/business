@@ -1,0 +1,36 @@
+@import '../../../mixins';
+
+.color-popup {
+    --ITEM-HOVER: var(--ALGOTECH-BACKGROUND-HOVER);
+
+    --DRAWING-ANNOTATION-COLOR-01: #37474F;
+    --DRAWING-ANNOTATION-COLOR-02: #D84315;
+    --DRAWING-ANNOTATION-COLOR-03: #FF8F00;
+    --DRAWING-ANNOTATION-COLOR-04: #2E7D32;
+    --DRAWING-ANNOTATION-COLOR-05: #1565C0;
+    --DRAWING-ANNOTATION-COLOR-06: #CFD8DC;
+
+    background-color: var(--ALGOTECH-BACKGROUND);
+    border-radius: 5px;
+
+    .color {
+        display: flex;
+
+        i {
+            margin: 5px;
+            cursor: pointer;
+            font-size: 22px;
+            height: 45px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            width: 45px;
+            border-radius: 25px;
+
+            &:hover {
+                background-color: var(--ITEM-HOVER) !important;
+            }
+        }
+    }
+}

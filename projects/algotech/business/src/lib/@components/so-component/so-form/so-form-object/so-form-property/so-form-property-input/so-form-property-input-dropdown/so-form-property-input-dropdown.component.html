@@ -1,0 +1,27 @@
+<div class="dropdown" #dropdown (clickOutside)="hideList()">
+    <at-so-input class="input" [error]="error" [autoFocus]="autoFocus" (keyup)="onChangeValue()" (changed)="onChangeValue()"
+        (click)="clickInput()" [(value)]="value" (input)="search()" (enter)="select(value)"
+        [caption]="property.displayName |  tlang">
+    </at-so-input>
+    <div class="list-container" *ngIf="dataSource">
+        <ng-container *ngTemplateOutlet="listTemplate"></ng-container>
+    </div>
+</div>
+
+<ng-template #listTemplate>
+    <div class="list">
+        <div *ngIf="dataSource.length > 0">
+            <div class="list-item" *ngFor="let data of dataSource" [title]="data" (click)="select(data)">
+                {{ data }}
+            </div>
+            <div style="text-align: center">
+                <button class="at-button outline small" *ngIf="showMoreButton && !loading" (click)="loadMore()">
+                    {{ 'LIST.LOAD_MORE'| translate }}
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="at-spinner-container" *ngIf="dataSource?.length === 0 || loading">
+        <spinner></spinner>
+    </div>
+</ng-template>

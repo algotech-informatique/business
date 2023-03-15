@@ -1,0 +1,6 @@
+<div class="file">
+    <i *ngIf="!value && dataService.mobile" class="fa-solid fa-camera" (click)="takePhoto()"></i>
+    <i *ngIf="!value && !dataService.mobile" class="fa-solid fa-file-image" (click)="uploadPhoto()"></i>
+    
+    <img *ngIf="fileImage" [src]="fileImage" (click)="onPhotoView()"/>
+</div>

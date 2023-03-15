@@ -1,0 +1,28 @@
+@import '../../../mixins';
+
+.editor-content {
+    display: flex;
+    flex-direction: column;
+
+    .body {
+        margin: 5px;
+
+        .description {
+            text-align: left;
+            margin: 10px;
+        }
+
+        .text {
+            display: block;
+            padding: 10px;
+        }   
+    }
+}
+
+.buttons {
+    button {
+        @include at-dialog-button();
+    }
+    display: flex;
+    justify-content: flex-end;
+}

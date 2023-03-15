@@ -1,0 +1,22 @@
+<div class="main" #content
+    [ngStyle]="_widget?.css?.main">
+    <div class="tabs" [ngStyle]="_widget?.css?.tabs">
+        <ng-container *ngFor="let child of _widget?.group?.widgets">
+            <div 
+                *ngIf="child.typeKey === 'tab'"
+                class="widget-child"
+                [id]="child?.id"
+                [ngClass]="{'selected': _widget.custom.selectedTabId === child.custom.tabId}"
+                [style.--hover]="hoverColor">
+                <widget
+                    [appModel]="appModel"
+                    [parent]="_widget"
+                    [widget]="child"
+                    [snPage]="snPage"
+                    [readonly]="readonly"
+                    [types]="types"
+                ></widget>
+            </div>
+        </ng-container>
+    </div>
+</div>

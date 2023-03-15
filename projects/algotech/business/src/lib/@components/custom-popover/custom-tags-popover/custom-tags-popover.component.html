@@ -1,0 +1,11 @@
+<div class="container">
+    <at-so-input class="search-input" type="search" (keyup)="filterTags()" [(value)]="searchTag">
+    </at-so-input>
+
+    <div class="tags">
+        <div class="tag" *ngFor="let tag of tagsDisplay" (click)="selectTag(tag)">
+            <i class="fa-solid fa-circle" [ngStyle]="{'color': tag.color }"></i>
+            {{ tag.displayName | tlang }}
+        </div>
+    </div>
+</div>

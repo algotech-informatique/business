@@ -1,0 +1,26 @@
+{
+    "name": "@algotech/business",
+    "version": "1.0.1425",
+    "scripts": {
+        "ng": "ng",
+        "test": "ng test @algotech/business"
+    },
+    "dependencies": {
+        "angular-expressions": "1.1.8",
+        "docxtemplater": "3.33.0",
+        "signature_pad": "4.1.4",
+        "pizzip": "3.1.4",
+        "papaparse": "5.3.2",
+        "ngx-dropzone": "1.2.0",
+        "mathjs": "11.5.0",
+        "html5-qrcode": "2.2.1",
+        "@capacitor/camera": "4.1.4",
+        "@proteansoftware/capacitor-start-navigation": "4.1.0-alpha",
+        "@ionic-native/core": "5.36.0",
+        "@ionic-native/file": "5.36.0",
+        "@ionic-native/file-opener": "5.36.0"
+    },
+    "peerDependencies": {
+        "rxjs": "7.8.0"
+    }
+}

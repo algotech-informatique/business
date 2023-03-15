@@ -1,0 +1,158 @@
+<div class="container" [ngClass]="{'disabled': disabled}">
+
+    <div *ngIf="property.keyType==='string' && !glist">
+        <at-so-input *ngIf="!option || !option.type || option.type === 'text'"
+            (keyup)="onChangeValue($event)"
+            (changed)="onChangeValue($event)"
+            [error]="error"
+            [autoFocus]="autoFocus"
+            [maxlength]="option?.maxlen"
+            [(value)]="value"
+            [caption]="display ? display : property.displayName | tlang">
+        </at-so-input>
+
+        <at-so-input *ngIf="option?.type === 'textarea'"
+            type="textarea"
+            (keyup)="onChangeValue($event)"
+            (changed)="onChangeValue($event)"
+            [error]="error"
+            [autoFocus]="autoFocus"
+            [maxlength]="option?.maxlen"
+            [(value)]="value"
+            [caption]="display ? display : property.displayName | tlang">
+        </at-so-input>
+
+        <at-so-form-property-input-dropdown *ngIf="option?.type === 'dropdown'"
+            (changeValue)="onChangeValue($event)"
+            [error]="error"
+            [autoFocus]="autoFocus"
+            [(value)]="value"
+            [property]="property">
+            {{ display ? display : property.displayName | tlang}}
+        </at-so-form-property-input-dropdown>
+
+        <at-so-form-property-input-combobox *ngIf="option?.type === 'combobox'"
+            (changeValue)="onChangeValue($event)"
+            [error]="error"
+            [(value)]="value"
+            [property]="property">
+            {{ display ? display : property.displayName | tlang}}
+        </at-so-form-property-input-combobox>
+    </div>
+
+    <at-so-form-property-input-glist *ngIf="property.keyType==='string' && glist"
+        [display]="display ? display : property.displayName | tlang"
+        [disabled]="disabled"
+        [glist]="glist"
+        [error]="error"
+        [option]="option"
+        [(value)]="value"
+        [context]="context"
+        [multiple]="property.multiple"
+        (changeValue)="onChangeValue($event)"
+    >
+    </at-so-form-property-input-glist>
+
+    <at-so-form-property-input-boolean *ngIf="property.keyType==='boolean'"
+        [display]="display ? display : property.displayName | tlang"
+        [style]="style"
+        [label]="label"
+        [option]="option"
+        [error]="error"
+        [(value)]="value"
+        (changeValue)="onChangeValue($event)"
+    >
+    </at-so-form-property-input-boolean>
+
+    <at-so-input *ngIf="property.keyType==='number'"
+        type="number"
+        (keyup)="onChangeValue($event)"
+        (changed)="onChangeValue($event)"
+        [error]="error"
+        [autoFocus]="autoFocus"
+        [(value)]="value"
+        [caption]="display ? display : property.displayName | tlang">
+    </at-so-input>
+
+    <at-so-input *ngIf="property.keyType==='date'"
+        type="date"
+        (changed)="onChangeValue($event)"
+        [error]="error"
+        [autoFocus]="autoFocus"
+        [(value)]="value"
+        [caption]="display ? display : property.displayName | tlang">
+    </at-so-input>
+
+    <at-so-input *ngIf="property.keyType==='datetime'"
+        type="datetime"
+        (changed)="onChangeValue($event)"
+        [error]="error"
+        [autoFocus]="autoFocus"
+        [(value)]="value"
+        [caption]="display ? display : property.displayName | tlang">
+    </at-so-input>
+
+    <at-so-input *ngIf="property.keyType==='time'"
+        type="time"
+        (changed)="onChangeValue($event)"
+        [error]="error"
+        [autoFocus]="autoFocus"
+        [(value)]="value"
+        [caption]="display ? display : property.displayName | tlang">
+    </at-so-input>
+
+    <at-so-input *ngIf="property.keyType==='html'"
+        type="textarea"
+        (keyup)="onChangeValue($event)"
+        (changed)="onChangeValue($event)"
+        [error]="error"
+        [autoFocus]="autoFocus"
+        [(value)]="value"
+        [caption]="display ? display : property.displayName | tlang">
+    </at-so-input>
+
+    <div *ngIf="object && !isLoading">
+        <at-so-form-property-input-object
+            [error]="error"
+            [options]="true"
+            [display]="display ? display : property.displayName | tlang"
+            [text]="object.prop1"
+            [isUndefined]="!object.data"
+            [icon]="object.icon"
+            (itemClick)="onItemClick()"
+            (actionClick)="onActionClick($event)">
+        </at-so-form-property-input-object>
+    </div>
+
+    <div *ngIf="property.keyType==='sys:comment'" class="comment">
+        <div class="area" *ngIf="area">
+            <at-so-input
+                type="textarea"
+                icon="fa-solid fa-comment"
+                [placeholder]="'WORKFLOW.TASK.COMMENT' | translate"
+                [(value)]="message"
+                [caption]="display ? display : property.displayName | tlang"
+                (keyup)="onChangeComment()"
+                (changed)="onChangeComment()">
+            </at-so-input>
+        </div>
+        
+        <div class="input caption" *ngIf="!area">
+            <at-so-input
+                class="comment"
+                type="textarea"
+                icon="fa-solid fa-comment"
+                [placeholder]="'WORKFLOW.TASK.COMMENT' | translate"
+                [(value)]="message"
+                (keyup)="onChangeComment()"
+                (changed)="onChangeComment()">
+            </at-so-input>
+        </div>
+    </div>
+
+    <at-so-form-property-input-photo *ngIf="property.keyType==='sys:file'"
+        [(value)]="value"
+        (changeValue)="onChangeValue($event)"
+    >
+    </at-so-form-property-input-photo>
+</div>

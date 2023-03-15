@@ -1,0 +1,10 @@
+<div  #container class="pop-up-apps"
+    [ngClass]="{'moreThanTwo': applications.length > 2}"
+    [ngStyle]="widget| absolutePosition : snPage">
+    <a class="app" *ngFor="let application of applications"
+        [ngClass]="{ 'current' : selectedAppId === application.id }" (click)="appClick(application.applicationUrl)">
+        <img *ngIf="application.logoUrl" [src]="application.logoUrl" alt="">
+        <i *ngIf="application.icon" [class]="application.icon"></i>
+        <span>{{application.name}}</span>
+    </a>
+</div>

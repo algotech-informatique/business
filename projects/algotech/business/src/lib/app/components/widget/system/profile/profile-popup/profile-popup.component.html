@@ -1,0 +1,29 @@
+<div #container class="pop-up-profile" [@fadeInOut]="isVisible"
+    [ngStyle]="widget| absolutePosition : snPage"
+>
+    <div class="profile">
+        <div class="group">
+            <ngx-avatar
+                ngbTooltip="Tooltip on top" 
+                [name]="getName()" 
+                [size]="size"
+                [bgColor]="getColor()"
+                [title]="getName()"
+            >
+            </ngx-avatar>
+        </div>
+        <div class="group border">
+            <div class="info bold">
+                {{ userInfo }}
+            </div>
+            <div class="info mail">
+                {{ currentUser.email }}
+            </div>
+        </div>
+        <div class="group">
+            <button class="close" (click)="ongletClick('logout')">
+                {{ 'PROFILE-SELECTOR.TAB.LOGOUT' | translate }}
+            </button>
+        </div>
+    </div>
+</div>

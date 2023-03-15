@@ -1,0 +1,17 @@
+ <!-- groups -->
+ <div class="widget-group" [ngStyle]="_widget?.css?.main">
+    <div
+        class="child"
+        *ngFor="let child of _widget.group.widgets"
+        [id]="widget.id"
+        [style.left]="child.box.x + 'px'"
+        [style.top]="child.box.y + 'px'"
+        [style.height]="child.box.height + 'px'"
+        [style.width]="child.box.width + 'px'">
+
+        <widget [appModel]="appModel" [snPage]="snPage" [widget]="child" [item]="item"
+            [types]="types" [readonly]="readonly"></widget>
+    </div>
+ </div>
+
+ 

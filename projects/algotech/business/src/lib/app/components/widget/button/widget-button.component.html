@@ -1,0 +1,12 @@
+<div #content class="widget-button" [ngStyle]="_widget?.css?.main">
+    <button class="ripple" [style.--active]="activeColor" [style.--hover]="hoverColor"
+        [ngStyle]="_widget?.css?.button"
+        (click)="onClick($event)">
+        <div class="layout" [ngStyle]="_widget?.css?.layout">
+            <i *ngIf="_widget.custom.icon" [class]="_widget.custom.icon" [ngStyle]="_widget?.css?.icon"></i>
+            <span [ngStyle]="_widget?.css?.text">
+                {{_widget.custom.title | tlang: false}}
+            </span>
+        </div>
+    </button>
+</div>

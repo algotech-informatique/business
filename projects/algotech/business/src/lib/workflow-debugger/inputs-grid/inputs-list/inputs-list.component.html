@@ -1,0 +1,55 @@
+<div class="content">
+    <div class="input" *ngFor="let input of inputsDisplay; last as isLast;">
+        <div *ngIf="!input.isObject" class="input-type">
+
+            <at-so-input type="textarea" *ngIf="input.type === 'object'" [caption]="input.title | translate"
+                [value]="input.value" (changed)="updateValue($event, input)"></at-so-input>
+
+            <at-so-input *ngIf="input.type === 'string'" [caption]="input.title | translate"
+                [value]="input.value" (changed)="updateValue($event, input)"></at-so-input>
+
+            <at-so-input type="number" *ngIf="input.type === 'number'" [caption]="input.title | translate"
+                [value]="input.value" (changed)="updateValue($event, input)"></at-so-input>
+
+            <at-so-input type="checkbox" *ngIf="input.type === 'boolean'" [caption]="input.title | translate"
+                [value]="input.value" (changed)="updateValue($event, input)"></at-so-input>
+
+            <at-so-input type="date" *ngIf="input.type === 'date'" [caption]="input.title | translate"
+                [value]="input.value" (changed)="updateValue($event, input)"></at-so-input>
+
+            <at-so-input type="datetime" *ngIf="input.type === 'datetime'" [caption]="input.title | translate"
+                [value]="input.value" (changed)="updateValue($event, input)"></at-so-input>
+
+            <at-so-input type="time" *ngIf="input.type === 'time'" [caption]="input.title | translate"
+                [value]="input.value" (changed)="updateValue($event, input)"></at-so-input>
+        </div>
+
+        <div class="input-type" *ngIf="input.isObject && input.type !== 'sys:location' &&  input.type !== 'sys:query' && input.type !== 'sys:magnet'">
+            <at-so-form-property-input-object
+                [ngClass]="{ 'disabled': isDisabled && input.type === 'sys:file' }"
+                [display]="input.title | translate"
+                [text]="input.valueDisplay"
+                [icon]="input.icon"
+                [isUndefined]="input.value === null || input.value === undefined"
+                (click)="onClickMore(input)">
+            </at-so-form-property-input-object>
+        </div>
+
+        <div class="input-location" *ngIf="input.isObject && input.type === 'sys:location'">
+            <input-grid-location [inputLoc]="input" (changed)="onLocationChange($event)">
+            </input-grid-location>
+        </div>
+
+        <div *ngIf="input.isObject && input.type === 'sys:query'">
+            <input-query [query]="input" (changed)="updateValue($event, input)">
+            </input-query>
+        </div>
+
+        <input-grid-magnet *ngIf="input.isObject && input.type === 'sys:magnet'"
+            [ngClass]="{'margin': !isLast}"
+            [inputMagnet]="input"
+            (changed)="onMagnetChange($event)">
+        </input-grid-magnet>
+    </div>
+
+</div>

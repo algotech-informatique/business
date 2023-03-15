@@ -1,0 +1,40 @@
+@import '../../../../../mixins';
+
+:host {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.header {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--GRID-HEADER-REORDER-COLOR);
+}
+
+.content {
+    padding: 10px;
+    max-height: 300px;
+    @include scrollbar();
+
+    .item {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        .checkbox {
+            --PADDING-INPUT: 0px;
+        }
+
+        .caption {
+            @include text-ellipsis();
+            color: var(--GRID-CELL-COLOR);
+            font-size: var(--GRID-HEADER-FONT-SIZE);
+            font-style: var(--GRID-HEADER-FONT-STYLE);
+            text-decoration: var(--GRID-HEADER-TEXT-DECORATION);
+            font-weight: var(--GRID-HEADER-FONT-WEIGHT);
+        }
+    }
+}

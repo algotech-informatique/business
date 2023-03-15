@@ -1,0 +1,43 @@
+<div *ngIf="!isLoading">
+    <div *ngIf="displayMode === 'list'" class="input">
+        <at-so-input
+            (click)="showListPopup($event)"
+            [(value)]="valueDisplay"
+            [error]="error"
+            [caption]="display">
+        </at-so-input>
+        <div  class="ion-activatable ripple-parent reset" (click)="resetValue()">
+            <i class="fa-solid fa-circle-xmark reset-icon"></i>
+        </div>
+    </div>
+    
+    <div class="bubble" *ngIf="displayMode === 'bubble'" [ngClass]="{'error': error}">
+        <span class="label">
+            {{display}}
+        </span>
+        <div class="bubble-content">            
+            <button *ngFor="let item of values" class="outline small"
+                [ngClass]="{
+                    'active': value &&
+                        (
+                            (multiple && (value | includes: item.key)) ||
+                            (!multiple && value === item.key)
+                        ),
+                    'disabled': disabled
+                }"
+            (click)="checkItem(item.key)">{{item.value}}</button>
+        </div>
+    </div>
+    <div class="list" *ngIf="displayMode === 'select'" [ngClass]="{'error': error}">
+        <span class="label">
+            {{display}}
+        </span>
+
+        <div class="list-content">
+            <div class="list-item" *ngFor="let item of values">
+                <at-so-input type="radio" [disabled]="disabled" [value]="value === item.key" (changed)="onChangeValue(item.key)"
+                    [caption]="item.value"></at-so-input>
+            </div>
+        </div>
+    </div>
+</div>

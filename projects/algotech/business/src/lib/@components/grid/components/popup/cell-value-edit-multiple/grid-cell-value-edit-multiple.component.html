@@ -1,0 +1,44 @@
+<div class="content">
+    <at-grid
+        *ngIf="configuration"
+        class="grid"
+        [newRowPlaceHolder]="'DIALOGBOX.ADD' | translate"
+        [configuration]="configuration"
+        (addNewRow)="onAddNewRow()">
+
+        <at-grid-row
+            class="row"
+            [id]="i"
+            *ngFor="let item of array, let i = index"
+            [configuration]="configuration">
+        
+            <at-grid-cell
+                [editable]="true"
+                [width]="170"
+                [hide]="false">
+                <at-grid-cell-value-prevent-cycle
+                    [editable]="true"
+                    [key]="'item'"
+                    [type]="type"
+                    [items]="items"
+                    [value]="item.value"
+                    (changed)="onChanged($event, i)">
+                </at-grid-cell-value-prevent-cycle>
+            </at-grid-cell>
+
+            <at-grid-cell
+                class="remove"
+                [editable]="true"
+                [width]="configuration.rowHeight"
+                [hide]="false"
+                [clickable]="true"
+                (click)="onRemove(i)">
+                <i class="fa-solid fa-eraser"></i>
+            </at-grid-cell>
+        </at-grid-row>
+    </at-grid>
+    <div class="buttons">
+        <button (click)="onSave()">{{'DIALOGBOX.OK' | translate}}</button>
+        <button (click)="onCancel()">{{'DIALOGBOX.CANCEL' | translate}}</button>
+    </div>
+</div>

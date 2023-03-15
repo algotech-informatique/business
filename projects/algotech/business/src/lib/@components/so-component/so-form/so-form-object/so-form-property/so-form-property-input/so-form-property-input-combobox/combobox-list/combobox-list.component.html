@@ -1,0 +1,26 @@
+<div class="combo">
+    <div class="header">
+        <at-so-input type="search" [autoFocus]="true" (keyup)="search()" [(value)]="value">
+        </at-so-input>
+    </div>
+    <div class="list">
+        <div *ngIf="dataSource?.length > 0">
+            <div class="list-item" *ngFor="let data of dataSource" (click)="select(data)"
+                [ngClass]="{'selected': data === selectedValues}">
+                <i *ngIf="data === selectedValues" class="fa-solid fa-check check-icon"></i>
+                {{ data }}
+            </div>
+            <div style="text-align: center">
+                <button class="at-button outline small" *ngIf="showLoadMore" (click)="loadMore()">
+                    {{ 'LIST.LOAD_MORE'| translate }}
+                </button>
+            </div>
+        </div>
+        <div class="no-data" *ngIf="!dataSource">
+            <div>{{ 'WORKFLOW.SO-FORM.PROPERTY.GLIST.NOT-AVAILABLE' | translate: { 'value': value } }}</div>
+        </div>
+    </div>
+</div>
+<div class="at-spinner-container" *ngIf="dataSource?.length === 0 || showSpinner">
+    <spinner></spinner>
+</div>

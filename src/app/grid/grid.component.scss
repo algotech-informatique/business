@@ -1,0 +1,90 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+
+    --SCROLLBAR-BG-TRACK: #f2f2f2;
+
+    .grid {
+        margin: 25px;
+        height: 300px;
+        width: 500px;
+
+        // checkbox
+        --ALGOTECH-SUCCESS: #9551ae;
+        --ALGOTECH-SUCCESS-SHADE: #77418b;
+        --ALGOTECH-SECONDARY: #404553;
+        --ALGOTECH-SECONDARY-SHADE: #333742;
+
+        // header
+        --GRID-HEADER-COLOR: #383a3e;
+        --GRID-HEADER-JUSTIFY-CONTENT: center;
+        --GRID-HEADER-FONT-SIZE: 14px;
+
+        // cell
+        --GRID-CELL-FONT-SIZE: 12px;
+
+        // quadrillage
+        --GRID-BORDER-ROW: 1px solid #B8B8B850;
+        --GRID-BORDER-COLUMN: 1px solid #B8B8B850;
+    }
+
+    .grid2 {
+        margin: 25px;
+        height: 550px;
+        width: 800px;
+
+        --SCROLLBAR-BG-TRACK: #2d2f33;
+
+        // grid
+        --GRID-BG: #13141C;
+        --GRID-RADIUS: 5px;
+        --GRID-HEADER: 1px solid #B8B8B850;
+        --GRID-SELECTION: #2C658570;
+
+        // checkbox
+        --ALGOTECH-BACKGROUND: #13141C;
+        --ALGOTECH-SUCCESS: #EB6317;
+        --ALGOTECH-SUCCESS-SHADE: #bc4f12;
+        --ALGOTECH-SECONDARY: #C0C0C0;
+        --ALGOTECH-SECONDARY-SHADE: #9a9a9a;
+        --ALGOTECH-SECONDARY-BORDER: #9a9a9a;
+
+        // header
+        --GRID-HEADER-COLOR: #FFF;
+        --GRID-HEADER-JUSTIFY-CONTENT: center;
+        --GRID-HEADER-FONT-SIZE: 14px;
+
+        // cell
+        --GRID-CELL-COLOR: #FFF;
+        --GRID-CELL-JUSTIFY-CONTENT: center;
+        --GRID-CELL-FONT-SIZE: 12px;
+
+        // --GRID-CELL-JUSTIFY-CONTENT: flex-end;
+        // --GRID-HEADER-JUSTIFY-CONTENT: flex-end;
+        // --GRID-CELL-INPUT-TEXT-ALIGN: right;
+
+
+
+        // // header
+        // --GRID-HEADER-COLOR: #383a3e;
+        // --GRID-HEADER-JUSTIFY-CONTENT: center;
+        // --GRID-HEADER-FONT-SIZE: 14px;
+
+        // // cell
+        // --GRID-CELL-FONT-SIZE: 12px;
+    }
+
+    .grid3 {
+        margin: 25px;
+        height: 200px;
+        width: 200px;
+
+        // header
+        --GRID-HEADER-COLOR: #383a3e;
+        --GRID-HEADER-JUSTIFY-CONTENT: center;
+        --GRID-HEADER-FONT-SIZE: 14px;
+
+        // cell
+        --GRID-CELL-FONT-SIZE: 12px;
+    }
+}

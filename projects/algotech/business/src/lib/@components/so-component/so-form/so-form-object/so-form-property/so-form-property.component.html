@@ -1,0 +1,49 @@
+<div class="property">
+    <at-so-form-property-input *ngIf="property && !showMultiple"
+        class="padding"
+        [area]="true"
+        [autoFocus]="autoFocus"
+        [context]="'#task'"
+        [property]="property"
+        [disabled]="disabled"
+        [unique]="unique"
+        [value]="value"
+        (changeView)="onChangeView($event)"
+        (changeValue)="onChangeValue(property, $event)">
+    </at-so-form-property-input>
+
+    <div *ngIf="property && showMultiple">
+        <at-so-form-property-input-object
+            class="padding"
+            [error]="error"
+            [display]="property.displayName | tlang"
+            [text]="multipleValue.text"
+            [isUndefined]="multipleValue.undefined"
+            icon="fa-solid fa-layer-group"
+            (itemClick)="openMultiple()"
+        >
+        </at-so-form-property-input-object>
+    </div>
+
+    <div class="extended" *ngIf="(file && file.showed) || (comment && comment.showed)">
+        <at-so-form-property-input *ngIf="file && file.showed"
+            class="extended_file"
+            [area]="false"
+            [property]="file.model"
+            [disabled]="file.disabled"
+            [value]="file.value"
+            (changeValue)="onChangeValue(file.model, $event)"
+        >
+        </at-so-form-property-input>
+        <at-so-form-property-input *ngIf="comment && comment.showed"
+            [ngClass]="{'with-file': file && file.showed}"
+            class="comment"
+            [area]="false"
+            [property]="comment.model"
+            [disabled]="comment.disabled"
+            [value]="comment.value"
+            (changeValue)="onChangeValue(comment.model, $event)"
+        >
+        </at-so-form-property-input>
+    </div>
+</div>

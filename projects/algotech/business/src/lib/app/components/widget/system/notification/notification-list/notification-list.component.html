@@ -1,0 +1,23 @@
+<div #container class="pop-up-notifications"
+    [ngStyle]="widget| absolutePosition : snPage"
+>
+    <div class="content">
+
+        <notification-card *ngFor="let notification of notifications" [notification]="notification" [login]="login"
+            (continue)="onContinue(notification)" (selected)="onSelectNotification(notification)">
+        </notification-card>
+    </div>
+
+    <div class="message">
+        <div class="segment-container">
+            <button class="segment" [ngClass]="{'selected': state === 'all'}"
+                (click)="onChangeState($event, 'all')">{{'NOTIFICATIONS.ALL' | translate | uppercase}}</button>
+
+            <button class="segment" [ngClass]="{'selected': state === 'unread'}"
+                (click)="onChangeState($event, 'unread')">{{'NOTIFICATIONS.UNREAD' | translate | uppercase}}</button>
+        </div>
+        <label>
+            {{unreadFullMessage}}
+        </label>
+    </div>
+</div>

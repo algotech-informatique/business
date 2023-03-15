@@ -1,0 +1,19 @@
+
+.input {
+    position: relative;
+
+    .reset {
+        position: absolute;
+        top: 35px;
+        right: 5px;
+        cursor: pointer;
+
+        .reset-icon {
+            font-size: 18px;
+            color: var(--ALGOTECH-PRIMARY);
+            &:hover {
+                color: var(--ALGOTECH-DANGER);
+            }
+        }
+    }
+}

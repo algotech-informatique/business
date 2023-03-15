@@ -1,0 +1,101 @@
+@import '../../../../mixins';
+
+.content {
+    &.hide {
+        display: none;
+    }
+
+    border-right: var(--GRID-BORDER-COLUMN);
+    height: 100%;
+
+    .column {
+        position: relative;
+        padding: 5px;
+
+        height: 100%;
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+
+        color: var(--GRID-HEADER-COLOR);
+        font-size: var(--GRID-HEADER-FONT-SIZE);
+        font-style: var(--GRID-HEADER-FONT-STYLE);
+        text-decoration: var(--GRID-HEADER-TEXT-DECORATION);
+        font-weight: var(--GRID-HEADER-FONT-WEIGHT);
+        justify-content: var(--GRID-HEADER-JUSTIFY-CONTENT);
+
+        i {
+            margin-right: 5px;
+            font-size: var(--GRID-HEADER-ICON-FONT-SIZE, 10px);
+        }
+
+        .name {
+            user-select: none;
+            pointer-events: none;
+            @include text-ellipsis();
+
+            &.with-icons {
+                margin-right: 15px;
+            }
+        }
+
+        .icons {
+            user-select: none;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            position: absolute;
+            right: 5px;
+        }
+
+        .right {
+            border-right: 5px solid transparent;
+        }
+
+        &.drag {
+            &.resize {
+                .right {
+                    border-right: 5px solid var(--GRID-HEADER-RESIZE-COLOR);
+                    opacity: 0.5;
+                }
+
+                cursor: e-resize;
+            }
+
+            &.move {
+                cursor: grab;
+            }
+        }
+
+        &:not(.disabled) {
+            &:hover {
+                .right {
+                    border-right: 5px solid var(--GRID-HEADER-RESIZE-COLOR);
+                }
+
+                cursor: pointer;
+                background-color: var(--GRID-SELECTION-HOVER);
+            }
+        }
+
+        .drag-hook {
+            position: absolute;
+            left: 0px;
+            height: 100%;
+            width: 100%;
+
+            pointer-events: none;
+
+            .right {
+                pointer-events: all;
+                cursor: e-resize;
+                width: 10px;
+                height: 100%;
+                float: right;
+            }
+        }
+    }
+}

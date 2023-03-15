@@ -1,0 +1,16 @@
+<div *ngIf="workflow" class="container">
+    <at-workflow-container
+        id="at-workflow-container"
+        *ngIf="inputs"
+        [workFlowModelKey]="workflow?.key"
+        [metrics]="true"
+        [inputs]="inputs"
+        [settings]="settings">
+    </at-workflow-container>
+    <at-inputs-grid
+        *ngIf="!inputs"
+        [inputs]="prefilled"
+        [workflow]="workflow"
+        (start)="onStart($event)">
+    </at-inputs-grid>
+</div>

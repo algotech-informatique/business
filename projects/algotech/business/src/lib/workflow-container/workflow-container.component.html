@@ -1,0 +1,22 @@
+<div class="content">
+    <div class="background" *ngIf="!_currentWorkflow && !_currentTask && !_finisherDisplay">
+        <i class="fa-solid fa-diagram-project"></i>
+    </div>
+    <at-task-player [ngClass]="{
+                'blur': workflowDialog.loadStack.length > 0 || workflowDialog.answer || workflowDialog.toast?.blur || workflowDialog.error
+            }" *ngIf="_currentWorkflow && _currentTask" [workflowName]="_currentWorkflow.workflowModel.displayName"
+        [task]="_currentTask" [showNext]="showNext" (validate)="validate($event)"
+        (partialValidate)="partialValidate($event)" (handleError)="handleError($event)" (nextTask)="nextTask()"
+        (previousTask)="previousTask($event)" (closed)="onClose()" (stepJump)="onStepJump($event)"
+        (showToast)="showToast($event)">
+    </at-task-player>
+
+    <at-end-workflow class="no-content" *ngIf="_finisherDisplay && workflowDialog.loadStack.length === 0 && !workflowDialog.error"
+        [state]="_finisherDisplay.state"
+        [message]="_finisherDisplay.message"
+        [type]="_finisherDisplay.type"
+        [openPlatform]="openPlatform"></at-end-workflow>
+
+    <popover [showPopup]="workflowDialog.showPopup" [dismissPopup]="workflowDialog.dismissPopup"></popover>
+    <at-workfow-dialog></at-workfow-dialog>
+</div>

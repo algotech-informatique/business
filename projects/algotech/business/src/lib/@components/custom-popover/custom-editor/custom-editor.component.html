@@ -1,0 +1,19 @@
+<div class="editor-content" [style.max-height.px]="maxHeight">
+
+    <div class="body">
+
+        <at-so-input
+            class="text"
+            (enter)="sendEditText()"
+            [autoFocus]="true"
+            [(value)]="editText"
+            [caption]="placeHolder">
+        </at-so-input>
+
+        <div class="buttons">
+            <button (click)="sendEditText()">{{'DIALOGBOX.OK' | translate}}</button>
+            <button (click)="onClose()">{{'DIALOGBOX.CANCEL' | translate}}</button>
+        </div>
+    </div>
+    
+</div>

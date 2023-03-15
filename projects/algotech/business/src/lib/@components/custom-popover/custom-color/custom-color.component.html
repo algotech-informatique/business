@@ -1,0 +1,19 @@
+<div class="color-popup" #popup>
+
+    <div class="color">
+        <i *ngFor="let c of colorsRow1" class="fa-solid fa-circle" [ngStyle]="{
+            'background-color': c === activeColor ? 'var(--ITEM-HOVER)' : 'inherit',
+            'color': 'var(' + c + ')'
+        }" (click)="onSelectColor(c)">
+        </i>
+    </div>
+
+    <div class="color">
+        <i *ngFor="let c of colorsRow2" class="fa-solid fa-circle" [ngStyle]="{
+            'background-color': c === activeColor ? 'var(--ITEM-HOVER)' : 'inherit',
+            'color': 'var(' + c + ')'
+        }" (click)="onSelectColor(c)">
+        </i>
+    </div>
+
+</div>

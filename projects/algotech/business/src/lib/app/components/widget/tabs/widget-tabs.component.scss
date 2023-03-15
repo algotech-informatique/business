@@ -1,0 +1,16 @@
+.main {
+    height: 100%;
+    width: 100%;
+    
+    .tabs {
+        display: flex;
+        overflow: visible;
+        height: 100%;
+        width: 100%;
+        align-items: stretch;
+
+        .widget-child:not(.selected):hover {
+            background: var(--hover);
+        }
+    }
+}

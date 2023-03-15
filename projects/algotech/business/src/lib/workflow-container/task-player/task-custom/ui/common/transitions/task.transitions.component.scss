@@ -1,0 +1,17 @@
+@import '../../../../../../mixins';
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+
+    .at-button {
+        flex: 1 auto;
+        display: flex;
+        flex-wrap: wrap;
+
+        button {
+            @include at-button();
+            flex: 1 auto;
+        }
+    }
+}

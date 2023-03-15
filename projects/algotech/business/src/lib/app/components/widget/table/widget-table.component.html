@@ -1,0 +1,57 @@
+<at-grid *ngIf="elements && configuration"
+    [configuration]="configuration"
+    [style.--GRID-HEADER]="_widget?.css?.header?.['border-bottom-width'] + ' solid ' + _widget?.css?.header?.['border-bottom-color']"
+    [style.--GRID-HEADER-BG]="_widget?.css?.header?.['background-color']"
+    [style.--GRID-HEADER-COLOR]="_widget?.css?.header?.color"
+    [style.--GRID-HEADER-FONT-SIZE]="_widget?.css?.header?.['font-size']"
+    [style.--GRID-HEADER-FONT-STYLE]="_widget?.css?.header?.['font-style']"
+    [style.--GRID-HEADER-TEXT-DECORATION]="_widget?.css?.header?.['text-decoration']"
+    [style.--GRID-HEADER-FONT-WEIGHT]="_widget?.css?.header?.['font-weight']"
+    [style.--GRID-HEADER-JUSTIFY-CONTENT]="_widget?.css?.header?.['justify-content']"
+    [style.--GRID-BORDER-ROW]="_widget?.css?.row?.['border-width'] + ' solid ' + _widget?.css?.row?.['border-color']"
+    [style.--GRID-BORDER-COLUMN]="_widget?.css?.column?.['border-width'] + ' solid ' + _widget?.css?.column?.['border-color']"
+    [style.--GRID-BG]="_widget?.css?.main?.['background-color']"
+    [style.--GRID-RADIUS]="_widget?.css?.main?.['border-radius']"
+    [style.--GRID-BORDER-TOP]="_widget?.css?.main?.['border-top']"
+    [style.--GRID-BORDER-BOTTOM]="_widget?.css?.main?.['border-bottom']"
+    [style.--GRID-BORDER-LEFT]="_widget?.css?.main?.['border-left']"
+    [style.--GRID-BORDER-RIGHT]="_widget?.css?.main?.['border-right']"
+    [style.--GRID-CELL-COLOR]="_widget?.css?.cell?.color"
+    [style.--GRID-CELL-FONT-SIZE]="_widget?.css?.cell?.['font-size']"
+    [style.--GRID-CELL-FONT-STYLE]="_widget?.css?.cell?.['font-style']"
+    [style.--GRID-CELL-TEXT-DECORATION]="_widget?.css?.cell?.['text-decoration']"
+    [style.--GRID-CELL-FONT-WEIGHT]="_widget?.css?.cell?.['font-weight']"
+    [style.--GRID-CELL-JUSTIFY-CONTENT]="_widget?.css?.cell?.['justify-content']"
+    [style.--GRID-CELL-INPUT-TEXT-ALIGN]="_widget?.css?.cell?.['text-align']"
+    
+    [saveConfiguration]="true"
+    [saveQuery]="false"
+    [loading]="loading"
+    [moreDataToLoad]="moreDataToLoad"
+    [empty]="elements.length === 0"
+    [currentQuery]="query"
+    [paginate]="_widget.custom.paginate?.mode"
+    (queryChanged)="onQueryChanged($event)"
+    (select)="onSelect($event)"
+    (actionClick)="onActionClick($event)">
+
+    <at-grid-row
+        *ngFor="let element of elements"
+        [id]="element.item.value"
+        [clickable]="rowClickable"
+        [configuration]="configuration"
+        (select)="onSelect($event, element.item.value)"
+        (actionClick)="onActionClick($event, element.item.value)">
+
+        <widget *ngFor="let column of configuration.columns"
+            [parent]="element.widget"
+            [appModel]="appModel"
+            [snPage]="snPage"
+            [widget]="element.widget.group.widgets | find: 'id': column.id"
+            [item]="element.item"
+            [readonly]="readonly"
+            [custom]="column"
+            [types]="types">
+        </widget>
+    </at-grid-row>
+</at-grid>

@@ -1,0 +1,14 @@
+<div class="tags-container" *ngIf="selectedTags">
+
+    <button *ngFor="let chip of defaultChips; let i = index"
+        class="chip"
+        (click)="presentTagsPopover($event, i)"
+        [ngStyle]="{'background-color': selectedTags[i] ? selectedTags[i].color : ''}">
+
+        <i *ngIf="selectedTags[i]" class="fa-solid fa-circle-xmark icon rm" (click)="deleteTag($event, i)" ></i>
+        <span *ngIf="selectedTags[i]" color="light">{{ selectedTags[i].displayName | tlang }}</span>
+
+        <i *ngIf="!selectedTags[i]" class="fa-solid fa-tag tag icon"></i>
+        <span *ngIf="!selectedTags[i]">{{ 'FORM_OPTIONS.ADD_TAG' | translate }}</span>
+    </button>
+</div>

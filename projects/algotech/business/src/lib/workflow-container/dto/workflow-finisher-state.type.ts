@@ -1,0 +1,1 @@
+export type WorkflowFinisherState = 'old' | 'wait' | 'finished';

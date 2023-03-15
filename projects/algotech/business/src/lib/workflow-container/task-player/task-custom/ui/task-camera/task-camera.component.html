@@ -1,0 +1,29 @@
+<div class="content">
+
+    <at-annotation
+        [edition]="editionAnnotation"
+        [consultation]="true"
+        [listImages]="listPhotos"
+        [multiple]="multiple"
+        [taggable]="taggable"
+        [tags]="tags"
+        [tagsLists]="tagsLists"
+        (changed)="onTaskAnnotationChange()"
+        (tagsChanged)="onTagsChanged($event)"
+        (deleteImage)="onDeleteImage()"
+        (reset)="onReset()"
+    >
+    </at-annotation>
+
+    <div class="footer">
+        <div class="round active" (click)="uploadGallery()">
+            <i class="fa-solid fa-image"></i>
+        </div>
+        <div class="round active larger-button" (click)="takePhoto()">
+            <i class="fa-solid fa-camera-retro"></i>
+        </div>
+        <div class="empty">
+        </div>
+    </div>
+
+</div>

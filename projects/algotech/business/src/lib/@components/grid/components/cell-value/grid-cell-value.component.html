@@ -1,0 +1,29 @@
+<div class="content cell-value" [id]="key" [ngClass]="{'clickable': clickable}" (click)="onEdit($event)">
+    <div *ngIf="editable && formattedType && !multiple" [title]="value" [ngClass]="{
+        'inside': formattedType !== 'checkbox'
+    }">
+        <at-so-input *ngIf="formattedType"
+            class="input" [type]="formattedType"
+            [value]="value"
+            [items]="formattedItems" [autoHeight]="false" (changed)="onChanged($event)"></at-so-input>
+    </div>
+    
+    <div class="name" *ngIf="!editable || !formattedType || multiple"
+        class="display" [title]="format | gridValueFormat: value: type: showNullValue : showMultipleValues | async"
+            [ngClass]="{ 'linebreak': lineBreak }"
+        >
+        <div *ngIf="type === 'boolean'">
+            <i class="fa-regular fa-square" *ngIf="!multiple && format?.key === 'checkbox' && !value"></i>
+            <i class="fa-solid fa-square-check" *ngIf="!multiple && format?.key === 'checkbox' && value"></i>
+            <i class="fa-solid fa-toggle-off" *ngIf="!multiple && format?.key === 'switch' && !value"></i>
+            <i class="fa-solid fa-toggle-on" *ngIf="!multiple && format?.key === 'switch' && value"></i>
+            <i [class]="format.custom.true" *ngIf="!multiple && format?.key === 'icons' && value && format?.custom?.true"></i>
+            <i [class]="format.custom.false" *ngIf="!multiple && format?.key === 'icons' && !value && format?.custom?.false"></i>
+            <span *ngIf="multiple || !format || format?.key === 'trueFalse'">{{format | gridValueFormat: value: type: showNullValue : showMultipleValues | async }}</span>
+        </div>
+        
+        <i class="icon" *ngIf="icon" [class]="icon"></i>
+        <div *ngIf="value && type === 'html'" [innerHTML]="value | safeHtml"></div>
+        <ng-container *ngIf="type !== 'html' && type !== 'boolean'">{{format | gridValueFormat: value: type: showNullValue : showMultipleValues | async}}</ng-container>
+    </div>
+</div>

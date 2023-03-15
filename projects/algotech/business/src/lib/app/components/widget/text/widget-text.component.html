@@ -1,0 +1,8 @@
+<div class="main" [ngStyle]="_widget.css | injectStyle: ['main', 'layout']" (click)="onClick($event)">
+    <div class="widget-text" [ngStyle]="_widget?.css?.text">
+        <div class="text" [title]="_widget?.custom?.text | tlang"
+            [ngStyle]="widget.box.height | whiteSpace: widget.css">
+            <p [style.display]="'none'"></p><!-- discard space of pre-wrap -->{{ _widget?.custom?.text | tlang:false | textBoolean }}
+        </div>
+    </div>
+</div>

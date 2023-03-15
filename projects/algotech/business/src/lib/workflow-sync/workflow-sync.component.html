@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title> {{ title | translate}}</ion-title>
+        <ion-buttons slot="end">
+            <ion-button
+                [disabled]="workflowSyncService.isSynchronizing || !instances || instances.length === 0 || networkService.offline"
+                (click)='synchronize()'>
+                <ion-icon slot="icon-only" name="refresh"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div *ngFor="let instance of instances">
+        <workflow-instance-card displayName='{{instance.displayName | tlang}}' [values]='instance.values'>
+        </workflow-instance-card>
+    </div>
+</ion-content>

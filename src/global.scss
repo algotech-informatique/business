@@ -1,0 +1,127 @@
+// http://ionicframework.com/docs/theming/
+@import "~@ionic/angular/css/core.css";
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+@import './assets/fontawesome/scss/fontawesome.scss';
+@import './assets/fontawesome/scss/solid.scss';
+@import './assets/fontawesome/scss/brands.scss';
+@import './assets/fontawesome/scss/regular.scss';
+
+@import '../../business/projects/algotech/business/drawing/variables';
+
+.workflow .modal-wrapper {
+    height: 70%;
+    width: 600px;
+}
+
+.workflow-mobile .modal-wrapper {
+    height: 100%;
+    width: 100%;
+}
+
+.popover_class_text_formatting::part(content) {
+    --width: 500px;
+    width: 500px;
+}
+
+.workflow-launcher::part(content) {
+    border: 1px solid #828282;
+    @media only screen and (min-width: 600px) {
+        width: 350px;
+    }
+}
+
+::-webkit-scrollbar {
+    padding-top: 5px;
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: var(--ion-color-secondary);
+}
+
+.alert-wrapper.sc-ion-alert-md {
+    min-width: 350px;
+    border-radius: 8px;
+}
+
+.alert-head.sc-ion-alert-md+.alert-message.sc-ion-alert-md {
+    padding-top: 10px;
+    min-width: 250px;
+    min-height: 80px;
+}
+
+.alert-title.sc-ion-alert-md {
+    color: #FFFFFF;
+}
+
+.alert-button-inner.sc-ion-alert-md {
+    justify-content: center;
+}
+
+.alert-button.sc-ion-alert-md {
+    color: #FFFFFF;
+    font-weight: bold;
+    min-width: 100px;
+    min-height: 30px;
+    border-radius: 5px;
+}
+
+.alertTitle {
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.alertMessage {
+    padding-top: 10px;
+}
+
+.alerterror {
+    .alert-head.sc-ion-alert-md {
+        background-color: #f04141;
+    }
+
+    .alertButton {
+        background-color: #f04141;
+    }
+}
+
+.alertwarning {
+    .alert-head.sc-ion-alert-md {
+        background-color: #E17A40;
+    }
+
+    .alertButton {
+        background-color: #E17A40;
+    }
+}
+
+.alertinformation {
+    .alert-head.sc-ion-alert-md {
+        background-color: #404553;
+    }
+
+    .alertButton {
+        background-color: #404553;
+    }
+}
+
+.glist-popover {
+    --max-height: 410px;
+    --width: 300px;
+}

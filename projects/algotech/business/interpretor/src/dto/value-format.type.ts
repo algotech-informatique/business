@@ -1,0 +1,1 @@
+export type ValueFormat = { key: string, custom?: any } | string[];

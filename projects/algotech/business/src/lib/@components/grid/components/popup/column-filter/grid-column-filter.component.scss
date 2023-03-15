@@ -1,0 +1,69 @@
+:host {
+    height: 100%;
+    width: 100%;
+
+    color: var(--GRID-CELL-COLOR);
+    background-color: var(--GRID-BG);
+}
+
+.items {
+    font-size: 14px;
+
+    &:not(:last-child) {
+        border-bottom: 1px solid var(--GRID-HEADER-REORDER-COLOR);
+    }
+
+    &.filter {
+        .card {
+            border-top: 1px solid var(--GRID-HEADER-REORDER-COLOR);
+            padding: 5px 15px;
+
+            .input {
+                --PADDING-INPUT: 10px;
+                --ALGOTECH-PRIMARY: var(--GRID-CELL-COLOR);
+                --ALGOTECH-TERTIARY: var(--GRID-CELL-COLOR);
+            }
+        }
+    }
+
+    .item {
+        &.selected {
+            font-weight: bold;
+            background-color: var(--GRID-SELECTION-HOVER);
+        }
+
+        &:not(.filter) {
+            &:hover {
+                background-color: var(--GRID-SELECTION-HOVER);
+            }
+
+            cursor: pointer;
+        }
+
+        &.filter {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .reset {
+                margin-right: 15px;
+                cursor: pointer;
+
+                color: var(--ALGOTECH-DANGER);
+            }
+        }
+
+        .item-content {
+            padding: 10px 5px;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+
+            .icon {
+                opacity: 0.8;
+                width: 35px;
+                text-align: center;
+            }
+        }
+    }
+}

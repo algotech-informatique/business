@@ -1,0 +1,22 @@
+@import '../../../mixins';
+
+.widget {
+    height: 100%;
+    width: 100%;
+    display: block;
+    pointer-events: all;
+
+    &.isdisabled {
+        pointer-events: none;
+        opacity: 0.5 !important;
+
+        * {
+            pointer-events: none;
+        }
+    }
+    
+    &.hidden {
+        pointer-events: none;
+        display: none;
+    }
+}

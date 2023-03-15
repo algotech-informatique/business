@@ -1,0 +1,21 @@
+@import '../../../mixins';
+
+.checkbox {
+    pointer-events: none;
+}
+
+.container {
+    @include list();
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100;
+}
+
+.at-button {
+    @include at-button();
+}
+
+.disabled {
+    @include disabled();
+}

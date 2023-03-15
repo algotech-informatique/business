@@ -1,0 +1,38 @@
+    <div class="accordion" (click)="onCollapseContent($event)">
+    <div class="notification" [ngClass]="{'unread': !(notification.state.read | includes: login)}">
+        <div class="notification-header">
+            <div class="md-notification-icon">
+                <i [class]="notification.icon"></i>
+            </div>
+            <div class="notification-information">
+                <div class="md-notification-item md-notification-title link">{{notification.title}}</div>
+                <div class="md-notification-item md-notification-date">{{ notification.date | localeDate: 'medium' }}</div>
+                <div class="md-notification-item md-notification-from">
+                    {{'NOTIFICATIONS.FROM.MESSAGE' | translate}}
+                    <span class="author">{{notification.author }}</span> {{notification.additionalInformation }}
+                </div>
+            </div>
+            <div class="notification-collapse">
+                <div *ngIf="isCollapsed">
+                    <i class="fa-solid fa-chevron-up icon"></i>
+                </div>
+                <div *ngIf="!isCollapsed">
+                    <i class="fa-solid fa-chevron-down icon"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="notification-content" [@openClose]="isCollapsed ? 'open' : 'closed'">
+
+            <div class="message">
+                {{notification.content}}
+
+                <div class="action"
+                    *ngIf="notification.action.key !== 'information'"
+                    (click)="onContinue(notification)">
+                        {{'NOTIFICATIONS.ACTION.VALUE' | translate | uppercase}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

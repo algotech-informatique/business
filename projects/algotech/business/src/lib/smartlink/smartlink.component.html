@@ -1,0 +1,13 @@
+<div *ngIf="authService.isAuthenticated && state !== 'loading'" class="decoration">
+    <div class="flex-content">
+        <at-workflow-container
+            class="content"
+            *ngIf="inputs && workflow && settings"
+            [workFlowModelKey]="workflow?.key"
+            [inputs]="inputs"
+            [settings]="settings"
+            [openPlatform]="true"
+            (finished)="onFinished()">
+        </at-workflow-container>
+    </div>
+</div>

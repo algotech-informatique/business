@@ -1,0 +1,137 @@
+@import '../mixins';
+
+:host,
+at-theme-englober,
+.content {
+    height: 100%;
+    width: 100%;
+}
+
+.content {
+    background: var(--ALGOTECH-BACKGROUND);
+
+    .topbar {
+        @include at-top-bar();
+    }
+
+    @include list();
+
+    &.scollable {
+        @include scrollbar();
+        max-height: 450px;
+    }
+    
+    .at-list,
+    .at-list-content {
+        margin-top: 0px !important;
+        padding: 0px !important;
+    }
+
+    .workflow-content {
+        display: flex;
+        align-items: center;
+
+        .workflow-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 35px;
+            min-height: 35px;
+            box-shadow: none;
+            border: 1px solid var(--ALGOTECH-PRIMARY);
+            border-radius: 50%;
+            animation: unscale 0.2s;
+
+            .participants {
+                i {
+                    color: var(--ALGOTECH-SECONDARY) !important;
+                }
+
+                display: flex;
+                flex-direction: column;
+                height: 25px;
+                justify-content: space-around;
+                font-size: 0.6rem;
+            }
+
+            i {
+                color: var(--ALGOTECH-PRIMARY);
+            }
+
+            .new {
+                color: var(--ALGOTECH-SUCCESS);
+            }
+        }
+
+        .chevron {
+            color: var(--ALGOTECH-PRIMARY);
+            font-size: 0.7em;
+        }
+
+        .workflow-caption.deletable {
+            min-width: calc(100% - 75px) !important;
+        }
+
+        .workflow-caption {
+            display: flex;
+            flex-direction: column;
+            min-width: calc(100% - 40px);
+
+            span {
+                padding-left: 10px;
+                @include text-ellipsis();
+            }
+
+            .back {
+                font-size: 14px;
+                font-style: italic;
+                color: var(--ALGOTECH-PRIMARY);
+            }
+
+            .title {
+                font-size: 14px;
+                font-weight: bold;
+                color: var(--ALGOTECH-SECONDARY);
+            }
+
+            .description {
+                font-size: 13px;
+                font-weight: 300;
+            }
+
+            .instance {
+                color: var(--ALGOTECH-SUCCESS);
+            }
+
+            .task-info {
+                color: var(--ALGOTECH-SECONDARY);
+            }
+        }
+
+        .remove {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--ALGOTECH-PRIMARY);
+
+            &:hover {
+                color: var(--ALGOTECH-DANGER);
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        .at-list-item.back {
+            padding: 5px !important;
+        }
+    }
+}
+
+.disabled {
+    @include disabled();
+}

@@ -1,0 +1,14 @@
+<div class="content">
+
+    <at-annotation *ngIf="versions && versions.length !== 0"
+        [edition]="false"
+        [photo]="false"
+        [consultation]="consultationAnnotation"
+        [fileNameVisible]="fileNameVisible"
+        [listImages]="versions"
+        [multiple]="true"
+        (downloadDoc)="downloadDocument($event)"
+    >
+    </at-annotation>
+
+</div>

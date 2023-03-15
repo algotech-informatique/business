@@ -1,0 +1,10 @@
+<div class="content" [style.max-height.px]="maxHeight">
+    <ion-list class="item-list">
+        <div class="item-group" *ngFor="let data of listElements; let i=index">
+            <ion-item *ngIf="data.value[0] !==''" lines="none" class="item-item" (click)="sendInfo(data.key)">
+                <ion-label>{{ data.value[0] }}</ion-label>
+            </ion-item>
+            <div *ngIf="data.value[0] ===''" class="border"> </div>
+        </div>
+    </ion-list>
+</div>

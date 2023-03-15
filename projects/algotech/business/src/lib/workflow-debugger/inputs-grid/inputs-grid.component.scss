@@ -1,0 +1,46 @@
+@import '../../mixins';
+
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+at-theme-englober {
+    height: 100%;
+}
+
+.container {
+    height: 100%;
+    background: var(--ALGOTECH-BACKGROUND-CONTENT);
+    color: var(--ALGOTECH-SECONDARY);
+
+    .inputs-grid {
+        width: 100%;
+        height: calc(100% - 90px);
+        padding: 30px;
+        @include scrollbar();
+
+        .header {
+            color: var(--ALGOTECH-PRIMARY);
+            border-radius: 2px;
+            font-size: 22px;
+            text-align: left;
+            font-weight: 600;
+        }
+    }
+
+    .start-button {
+        display: flex;
+        justify-content: flex-end;
+        margin: 20px;
+        button {
+            @include at-dialog-button();
+            height: 50px;
+        }
+
+        &.disabled {
+            @include disabled();
+        }
+    }
+}

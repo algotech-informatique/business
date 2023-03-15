@@ -1,0 +1,29 @@
+<at-grid-cell
+    [width]="custom.width"
+    [hide]="custom.hide"
+    [style.--GRID-CELL-BORDER-TOP]="_widget?.css?.main?.['border-top']"
+    [style.--GRID-CELL-BORDER-BOTTOM]="_widget?.css?.main?.['border-bottom']"
+    [style.--GRID-CELL-BORDER-LEFT]="_widget?.css?.main?.['border-left']"
+    [style.--GRID-CELL-BORDER-RIGHT]="_widget?.css?.main?.['border-right']"
+    [style.--GRID-CELL-BG]="_widget?.css?.main?.['background-color']"
+    [style.--GRID-CELL-COLOR]="_widget.custom?.overloadStyle ? _widget?.css?.cell?.color : parent?.css?.cell?.color"
+    [style.--GRID-CELL-FONT-SIZE]="_widget.custom?.overloadStyle ? _widget?.css?.cell?.['font-size'] : parent?.css?.cell?.['font-size']"
+    [style.--GRID-CELL-FONT-STYLE]="_widget.custom?.overloadStyle ? _widget?.css?.cell?.['font-style'] : parent?.css?.cell?.['font-style']"
+    [style.--GRID-CELL-TEXT-DECORATION]="_widget.custom?.overloadStyle ? _widget?.css?.cell?.['text-decoration'] : parent?.css?.cell?.['text-decoration']"
+    [style.--GRID-CELL-FONT-WEIGHT]="_widget.custom?.overloadStyle ? _widget?.css?.cell?.['font-weight'] : parent?.css?.cell?.['font-weight']"
+    [style.--GRID-CELL-JUSTIFY-CONTENT]="_widget.custom?.overloadStyle ? _widget?.css?.cell?.['justify-content'] : parent?.css?.cell?.['justify-content']"
+    [style.--GRID-CELL-INPUT-TEXT-ALIGN]="_widget.custom?.overloadStyle ? _widget?.css?.cell?.['text-align'] : parent?.css?.cell?.['text-align']"
+    [clickable]="cellClickable"
+    (cellClick)="onCellClick($event)"
+    (cellDblClick)="onCellDblClick($event)"
+    >
+    <at-grid-cell-value
+        [editable]="false"
+        [type]="custom.type"
+        [multiple]="custom.multiple"
+        [format]="_widget.custom.format"
+        [icon]="(_widget.custom.display | includes: 'icon') ? _widget.custom.icon : null"
+        [lineBreak]="_widget.custom?.lineBreak"
+        [value]="(_widget.custom.display | includes: 'text') ? _widget.custom.value : ''">
+    </at-grid-cell-value>
+</at-grid-cell>

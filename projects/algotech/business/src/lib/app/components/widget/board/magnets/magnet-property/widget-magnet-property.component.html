@@ -1,0 +1,8 @@
+<div class="main" [ngStyle]="widget?.css?.main" [id]=widget.id>
+    <div class="widget-text" [ngStyle]="widget?.css?.text">
+        <div class="text" [title]="(properties | find: 'key':widget.custom.propName)?.value"
+            [ngStyle]="widget.box.height | whiteSpace: widget.css">
+            <p [style.display]="'none'"></p><!-- discard space of pre-wrap -->{{ (properties | find: 'key':widget.custom.propName)?.value }}
+        </div>
+    </div>
+</div>

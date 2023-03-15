@@ -1,0 +1,72 @@
+@import '../../../../../mixins';
+
+:host {
+    display: block;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+
+    --INJECT--MASK-BG: var(--MASK-BG);
+    --INJECT--GRID-BORDER-ROW: var(--GRID-BORDER-ROW);
+    --INJECT--GRID-BORDER-COLUMN: var(--GRID-BORDER-COLUMN);
+    --INJECT--GRID-BORDER-TOP: var(--GRID-BORDER-TOP);
+    --INJECT--GRID-BORDER-BOTTOM: var(--GRID-BORDER-BOTTOM);
+    --INJECT--GRID-BORDER-LEFT: var(--GRID-BORDER-LEFT);
+    --INJECT--GRID-BORDER-RIGHT: var(--GRID-BORDER-RIGHT);
+    --INJECT--GRID-BG: var(--GRID-BG);
+    --INJECT--GRID-RADIUS: var(--GRID-RADIUIS);
+    --INJECT--GRID-CELL-BG: var(--GRID-CELL-BG);
+    --INJECT--GRID-CELL-COLOR: var(--GRID-CELL-COLOR);
+    --INJECT--GRID-CELL-FONT-SIZE: var(--GRID-CELL-FONT-SIZE);
+    --INJECT--GRID-CELL-FONT-STYLE: var(--GRID-CELL-FONT-STYLE);
+    --INJECT--GRID-CELL-TEXT-DECORATION: var(--GRID-CELL-TEXT-DECORATION);
+    --INJECT--GRID-CELL-FONT-WEIGHT: var(--GRID-CELL-FONT-WEIGHT);
+    --INJECT--GRID-CELL-JUSTIFY-CONTENT: var(--GRID-CELL-JUSTIFY-CONTENT);
+    --INJECT--GRID-CELL-INPUT-TEXT-ALIGN: var(--GRID-CELL-INPUT-TEXT-ALIGN);
+    --INJECT--GRID-CELL-INPUT-FOCUS-SIZE: var(--GRID-CELL-INPUT-FOCUS-SIZE);
+}
+
+.content {
+    
+    max-height: 300px;
+    @include scrollbar();
+
+    at-grid {
+        display: block;
+        height: 200px;
+
+        --MASK-BG: var(--INJECT--MASK-BG);
+        --GRID-BORDER-ROW: var(--INJECT--GRID-BORDER-ROW);
+        --GRID-BORDER-COLUMN: var(--INJECT--GRID-BORDER-COLUMN);
+        --GRID-BORDER-TOP: var(--INJECT--GRID-BORDER-TOP);
+        --GRID-BORDER-BOTTOM: var(--INJECT--GRID-BORDER-BOTTOM);
+        --GRID-BORDER-LEFT: var(--INJECT--GRID-BORDER-LEFT);
+        --GRID-BORDER-RIGHT: var(--INJECT--GRID-BORDER-RIGHT);
+        --GRID-BG: var(--INJECT--GRID-BG);
+        --GRID-RADIUS: var(--INJECT--GRID-RADIUIS);
+        --GRID-CELL-BG: var(--INJECT--GRID-CELL-BG);
+        --GRID-CELL-COLOR: var(--INJECT--GRID-CELL-COLOR);
+        --GRID-CELL-FONT-SIZE: var(--INJECT--GRID-CELL-FONT-SIZE);
+        --GRID-CELL-FONT-STYLE: var(--INJECT--GRID-CELL-FONT-STYLE);
+        --GRID-CELL-TEXT-DECORATION: var(--INJECT--GRID-CELL-TEXT-DECORATION);
+        --GRID-CELL-FONT-WEIGHT: var(--INJECT--GRID-CELL-FONT-WEIGHT);
+        --GRID-CELL-JUSTIFY-CONTENT: var(--INJECT--GRID-CELL-JUSTIFY-CONTENT);
+        --GRID-CELL-INPUT-TEXT-ALIGN: var(--INJECT--GRID-CELL-INPUT-TEXT-ALIGN);
+        --GRID-CELL-INPUT-FOCUS-SIZE: var(--INJECT--GRID-CELL-INPUT-FOCUS-SIZE);
+
+        .remove {
+            --GRID-CELL-JUSTIFY-CONTENT: center;
+        }
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: flex-end;
+
+        margin-top: 20px;
+
+        button {
+            @include at-dialog-button();
+        }
+    }
+}

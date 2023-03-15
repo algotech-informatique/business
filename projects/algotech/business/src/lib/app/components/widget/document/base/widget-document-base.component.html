@@ -1,0 +1,76 @@
+<div class="container">
+
+    <at-widget-document-information class="widget-document-base" *ngIf="infoFile" [infoFile]="infoFile"
+        [options]="options" [readonly]="readonly" (returnClick)="onReturnClick()" (openVersion)="onOpenFile($event)">
+    </at-widget-document-information>
+
+    <div class="widget-document-base" *ngIf="!infoFile && files">
+        <div class="head" *ngIf="options.mode !== 'carousel'">
+            <div class="sub-head">
+                <div class="title">
+                    {{ title | translate:
+                    {display: (files | unhiddenFiles)?.length < nbShowed ? (files | unhiddenFiles)?.length : nbShowed,
+                        total: (files | unhiddenFiles)?.length} }} </div>
+
+                        <!-- mobile / desktop -->
+                        <div class="actions">
+                            <i *ngIf="mobile" class="button fa-solid fa-square-check" (click)="toggleMode()"
+                                [ngClass]="{'active': mode === 'selection'}"></i>
+                            <i *ngIf="!mobile && hasWorkflows" class="button fa-solid fa-play" (click)="onLaunch($event)"
+                                [ngClass]="{'disabled': !allowLaunch, 'active': allowLaunch}"></i>
+                            <i *ngIf="mobile && mode === 'selection' && allowLaunch" (click)="openMultiMore($event)"
+                                class="button more fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                </div>
+
+                <div class="filter">
+                    <div *ngIf="options?.tagFilter && filterTags?.length > 0" (click)="toggleTagFilter()" class="button"
+                        [ngStyle]="{'color': showFilterTags ? 'var(--ALGOTECH-SUCCESS)' : 'var(--ALGOTECH-SECONDARY)'}">
+                        <i class="fa-solid fa-tag"></i>
+                    </div>
+                    <div *ngIf="options?.search" class="search">
+                        <at-so-input class="search-input" type="search" (keyup)="onSearch()" [(value)]="search">
+                        </at-so-input>
+                    </div>
+                </div>
+
+                <div *ngIf="showFilterTags" class="filter-tags">
+                    <div *ngFor="let filterTag of filterTags" (click)="toggleTag(filterTag)" class="chip" [ngStyle]="{
+                            'background-color': filterTag.checked ? filterTag.tag.color : 'var(--ALGOTECH-BACKGROUND-SHADE)',
+                            'color': filterTag.checked ? 'var(--ALGOTECH-BACKGROUND)' : 'var(--ALGOTECH-SECONDARY)'
+                        }">
+                        <i *ngIf="filterTag.checked" class="fa-solid fa-check check-icon"></i>
+                        {{ filterTag.tag.displayName | tlang }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="content">
+                <!-- Recherche, Filtre (active hidden property) -->
+
+                <widget-document-list *ngIf="options?.mode === 'list'" [files]="files | unhiddenFiles"
+                    [options]="options" [nbShowed]="nbShowed" [mobile]="mobile" [mode]="mode" [showInfo]="showInfo"
+                    (selectInfo)="onInfoClick($event)" (openedFile)="onOpenFile($event)"
+                    (selectedDocument)="onSelectedDocument()" (launched)="onLaunchFileActions($event)"
+                    (openMore)="onOpenSingleMore($event)">
+                    (infoClick)="onInfoClick($event)"
+                </widget-document-list>
+
+                <widget-document-grid *ngIf="options?.mode === 'grid'" [files]="files | unhiddenFiles"
+                    [options]="options" [nbShowed]="nbShowed" [mobile]="mobile" [mode]="mode" [showInfo]="showInfo"
+                    (selectInfo)="onInfoClick($event)" (openedFile)="onOpenFile($event)"
+                    (selectedDocument)="onSelectedDocument()">
+                </widget-document-grid>
+
+                <at-annotation *ngIf="options.mode === 'carousel'" [consultation]="true" [photo]="false"
+                    [edition]="false" [fileNameVisible]="false" [listImages]="files | unhiddenFiles" [multiple]="true"
+                    (downloadDoc)="onOpenFileWithId($event)"></at-annotation>
+
+                <div class="more-button" *ngIf="nbShowed < (files | unhiddenFiles)?.length">
+                    <button (click)="loadMore()">
+                        {{ 'LIST.LOAD_MORE'| translate }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>

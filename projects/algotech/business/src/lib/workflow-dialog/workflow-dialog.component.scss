@@ -1,0 +1,331 @@
+@import '../mixins';
+
+:host {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    --ACTION-WIDTH: 250px;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    33% { opacity: 0.1; }
+    66% { opacity: 0.2; }
+    100% { opacity: 0.3; }
+}
+  
+@keyframes darkFadeIn {
+    0% { opacity: 0; }
+    33% { opacity: 0.2; }
+    66% { opacity: 0.4; }
+    100% { opacity: 0.6; }
+}
+
+@keyframes toastFadeIn {
+    0% { opacity: 0; }
+    25% { opacity: 0.3; }
+    50% { opacity: 0.5; }
+    75% { opacity: 0.7; }
+    100% { opacity: 0.9; }
+}
+
+.background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background-color: var(--ALGOTECH-SECONDARY);
+    pointer-events: all;
+    opacity: 0;
+
+    &.active {
+        &.dark {
+            animation-name: darkFadeIn;
+            animation-duration: 0.3s;
+            opacity: 0.6;
+        }
+        &:not(.dark) {
+            animation-name: fadeIn;
+            animation-duration: 0.3s;
+            opacity: 0.3;
+        }
+    }
+    &:not(.active) {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+button {
+    &:focus {
+        outline: none;
+    }
+}
+
+.alert {
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        pointer-events: all;
+        height: 100%;
+        width: 100%;
+
+        .options {
+            background: var(--ALGOTECH-BACKGROUND);
+            color: var(--ALGOTECH-SECONDARY);
+            position: absolute;
+            width: var(--ACTION-WIDTH);
+            padding: 5px;
+            border-radius: 2px 2px 2px 5px;
+            filter: drop-shadow(-1px 1px 2px var(--ALGOTECH-SECONDARY));
+            .action {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                &.disabled {
+                    span {
+                        font-weight: normal;
+                    }
+                    @include disabled();
+                }
+
+                .action-content {
+                    display: flex;
+                    i {
+                        margin-right: 20px;
+                    }
+                    span {
+                        font-size: 14px;
+                        @include text-ellipsis();
+                        width: 100%;
+                    }
+                    padding: 15px;
+
+                    &:hover {
+                        cursor: pointer;
+                        background: var(--ALGOTECH-PRIMARY-HOVER);
+                    }
+                }
+            }
+        }
+
+        .popup {
+            background: var(--ALGOTECH-BACKGROUND);
+            color: var(--ALGOTECH-SECONDARY);
+            width: var(--ACTION-WIDTH);
+            border-radius: 4px;
+            filter: drop-shadow(0px 1px 2px var(--ALGOTECH-SECONDARY));
+        }
+
+        .modal {
+            display: flex;
+            flex-direction: column;
+            width: 70%;
+            align-items: flex-end;
+
+            color: var(--ALGOTECH-SECONDARY);
+            background-color: var(--ALGOTECH-BACKGROUND);
+            border-radius: 4px;
+            padding: 20px 10px 10px 20px;
+
+            .error {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                * {
+                    width: 100%;
+                }
+                .sad {
+                    font-size: 60px;
+                    color: var(--ALGOTECH-SUCCESS);
+                    text-align: center;
+                }
+                .oups {
+                    font-size: 30px;
+                    color: var(--ALGOTECH-PRIMARY);
+                    text-align: center;
+                }
+                .message {
+                    font-size: 16px;
+                    margin: 20px 0px;
+                    text-align: center;
+                }
+                .detail {
+                    font-size: 12px;
+                }
+                .error {
+                    font-size: 12px;
+                    font-style: italic;
+                    max-height: 150px;
+                    overflow: hidden;
+                    white-space: pre-wrap;
+                }
+                .button {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    .close {
+                        width: auto;
+                        margin-top: 50px;
+                        padding: 20px;
+                        border-radius: 4px;
+                        background: var(--ALGOTECH-SECONDARY);
+                        color: var(--ALGOTECH-SECONDARY-HOVER);
+                        font-size: 16px;
+                        font-weight: bold;
+    
+                        &:hover {
+                            background: var(--ALGOTECH-SECONDARY-TINT);
+                        }
+                    }
+                }
+            }
+
+            .content {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                margin: 25px 0px;
+                text-align: center;
+
+                .title {
+                    color: var(--ALGOTECH-PRIMARY);
+                    font-size: 25px;
+                    font-weight: bold;
+                    margin-bottom: 20px;
+                }
+                .message {
+                    white-space: pre-wrap;
+                    font-size: 12px;
+                }
+            }
+
+            .buttons {
+                button {
+                    @include at-dialog-button();
+                }
+            }
+
+            .icon {
+                color: var(--ALGOTECH-PRIMARY);
+                font-size: 30px;
+                width: 100%;
+                text-align: left;
+            }
+
+            &.show-alert {
+                position: relative;
+                .header-content {
+                    height: 50px;
+
+                    .header {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        border-radius: 4px 4px 0px 0px;
+                        width: 100%;
+                        height: 70px;
+                        align-content: center;
+                        
+                        .icon {
+                            font-size: 50px;
+                            text-align: center;
+                            line-height: 70px;
+                        }
+                    }
+                }
+            }
+
+            &.information {
+                .header {
+                    background-color: var(--ALGOTECH-PRIMARY);
+
+                    .icon {
+                        color: var(--ALGOTECH-PRIMARY-HOVER);
+                    }
+                }
+                .buttons {
+                    button {
+                        color: var(--ALGOTECH-PRIMARY-SHADE);
+                        &:hover {
+                            background: var(--ALGOTECH-PRIMARY-HOVER);
+                        }
+                    }
+                }
+            }
+            &.warning {
+                .header {
+                    background-color: var(--ALGOTECH-WARNING);
+
+                    .icon {
+                        color: var(--ALGOTECH-WARNING-HOVER);
+                    }
+                }
+
+                .buttons {
+                    button {
+                        color: var(--ALGOTECH-WARNING-SHADE);
+                        &:hover {
+                            background: var(--ALGOTECH-WARNING-HOVER);
+                        }
+                    }
+                }
+            }
+            &.error {
+                .header {
+                    background-color: var(--ALGOTECH-DANGER);
+
+                    .icon {
+                        color: var(--ALGOTECH-DANGER-HOVER);
+                    }
+                }
+                .buttons {
+                    button {
+                        color: var(--ALGOTECH-DANGER-SHADE);
+                        &:hover {
+                            background: var(--ALGOTECH-DANGER-HOVER);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    .toast {
+        position: absolute;
+        bottom: 15px;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: 0 10px;
+    
+        .message {
+            background: var(--ALGOTECH-PRIMARY);
+            padding: 8px;
+            border-radius: 2px;
+            filter: drop-shadow(0px 0px 2px var(--ALGOTECH-SECONDARY));
+            color: var(--ALGOTECH-PRIMARY-HOVER);
+            font-size: 12px;
+            font-weight: bold;
+    
+            &.active {
+                animation-name: toastFadeIn;
+                animation-duration: 0.3s;
+                opacity: 0.9;
+            }
+        }
+    }
+}

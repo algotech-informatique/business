@@ -1,0 +1,14 @@
+<div class="main"
+    [ngStyle]="css?.main"
+    [style.width]="tabsOrientationStartsWithRow ?_widget?.box?.width + 'px' : '100%'"
+    [style.height]="!tabsOrientationStartsWithRow ? _widget?.box?.height + 'px' : '100%'"
+    (click)="onClick($event)">
+    <div class="widget-tab" [ngStyle]="css?.tab">
+        <i *ngIf="_widget?.custom?.icon"
+            [class]="_widget?.custom?.icon"
+            [ngStyle]="css?.icon"></i>
+        <span [ngStyle]="css?.text">
+            {{ _widget?.custom?.text | tlang: false }}
+        </span>
+    </div>
+</div>

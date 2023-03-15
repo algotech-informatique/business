@@ -1,0 +1,32 @@
+.extended {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .extended_file {
+        display: block;
+        width: 25px !important;
+    }
+
+    .comment {
+        display: block;
+        width: 100% !important;
+        &.with-file {
+            width: calc(100% - 25px) !important;
+        }
+    }
+
+    margin-top: -10px;
+    padding-bottom: 10px;
+}
+
+.property {
+    .padding {
+        display: block;
+        padding: 10px 0px;
+    }    
+
+    at-so-form-property-input-object {
+        --PADDING-INPUT: 0px;
+    }
+}

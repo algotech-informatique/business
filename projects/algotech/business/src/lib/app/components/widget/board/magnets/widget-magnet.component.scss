@@ -1,0 +1,151 @@
+.widget-magnet {
+    position: relative;
+
+    img,
+    svg,
+    .mask {
+        pointer-events: none;
+        position: absolute;
+        transition: all 0.3s ease;
+    }
+
+    .mask {
+        display: none;
+        height: 100%;
+        width: 100%;
+        background-color: black;
+        opacity: 0.4;
+        border-radius: 10px;
+    }
+
+    .at-list-menu {
+        --ACTION-SIZE-ORIGIN: 40px;
+        --ACTION-SIZE: var(--ACTION-SIZE-ORIGIN);
+        position: absolute;
+        top: calc(50% - calc(var(--ACTION-SIZE) / 2));
+        left: calc(50% - calc(var(--ACTION-SIZE) / 2));
+        display: none;
+        font-size: 14px;
+
+        background-color: var(--ALGOTECH-PRIMARY);
+        color: var(--ALGOTECH-PRIMARY-HOVER);
+        border: 2px solid var(--ALGOTECH-PRIMARY-BORDER);
+        width: var(--ACTION-SIZE);
+        height: var(--ACTION-SIZE);
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            background-color: var(--ALGOTECH-PRIMARY-BORDER);
+            transition: background-color 0.6s ease;
+            cursor: pointer;
+        }
+
+        z-index: 1;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            --ACTION-SIZE: calc(var(--ACTION-SIZE-ORIGIN) + 7px);
+            opacity: 0.1;
+        }
+
+        15% {
+            --ACTION-SIZE: calc(var(--ACTION-SIZE-ORIGIN) + 6px);
+            opacity: 0.2;
+        }
+
+        30% {
+            --ACTION-SIZE: calc(var(--ACTION-SIZE-ORIGIN) + 5px);
+            opacity: 0.3;
+        }
+
+        45% {
+            --ACTION-SIZE: calc(var(--ACTION-SIZE-ORIGIN) + 4px);
+            opacity: 0.4;
+        }
+
+        60% {
+            --ACTION-SIZE: calc(var(--ACTION-SIZE-ORIGIN) + 3px);
+            opacity: 0.6;
+        }
+
+        75% {
+            --ACTION-SIZE: calc(var(--ACTION-SIZE-ORIGIN) + 2px);
+            opacity: 0.7;
+        }
+
+        90% {
+            --ACTION-SIZE: calc(var(--ACTION-SIZE-ORIGIN) + 1px);
+            opacity: 0.9;
+        }
+
+        100% {
+            --ACTION-SIZE: calc(var(--ACTION-SIZE-ORIGIN) + 0px);
+            opacity: 1;
+        }
+    }
+
+    &.move {
+        .mask {
+            display: flex;
+        }
+        img,
+        svg {
+            opacity: 0.6;
+        }
+    }
+    &:hover {
+        &:not(.move) {
+            .mask,
+            .at-list-menu {
+                display: flex;
+            }
+            .at-list-menu {
+                animation-name: fadeIn;
+                animation-duration: 0.2s;
+            }
+
+            img,
+            svg {
+                opacity: 0.6;
+            }
+    
+            &.authorizeToMove {
+    
+                cursor: pointer;
+            }
+        }
+    }
+    &.selection {
+        box-shadow: 0 0 0 3px var(--ALGOTECH-SUCCESS);
+        border-radius: 10px;
+        .mask {
+            display: flex;
+        }
+    }
+
+    .no-preview {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100px;
+        width: 100px;
+        flex-direction: column;
+    
+        font-size: 16px;
+        text-align: center;
+        background-color: var(--ALGOTECH-DANGER);
+        color: var(--ALGOTECH-DANGER-HOVER);
+        box-shadow: var(--ALGOTECH-DANGER-BORDER) 0px 7px 29px 0px;
+    
+        i {
+            font-size: 35px;
+        }
+    }
+}
+
+foreignObject {
+    overflow: visible;
+}

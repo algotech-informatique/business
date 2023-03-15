@@ -1,0 +1,43 @@
+@import '../../../mixins';
+
+.header {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    color: var(--ALGOTECH-PRIMARY);
+    .leave {
+        position: absolute;
+        left: 10px;
+        top: 20px;
+        font-size: 20px;
+        transform: scaleX(-1);
+        cursor: pointer;
+    }
+
+    .text {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 100%;
+        font-weight: bold;
+        margin: 0 50px;
+
+        .workflowName {
+            width: 100%;
+            text-align: center;
+            font-size: 15px;
+            @include text-ellipsis;
+        }
+    
+        .taskName {
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+            @include text-ellipsis;
+            @media only screen and (min-width: 500px) {
+                font-size: 25px;
+            }
+        }
+    }
+}

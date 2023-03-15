@@ -1,0 +1,45 @@
+@import '../../../../mixins';
+
+:host {
+    height: 100%;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+}
+
+.block {
+    display: flex;
+    align-items: center;
+
+    .so-form-property-input {
+        width: 100%;
+        padding: 10px 0px;
+    }
+}
+
+.header {
+    position: absolute;
+    right: 5px;
+    top: var(--TASK-HEADER-HEIGHT);
+    z-index: 2;
+    display: flex;
+
+    &.disabled {
+        @include disabled();
+    }
+
+    .at-list-menu {
+        @include at-icon-menu();
+        height: 36px;
+        font-size: 20px;
+    }
+}
+
+#note {
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

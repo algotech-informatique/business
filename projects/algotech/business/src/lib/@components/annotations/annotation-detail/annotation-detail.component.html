@@ -1,0 +1,72 @@
+<div class="content">
+    <div class="container" #container>
+        <div class="photo">
+            <span class="filename" *ngIf="fileNameVisible || (currentPhoto && !(currentPhoto.ext | isImage))">{{currentPhoto?.name}}</span>
+            <div class="photo-content">
+                <div class="no-preview" *ngIf="(!currentPhoto || !(currentPhoto.ext | isImage))" [ngStyle]="{
+                    'cursor': photo ? 'default' : 'pointer'
+                }">
+                    <i class="fa-solid fa-camera-retro"></i>
+                    <span class="no-message">
+                        {{ (photo ?  'NO-PHOTO' : 'NO-PREVIEW-AVAILABLE') | translate}}
+                    </span>
+                </div>
+    
+                <div class="image"
+                    [ngClass]="{
+                        'edition': activateAnnotation,
+                        'lock': !edition
+                    }"
+                    (click)="onTouchClick($event)"
+                    (touchmove)="mousemove($event)"
+                    (mousemove)="mousemove($event)">
+                    <img #img id="img" *ngIf="currentPhoto && (currentPhoto.ext | isImage)"
+                        [src]="currentPhoto | sysFileToUri | async"
+                        [style.max-height.px]="containerHeight - 50" />
+                    
+                    <div class="at-list-menu" *ngIf="currentPhoto && (currentPhoto.ext | isImage) && photo" #menu (click)="onOpenActions($event, menu)">
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>   
+                    
+                    <div *ngIf="consultation">
+                        <div [id]="item.uuid" class="annotation-container"  *ngFor="let item of annotations, let i = index"
+                        [ngStyle]="{
+                            'left': item.zone.positionX + '%' ,
+                            'top':  item.zone.positionY + '%' }"
+                        >
+                            <span class="annotation"
+                                [ngStyle]="{
+                                    'background-color': item.zone.color
+                                }"
+                                (mousedown)="mousedown($event, item)" 
+                                (mouseup)="mouseup($event, item, i)"
+                                (touchstart)="mousedown($event, item)" 
+                                (touchend)="mouseup($event, item, i)"  
+                                (click)="$event.stopPropagation()"                  
+                            >
+                                <span class="annotation-text">
+                                    {{ item.annotation }}
+                                </span>
+                                
+                                <span class="top-icon" *ngIf="edition">
+                                    <i class="fa-solid fa-expand"></i>
+                                </span>
+                            </span>
+
+                            <div class="menus" [ngClass]="{
+                                'visible': editAnnotation === i
+                            }">
+                                <div class="menu" *ngFor="let menu of editAnnotationMenu">
+                                    <div class="icon active little-button" (click)="onSelectMenu($event, menu.key, item)"
+                                        [title]="menu.text">
+                                        <i [class]="menu.icon"></i>
+                                    </div>    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

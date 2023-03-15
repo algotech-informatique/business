@@ -1,0 +1,71 @@
+@import '../../../mixins';
+
+.file-icon {
+    font-size: 23px;
+    padding: 0 5px 0px 5px;
+}
+
+.item-container {
+    display: flex;
+    align-items: center;
+}
+.checkbox {
+    pointer-events: none;
+    margin-right: 10px;
+}
+.icon {
+    width: 40px;
+}
+.action {
+    margin-left: 10px;
+    margin-right: 0px;
+}
+.item-header {
+    margin-bottom: 10px;
+}
+
+.item-content {
+    width: calc(100% - 40px);
+}
+.item-content-option {
+    width: calc(100% - 80px) !important;
+}
+.item-properties {
+    width: 100%;
+    .undefined {
+        font-size: .75em;
+        font-style: italic;
+    }
+
+    .property {
+        div {
+            @include text-ellipsis();
+        }
+        line-height: 15pt;
+        font-size: .90em;
+        display: flex;
+        flex-direction: column;
+
+        .so-display {
+            display: flex;
+            flex-direction: column;
+        }
+    
+        .so-property {
+            font-size: .75em;
+            display: flex;
+            flex-direction: row;
+
+            .so-secondary {
+                margin-left: 10px;
+            }
+
+            .style-icon {
+                margin-top: 3px;
+                padding: 2px;
+            }
+
+        }
+        
+    }    
+}

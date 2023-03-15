@@ -1,0 +1,7 @@
+<div class="metadatas">
+
+    <div *ngFor="let data of listMetadatas">
+        <at-so-input type="text" (keyup)="onChangeValue($event)" [(value)]="data.value" [caption]="data.displayName">
+        </at-so-input>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+@import '../../mixins';
+
+.content {
+    height: 100%;
+    .title {
+        margin: 15px;
+        font-weight: 700;
+        font-size: 18pt;
+        color: var(--ALGOTECH-PRIMARY);
+
+        .line {
+            width: 20%;
+            height: 5px;
+            margin: 10px;
+            background-color: var(--ALGOTECH-PRIMARY);
+        }
+    }
+
+    .message {
+        max-height: 50%;
+        white-space: pre-wrap;
+        @include scrollbar-hidden();
+    }
+
+    color: var(--ALGOTECH-SECONDARY);
+    line-height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .icon {
+        font-size: 100pt;
+    }
+
+    &.success {
+        .icon {
+            color: #87D185;
+        }
+    }
+
+    &.information {
+        .icon {
+            color: var(--ALGOTECH-PRIMARY);
+        }
+    }
+
+    &.warning {
+        .icon {
+            color: var(--ALGOTECH-WARNING);
+        }
+        .title {
+            color: var(--ALGOTECH-WARNING);
+            .line {
+                background-color: var(--ALGOTECH-WARNING);
+            }
+        }
+    }
+
+    &.error {
+        .icon {
+            color: var(--ALGOTECH-DANGER);
+        }
+        .title {
+            color: var(--ALGOTECH-DANGER);
+            .line {
+                background-color: var(--ALGOTECH-DANGER);
+            }
+        }
+    }
+
+}

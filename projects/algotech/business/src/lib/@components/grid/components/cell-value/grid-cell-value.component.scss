@@ -1,0 +1,59 @@
+@import '../../../../mixins';
+
+:host {
+    width: 100%;
+    height: 100%;
+    --INPUT-TEXT-ALIGN: var(--GRID-CELL-INPUT-TEXT-ALIGN);
+}
+
+.content {
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: var(--GRID-CELL-JUSTIFY-CONTENT);
+
+    &.clickable {
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .inside {
+        width: 100%;
+    }
+}
+
+.input {
+    --BORDER: 0px;
+    --BORDER-HOVER: 0px;
+    --BORDER-BALANCING: 0px;
+    --PADDING-INPUT: 0px;
+    --CHECKBOX-MARGIN-RIGHT: 0px;
+    --ALGOTECH-PRIMARY: var(--GRID-CELL-COLOR);
+    --ALGOTECH-TERTIARY: var(--GRID-CELL-COLOR);
+    --TEXTAREA-BG-HOVER: transparent;
+    --TEXTAREA-WHITE-SPACE: pre;
+    --SELECT-OPTION-FONT-SIZE: calc(var(--GRID-CELL-FONT-SIZE) + 4px);
+}
+
+.display {
+    width: 100%;
+    align-items: center;
+    white-space: pre;
+    max-height: calc(var(--GRID-ROW-HEIGHT) - 5px);
+    text-align: var(--INPUT-TEXT-ALIGN);
+    @include scrollbar();
+    overflow-x: hidden;
+
+    &.linebreak {
+        word-wrap: break-word;      /* IE 5.5-7 */
+        white-space: -moz-pre-wrap; /* Firefox 1.0-2.0 */
+        white-space: pre-wrap; 
+    }
+
+    .icon {
+        margin-right: 5px;
+    }
+}

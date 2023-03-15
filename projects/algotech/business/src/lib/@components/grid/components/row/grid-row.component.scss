@@ -1,0 +1,111 @@
+:host {
+    width: 100%;
+    --GRID-ROW-MARGIN: 1px;
+}
+
+.row {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+
+    width: 100%;
+    min-height: var(--GRID-ROW-HEIGHT);
+
+    .group {
+        --GRID-OFFSET-X: 0px;
+    }
+
+    .actions {
+        &:hover {
+            i {
+                opacity: 0.6;
+            }
+        }
+        i {
+            opacity: 0.3;
+        }
+        cursor: pointer;
+
+        display: flex;
+        height: var(--GRID-ROW-HEIGHT);
+
+        width: var(--GRID-ACTION-WIDTH);
+        align-items: center;
+        justify-content: center;
+    }
+
+    &.content {
+        .actions {
+            color: var(--GRID-CELL-COLOR);
+            font-size: 14px;
+            i {
+                display: none;
+            }
+        }
+
+        &:hover {
+            .actions {
+                i {
+                    display: block;
+                }
+            }
+        }
+    }
+    .checkbox-container, .actions {
+        border-right: var(--GRID-BORDER-COLUMN);
+    }
+
+    &:not(.content) {
+        .actions {
+            font-size: 18px;
+            color: var(--GRID-HEADER-COLOR);
+            &.hidden {
+                i {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .checkbox-container {
+        width: var(--GRID-CHECKBOX-WIDTH);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .checkbox {
+            --CHECKBOX-MARGIN-RIGHT: 0px;
+        }
+    }
+
+    .mask-selector {
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 3;
+        margin-top: var(--GRID-ROW-MARGIN);
+        border-bottom: var(--GRID-BORDER-ROW);
+    }
+
+    &.clickable {
+        cursor: pointer;
+    }
+
+    &:not(:focus-within) {
+        &:hover {
+            .mask-selector {
+                background-color: var(--GRID-SELECTION-HOVER);
+            }
+        }
+    }
+
+    .content {
+        width: 100%;
+
+        display: flex;
+        flex-direction: row;
+    }
+}

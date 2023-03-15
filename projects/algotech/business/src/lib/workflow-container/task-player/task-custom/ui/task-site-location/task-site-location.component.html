@@ -1,0 +1,19 @@
+<div class="content">
+    <div *ngIf="geoLocation">
+        <div class="main" *ngFor="let geo of geoLocation.geometries">
+            <div>
+                <button class="at-button outline" (click)="openLocation(!!geo)">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    {{buttonText}}
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="!geoLocation">
+        <div class="error">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <span>{{ 'TASK-MODEL-GUI.TASK.SITE-LOCATION-NO-GPS' | translate }} </span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="widget-image" (click)="onClick($event)">
+    
+    <img *ngIf="typeSrc === 'file' && srcExists" [ngStyle]="_widget.css | injectStyle: ['main', 'image']"
+        [src]="imageFile | uuid2image"
+        (error)="onImgError($event)" />
+
+    <img *ngIf="typeSrc === 'uri' && srcExists" [ngStyle]="_widget.css | injectStyle: ['main', 'image']"
+        [src]="imageFile"
+        (error)="onImgError($event)" />
+
+    <img *ngIf="typeSrc === 'datasource' && srcExists" [ngStyle]="_widget.css | injectStyle: ['main', 'image']"
+        [src]="imageFile | sysFileToUri | async" />
+    
+    <img *ngIf="!srcExists" [ngStyle]="_widget.css | injectStyle: ['main', 'image']"
+        [src]="defaultImage"
+        (error)="onImgError($event)" />
+
+</div>

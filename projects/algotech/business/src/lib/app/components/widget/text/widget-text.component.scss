@@ -1,0 +1,17 @@
+@import '../../../../mixins';
+
+.main {
+    height: 100%;
+    display: flex;
+    @include scrollbar();
+
+    .widget-text {
+        width: 100%;
+    }    
+     
+    .text {
+        width: 100%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}

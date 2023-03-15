@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="header" [ngClass]="{'disabled': _disabled}">
+        <div class="at-list-menu" *ngIf="association" (click)="search()">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="at-list-menu" (click)="add()">
+            <i class="fa-solid fa-file-circle-plus"></i>
+        </div>
+    </div>
+    <div id="so-form-multiple">
+        <div class="container">
+            <div class="content">
+                <div class="block" *ngFor="let item of _values, let i = index">
+                    <at-so-form-property-input
+                        class="so-form-property-input"
+                        [area]="true"
+                        [context]="'#task'"
+                        [disabled]="disabled"
+                        [checkRequired]="false"
+                        [property]="property"
+                        [display]="'Item ' + (i + 1)"
+                        [value]="item.value"
+                        [removable]="true"
+                        (changeView)="onChangeView($event)"
+                        (changeValue)="onChangeValue($event, i)"
+                        (removeValue)="remove($event, i)">
+                    </at-so-form-property-input>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

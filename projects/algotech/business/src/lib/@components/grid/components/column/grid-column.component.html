@@ -1,0 +1,17 @@
+<div class="content" [style.width.px]="column ? column.width : width" [ngClass]="{'hide': hide}">
+    <div class="column" [id]="column?.id ? column.id : column?.key" [title]="name">
+        <span class="name" [title]="name" [ngClass]="{
+            'with-icons': !!order || hasFilter
+        }"><i *ngIf="icon" [class]="icon"></i>{{name}}</span>
+        <div class="icons" *ngIf="order || hasFilter">
+            <i *ngIf="order === 'asc'" class="icon fa-solid fa-arrow-up"></i>
+            <i *ngIf="order === 'desc'" class="icon fa-solid fa-arrow-down"></i>
+            <i *ngIf="hasFilter" class="icon fa-solid fa-filter"></i>
+        </div>
+        <div class="drag-hook" *ngIf="resize">
+            <div class="right" [id]="column?.id ? column.id : column?.key">
+                <span class="line"></span>
+            </div>
+        </div>
+    </div>
+</div>

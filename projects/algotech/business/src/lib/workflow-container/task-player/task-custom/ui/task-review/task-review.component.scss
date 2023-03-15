@@ -1,0 +1,81 @@
+@import '../../../../../mixins';
+
+.container {
+    height: 100%;
+    color: var(--ALGOTECH-SECONDARY);
+
+    >.content {
+        @include padding();
+        @include scrollbar();
+
+        height: calc(100% - 45px);
+
+        .caption {
+            color: var(--ALGOTECH-PRIMARY);
+            font-size: 0.75em;
+        }
+
+        .notification {
+            .message {
+                border: 1px solid var(--ALGOTECH-BACKGROUND-BORDER);
+                box-shadow: 0 0px 3px 0px var(--ALGOTECH-BACKGROUND-BORDER);
+                background-color: var(--ALGOTECH-PRIMARY-HOVER);
+                padding: 10px 10px 0px 10px;
+
+                .title {
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+
+                .content {
+                    margin-top: 10px;
+                    font-size: 14px;
+                    white-space: pre-wrap;
+                    border-radius: 3px;
+                }
+
+                .comment {
+                    display: flex;
+                    align-items: center;
+
+                    i {
+                        margin-right: 15px;
+                    }
+
+                    textarea {
+                        @include scrollbar();
+                        width: 100%;
+                        background: transparent;
+                        color: var(--ALGOTECH-TERTIARY);
+                        margin-top: 10px;
+                        font-size: 0.75em;
+                        transition: height 0.2s;
+                        resize: none;
+                        line-height: 1.5em;
+                        height: 2.5em;
+                        border: none;
+                        font-style: italic;
+
+                        &:focus {
+                            outline: none;
+                            height: 6em;
+                        }
+                    }
+                }
+
+                margin-top: 3px;
+            }
+
+            margin-bottom: 12px;
+        }
+
+        .files-content {
+            margin-top: 3px;
+        }
+    }
+
+    .transitions {
+        display: block;
+        @include padding();
+    }
+}

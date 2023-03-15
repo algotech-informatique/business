@@ -1,0 +1,30 @@
+<div class="wf-padding">
+    <div class="content">
+
+        <ngx-dropzone #dropzone class="dropzone" label="{{'SETTINGS.LAYER.DROP_FILE' | translate}}" [multiple]="multiple"
+            [showPreviews]="false" [preserveFiles]="false" (filesAdded)="onFilesAdded($event)">
+        </ngx-dropzone>
+
+        <div class="error" *ngIf="error !== ''">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <span>{{error}}</span>
+        </div>
+                
+        <div class="files-previewer">
+            <at-file-component *ngFor="let f of files; index as i"
+                [file]="f"
+                [framed]="true"
+                [removable]="true"
+                (removeFile)="onRemoveFile(i)">
+            </at-file-component>
+        </div>
+
+        <at-form-tags *ngIf="tags && taggable && files.length > 0" [tagsLists]="tagsLists" [selectedTagsKeys]="tags"
+            (change)="onTagChanged($event)">
+        </at-form-tags>
+
+        <at-form-metadatas  *ngIf="metadatable && files.length > 0" [metadatasList]="metadatasList" [metadatas]="metadatas"
+            (metadataChange)="onMetadataChanged($event)">
+        </at-form-metadatas>
+    </div>
+</div>

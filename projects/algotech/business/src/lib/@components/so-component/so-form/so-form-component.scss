@@ -1,0 +1,60 @@
+:host {
+    height: 100%;
+    display: block;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100;
+}
+
+.custom {
+    height: 100%;
+    margin: 0;
+}
+.description{
+    color: var(--ALGOTECH-SECONDARY);
+    margin: 10px 0px;
+    white-space: pre-wrap;
+}
+
+ul.breadcrumb {
+    position: absolute;
+    top: var(--TASK-HEADER-HEIGHT);
+    left: 0px;
+    width: 100%;
+    z-index: 1;
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0px;
+    padding: 10px 16px;
+    list-style: none;
+    background-color: var(--ALGOTECH-BACKGROUND-HOVER);
+}
+ul.breadcrumb li {
+    white-space: nowrap;
+    display: inline;
+    font-size: 14px;
+    font-style: italic;
+}
+ul.breadcrumb li:last-child {
+    padding-right: 8px;
+}
+ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: var(--ALGOTECH-SECONDARY);
+    content: "/\00a0";
+}
+ul.breadcrumb li a {
+    color: var(--ALGOTECH-SUCCESS);
+    text-decoration: none;
+}
+ul.breadcrumb li a:hover {
+    cursor: pointer;
+}

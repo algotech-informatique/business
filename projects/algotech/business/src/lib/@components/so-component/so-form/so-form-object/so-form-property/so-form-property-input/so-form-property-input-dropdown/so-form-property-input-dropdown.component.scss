@@ -1,0 +1,50 @@
+@import '../../../../../../../mixins';
+
+:host {
+    --LIST-MAX-HEIGHT: 120px;
+}
+
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input {
+    width: 100%;
+}
+
+.list-container {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+
+.list {
+    max-height: var(--LIST-MAX-HEIGHT);
+    @include scrollbar();
+    background-color: var(--ALGOTECH-BACKGROUND-HOVER);
+
+    .list-item {
+        padding: 10px;
+        cursor: pointer;
+        color: var(--ALGOTECH-SECONDARY);
+        &:hover {
+            background-color: var(--ALGOTECH-PRIMARY-HOVER);
+        }
+    }
+
+    .at-button {
+        @include at-button();
+    }
+
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    top: -10px;
+}
+
+.at-spinner-container {
+    @include spinner-container();
+}

@@ -1,0 +1,28 @@
+<div class="container">
+    <div *ngFor="let file of files; index as i">
+        <div *ngIf="i < nbShowed && !file.hidden" [ngClass]="{'ripple': mobile}" class="file-item"
+            (click)="clickFileItem(file)">
+
+            <div class="image" [ngClass]="{'mobile-selection': mobile && mode === 'selection'}">
+                <img #img *ngIf="file && !(file.ext | isImage)" [src]="defaultImage">
+                <img #img *ngIf="file && (file.ext | isImage)" [src]="defaultImage"
+                    [srcset]="file | sysFileToUri: 's' | async" (error)="onSrcError(file, img)" />
+
+                <div class="mask"></div>
+                <div class="content">
+                    <i *ngIf="mode === 'selection'" [ngClass]="file.checked ?
+                        'checkbox checked fa-solid fa-square-check' : 'checkbox unchecked fa-solid fa-square'"></i>
+
+                    <span class="title">
+                        {{file.name}}
+                    </span>
+
+                    <i *ngIf="!mobile && showInfo" (click)="clickInfo($event, file)"
+                        class="info-button fa-solid fa-circle-info"></i>
+                    <i *ngIf="!(mobile && mode === 'selection')" class="open fa-solid fa-eye"
+                        (click)="openDocument($event, file)"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="content" *ngIf="currentQuery?.filter?.length > 0">
+    <div class="filter" *ngFor="let filter of currentQuery.filter">
+        <i class="icon fa-solid fa-filter"></i>
+        <span class="caption" [title]="(configuration.columns | find: 'key' : filter.key)?.name">
+            {{ (configuration.columns | find: 'key' : filter.key)?.name }}
+        </span>
+        <i class="rm fa-solid fa-xmark" (click)="removeFilter(filter)"></i>
+    </div>
+</div>

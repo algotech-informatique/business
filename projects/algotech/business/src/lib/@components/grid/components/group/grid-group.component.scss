@@ -1,0 +1,36 @@
+:host {
+    display: flex;
+    flex-direction: row;
+
+    &.left {
+        background-color: var(--MASK-BG);
+        .content {
+            background-color: var(--GRID-GROUP-BG);
+        }
+
+        position: -webkit-sticky;
+        position: sticky;
+
+        z-index: 1;
+        
+        left: var(--GRID-OFFSET-X);
+    }
+
+    &.right {
+        background-color: var(--MASK-BG);
+        .content {
+            background-color: var(--GRID-GROUP-BG);
+        }
+
+        position: -webkit-sticky;
+        position: sticky;
+
+        z-index: 2;
+
+        right: 0;
+    }
+
+    .content {
+        display: flex;
+    }
+}

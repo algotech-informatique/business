@@ -1,0 +1,51 @@
+<div class="options">
+
+    <div class="header">
+        <i class="fa-solid fa-chevron-left view button" (click)="onReturnClick()"></i>
+        <div class="header-title" [title]="infoFile.name">
+            {{ infoFile.name }}
+        </div>
+    </div>
+
+    <div class="elements">
+        <div class="element" *ngIf="options.metadatas" [ngClass]="{reduce: !isCollapsedMetadata}">
+            <div class="element-title"
+                (click)="onCollapseMetadata($event)"
+                [ngClass]="{ active: isCollapsedMetadata }">
+                    {{ 'INSPECTOR.WIDGET.DOCUMENTS.METADATAS' | translate }}
+            </div>
+    
+            <div class="elements">
+    
+                <div class="list" *ngFor="let metadata of listMetadatas">
+                    <div class="list-item">
+                        <div class="key">{{metadata.metadata}}</div>
+                        <div class="value">{{metadata.value ? metadata.value : '--'}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="element" *ngIf="optionsVersionVisible" [ngClass]="{reduce: !isCollapsedVersions}">
+    
+            <div class="element-title"
+                (click)="onCollapseVersions($event)"
+                [ngClass]="{ active: isCollapsedVersions }">
+                    {{ 'INSPECTOR.WIDGET.DOCUMENTS.OLD-VERSIONS' | translate }}
+            </div>
+    
+            <div class="elements">
+    
+                <div *ngFor="let file of infoVersions" (click)="onClickFile(file)" class="file">
+                    <at-file-component 
+                        class="list"
+                        [file]="file">
+                    </at-file-component>
+                    <div class="user">
+                        {{ file.user | getUserName | async }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

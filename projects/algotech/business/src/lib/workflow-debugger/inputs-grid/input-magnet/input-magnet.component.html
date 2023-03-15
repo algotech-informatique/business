@@ -1,0 +1,18 @@
+<div class="elements" *ngFor="let magnet of magnets">
+    <at-so-form-property-input-object
+        [display]="'WORKFLOW.TASK.MAGNET.APP' | translate"
+        [text]="inputMagnet.valueDisplay"
+        [icon]="inputMagnet.icon"
+        [isUndefined]="inputMagnet.value === null || inputMagnet.value === undefined"
+        (click)="onClickMore(magnet)">
+    </at-so-form-property-input-object>
+
+    <at-so-input type="select" [caption]="'WORKFLOW.TASK.MAGNET.ZONE' | translate"
+        [(value)]="magnet.magnetsZoneKey" [items]="zonesList" (changed)="updateMagnet(magnet)"></at-so-input>
+
+    <at-so-input type="number" [caption]="'WORKFLOW.TASK.MAGNET.X' | translate"
+        [(value)]="magnet.x" (changed)="updateMagnet(magnet)"></at-so-input>
+
+    <at-so-input type="number" [caption]="'WORKFLOW.TASK.MAGNET.Y' | translate"
+        [(value)]="magnet.y" (changed)="updateMagnet(magnet)"></at-so-input>   
+</div>

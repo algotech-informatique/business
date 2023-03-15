@@ -1,0 +1,34 @@
+
+<div class="widget-magnet" [id]="template?.id" [ngStyle]="{
+        'height': (template ? template.box.height : 100) + 'px',
+        'width': (template ? template.box.width : 100) + 'px'
+    }"
+    [ngClass]="{
+        'authorizeToMove': template | authorizationMoveMagnet,
+        'selection': boardSelection.selections | find: 'uuid': smartObject.uuid
+    }">
+    <div class="mask"></div>
+
+    <img *ngIf="template" [src]="template.custom?.imageUuid | uuid2image" height="100%" width="100%">
+    <div *ngIf="!template" class="no-preview">
+        <i class="fa-solid fa-ban"></i>
+        <span>{{'NO-MAGNET-AVAILABLE' | translate}}</span>
+    </div>
+
+    <div class="at-list-menu" *ngIf="hasActions" (click)="onOpenActions($event)">
+        <i class="fa-solid fa-diagram-project"></i>
+    </div>
+
+    <svg class="svg" height="100%" width="100%" *ngIf="template">
+        <g id="container" *ngIf="template.group">
+            <g class="widgets" *ngFor="let widget of template.group.widgets">
+                <foreignObject class="widget" [id]="widget.id"
+                    [attr.x]="widget.box.x" [attr.y]="widget.box.y" [attr.height]="widget.box.height"
+                    [attr.width]="widget.box.width">
+                    <xhtml:at-widget-magnet-property [widget]="widget" [properties]="smartObject.properties">
+                    </xhtml:at-widget-magnet-property>
+                </foreignObject>
+            </g>
+        </g>
+    </svg>
+</div>

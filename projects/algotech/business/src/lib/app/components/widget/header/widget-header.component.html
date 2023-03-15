@@ -1,0 +1,17 @@
+<div class="main" [ngStyle]="_widget?.css?.main">
+    <div *ngFor="let child of _widget?.group?.widgets"
+        class="widget-child"
+        [id]="child?.id"
+        [style.left.px]="child.box.x"
+        [style.top.px]="child.box.y"
+        [style.height.px]="child.box.height"
+        [style.width.px]="child.box.width">
+        <widget
+            [appModel]="appModel"
+            [snPage]="snPage"
+            [widget]="child"
+            [readonly]="readonly"
+            [types]="types"
+        ></widget>
+    </div>
+</div>

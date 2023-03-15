@@ -1,0 +1,26 @@
+<at-so-input *ngIf="!option || !option.display || option?.display === 'switch'"
+    type="checkbox"
+    inputStyle="toggle"
+    (changed)="onChangeValue()"
+    [(value)]="value"
+    [caption]="display">
+</at-so-input>
+
+<at-so-input *ngIf="option?.display === 'checkbox'"
+    type="checkbox"
+    (changed)="onChangeValue()"
+    [(value)]="value"
+    [caption]="display">
+</at-so-input>
+
+<div *ngIf="option?.display === 'yes-no'" [ngClass]="{'error': error}">
+    <span class="label">
+        {{display}}
+    </span>
+    <div class="yes-no">
+        <button id="yes" class="outline small" [ngClass]="{'disabled': disabled, 'active': value === true}"
+            (click)="onChangeValue(true)">{{'SO-FORM-PROPERTY-BOOL-YES' | translate}}</button>
+        <button id="no" class="outline small" [ngClass]="{'disabled': disabled, 'active': value === false}"
+            (click)="onChangeValue(false)">{{'SO-FORM-PROPERTY-BOOL-NO' | translate}}</button>
+    </div>
+</div>

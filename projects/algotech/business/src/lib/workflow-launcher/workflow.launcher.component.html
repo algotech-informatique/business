@@ -1,0 +1,101 @@
+<ion-content>
+    <div class="content" [ngClass]="{'scollable': !modalControl}">
+        <div class="topbar" *ngIf="modalControl">
+            <div class="at-button" (click)="onBack()">
+                <i class="fa-solid fa-chevron-left"></i>
+            </div>
+            <span>{{ activeDisplay ?
+                (activeDisplay.workflow.displayName | tlang) :
+                ('SETTINGS.WORKFLOWS.APP.SELECTWORKFLOW' | translate)
+                }}</span>
+        </div>
+
+        <!-- Workflows -->
+        <div class="at-list-content" [ngClass]="{'disabled': disabled}">
+            <div *ngIf="!activeDisplay">
+                <div class="at-list">
+                    <div class="at-list-item" *ngFor="let wfDisplay of workflowsDisplay" (click)="onClick(wfDisplay)"
+                        [ngClass]="{'disabled': wfDisplay.disabled}">
+                        <span class="workflow-content">
+                            <span class="workflow-icon">
+                                <i [class]="wfDisplay.workflow.iconName"></i>
+                            </span>
+
+                            <div class="workflow-caption">
+                                <span class="title">{{wfDisplay.workflow.displayName | tlang}}</span>
+                                <span class="description instance" *ngIf="wfDisplay.instances?.length > 0">
+                                    {{'WORKFLOW-INSTANCES-LAUNCHED' | translate:{ length: wfDisplay.instances.length }
+                                    }}
+                                </span>
+                            </div>
+
+                            <i class="fa-solid fa-chevron-right chevron" *ngIf="wfDisplay.instances?.length > 0"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instances (back + add) -->
+            <div *ngIf="activeDisplay">
+                <div class="at-list">
+                    <div class="at-list-item back" (click)="onBack()" *ngIf="!modalControl">
+                        <span class="workflow-content">
+                            <i class="fa-solid fa-chevron-left chevron"></i>
+                            <div class="workflow-caption">
+                                <span class="back">{{activeDisplay.workflow.displayName | tlang}}</span>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="at-list-item" (click)="onLaunchWorkflow(activeDisplay.workflow.uuid)"
+                        [ngClass]="{'disabled': activeDisplay.unique}">
+                        <span class="workflow-content">
+                            <span class="workflow-icon">
+                                <i class="fa-solid fa-circle-plus new"></i>
+                            </span>
+                            <div class="workflow-caption">
+                                <span class="title">
+                                    {{'WORKFLOW-NEW' | translate}}
+                                </span>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="at-list-item" [attr.id]="instance.uuid"
+                        *ngFor="let instance of activeDisplay.instances, let i = index"
+                        (click)="onLaunchInstance(activeDisplay.workflow.uuid, instance)"
+                        [ngClass]="{'disabled': instance.waiting}">
+
+                        <span class="workflow-content">
+                            <span class="workflow-icon">
+                                <i class="fa-solid" [ngClass]="{
+                                                'fa-play-circle': !instance.waiting,
+                                                'fa-pause-circle': instance.waiting
+                                            }"></i>
+                                <span class="participants" *ngIf="instance.participants.length > 1">
+                                    <i class="fa-solid fa-user"></i>
+                                    <i class="fa-solid fa-user"></i>
+                                </span>
+                            </span>
+                            <div class="workflow-caption deletable">
+                                <span class="title">
+                                    {{instance.updateDate | localeDate: 'medium' }}
+                                </span>
+                                <span class="description task-info">
+                                    {{'WORKFLOW-INSTANCES-INFO' |
+                                    translate:{
+                                    step: instance.step?.displayName | tlang,
+                                    task: instance.task?.general.displayName | tlang
+                                    }
+                                    }}
+                                </span>
+                            </div>
+
+                            <i class="fa-solid fa-trash remove" (click)="remove($event, i)"
+                                [ngClass]="{'disabled': instance.participants.length > 1}">
+                            </i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>

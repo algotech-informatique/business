@@ -1,0 +1,10 @@
+<widget-document-base 
+    [files]="files"
+    [options]="_widget.custom"
+    [readonly]="readonly"
+    [mobile]="dataService.mobile"
+    [hasWorkflows]="hasWorkflows"
+    (openedFile)="onOpenFile($event)"
+    (launched)="onLaunch($event)">
+</widget-document-base>
+ 

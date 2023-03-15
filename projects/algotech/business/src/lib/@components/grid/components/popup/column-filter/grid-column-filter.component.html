@@ -1,0 +1,64 @@
+<div class="items filter" *ngIf="column.filter && indexed">
+    <div class="item filter">
+        <div class="item-content">
+            <i class="icon fa-solid fa-filter"></i>
+            {{'GRID-FILTER' | translate}}
+        </div>
+        <div class="reset" *ngIf="filter?.value?.criteria" (click)="onCriteriaChanged('')">
+            <i class="fa-solid fa-filter-circle-xmark"></i>
+        </div>
+    </div>
+    <div class="card">
+        <at-so-input
+            class="input"
+            [caption]="'SN-FILTER.CRITERIA' | translate"
+            [type]="'select'"
+            [value]="filter?.value?.criteria"
+            [items]="criterias"
+            (changed)="onCriteriaChanged($event)">
+        </at-so-input>
+
+        <at-so-input
+            *ngIf="filter?.value?.criteria && filter.value.criteria !== 'isNull' && filter.value.criteria !== 'exists'"
+            class="input"
+            [caption]="'SN-FILTER.VALUE' | translate"
+            [type]="formattedType"
+            [items]="column.custom?.items"
+            [value]="filter?.value?.value"
+            (changed)="onValueChanged($event)">
+        </at-so-input>
+
+        <at-so-input
+            *ngIf="filter?.value?.criteria && filter.value.criteria === 'between'"
+            class="input"
+            [caption]="'SN-FILTER.VALUE' | translate"
+            [type]="formattedType"
+            [value]="filter?.value?.secondValue"
+            (changed)="onSecondValueChanged($event)">
+        </at-so-input>
+    </div>
+</div>
+<div class="items" *ngIf="column.sort && indexed">
+    <div class="item" [class.selected]="(currentQuery?.order | gridColumnOrder:column.key) === 'asc'"
+        (click)="clickOrderItem('asc')">
+        <div class="item-content">
+            <i class="icon fa-solid fa-arrow-up"></i>
+            {{'GRID-SORT-ASC' | translate}}
+        </div>
+    </div>
+    <div class="item" [class.selected]="(currentQuery?.order | gridColumnOrder:column.key) === 'desc'"
+        (click)="clickOrderItem('desc')">
+        <div class="item-content">
+            <i class="icon fa-solid fa-arrow-down"></i>
+            {{'GRID-SORT-DESC' | translate}}
+        </div>
+    </div>
+</div>
+<div class="items" *ngIf="headerEditable">
+    <div class="item" (click)="clickHide()">
+        <div class="item-content">
+            <i class="icon fa-solid fa-eye-slash"></i>
+            {{'GRID-HIDE-COLUMN' | translate}}
+        </div>
+    </div>
+</div>

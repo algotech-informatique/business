@@ -1,0 +1,25 @@
+<div class="item-container" *ngIf="element">
+    <at-so-input class="checkbox" type="checkbox" *ngIf="checkable" [value]="element.checked || element.deletable">
+    </at-so-input>
+    
+    <div class="item-content" [ngClass]="{'item-content-option': checkable}">
+        <div class="item-header" *ngIf="display">{{ display }}</div>
+
+        <div class="item-properties">
+            <div *ngIf="!element.file" class="undefined">{{'SO-FORM-UNDEFINED-OBJECT' | translate}}</div>
+            <span *ngIf="element.file">
+                <span class="property">
+                    <div class="so-display">
+                        <at-file-component [file]="element.file"></at-file-component>
+                        <div class="so-property" *ngFor="let so of element.linkedObjects">
+                            <i class="fa-solid fa-cube style-icon"></i>
+                            <div>{{so.primary}}</div>
+                            <div class="so-secondary" *ngIf="so.secondary">{{so.secondary}}</div>
+                        </div>
+                    </div>
+                    
+                </span>
+            </span>
+        </div>
+    </div>
+</div>

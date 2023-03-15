@@ -1,0 +1,281 @@
+@import '../../../mixins';
+
+:host {
+    --PADDING-INPUT: 10px 0px;
+    --BORDER: 1px solid var(--ALGOTECH-SECONDARY-BORDER);
+    --BORDER-DANGER: 1px solid var(--ALGOTECH-DANGER-BORDER);
+    --BORDER-HOVER: 2px solid var(--ALGOTECH-SUCCESS-BORDER);
+    --BORDER-BALANCING: 1px;
+
+    --INPUT-TEXT-ALIGN: inherit;
+    --CHECKBOX-MARGIN-RIGHT: 10px;
+
+    --TEXTAREA-BG-HOVER: var(--ALGOTECH-PRIMARY-HOVER);
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: var(--BORDER);
+    color: var(--ALGOTECH-TERTIARY);
+    padding: 10px 0px;
+    font-size: 1em;
+    transition: border-color 0.2s;
+    height: 2em;
+    text-align: var(--INPUT-TEXT-ALIGN);
+    &::placeholder {
+        color: var(--ALGOTECH-SECONDARY);
+        font-style: italic;
+    }
+    &:focus {
+        &:not(textarea) {
+            &:not(select) {
+                padding-top: calc(10px + var(--BORDER-BALANCING));
+            }
+        }
+
+        border-bottom: var(--BORDER-HOVER);
+        outline: none;
+    }
+}
+
+select {
+    padding: 0;
+    option {
+        background: var(--ALGOTECH-BACKGROUND);
+        padding: 0;
+        &:checked {
+            background: var(--ALGOTECH-SUCCESS-HOVER);
+        }
+        font-size: var(--SELECT-OPTION-FONT-SIZE, inherit);
+    }
+}
+
+textarea {
+    padding: 5px 10px;
+    overflow: hidden;
+    resize: none;
+    line-height: 1.5em;
+    height: auto;
+    transition: height 0.2s;
+    max-height: 20em;
+    display: block;
+    white-space: var(--TEXTAREA-WHITE-SPACE, unset);
+
+    &:focus {
+        background-color: var(--TEXTAREA-BG-HOVER);
+
+        &:not(.autoHeight) {
+            @include scrollbar-hidden();
+        }
+        &.autoHeight {
+            @include scrollbar();
+            height: 6em;
+        }
+    }
+    &::placeholder {
+        font-size: 0.75em;
+    }
+    &.mobile {
+        @media only screen and (max-height: 1400px) {
+            max-height: 11em;
+        }
+        @media only screen and (max-height: 1200px) {
+            max-height: 9em;
+        }
+        @media only screen and (max-height: 1000px) {
+            max-height: 7em;
+        }
+        @media only screen and (max-height: 800px) {
+            max-height: 5em;
+        }
+    }
+}
+
+.container {
+    position: relative;
+    padding: var(--PADDING-INPUT);
+
+    .input {
+        transition: color 0.2s;
+
+        .caption {
+            font-size: 0.75em;
+            color: var(--ALGOTECH-SECONDARY);
+        }
+
+        &.error {
+            .caption {
+                color: var(--ALGOTECH-DANGER);
+            }
+            input,
+            select,
+            textarea {
+                border-bottom: var(--BORDER-DANGER);
+            }
+        }
+
+        &:focus-within {
+            .caption {
+                color: var(--ALGOTECH-SUCCESS);
+            }
+            input,
+            select,
+            textarea {
+                border-bottom: var(--BORDER-HOVER);
+            }
+        }
+
+        &:not(.mobile) {
+            .date {
+                position: relative;
+            }
+            .date::-webkit-calendar-picker-indicator {
+                color: transparent;
+                background: none;
+                z-index: 1;
+                cursor: pointer;
+            }
+            .date:before {
+                color: var(--ALGOTECH-PRIMARY);
+                background: none;
+                display: block;
+                font-family: 'Font Awesome 6 Pro';
+                width: 15px;
+                height: 20px;
+                position: absolute;
+                top: 6px;
+                right: 6px;
+                content: '\f133';
+            }
+            .time:before {
+                content: '\f017';
+            }
+        }
+
+        .icon {
+            color: var(--ALGOTECH-SECONDARY);
+            position: absolute;
+            right: 5px;
+            top: 8px;
+        }
+    }
+
+    .error-caption {
+        color: var(--ALGOTECH-DANGER);
+        font-size: 0.75em;
+        height: 0px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        transition: height 0.2s;
+        &.visible {
+            height: 19px;
+        }
+    }
+}
+
+.searchBar {
+    color: var(--ALGOTECH-TERTIARY);
+    position: relative;
+    margin: 0 5px;
+    transition: color 0.2s;
+    height: 100%;
+
+    i {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+
+        &.icon-search {
+            left: 10px;
+        }
+
+        &.icon-remove {
+            right: 10px;
+            cursor: pointer;
+            color: var(--ALGOTECH-PRIMARY);
+            &:hover {
+                color: var(--ALGOTECH-DANGER);
+            }
+        }
+    }
+
+    input[type=text] {
+        padding: 0px 30px;
+        border-radius: 3px;
+        border: none;
+        border: 1px solid var(--ALGOTECH-BACKGROUND-BORDER);
+        width: 100%;
+        &::placeholder {
+            font-size: 1em;
+            opacity: 0.6;
+        }
+    }
+
+    &:focus-within {
+        color: var(--ALGOTECH-SUCCESS);
+
+        input {
+            border: var(--BORDER-HOVER);
+        }
+    }
+}
+
+.checkbox {
+    margin-right: var(--CHECKBOX-MARGIN-RIGHT);
+    padding: 10px 0px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    &.active {
+        color: var(--ALGOTECH-SUCCESS);
+        .circle-border {
+            border: 2px solid var(--ALGOTECH-SUCCESS);
+        }
+        &:hover {
+            color: var(--ALGOTECH-SUCCESS-SHADE) !important;
+        }
+    }
+    &:not(.active) {
+        color: var(--ALGOTECH-SECONDARY);
+        &:hover {
+            color: var(--ALGOTECH-SECONDARY-SHADE) !important;
+        }
+        .circle-border {
+            border: 2px solid var(--ALGOTECH-SECONDARY);
+        }
+    }
+    .checkbox-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        i {
+            margin-right: var(--CHECKBOX-MARGIN-RIGHT);
+        }
+    }
+
+    .radio-content {
+        display: flex;
+        align-items: center;
+        margin-right: 10px;
+        .circle-border {
+            margin-right: 10px;
+            height: 16px;
+            width: 16px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .circle-content {
+                background-color: var(--ALGOTECH-SUCCESS);
+                height: 8px;
+                width: 8px;
+                border-radius: 8px;
+            }
+        }
+    }
+}

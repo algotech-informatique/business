@@ -2,8 +2,8 @@ import { EventEmitter, Component, Input, Output, OnInit } from '@angular/core';
 import { InputDisplay } from '../dto/input-display.dto';
 import { InputsGridService } from '../inputs-grid.service';
 import * as _ from 'lodash';
-import { PairDto, SmartObjectDto, WorkflowVariableModelDto } from '@algotech/core';
-import { GestionDisplaySettingsService, sources } from '@algotech/angular';
+import { PairDto, SmartObjectDto, WorkflowVariableModelDto } from '@algotech-ce/core';
+import { GestionDisplaySettingsService, sources } from '@algotech-ce/angular';
 import { Observable, zip } from 'rxjs';
 import { InputLocation } from '../dto/input-location.dto';
 

@@ -1,6 +1,6 @@
 import { IsDefined, IsOptional } from 'class-validator';
 import { CustomResolver } from '../custom-resolver.type';
-import { PairDto, SmartModelDto, SmartObjectDto, SysFile } from '@algotech/core';
+import { PairDto, SmartModelDto, SmartObjectDto, SysFile } from '@algotech-ce/core';
 
 export class TaskConvertDto {
 

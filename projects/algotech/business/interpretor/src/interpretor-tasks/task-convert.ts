@@ -4,7 +4,7 @@ import { TaskBase } from './task-base';
 import { InterpretorTaskDto, InterpretorValidateDto, TaskConvertDto, InterpretorTransferTransitionDto, WorkflowTaskActionUploadDto } from '../dto';
 import { map, catchError, mergeMap } from 'rxjs/operators';
 import { TaskConvertError } from '../error/tasks-error';
-import { SmartObjectDto, WorkflowVariableModelDto, PairDto, SysFile, FileUploadDto } from '@algotech/core';
+import { SmartObjectDto, WorkflowVariableModelDto, PairDto, SysFile, FileUploadDto } from '@algotech-ce/core';
 import { UUID } from 'angular2-uuid';
 import moment from 'moment';
 

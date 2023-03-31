@@ -4,7 +4,7 @@ import { fixtTaskBreadCrumbUpload, fixtTaskBreadCrumbTodo,
 import { fixtSmartflowService, fixtWorkflowModel1 } from './workflow-models';
 import { Observable, of } from 'rxjs';
 import { fixtSODocument_02 } from './smart-objects';
-import { SmartObjectDto, PairDto, NotificationDto } from '@algotech/core';
+import { SmartObjectDto, PairDto, NotificationDto } from '@algotech-ce/core';
 import { fixtSysNotify } from './sys-objects';
 
 export const fixtInterpretorFirstTask: InterpretorTaskDto = {

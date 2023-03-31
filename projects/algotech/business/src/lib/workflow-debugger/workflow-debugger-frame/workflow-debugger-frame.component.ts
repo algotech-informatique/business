@@ -1,10 +1,10 @@
 import { Component, Input, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import {
     WorkflowModelDto, PairDto, WorkflowSettingsDto, WorkflowProfilModelDto, WorkflowSettingsSecurityGroupsDto
-} from '@algotech/core';
+} from '@algotech-ce/core';
 import { UUID } from 'angular2-uuid';
 import * as _ from 'lodash';
-import { SettingsDataService, EnvService, AuthService, LocalProfil } from '@algotech/angular';
+import { SettingsDataService, EnvService, AuthService, LocalProfil } from '@algotech-ce/angular';
 import { WorkflowSubjectService } from '../../workflow-interpretor/workflow-subject/workflow-subject.service';
 import { Subscription } from 'rxjs';
 import { InterpretorSubjectDto } from '../../../../interpretor/src';

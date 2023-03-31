@@ -1,8 +1,8 @@
-import { SnPageDto, SnPageWidgetDto, WsUserDto } from '@algotech/core';
+import { SnPageDto, SnPageWidgetDto, WsUserDto } from '@algotech-ce/core';
 import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { style, animate, transition, trigger } from '@angular/animations';
-import { AuthService, SocketManager } from '@algotech/angular';
-import { WS_USERS_COLORS } from '@algotech/angular';
+import { AuthService, SocketManager } from '@algotech-ce/angular';
+import { WS_USERS_COLORS } from '@algotech-ce/angular';
 
 const COLOR_CURRENT_USER = '#495199';
 const COLOR_DEFAULT = '#000000';

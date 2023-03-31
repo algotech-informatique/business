@@ -1,4 +1,4 @@
-import { ApplicationModelDto, SnPageDto, SnPageWidgetDto } from '@algotech/core';
+import { ApplicationModelDto, SnPageDto, SnPageWidgetDto } from '@algotech-ce/core';
 import { ChangeDetectorRef, Component, ElementRef, ViewChild } from '@angular/core';
 import { ThemeEngloberService } from '../../../../theme-englober/theme-englober.service';
 import * as _ from 'lodash';

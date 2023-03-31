@@ -1,5 +1,5 @@
-import { AuthService } from '@algotech/angular';
-import { TagDto } from '@algotech/core';
+import { AuthService } from '@algotech-ce/angular';
+import { TagDto } from '@algotech-ce/core';
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';

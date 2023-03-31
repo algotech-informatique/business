@@ -1,4 +1,4 @@
-import { ApplicationModelDto, PairDto, SmartObjectDto, SnPageDto, SnPageWidgetDto, ZoneDto } from '@algotech/core';
+import { ApplicationModelDto, PairDto, SmartObjectDto, SnPageDto, SnPageWidgetDto, ZoneDto } from '@algotech-ce/core';
 import { AfterViewInit, Component, EventEmitter, Input, Output } from '@angular/core';
 import { SoUtilsService } from '../../../../../workflow-interpretor/@utils/so-utils.service';
 import { SysUtilsService } from '../../../../../workflow-interpretor/@utils/sys-utils.service';

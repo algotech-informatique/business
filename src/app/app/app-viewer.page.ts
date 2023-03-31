@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService, DataService, LoaderService, NetworkService, SettingsDataService, SocketManager } from '@algotech/angular';
+import { AuthService, DataService, LoaderService, NetworkService, SettingsDataService, SocketManager } from '@algotech-ce/angular';
 import { ActivatedRoute, ActivatedRouteSnapshot, Params, Router } from '@angular/router';
-import { ApplicationModelDto, GroupDto, PairDto, SnAppDto, SnPageDto } from '@algotech/core';
+import { ApplicationModelDto, GroupDto, PairDto, SnAppDto, SnPageDto } from '@algotech-ce/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import * as _ from 'lodash';

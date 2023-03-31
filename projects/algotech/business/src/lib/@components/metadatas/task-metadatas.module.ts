@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { TaskMetadatasComponent } from './task-metadatas.component';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
-import { PipesModule } from '@algotech/angular';
+import { PipesModule } from '@algotech-ce/angular';
 import { FormsModule } from '@angular/forms';
 import { SoInputModule } from '../so-component/so-input/so-input.module';
 

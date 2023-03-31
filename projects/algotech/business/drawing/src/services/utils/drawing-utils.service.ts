@@ -1,4 +1,4 @@
-import { DrawingLineDto } from '@algotech/core';
+import { DrawingLineDto } from '@algotech-ce/core';
 import { Injectable } from '@angular/core';
 import * as _ from 'lodash';
 

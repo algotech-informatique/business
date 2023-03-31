@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { SmartPropertyModelDto, SmartObjectDto } from '@algotech/core';
+import { SmartPropertyModelDto, SmartObjectDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import { ISoFormBreadCrumb } from '../so-form-interface';
 import { SoFormService } from '../so-form.service';

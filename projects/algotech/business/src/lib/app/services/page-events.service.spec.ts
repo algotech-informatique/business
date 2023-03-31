@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 import { PageEventsService } from './page-events.service';
 import { appTestReload } from './test-fixtures/app-test-reload';
 import * as _ from 'lodash';
-import { ApplicationModelDto } from '@algotech/core';
+import { ApplicationModelDto } from '@algotech-ce/core';
 import { AppTestModule } from '../../workflow-interpretor/test-fixtures/mock/app.test.module';
 
 describe(PageEventsService.name, () => {

@@ -1,4 +1,4 @@
-import { SmartObjectDto, DocumentDto, SysFile } from '@algotech/core';
+import { SmartObjectDto, DocumentDto, SysFile } from '@algotech-ce/core';
 import { LinkDocumentDisplay } from './link-document-display.dto';
 import { LinkDocumentObject } from './link-document-object.dto';
 

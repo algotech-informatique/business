@@ -1,4 +1,4 @@
-import { DrawingDataDto, DrawingPenList } from '@algotech/core';
+import { DrawingDataDto, DrawingPenList } from '@algotech-ce/core';
 import { Injectable } from '@angular/core';
 import * as d3 from 'd3';
 import { DrawingLinesService } from './drawing-lines.service';

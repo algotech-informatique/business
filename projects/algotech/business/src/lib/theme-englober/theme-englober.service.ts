@@ -1,5 +1,5 @@
-import { SettingsDataService } from '@algotech/angular';
-import { ThemeDto } from '@algotech/core';
+import { SettingsDataService } from '@algotech-ce/angular';
+import { ThemeDto } from '@algotech-ce/core';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 

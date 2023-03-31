@@ -1,6 +1,6 @@
 import {
     WorkflowInstanceDto, WorkflowModelDto, PairDto, WorkflowDataDto, WorkflowSettingsDto, WorkflowInstanceContextDto, SmartObjectDto
-} from '@algotech/core';
+} from '@algotech-ce/core';
 import { InterpretorTaskDto, InterpretorValidateDto, InterpretorJumpDto, InterpretorFinisherDto, InterpretorMetricsKeys, DownloadDataDto } from './dto';
 import { Observable, throwError, of, zip, defer } from 'rxjs';
 import { delayWhen, catchError, tap, map, mergeMap, first } from 'rxjs/operators';

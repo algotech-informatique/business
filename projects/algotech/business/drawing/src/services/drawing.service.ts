@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { DrawingMode } from '../interfaces';
-import { DrawingDataDto, DrawingPenList } from '@algotech/core';
+import { DrawingDataDto, DrawingPenList } from '@algotech-ce/core';
 import * as d3 from 'd3';
 import { DrawingD3EventService } from './d3js/drawing-d3event.service';
 

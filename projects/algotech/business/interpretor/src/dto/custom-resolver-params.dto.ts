@@ -1,4 +1,4 @@
-import { SysQueryDto } from '@algotech/core';
+import { SysQueryDto } from '@algotech-ce/core';
 
 export class CustomResolverParams {
     formatted?: boolean;

@@ -1,4 +1,4 @@
-import { SmartObjectDto, SysFile } from "@algotech/core";
+import { SmartObjectDto, SysFile } from "@algotech-ce/core";
 
 export const smartObject: SmartObjectDto = {
   modelKey: 'toto',

@@ -1,7 +1,7 @@
 import { Observable, zip, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import * as _ from 'lodash';
-import { EMailDto, SysFile } from '@algotech/core';
+import { EMailDto, SysFile } from '@algotech-ce/core';
 import { TaskBase } from './task-base';
 import { InterpretorValidateDto, InterpretorTaskDto } from '../dto';
 import { TaskEmailDto } from '../dto/tasks/task-email.dto';

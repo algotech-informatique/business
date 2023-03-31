@@ -1,5 +1,5 @@
 import { IsDefined, IsOptional } from 'class-validator';
-import { PairDto, SmartObjectDto } from '@algotech/core';
+import { PairDto, SmartObjectDto } from '@algotech-ce/core';
 import { CustomResolver } from '../custom-resolver.type';
 
 export class TaskAssignObjectDto {

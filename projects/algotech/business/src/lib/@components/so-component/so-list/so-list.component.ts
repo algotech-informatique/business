@@ -1,10 +1,10 @@
 import { Component, Input, OnChanges, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
-import { LangDto, SmartPropertyObjectDto } from '@algotech/core';
+import { LangDto, SmartPropertyObjectDto } from '@algotech-ce/core';
 import { Observable, Subject, zip, of, Subscription } from 'rxjs';
 import { debounceTime, map, mergeMap, tap, catchError } from 'rxjs/operators';
 import { ISoItemObject } from '../so-item/so-item.interface';
 import * as _ from 'lodash';
-import { AuthService, GestionDisplaySettingsService, TranslateLangDtoService } from '@algotech/angular';
+import { AuthService, GestionDisplaySettingsService, TranslateLangDtoService } from '@algotech-ce/angular';
 import { SysUtilsService } from '../../../workflow-interpretor/@utils/sys-utils.service';
 import { SoUtilsService } from '../../../workflow-interpretor/@utils/so-utils.service';
 import { TranslateService } from '@ngx-translate/core';

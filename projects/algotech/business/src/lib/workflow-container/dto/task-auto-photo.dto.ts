@@ -1,5 +1,5 @@
 import { IsDefined, IsOptional } from 'class-validator';
-import { SmartObjectDto } from '@algotech/core';
+import { SmartObjectDto } from '@algotech-ce/core';
 import { CustomResolver } from '../../../../interpretor/src/dto';
 
 export class TaskAutoPhotoDto {

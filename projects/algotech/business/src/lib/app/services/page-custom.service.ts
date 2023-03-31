@@ -1,5 +1,5 @@
-import { AuthService, SettingsDataService, TranslateLangDtoService } from '@algotech/angular';
-import { SmartObjectDto, SnPageWidgetDto } from '@algotech/core';
+import { AuthService, SettingsDataService, TranslateLangDtoService } from '@algotech-ce/angular';
+import { SmartObjectDto, SnPageWidgetDto } from '@algotech-ce/core';
 import { Injectable } from '@angular/core';
 import * as _ from 'lodash';
 import moment from 'moment';

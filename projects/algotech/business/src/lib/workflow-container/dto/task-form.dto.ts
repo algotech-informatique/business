@@ -1,6 +1,6 @@
 import { IsDefined, IsOptional } from 'class-validator';
 import { CustomResolver } from '../../../../interpretor/src/dto';
-import { SmartObjectDto } from '@algotech/core';
+import { SmartObjectDto } from '@algotech-ce/core';
 import { PropertiesOptionsDto } from '../../dto/properties-options.dto';
 
 export class TaskFormDto {

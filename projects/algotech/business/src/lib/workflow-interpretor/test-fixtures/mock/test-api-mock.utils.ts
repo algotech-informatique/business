@@ -1,7 +1,7 @@
 import { HttpTestingController } from '@angular/common/http/testing';
 import { fixtSOEquipmentFromAPI, fixtSODocumentApi, fixtSOUserApi, fixtSmartObjects } from '../smart-objects';
 import { workflowInstances } from '../workflow-instances';
-import { WorkflowInstanceDto, WorkflowInstanceContextDto, SmartObjectDto } from '@algotech/core';
+import { WorkflowInstanceDto, WorkflowInstanceContextDto, SmartObjectDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import { fixtSmartModels } from '../smart-models';
 import { fixtGlists } from '../genericlists';

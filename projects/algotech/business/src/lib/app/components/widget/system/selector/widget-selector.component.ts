@@ -1,8 +1,8 @@
-import { SnPageWidgetDto, ApplicationModelDto, GroupDto, SnPageDto } from '@algotech/core';
+import { SnPageWidgetDto, ApplicationModelDto, GroupDto, SnPageDto } from '@algotech-ce/core';
 import { EventData } from '../../../../models';
 import { Component, ElementRef, EventEmitter, ViewChild } from '@angular/core';
 import { Widget } from '../../widget.interface';
-import { Application, applications, AuthService, DataService, EnvService, SettingsDataService, TranslateLangDtoService } from '@algotech/angular';
+import { Application, applications, AuthService, DataService, EnvService, SettingsDataService, TranslateLangDtoService } from '@algotech-ce/angular';
 import { style, animate, transition, trigger } from '@angular/animations';
 import * as _ from 'lodash';
 import { Router } from '@angular/router';

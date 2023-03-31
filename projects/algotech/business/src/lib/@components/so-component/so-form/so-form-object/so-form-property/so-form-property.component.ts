@@ -1,10 +1,10 @@
 import { Component, Input, Output, EventEmitter, AfterViewInit, ChangeDetectorRef } from '@angular/core';
-import { SmartPropertyObjectDto, SmartPropertyModelDto } from '@algotech/core';
+import { SmartPropertyObjectDto, SmartPropertyModelDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import { SoFormService } from '../../so-form.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ISoFormProperty, ISoFormBreadCrumb } from '../../so-form-interface';
-import { TranslateLangDtoService } from '@algotech/angular';
+import { TranslateLangDtoService } from '@algotech-ce/angular';
 import { Platform } from '@ionic/angular';
 import { zip, Observable } from 'rxjs';
 

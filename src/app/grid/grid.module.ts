@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { GridModule } from '../../../projects/algotech/business/src/lib/@components/grid/grid.module';
 import { GridPage } from './grid.component';
-import { PipesModule } from '@algotech/angular';
+import { PipesModule } from '@algotech-ce/angular';
 
 const routes: Routes = [
     {

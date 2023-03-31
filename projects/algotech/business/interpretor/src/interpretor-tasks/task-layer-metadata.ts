@@ -3,7 +3,7 @@ import { InterpretorValidateDto, InterpretorTaskDto, TaskLayerMetadataDto, Inter
 import { TaskBase } from './task-base';
 import { map, catchError } from 'rxjs/operators';
 import { TaskLayerMetadataError } from '../error/tasks-error';
-import { GeoDto, PairDto, PlanContainersSettingsDto, MetaDatasDto, SmartObjectDto } from '@algotech/core';
+import { GeoDto, PairDto, PlanContainersSettingsDto, MetaDatasDto, SmartObjectDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 
 export class TaskLayerMetadata extends TaskBase {

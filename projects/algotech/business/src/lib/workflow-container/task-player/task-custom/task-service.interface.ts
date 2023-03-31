@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { WorkflowInstanceDto } from '@algotech/core';
+import { WorkflowInstanceDto } from '@algotech-ce/core';
 import { InterpretorValidateDto } from '../../../../../interpretor/src/dto';
 import { InterpretorTaskDto } from '../../../../../interpretor/src/dto';
 import { InterpretorJumpDto } from '../../../../../interpretor/src/dto';

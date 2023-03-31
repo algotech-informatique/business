@@ -4,7 +4,7 @@ import {
     SmartObjectDto, WorkflowOperationDto, WorkflowDataDto,
     SmartModelDto, TaskTransitionModelDto, PatchPropertyDto, SmartPropertyObjectDto, CrudDto, WorkflowTaskActionDto, DocumentDto,
     PatchService
-} from '@algotech/core';
+} from '@algotech-ce/core';
 import { InterpretorAction, ActionResult } from './interpretor-action';
 import { InterpretorTransferTransitionDto } from '../../dto';
 import { WorkflowErrorPlaceToSaved, WorkflowErrorSmartObjectNotFind } from '../../error/interpretor-error';

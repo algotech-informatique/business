@@ -1,9 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import * as _ from 'lodash';
-import { SearchSOFilterDto, SysQueryDto } from '@algotech/core';
+import { SearchSOFilterDto, SysQueryDto } from '@algotech-ce/core';
 import { GridConfigurationDto } from '../../dto/grid-configuration.dto';
 import { GridStorageDto } from '../../dto/grid-storage.dto';
-import { DataService } from '@algotech/angular';
+import { DataService } from '@algotech-ce/angular';
 
 @Component({
     selector: 'at-grid-filters',

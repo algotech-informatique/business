@@ -1,4 +1,4 @@
-import { ApplicationModelDto, SnPageDto, SnPageWidgetDto } from '@algotech/core';
+import { ApplicationModelDto, SnPageDto, SnPageWidgetDto } from '@algotech-ce/core';
 import { AfterViewInit, Component, EventEmitter } from '@angular/core';
 import { GridColumnConfigurationDto } from '../../../../../@components/grid/dto/grid-column-configuration.dto';
 import { WorkflowLaunchService } from '../../../../../workflow-launcher/workflow-layout.lancher.service';

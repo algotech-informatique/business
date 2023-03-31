@@ -1,5 +1,5 @@
-import { AuthService } from '@algotech/angular';
-import { NotificationDto, SnPageDto, SnPageWidgetDto } from '@algotech/core';
+import { AuthService } from '@algotech-ce/angular';
+import { NotificationDto, SnPageDto, SnPageWidgetDto } from '@algotech-ce/core';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input,
     OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';

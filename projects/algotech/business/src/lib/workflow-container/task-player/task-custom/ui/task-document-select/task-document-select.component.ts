@@ -8,7 +8,7 @@ import { InterpretorValidateDto } from '../../../../../../../interpretor/src/dto
 
 import { TaskDocumentSelectDto } from '../../../../dto/task-document-select.dto';
 import { SoUtilsService } from '../../../../../workflow-interpretor/@utils/so-utils.service';
-import { DocumentDto, SysFile } from '@algotech/core';
+import { DocumentDto, SysFile } from '@algotech-ce/core';
 import { LinkDocument } from '../../../../../dto/link-document/link-document.dto';
 import { LinkDocumentDisplay } from '../../../../../dto/link-document/link-document-display.dto';
 import { NgComponentError } from '../../../../../../../interpretor/src/error/tasks-error';

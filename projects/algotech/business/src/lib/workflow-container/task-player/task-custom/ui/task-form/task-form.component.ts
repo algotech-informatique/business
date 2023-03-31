@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { TaskComponent } from '../../task.interface';
 import { TaskFormDto } from '../../../../dto/task-form.dto';
 import { zip, of } from 'rxjs';
-import { SmartObjectDto, WorkflowOperationDto, CrudDto, TagListDto, SmartPropertyModelDto } from '@algotech/core';
+import { SmartObjectDto, WorkflowOperationDto, CrudDto, TagListDto, SmartPropertyModelDto } from '@algotech-ce/core';
 import { TaskFormError } from '../../../../container-error/container-error';
 import * as _ from 'lodash';
 import { InterpretorTaskDto } from '../../../../../../../interpretor/src/dto';
@@ -11,7 +11,7 @@ import { InterpretorTransferTransitionDto } from '../../../../../../../interpret
 import { WorkflowUtilsService } from '../../../../../workflow-interpretor/workflow-utils/workflow-utils.service';
 import { InterpretorTaskActionAssetDto } from '../../../../../../../interpretor/src/dto';
 import { PropertiesOptionsDto } from '../../../../../dto/properties-options.dto';
-import { SettingsDataService } from '@algotech/angular';
+import { SettingsDataService } from '@algotech-ce/angular';
 import { SoUtilsService } from '../../../../../workflow-interpretor/@utils/so-utils.service';
 import { NgComponentError } from '../../../../../../../interpretor/src/error/tasks-error';
 import { TaskUtilsService } from '../../../../../workflow-interpretor/@utils/task-utils.service';

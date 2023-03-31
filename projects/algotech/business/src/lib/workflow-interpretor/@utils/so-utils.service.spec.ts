@@ -4,7 +4,7 @@ import { AppTestModule } from '../test-fixtures/mock/app.test.module';
 import { ReportsUtilsService } from './reports-utils.service';
 import { SoUtilsService } from './so-utils.service';
 import { fixtSmartModels } from '../test-fixtures/smart-models';
-import { PairDto, SmartObjectDto } from '@algotech/core';
+import { PairDto, SmartObjectDto } from '@algotech-ce/core';
 import { fixtImportSmartObjects } from '../test-fixtures/import.smart-object';
 import moment from 'moment';
 

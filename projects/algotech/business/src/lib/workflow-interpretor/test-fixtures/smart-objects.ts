@@ -1,4 +1,4 @@
-import { ATSkillsDto, SmartObjectDto, SmartPropertyObjectDto } from '@algotech/core';
+import { ATSkillsDto, SmartObjectDto, SmartPropertyObjectDto } from '@algotech-ce/core';
 import moment from 'moment';
 
 export const fixtSOEquipment_01: SmartObjectDto = {

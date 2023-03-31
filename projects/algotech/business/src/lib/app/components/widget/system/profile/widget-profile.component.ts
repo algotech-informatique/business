@@ -1,8 +1,8 @@
-import { SnPageWidgetDto, ApplicationModelDto, WsUserDto, SnPageDto } from '@algotech/core';
+import { SnPageWidgetDto, ApplicationModelDto, WsUserDto, SnPageDto } from '@algotech-ce/core';
 import { EventData } from '../../../../models';
 import { Component, ElementRef, EventEmitter, ViewChild } from '@angular/core';
 import { Widget } from '../../widget.interface';
-import { AuthService } from '@algotech/angular';
+import { AuthService } from '@algotech-ce/angular';
 
 @Component({
   selector: 'widget-profile',

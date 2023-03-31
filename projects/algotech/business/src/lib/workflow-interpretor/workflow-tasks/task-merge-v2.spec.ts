@@ -6,7 +6,7 @@ import { WorkflowUtilsService } from '../workflow-utils/workflow-utils.service';
 import { fixtSmartModels } from '../test-fixtures/smart-models';
 import { fixtSODocument_01, fixtSODocument_01_update, fixtSODocument_03, fixtSODocument_04, fixtSODocument_05, fixtSODocument_06, fixtSOEquipment_01,
     textMergeDocument_01, textMergeDocument_02, textMergeDocument_03 } from '../test-fixtures/smart-objects';
-import { SmartObjectDto, SmartPropertyObjectDto } from '@algotech/core';
+import { SmartObjectDto, SmartPropertyObjectDto } from '@algotech-ce/core';
 import { AppTestModule } from '../test-fixtures/mock/app.test.module';
 import { AuthMockService } from '../test-fixtures/mock/auth.mock.service';
 

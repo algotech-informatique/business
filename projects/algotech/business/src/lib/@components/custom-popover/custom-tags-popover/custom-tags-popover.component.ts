@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { TagDto } from '@algotech/core';
+import { TagDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
-import { TranslateLangDtoService } from '@algotech/angular';
+import { TranslateLangDtoService } from '@algotech-ce/angular';
 
 @Component({
     selector: 'at-custom-tags-popover',

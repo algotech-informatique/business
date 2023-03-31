@@ -51,10 +51,10 @@ import {
     fixReverseOperationUpload
 } from '../test-fixtures/operations';
 import * as _ from 'lodash';
-import { WorkflowInstanceDto, WorkflowStackTaskDto, CrudDto, TaskModelDto } from '@algotech/core';
+import { WorkflowInstanceDto, WorkflowStackTaskDto, CrudDto, TaskModelDto } from '@algotech-ce/core';
 import {
     SettingsDataService, DataService,
-} from '@algotech/angular';
+} from '@algotech-ce/angular';
 import { HttpTestingController } from '@angular/common/http/testing';
 import { WorkflowUtilsService } from '../workflow-utils/workflow-utils.service';
 import { TestUtils } from '../test-fixtures/mock/test-api-mock.utils';

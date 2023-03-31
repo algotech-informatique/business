@@ -1,5 +1,5 @@
 import { IsDefined, ValidateNested, IsArray, IsBoolean, IsOptional, IsUUID } from 'class-validator';
-import { LangDto } from '@algotech/core';
+import { LangDto } from '@algotech-ce/core';
 import { Type } from 'class-transformer';
 
 // @dynamic

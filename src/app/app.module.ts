@@ -12,7 +12,7 @@ import {
     I18nService,
     GestionDisplaySettingsService, GeoLocationModule, ATAngularModule,
     EnvService, SocketModule, AuthService, AuthModule, SignInGuard
-} from '@algotech/angular';
+} from '@algotech-ce/angular';
 import { HttpClientModule } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';

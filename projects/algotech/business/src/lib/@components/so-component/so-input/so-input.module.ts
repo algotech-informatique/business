@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SoInputComponent } from './so-input.component';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
-import { PipesModule } from '@algotech/angular';
+import { PipesModule } from '@algotech-ce/angular';
 @NgModule({
     imports: [
         CommonModule,

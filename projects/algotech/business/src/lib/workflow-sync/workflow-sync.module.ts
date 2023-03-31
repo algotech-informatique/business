@@ -4,7 +4,7 @@ import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { WorkflowInstanceCardComponent } from './sync/workflow-instance-card.component';
-import { PipesModule } from '@algotech/angular';
+import { PipesModule } from '@algotech-ce/angular';
 import { TranslateModule } from '@ngx-translate/core';
 import { WorkflowSyncService } from './workflow-sync.service';
 

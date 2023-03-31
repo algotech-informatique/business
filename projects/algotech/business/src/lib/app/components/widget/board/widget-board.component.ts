@@ -1,4 +1,4 @@
-import { SnPageWidgetDto, ApplicationModelDto, SnPageDto, PairDto, SmartObjectDto } from '@algotech/core';
+import { SnPageWidgetDto, ApplicationModelDto, SnPageDto, PairDto, SmartObjectDto } from '@algotech-ce/core';
 import { ChangeDetectorRef, Component, EventEmitter, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { EventData, PageData } from '../../../models';

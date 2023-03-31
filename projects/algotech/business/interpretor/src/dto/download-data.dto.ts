@@ -1,4 +1,4 @@
-import { WorkflowDataDto, DocumentDto, SmartObjectDto } from '@algotech/core';
+import { WorkflowDataDto, DocumentDto, SmartObjectDto } from '@algotech-ce/core';
 
 export class DownloadDataDto {
     datas: WorkflowDataDto[];

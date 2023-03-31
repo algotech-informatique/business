@@ -4,8 +4,8 @@ import {
     Inject
 } from '@angular/core';
 import * as _ from 'lodash';
-import { AuthService, EnvService } from '@algotech/angular';
-import { GenericListDto, WorkflowModelDto, TagListDto, SmartModelDto, SettingsDto, GroupDto, ApplicationModelDto } from '@algotech/core';
+import { AuthService, EnvService } from '@algotech-ce/angular';
+import { GenericListDto, WorkflowModelDto, TagListDto, SmartModelDto, SettingsDto, GroupDto, ApplicationModelDto } from '@algotech-ce/core';
 import { WorkflowSubjectService } from '../../workflow-interpretor/workflow-subject/workflow-subject.service';
 import { WorkflowDebuggerService } from '../workflow-debugger.service';
 import { APP_BASE_HREF } from '@angular/common';

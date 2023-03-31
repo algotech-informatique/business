@@ -1,6 +1,6 @@
 import { IsDefined, IsOptional } from 'class-validator';
 import { CustomResolver } from '../custom-resolver.type';
-import { SmartModelDto, SmartObjectDto } from '@algotech/core';
+import { SmartModelDto, SmartObjectDto } from '@algotech-ce/core';
 
 export class TaskMergeV2Dto {
 

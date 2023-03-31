@@ -13,14 +13,14 @@ import { fixtWorkflowModel1 } from '../../test-fixtures/workflow-models';
 import {
     SmartObjectDto, SmartModelDto, WorkflowInstanceDto, PairDto,
     WorkflowExpressionDto
-} from '@algotech/core';
+} from '@algotech-ce/core';
 import { fixtSmartModels } from '../../test-fixtures/smart-models';
 import {
     WorkflowErrorSmartModelNotFind, WorkflowErrorPropertyNotFind,
     WorkflowErrorDataNotFind, WorkflowErrorSysModelNotFind, WorkflowErrorExpression
 } from '../../../../../interpretor/src/error/interpretor-error';
 import * as _ from 'lodash';
-import { SettingsDataService } from '@algotech/angular';
+import { SettingsDataService } from '@algotech-ce/angular';
 import { HttpTestingController } from '@angular/common/http/testing';
 import { TestUtils } from '../../test-fixtures/mock/test-api-mock.utils';
 import { fixtStackTaskNewDocument, fixtStackTaskNotifyReviewerOp } from '../../test-fixtures/stack-tasks';

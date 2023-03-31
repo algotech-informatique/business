@@ -1,5 +1,5 @@
 import { Subject, Subscription } from 'rxjs';
-import { SmartPropertyModelDto } from '@algotech/core';
+import { SmartPropertyModelDto } from '@algotech-ce/core';
 import { Component, EventEmitter, Input, Output, ViewChild, ElementRef } from '@angular/core';
 import { map } from 'rxjs/operators';
 import * as _ from 'lodash';

@@ -1,4 +1,4 @@
-import { SnAppDto, SnPageBoxDto, SnPageDto, SnPageEventPipeDto, SnPageWidgetDto } from '@algotech/core';
+import { SnAppDto, SnPageBoxDto, SnPageDto, SnPageEventPipeDto, SnPageWidgetDto } from '@algotech-ce/core';
 import { Injectable } from '@angular/core';
 import * as _ from 'lodash';
 

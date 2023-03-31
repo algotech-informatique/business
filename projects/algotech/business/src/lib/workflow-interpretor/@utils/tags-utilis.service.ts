@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { TagListDto } from '@algotech/core';
+import { TagListDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 
 @Injectable()

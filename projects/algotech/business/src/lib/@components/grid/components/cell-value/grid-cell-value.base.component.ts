@@ -1,4 +1,4 @@
-import { PairDto } from '@algotech/core';
+import { PairDto } from '@algotech-ce/core';
 import { SoUtilsService } from '../../../../workflow-interpretor/@utils/so-utils.service';
 
 export abstract class GridCellValueComponentBase {

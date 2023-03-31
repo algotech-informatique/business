@@ -1,4 +1,4 @@
-import { PairDto } from '@algotech/core';
+import { PairDto } from '@algotech-ce/core';
 import { GridColumnConfigurationDto } from './grid-column-configuration.dto';
 import { GridSelectionDto } from './grid-selection.dto';
 export class GridConfigurationDto {

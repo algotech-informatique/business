@@ -1,5 +1,5 @@
-import { SmartObjectsService } from '@algotech/angular';
-import { SmartObjectDto } from '@algotech/core';
+import { SmartObjectsService } from '@algotech-ce/angular';
+import { SmartObjectDto } from '@algotech-ce/core';
 import { Injectable } from '@angular/core';
 import * as _ from 'lodash';
 import { Observable, of } from 'rxjs';

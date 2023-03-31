@@ -1,6 +1,6 @@
 import { IsDefined, IsOptional } from 'class-validator';
 import { CustomResolver } from '../../../../interpretor/src/dto';
-import { SysFile } from '@algotech/core';
+import { SysFile } from '@algotech-ce/core';
 
 export class TaskDownloadDto {
     @IsDefined()

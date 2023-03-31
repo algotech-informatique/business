@@ -1,5 +1,5 @@
-import { UsersService } from '@algotech/angular';
-import { UserDto } from '@algotech/core';
+import { UsersService } from '@algotech-ce/angular';
+import { UserDto } from '@algotech-ce/core';
 import { Pipe, PipeTransform } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';

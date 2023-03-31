@@ -4,13 +4,13 @@ import { GridConfigurationDto } from '../../../../@components/grid/dto/grid-conf
 import { WidgetItterable } from '../itterable/widget-itterable';
 import { Widget } from '../widget.interface';
 import * as _ from 'lodash';
-import { SettingsDataService, TranslateLangDtoService } from '@algotech/angular';
+import { SettingsDataService, TranslateLangDtoService } from '@algotech-ce/angular';
 import { SoUtilsService } from '../../../../workflow-interpretor/@utils/so-utils.service';
 import { PageCustomService } from '../../../services/page-custom.service';
 import { PageEventsService } from '../../../services/page-events.service';
 import { PageUtilsService } from '../../../services/page-utils.service';
 import { WorkflowLaunchService } from '../../../../workflow-launcher/workflow-layout.lancher.service';
-import { GenericListDto, GenericListValueDto, PairDto, SmartObjectDto, SysQueryDto } from '@algotech/core';
+import { GenericListDto, GenericListValueDto, PairDto, SmartObjectDto, SysQueryDto } from '@algotech-ce/core';
 import { GridSelectionDto } from '../../../../@components/grid/dto/grid-selection.dto';
 import { EventData } from '../../../models';
 

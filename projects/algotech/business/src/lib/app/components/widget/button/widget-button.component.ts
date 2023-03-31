@@ -1,4 +1,4 @@
-import { SnPageWidgetDto, ApplicationModelDto } from '@algotech/core';
+import { SnPageWidgetDto, ApplicationModelDto } from '@algotech-ce/core';
 import { ChangeDetectorRef, Component, ElementRef, EventEmitter, ViewChild } from '@angular/core';
 import { ThemeEngloberService } from '../../../../theme-englober/theme-englober.service';
 import { EventData } from '../../../models';

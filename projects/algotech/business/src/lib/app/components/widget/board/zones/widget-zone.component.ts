@@ -1,4 +1,4 @@
-import { ApplicationModelDto, PairDto, SnPageDto, SnPageWidgetDto } from '@algotech/core';
+import { ApplicationModelDto, PairDto, SnPageDto, SnPageWidgetDto } from '@algotech-ce/core';
 import { AfterViewInit, Component, EventEmitter, Input, Output } from '@angular/core';
 import { WorkflowLaunchService } from '../../../../../workflow-launcher/workflow-layout.lancher.service';
 import { EventData } from '../../../../models';

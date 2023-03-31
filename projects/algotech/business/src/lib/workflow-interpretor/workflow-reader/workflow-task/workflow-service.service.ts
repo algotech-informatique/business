@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { AuthService, EnvService, SmartFlowsService } from '@algotech/angular';
+import { AuthService, EnvService, SmartFlowsService } from '@algotech-ce/angular';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { InterpretorService } from '../../../../../interpretor/src/interpretor-reader/interpretor-task/interpretor-service';
-import { ServiceReturnModelDto } from '@algotech/core';
-import { SmartObjectDto, PairDto } from '@algotech/core';
+import { ServiceReturnModelDto } from '@algotech-ce/core';
+import { SmartObjectDto, PairDto } from '@algotech-ce/core';
 import { defer, Observable, throwError } from 'rxjs';
 import { mergeMap, map, catchError } from 'rxjs/operators';
 import * as _ from 'lodash';

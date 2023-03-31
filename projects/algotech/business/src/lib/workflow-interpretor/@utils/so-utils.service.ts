@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import {
     SmartObjectDto, SmartPropertyObjectDto, SmartModelDto,
     SmartPropertyModelDto, FileUploadDto, GenericListDto, GenericListValueDto, ImportOptionsDto, PairDto
-} from '@algotech/core';
+} from '@algotech-ce/core';
 import * as _ from 'lodash';
-import { AuthService, SettingsDataService, TranslateLangDtoService, SmartObjectsService } from '@algotech/angular';
-import { DocumentDto } from '@algotech/core';
+import { AuthService, SettingsDataService, TranslateLangDtoService, SmartObjectsService } from '@algotech-ce/angular';
+import { DocumentDto } from '@algotech-ce/core';
 import { PropertiesOptionsDto } from '../../dto/properties-options.dto';
 import { SoUtils } from '../../../../interpretor/src';
 import { WorkflowAbstractService } from '../workflow-abstract/workflow-abstract.service';

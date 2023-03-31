@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
-import { PipesModule, SmartObjectsService, KeyFormaterService, DirectivesModule } from '@algotech/angular';
+import { PipesModule, SmartObjectsService, KeyFormaterService, DirectivesModule } from '@algotech-ce/angular';
 import { SoFormService } from './so-form.service';
 import { SoFormObjectComponent } from './so-form-object/so-form-object.component';
 import { SoFormComponent } from './so-form-component';

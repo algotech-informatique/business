@@ -2,7 +2,7 @@ import moment from 'moment';
 import * as _ from 'lodash';
 import { InterpretorMetricsKeys } from '../dto/enum';
 import { InterpretorMetricsDto } from '../dto';
-import { PairDto } from '@algotech/core';
+import { PairDto } from '@algotech-ce/core';
 
 interface WorkflowMetricsInterface {
     key: InterpretorMetricsKeys | string,

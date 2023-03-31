@@ -1,4 +1,4 @@
-import { SmartObjectDto, WorkflowModelDto, UserDto, ScheduleDto } from '@algotech/core';
+import { SmartObjectDto, WorkflowModelDto, UserDto, ScheduleDto } from '@algotech-ce/core';
 import { CustomResolver } from '../../../../interpretor/src/dto';
 import { IsDefined, IsOptional } from 'class-validator';
 export class TaskListDto {

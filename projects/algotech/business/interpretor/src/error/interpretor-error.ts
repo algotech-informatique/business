@@ -1,4 +1,4 @@
-import { WorkflowInstanceDto } from '@algotech/core';
+import { WorkflowInstanceDto } from '@algotech-ce/core';
 import { NgComponentError } from './tasks-error';
 
 export class WorkflowError extends NgComponentError {

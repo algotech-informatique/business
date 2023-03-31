@@ -1,6 +1,6 @@
 import { TranslateService } from '@ngx-translate/core';
-import { DocumentIconDtoService } from '@algotech/angular';
-import { DocumentIconDto, SysFile, DocumentDto } from '@algotech/core';
+import { DocumentIconDtoService } from '@algotech-ce/angular';
+import { DocumentIconDto, SysFile, DocumentDto } from '@algotech-ce/core';
 import { Component, Input, Output, SimpleChanges, EventEmitter, OnChanges } from '@angular/core';
 import * as _ from 'lodash';
 

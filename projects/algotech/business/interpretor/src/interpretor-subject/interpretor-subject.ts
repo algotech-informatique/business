@@ -1,4 +1,4 @@
-import { WorkflowInstanceDto } from '@algotech/core';
+import { WorkflowInstanceDto } from '@algotech-ce/core';
 import { Subject } from 'rxjs';
 import { InterpretorSubjectDto } from '../dto';
 

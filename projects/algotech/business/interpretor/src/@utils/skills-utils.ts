@@ -1,4 +1,4 @@
-import { SmartObjectDto, PairDto, ATSignatureDto, GeoDto, SysFile, ZoneDto, WorkflowInstanceDto, WorkflowInstanceContextDto, FileUploadDto } from '@algotech/core';
+import { SmartObjectDto, PairDto, ATSignatureDto, GeoDto, SysFile, ZoneDto, WorkflowInstanceDto, WorkflowInstanceContextDto, FileUploadDto } from '@algotech-ce/core';
 import { UUID } from 'angular2-uuid';
 import * as _ from 'lodash';
 import { Observable, of, throwError, zip } from 'rxjs';

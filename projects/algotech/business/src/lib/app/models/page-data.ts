@@ -1,4 +1,4 @@
-import { SnPageWidgetDto } from "@algotech/core";
+import { SnPageWidgetDto } from "@algotech-ce/core";
 
 export class PageData {
     key: string;

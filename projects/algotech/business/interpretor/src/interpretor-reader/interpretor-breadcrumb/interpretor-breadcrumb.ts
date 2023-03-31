@@ -1,5 +1,5 @@
 import { InterpretorUtils } from '../../interpretor-utils/interpretor-utils';
-import { LangDto, WorkflowStackTaskDto, WorkflowStepModelDto, TaskModelDto, WorkflowInstanceDto } from '@algotech/core';
+import { LangDto, WorkflowStackTaskDto, WorkflowStepModelDto, TaskModelDto, WorkflowInstanceDto } from '@algotech-ce/core';
 import { BreadCrumbDto } from '../../dto';
 
 export class InterpretorBreadCrumb {

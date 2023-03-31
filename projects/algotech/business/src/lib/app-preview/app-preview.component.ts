@@ -1,10 +1,10 @@
 import { TranslateService } from '@ngx-translate/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription, Observable } from 'rxjs';
-import { PairDto, SnAppDto, ApplicationModelDto, SnPageDto, GroupDto } from '@algotech/core';
+import { PairDto, SnAppDto, ApplicationModelDto, SnPageDto, GroupDto } from '@algotech-ce/core';
 import { Component, OnInit, OnDestroy, Output, EventEmitter, NgZone } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { AuthService, EnvService, SettingsDataService } from '@algotech/angular';
+import { AuthService, EnvService, SettingsDataService } from '@algotech-ce/angular';
 import * as _ from 'lodash';
 import { ToastService } from '../@services/toast.service';
 import { Location } from '@angular/common';

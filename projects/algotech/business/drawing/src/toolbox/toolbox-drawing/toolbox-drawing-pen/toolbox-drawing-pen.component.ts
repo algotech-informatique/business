@@ -1,5 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { DrawingPenList } from '@algotech/core';
+import { DrawingPenList } from '@algotech-ce/core';
 @Component({
     selector: 'toolbox-drawing-pen',
     template: `

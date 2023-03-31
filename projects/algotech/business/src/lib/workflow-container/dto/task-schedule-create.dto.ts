@@ -1,6 +1,6 @@
 import { IsDefined, IsArray, IsOptional } from 'class-validator';
 import { CustomResolver } from '../../../../interpretor/src/dto';
-import { SmartObjectDto, WorkflowModelDto, UserDto } from '@algotech/core';
+import { SmartObjectDto, WorkflowModelDto, UserDto } from '@algotech-ce/core';
 
 export class TaskScheduleCreateDto {
 

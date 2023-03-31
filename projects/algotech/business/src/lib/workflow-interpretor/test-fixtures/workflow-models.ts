@@ -1,4 +1,4 @@
-import { WorkflowModelDto, ServiceModelDto } from '@algotech/core';
+import { WorkflowModelDto, ServiceModelDto } from '@algotech-ce/core';
 
 export const fixtServiceEnd: ServiceModelDto = {
     uuid: '...',

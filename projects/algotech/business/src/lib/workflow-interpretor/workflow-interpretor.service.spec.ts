@@ -1,6 +1,6 @@
 import { WorkflowInterpretorService } from './workflow-interpretor.service';
 import { TestBed, inject, getTestBed } from '@angular/core/testing';
-import { PairDto, WorkflowInstanceDto, WorkflowModelDto } from '@algotech/core';
+import { PairDto, WorkflowInstanceDto, WorkflowModelDto } from '@algotech-ce/core';
 import { fixtWorkflowModel1 } from './test-fixtures/workflow-models';
 import {
     fixtWorkflowInstanceTodo, fixtWorkflowInstanceJumpedBeforeNotifyEmitter,
@@ -17,7 +17,7 @@ import { fixtValidateFinished, fixtValidateUpload } from './test-fixtures/interp
 import * as _ from 'lodash';
 import {
     SettingsDataService, DataService,
-} from '@algotech/angular';
+} from '@algotech-ce/angular';
 import {
     WorkflowErrorScheduled,
     WorkflowErrorUnauthorizedProfil,

@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { WorkflowModelDto, PairDto,
-    SmartObjectDto, WorkflowDataDto } from '@algotech/core';
+    SmartObjectDto, WorkflowDataDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import { InputDisplay } from './dto/input-display.dto';
 

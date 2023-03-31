@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnDestroy, Output, ViewChild } from '@angular/core';
 import { DrawingMode } from '../../interfaces';
-import { DrawingDataDto, DrawingPenList } from '@algotech/core';
+import { DrawingDataDto, DrawingPenList } from '@algotech-ce/core';
 import { DrawingService } from '../../services';
 import { ToolBoxDrawingPenComponent } from './toolbox-drawing-pen/toolbox-drawing-pen.component';
 

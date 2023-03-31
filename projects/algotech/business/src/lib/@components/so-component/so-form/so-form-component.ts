@@ -1,7 +1,7 @@
 import {
     Component, Input, Output, EventEmitter, ViewChild, ComponentFactoryResolver, OnChanges, ElementRef, ChangeDetectorRef, Type
 } from '@angular/core';
-import { SmartObjectDto, TagListDto, WorkflowInstanceDto } from '@algotech/core';
+import { SmartObjectDto, TagListDto, WorkflowInstanceDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import { SoFormObjectComponent } from './so-form-object/so-form-object.component';
 import { SoFormDirective } from './so-form.directive';
@@ -9,7 +9,7 @@ import { SoFormMultipleComponent } from './so-form-multiple/so-form-multiple.com
 import { UUID } from 'angular2-uuid';
 import { ISoFormBreadCrumb, ISoFormComponent } from './so-form-interface';
 import { SoFormService } from './so-form.service';
-import { TranslateLangDtoService } from '@algotech/angular';
+import { TranslateLangDtoService } from '@algotech-ce/angular';
 import { PropertiesOptionsDto } from '../../../dto/properties-options.dto';
 import { InterpretorTaskActionAssetDto } from '../../../../../interpretor/src/dto';
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject, throwError, Observable, of } from 'rxjs';
 import { mergeMap, first, tap, catchError } from 'rxjs/operators';
-import { WorkflowInstanceDto } from '@algotech/core';
+import { WorkflowInstanceDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import { WorkflowDataService } from '../workflow-data/workflow-data.service';
 import { WorkflowSubjectService } from '../workflow-subject/workflow-subject.service';

@@ -1,11 +1,11 @@
-import { AnnotationDto } from '@algotech/core';
+import { AnnotationDto } from '@algotech-ce/core';
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, NgZone, OnChanges, Output, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { map } from 'rxjs/operators';
 import { CustomOptionEditorComponent } from '../../custom-popover/custom-editor/custom-editor.component';
 import { WorkflowDialogService } from '../../../workflow-dialog/workflow-dialog.service';
 import * as _ from 'lodash';
-import { AuthService } from '@algotech/angular';
+import { AuthService } from '@algotech-ce/angular';
 import { UUID } from 'angular2-uuid';
 import moment from 'moment';
 import { CustomColorComponent } from '../../custom-popover/custom-color/custom-color.component';

@@ -4,7 +4,7 @@ import { InterpretorTaskDto } from '../../../../../../../interpretor/src/dto';
 import { TaskSiteLocationDto } from '../../../../dto/task-site-location.dto';
 import { zip, of } from 'rxjs';
 import { StartNavigation } from '@proteansoftware/capacitor-start-navigation';
-import { SmartObjectDto, GeoDto } from '@algotech/core';
+import { SmartObjectDto, GeoDto } from '@algotech-ce/core';
 import { TaskSiteLocationError } from '../../../../container-error/container-error';
 import * as _ from 'lodash';
 import { InterpretorTransferTransitionDto } from '../../../../../../../interpretor/src/dto';

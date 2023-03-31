@@ -1,4 +1,4 @@
-import { ServiceModelDto } from '@algotech/core';
+import { ServiceModelDto } from '@algotech-ce/core';
 
 export const fixtWorkflowServiceConnector: ServiceModelDto = {
     uuid: '59eb089d-f88c-12f6-77a4-e125736653ca',

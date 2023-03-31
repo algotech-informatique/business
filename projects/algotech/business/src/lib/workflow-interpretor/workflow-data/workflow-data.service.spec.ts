@@ -8,10 +8,10 @@ import {
     fixtWorkflowInstanceReverseApiTagBefore,
     fixtWorkflowInstanceBeforeFinish,
 } from '../test-fixtures/workflow-instances';
-import { WorkflowInstanceDto } from '@algotech/core';
+import { WorkflowInstanceDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import { HttpTestingController } from '@angular/common/http/testing';
-import { DataService, SettingsDataService } from '@algotech/angular';
+import { DataService, SettingsDataService } from '@algotech-ce/angular';
 import { TestUtils } from '../test-fixtures/mock/test-api-mock.utils';
 import { Storage } from '@ionic/storage-angular';
 import { Drivers } from '@ionic/storage';

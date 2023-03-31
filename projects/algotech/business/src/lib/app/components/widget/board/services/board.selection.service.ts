@@ -1,4 +1,4 @@
-import { SmartObjectDto } from '@algotech/core';
+import { SmartObjectDto } from '@algotech-ce/core';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 

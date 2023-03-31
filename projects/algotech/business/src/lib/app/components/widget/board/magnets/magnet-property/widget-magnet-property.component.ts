@@ -1,4 +1,4 @@
-import { SmartPropertyObjectDto, SnPageWidgetDto } from '@algotech/core';
+import { SmartPropertyObjectDto, SnPageWidgetDto } from '@algotech-ce/core';
 import { Component, Input } from '@angular/core';
 
 @Component({

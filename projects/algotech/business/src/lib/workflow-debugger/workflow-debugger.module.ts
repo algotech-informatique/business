@@ -18,7 +18,7 @@ import { SoInputModule } from '../@components/so-component/so-input/so-input.mod
 import { SoFormModule } from '../@components/so-component/so-form/so-form.module';
 import { InputLocationComponent } from './inputs-grid/input-location/input-location.component';
 import { InputMagnetComponent } from './inputs-grid/input-magnet/input-magnet.component';
-import { PipesModule } from '@algotech/angular';
+import { PipesModule } from '@algotech-ce/angular';
 import { InputQueryComponent } from './inputs-grid/input-query/input-query.component';
 
 @NgModule({

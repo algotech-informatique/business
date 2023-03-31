@@ -1,5 +1,5 @@
-import { DataService, TranslateLangDtoService } from '@algotech/angular';
-import { LangDto } from '@algotech/core';
+import { DataService, TranslateLangDtoService } from '@algotech-ce/angular';
+import { LangDto } from '@algotech-ce/core';
 import { ChangeDetectorRef, Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 import { InterpretorTaskDto } from '../../../../../interpretor/src';
 import { WorkflowUtilsService } from '../../../workflow-interpretor/workflow-utils/workflow-utils.service';

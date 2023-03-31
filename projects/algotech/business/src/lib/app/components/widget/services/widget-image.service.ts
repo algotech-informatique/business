@@ -1,4 +1,4 @@
-import { DocumentDto, SmartObjectDto, SysFile, TagDto } from '@algotech/core';
+import { DocumentDto, SmartObjectDto, SysFile, TagDto } from '@algotech-ce/core';
 import { Injectable } from '@angular/core';
 import { FilesService } from '../../../../workflow-interpretor/@utils/files.service';
 import * as _ from 'lodash';
@@ -6,7 +6,7 @@ import { WidgetDocumentFileDto } from '../document/dto/widget-document-file.dto'
 import { FileAssetDto } from '../../../../dto/file-asset.dto';
 import { Observable, of, zip } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
-import { SmartObjectsService } from '@algotech/angular';
+import { SmartObjectsService } from '@algotech-ce/angular';
 import { SoUtilsService } from '../../../../workflow-interpretor/@utils/so-utils.service';
 import { SysUtilsService } from '../../../../workflow-interpretor/@utils/sys-utils.service';
 import { PageEventsService } from '../../../services/page-events.service';

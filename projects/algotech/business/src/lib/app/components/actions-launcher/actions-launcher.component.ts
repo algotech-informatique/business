@@ -4,8 +4,8 @@ import {
     WorkflowInstanceDto,
     SnPageEventPipeDto,
     ApplicationModelDto
-} from '@algotech/core';
-import { WorkflowInstancesService, SettingsDataService, AuthService, DataService, TranslateLangDtoService } from '@algotech/angular';
+} from '@algotech-ce/core';
+import { WorkflowInstancesService, SettingsDataService, AuthService, DataService, TranslateLangDtoService } from '@algotech-ce/angular';
 import * as _ from 'lodash';
 import { concat, Observable, Subscription, zip } from 'rxjs';
 import { ActionsLauncherData, ActionsLauncherEvent } from '../../models';

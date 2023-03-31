@@ -5,7 +5,7 @@ import {
     InterpretorFormData, InterpretorFormDataValue, WorkflowTaskActionUploadDto,
 } from '../dto';
 import { TaskServiceError } from '../error/tasks-error';
-import { FileUploadDto, PairDto, SmartObjectDto, SysFile } from '@algotech/core';
+import { FileUploadDto, PairDto, SmartObjectDto, SysFile } from '@algotech-ce/core';
 import { Observable, zip, of } from 'rxjs';
 import { map, catchError, mergeMap } from 'rxjs/operators';
 import { UUID } from 'angular2-uuid';

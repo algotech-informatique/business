@@ -1,5 +1,5 @@
 import { Subject, Subscription } from 'rxjs';
-import { SmartPropertyModelDto } from '@algotech/core';
+import { SmartPropertyModelDto } from '@algotech-ce/core';
 import { SoFormService } from '../../../../so-form.service';
 import { Component, EventEmitter, Input, Output, OnDestroy, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { debounceTime, tap, delay } from 'rxjs/operators';

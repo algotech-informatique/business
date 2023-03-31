@@ -8,8 +8,8 @@ import { tap } from 'rxjs/operators';
 import {
     SmartObjectDto, WorkflowTaskActionDto, TagListDto,
     SysFile
-} from '@algotech/core';
-import { DataService, SettingsDataService } from '@algotech/angular';
+} from '@algotech-ce/core';
+import { DataService, SettingsDataService } from '@algotech-ce/angular';
 
 import { TaskCameraError } from '../../../../container-error/container-error';
 import { WorkflowUtilsService } from '../../../../../workflow-interpretor/workflow-utils/workflow-utils.service';

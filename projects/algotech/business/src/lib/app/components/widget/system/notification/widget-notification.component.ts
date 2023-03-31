@@ -1,8 +1,8 @@
-import { SnPageWidgetDto, ApplicationModelDto, NotificationDto, SnPageDto } from '@algotech/core';
+import { SnPageWidgetDto, ApplicationModelDto, NotificationDto, SnPageDto } from '@algotech-ce/core';
 import { EventData } from '../../../../models';
 import { Component, EventEmitter } from '@angular/core';
 import { Widget } from '../../widget.interface';
-import { AuthService, DataService, NotificationsService } from '@algotech/angular';
+import { AuthService, DataService, NotificationsService } from '@algotech-ce/angular';
 import { WorkflowLaunchService } from '../../../../../workflow-launcher/workflow-layout.lancher.service';
 
 @Component({

@@ -1,4 +1,4 @@
-import { PairDto, SearchSOFilterDto } from '@algotech/core'
+import { PairDto, SearchSOFilterDto } from '@algotech-ce/core'
 import { GridColumnConfigurationDto } from './grid-column-configuration.dto';
 
 export class GridStorageDto {

@@ -1,5 +1,5 @@
-import { DataService } from '@algotech/angular';
-import { SysQueryDto } from '@algotech/core';
+import { DataService } from '@algotech-ce/angular';
+import { SysQueryDto } from '@algotech-ce/core';
 import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, EventEmitter, HostBinding, Input, OnChanges, Optional, Output, SimpleChanges, SkipSelf, ViewChild } from '@angular/core';
 import { IonContent } from '@ionic/angular';
 import { Observable, of, Subject } from 'rxjs';

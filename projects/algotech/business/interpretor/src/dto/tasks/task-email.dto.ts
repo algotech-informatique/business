@@ -1,6 +1,6 @@
 import { IsDefined, IsOptional } from 'class-validator';
 import { CustomResolver } from '../custom-resolver.type';
-import { SysFile } from '@algotech/core';
+import { SysFile } from '@algotech-ce/core';
 
 export class TaskEmailDto {
     @IsDefined()

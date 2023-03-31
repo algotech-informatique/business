@@ -4,7 +4,7 @@ import { InterpretorTaskDto, InterpretorTransferTransitionDto, InterpretorValida
 import { TaskSkillsError } from '../error/tasks-error';
 import { Observable, zip, of } from 'rxjs';
 import { map, mergeMap, catchError } from 'rxjs/operators';
-import { GeoDto, SmartObjectDto, ZoneDto } from '@algotech/core';
+import { GeoDto, SmartObjectDto, ZoneDto } from '@algotech-ce/core';
 
 export class TaskSkills extends TaskBase {
     _task: InterpretorTaskDto;

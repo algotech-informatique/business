@@ -18,10 +18,10 @@
             "dom"
         ],
         "paths": {
-            "@algotech/business": [
+            "@algotech-ce/business": [
                 "dist/algotech/business"
             ],
-            "@algotech/business/*": [
+            "@algotech-ce/business/*": [
                 "dist/algotech/business/*"
             ]
         }

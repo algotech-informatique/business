@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@capacitor/splash-screen';
-import { I18nService } from '@algotech/angular';
+import { I18nService } from '@algotech-ce/angular';
 import { HttpClient } from '@angular/common/http';
 import * as _ from 'lodash';
 import { from } from 'rxjs';

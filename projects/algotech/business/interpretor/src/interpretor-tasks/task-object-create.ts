@@ -1,5 +1,5 @@
 import { Observable, throwError, of, zip } from 'rxjs';
-import { SmartModelDto, SmartObjectDto, PairDto } from '@algotech/core';
+import { SmartModelDto, SmartObjectDto, PairDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import { map, mergeMap, catchError } from 'rxjs/operators';
 import { TaskBase } from './task-base';

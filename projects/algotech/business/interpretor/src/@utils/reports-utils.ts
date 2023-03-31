@@ -1,7 +1,7 @@
 import {
     FileUploadDto, ReportGenerateDto, SmartObjectDto, ReportPreviewDto,
     SysFile, UserDto, WorkflowInstanceContextDto, PairDto, WorkflowVariableModelDto, FileUtils
-} from '@algotech/core';
+} from '@algotech-ce/core';
 import { UUID } from 'angular2-uuid';
 import * as _ from 'lodash';
 import { from, Observable, of, zip } from 'rxjs';

@@ -1,6 +1,6 @@
 import { IsDefined, IsOptional } from 'class-validator';
 import { CustomResolver } from '../custom-resolver.type';
-import { PairDto } from '@algotech/core';
+import { PairDto } from '@algotech-ce/core';
 
 export class TaskLayerMetadataDto {
 

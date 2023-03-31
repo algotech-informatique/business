@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import * as _ from 'lodash';
 import { SmartFlowUtils } from '../../../../interpretor/src/@utils/smartflow-utils';
-import { WorkflowInstanceContextDto, SmartObjectDto, WorkflowLaunchOptionsDto } from '@algotech/core';
-import { SmartFlowsService, DatabaseService } from '@algotech/angular';
+import { WorkflowInstanceContextDto, SmartObjectDto, WorkflowLaunchOptionsDto } from '@algotech-ce/core';
+import { SmartFlowsService, DatabaseService } from '@algotech-ce/angular';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { ATHttpException } from '../../../../interpretor/src';

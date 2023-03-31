@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
-import { GenericListDto, GenericListValueDto } from '@algotech/core';
+import { GenericListDto, GenericListValueDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import { of } from 'rxjs';
 import { GlistListComponent } from './glist-list/glist-list.component';

@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';
-import { TagListDto } from '@algotech/core';
+import { TagListDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import { CameraFile } from '../../dto/camera-file.dto';
 

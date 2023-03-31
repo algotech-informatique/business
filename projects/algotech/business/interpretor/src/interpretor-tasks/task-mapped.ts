@@ -5,7 +5,7 @@ import { InterpretorTaskDto, InterpretorValidateDto, InterpretorTransferTransiti
 import { TaskMappedDto } from '../dto/tasks/task-mapped.dto';
 import { map, catchError } from 'rxjs/operators';
 import { TaskMappedError } from '../error/tasks-error';
-import { SmartModelDto, SmartObjectDto, PairDto, SmartPropertyModelDto, WorkflowInstanceDto } from '@algotech/core';
+import { SmartModelDto, SmartObjectDto, PairDto, SmartPropertyModelDto, WorkflowInstanceDto } from '@algotech-ce/core';
 
 export class TaskMapped extends TaskBase {
 

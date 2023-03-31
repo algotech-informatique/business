@@ -1,7 +1,7 @@
 import { fixtSOEquipmentFromAPI, fixtSODocument_02, fixtSODocument_NEW } from './smart-objects';
 import { fixtSysNotifyUpdate } from './sys-objects';
 import { InterpretorValidateDto } from '../../../../interpretor/src/dto';
-import { SmartObjectDto } from '@algotech/core';
+import { SmartObjectDto } from '@algotech-ce/core';
 
 export const fixtValidateLoop: InterpretorValidateDto = {
     transitionKey: 'update',

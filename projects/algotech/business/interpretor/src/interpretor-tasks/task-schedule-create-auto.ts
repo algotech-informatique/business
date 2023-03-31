@@ -3,7 +3,7 @@ import { map, catchError } from 'rxjs/operators';
 import * as _ from 'lodash';
 import {
     SmartObjectDto, UserDto, WorkflowModelDto, ScheduleDto, ScheduleWorkflowDto, ScheduleReceiverDto, AgendaTypeDto,
-} from '@algotech/core';
+} from '@algotech-ce/core';
 import { TaskBase } from './task-base';
 import { InterpretorTaskDto, InterpretorValidateDto, InterpretorTransferTransitionDto, TaskScheduleCreateDto } from '../dto';
 import { TaskScheduleCreateError } from '../error/tasks-error';

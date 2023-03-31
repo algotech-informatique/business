@@ -4,13 +4,13 @@ import {
     WorkflowVariableModelDto, SmartObjectDto, SmartModelDto,
     SettingsDto, WorkflowSettingsSecurityGroupsDto, ScheduleWorkflowDto,
     WorkflowProfilModelDto, TaskModelDto, ScheduleDto, WorkflowInstanceDto, SnPageEventDto, SnPageEventPipeDto
-} from '@algotech/core';
+} from '@algotech-ce/core';
 import { PopoverController, ModalController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import {
     AuthService,
     sources, SettingsDataService, TranslateLangDtoService, DataService
-} from '@algotech/angular';
+} from '@algotech-ce/angular';
 import { Observable, from, of } from 'rxjs';
 import { map, mergeMap, tap } from 'rxjs/operators';
 import * as _ from 'lodash';
@@ -18,7 +18,7 @@ import { UUID } from 'angular2-uuid';
 import { WorkflowUtilsService } from '../workflow-interpretor/workflow-utils/workflow-utils.service';
 import { WorkflowSubjectService } from '../workflow-interpretor/workflow-subject/workflow-subject.service';
 import { WorkflowContainerComponent } from '../workflow-container/workflow-container.component';
-import { WorkflowSettingsFilterDto } from '@algotech/core';
+import { WorkflowSettingsFilterDto } from '@algotech-ce/core';
 import { SoUtilsService } from '../workflow-interpretor/@utils/so-utils.service';
 import { WorkflowLauncherComponent } from './workflow.launcher.component';
 import { InterpretorSubjectDto } from '../../../interpretor/src/dto';

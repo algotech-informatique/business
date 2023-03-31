@@ -4,7 +4,7 @@ import { TaskBase } from './task-base';
 import { InterpretorTaskDto, InterpretorValidateDto, InterpretorTransferTransitionDto, TaskCsvMappedDto } from '../dto';
 import { map, catchError, mergeMap } from 'rxjs/operators';
 import { TaskCsvMappedError } from '../error/tasks-error';
-import { SmartObjectDto, SysFile } from '@algotech/core';
+import { SmartObjectDto, SysFile } from '@algotech-ce/core';
 
 export class TaskCsvMapped extends TaskBase {
 

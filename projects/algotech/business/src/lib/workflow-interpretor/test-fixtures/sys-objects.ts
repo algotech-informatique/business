@@ -1,4 +1,4 @@
-import { NotificationDto } from '@algotech/core';
+import { NotificationDto } from '@algotech-ce/core';
 
 
 export const fixtSysNotify: NotificationDto = {

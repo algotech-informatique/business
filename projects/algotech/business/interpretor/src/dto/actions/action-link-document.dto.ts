@@ -1,5 +1,5 @@
 import { IsUUID, ValidateNested } from 'class-validator';
-import { FileUploadDto } from '@algotech/core';
+import { FileUploadDto } from '@algotech-ce/core';
 import { Type } from 'class-transformer';
 
 // @dynamic

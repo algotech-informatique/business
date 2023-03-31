@@ -4,7 +4,7 @@ import { TaskBase } from './task-base';
 import { InterpretorTaskDto, InterpretorValidateDto, TaskMergeDto } from '../dto';
 import { map, catchError, mergeMap } from 'rxjs/operators';
 import { TaskMergeError } from '../error/tasks-error';
-import { SmartModelDto, SmartObjectDto, SmartPropertyObjectDto, SmartPropertyModelDto, WorkflowInstanceDto } from '@algotech/core';
+import { SmartModelDto, SmartObjectDto, SmartPropertyObjectDto, SmartPropertyModelDto, WorkflowInstanceDto } from '@algotech-ce/core';
 
 export class TaskMerge extends TaskBase {
 

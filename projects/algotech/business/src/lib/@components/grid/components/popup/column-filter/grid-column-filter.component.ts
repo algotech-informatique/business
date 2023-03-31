@@ -1,4 +1,4 @@
-import { PairDto, SearchSOFilterDto, SysQueryDto } from '@algotech/core';
+import { PairDto, SearchSOFilterDto, SysQueryDto } from '@algotech-ce/core';
 import { AfterViewInit, ChangeDetectorRef, Component, EventEmitter } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { GridColumnConfigurationDto } from '../../../dto/grid-column-configuration.dto';

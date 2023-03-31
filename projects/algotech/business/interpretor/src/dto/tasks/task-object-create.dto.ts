@@ -1,4 +1,4 @@
-import { SmartModelDto, PairDto } from '@algotech/core';
+import { SmartModelDto, PairDto } from '@algotech-ce/core';
 import { CustomResolver } from '../custom-resolver.type';
 import { IsDefined, IsOptional } from 'class-validator';
 

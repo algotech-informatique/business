@@ -1,4 +1,4 @@
-import { SnAppDto, SnPageDto } from '@algotech/core';
+import { SnAppDto, SnPageDto } from '@algotech-ce/core';
 import { ElementRef, Injectable } from '@angular/core';
 import * as d3 from 'd3';
 import * as _ from 'lodash';

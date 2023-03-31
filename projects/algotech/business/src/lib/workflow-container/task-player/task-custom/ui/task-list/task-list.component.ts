@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { TaskComponent } from '../../task.interface';
 import { CustomResolverParams, InterpretorTransferTransitionDto } from '../../../../../../../interpretor/src/dto';
-import { SmartObjectDto, ScheduleDto } from '@algotech/core';
+import { SmartObjectDto, ScheduleDto } from '@algotech-ce/core';
 import { zip, Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { TaskListDto } from '../../../../dto/task-list.dto';
@@ -110,8 +110,15 @@ export class TaskListComponent implements TaskComponent, OnInit {
     }
 
     ngOnInit(): void {
-        if (this.multipleSelection || this.loop) {
+        if (this.multipleSelection) {
             this.buildValidate({value: [], valid: true});
+        }
+        if (this.loop) {
+            const validation: InterpretorValidateDto = {
+                transfers: [],
+                transitionKey: 'done'
+            };
+            this.partialValidate.emit({ validation, authorizationToNext: true });
         }
     }
 
@@ -126,7 +133,7 @@ export class TaskListComponent implements TaskComponent, OnInit {
             transfers: [wfTransfert],
             transitionKey: 'select'
         };
-        if (this.multipleSelection || this.loop) {
+        if (this.multipleSelection) {
             this.partialValidate.emit({ validation, authorizationToNext: event.valid });
         } else {
             this.validate.emit(validation);

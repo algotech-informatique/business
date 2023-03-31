@@ -2,7 +2,7 @@ import { WorkflowDialogComponent } from '../workflow-dialog/workflow-dialog.comp
 import { WorkflowDialogService } from './workflow-dialog.service';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PipesModule } from '@algotech/angular';
+import { PipesModule } from '@algotech-ce/angular';
 import { TranslateModule } from '@ngx-translate/core';
 import { SpinnerModule } from '../@components/spinner/spinner.module';
 

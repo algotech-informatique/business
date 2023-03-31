@@ -1,4 +1,4 @@
-import { WorkflowInstanceDto } from '@algotech/core';
+import { WorkflowInstanceDto } from '@algotech-ce/core';
 
 type TypeFinisherDisplayMode = 'toast' | 'popup' | 'nothing';
 type TypeFinisherOutputTrigger = 'end-wf' | 'end-op';

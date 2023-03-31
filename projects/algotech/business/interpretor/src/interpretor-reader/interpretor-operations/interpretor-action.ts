@@ -1,6 +1,6 @@
 
 import * as _ from 'lodash';
-import { WorkflowTaskActionDto, SmartObjectDto, VersionDto, DocumentDto } from '@algotech/core';
+import { WorkflowTaskActionDto, SmartObjectDto, VersionDto, DocumentDto } from '@algotech-ce/core';
 import { WorkflowErrorAction } from '../../error/interpretor-error';
 import moment from 'moment';
 import { UUID } from 'angular2-uuid';

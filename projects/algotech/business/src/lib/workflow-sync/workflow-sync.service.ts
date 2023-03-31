@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
-import { DataService } from '@algotech/angular';
-import { WorkflowInstanceDto } from '@algotech/core';
+import { DataService } from '@algotech-ce/angular';
+import { WorkflowInstanceDto } from '@algotech-ce/core';
 import { map, tap, catchError, mergeMap, finalize, toArray } from 'rxjs/operators';
 import * as _ from 'lodash';
 import { Observable, concat, throwError, of } from 'rxjs';

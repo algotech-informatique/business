@@ -1,8 +1,8 @@
 
 import { Injectable } from '@angular/core';
-import { WorkflowInstanceDto } from '@algotech/core';
+import { WorkflowInstanceDto } from '@algotech-ce/core';
 import { Observable, of } from 'rxjs';
-import { DataService } from '@algotech/angular';
+import { DataService } from '@algotech-ce/angular';
 import * as _ from 'lodash';
 
 const PREFIX_WORKFLOW_INSTANCE = 'wfi';

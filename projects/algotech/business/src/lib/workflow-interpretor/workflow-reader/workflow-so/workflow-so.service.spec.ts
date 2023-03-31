@@ -2,7 +2,7 @@ import { WorkflowSoService } from './workflow-so.service';
 import { TestUtils } from '../../test-fixtures/mock/test-api-mock.utils';
 import { TestBed, inject, getTestBed } from '@angular/core/testing';
 import { HttpTestingController } from '@angular/common/http/testing';
-import { SettingsDataService, DataService } from '@algotech/angular';
+import { SettingsDataService, DataService } from '@algotech-ce/angular';
 import {
     fixtSOEquipmentFromAPI, fixtSOUserApi, fixtSODocumentApi, fixtObjectEquipment, fixtObjectUser,
     fixtObjectUserToSo, fixtObjectEquipmentToSo, fixtObjectDocumentToSo, fixtObjectDocument, fixtSODocument_02, fixtSODocument_01
@@ -13,7 +13,7 @@ import { DownloadDataDto } from '../../../../../interpretor/src/dto';
 import { Storage } from '@ionic/storage-angular';
 import { Drivers } from '@ionic/storage';
 import { InterpretorSoUtils } from '../../../../../interpretor/src';
-import { PairDto, SmartObjectDto } from '@algotech/core';
+import { PairDto, SmartObjectDto } from '@algotech-ce/core';
 import { WorkflowInputMockBuilder } from '../../test-fixtures/mock/workflow-input-mock-builder';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';

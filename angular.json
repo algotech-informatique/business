@@ -172,7 +172,7 @@
                 }
             }
         },
-        "@algotech/business": {
+        "@algotech-ce/business": {
             "root": "projects/algotech/business",
             "sourceRoot": "projects/algotech/business",
             "projectType": "library",

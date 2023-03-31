@@ -1,11 +1,11 @@
 import { Component, Input, Output, EventEmitter, ChangeDetectorRef, AfterViewInit, OnChanges } from '@angular/core';
-import { SmartPropertyModelDto, SmartObjectDto, GenericListDto, GenericListValueDto } from '@algotech/core';
+import { SmartPropertyModelDto, SmartObjectDto, GenericListDto, GenericListValueDto } from '@algotech-ce/core';
 import { SoFormService } from '../../../so-form.service';
 import { TranslateService } from '@ngx-translate/core';
 import {
     AuthService, TranslateLangDtoService, GestionDisplaySettingsService,
     GenericListsDisplayService, DataService
-} from '@algotech/angular';
+} from '@algotech-ce/angular';
 import * as _ from 'lodash';
 import { ISoFormAction, ISoFormBreadCrumb } from '../../../so-form-interface';
 import { ISoItemObject } from '../../../../so-item/so-item.interface';

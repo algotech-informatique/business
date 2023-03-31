@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { WorkflowDataDto, PairDto, WorkflowModelDto } from '@algotech/core';
+import { WorkflowDataDto, PairDto, WorkflowModelDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
-import { EnvService, AuthService } from '@algotech/angular';
+import { EnvService, AuthService } from '@algotech-ce/angular';
 
 interface IContext {
     login: string;

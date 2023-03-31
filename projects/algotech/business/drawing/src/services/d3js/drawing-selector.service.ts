@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as _ from 'lodash';
 import * as d3 from 'd3';
-import { DrawingDataDto, DrawingLineDto } from '@algotech/core';
+import { DrawingDataDto, DrawingLineDto } from '@algotech-ce/core';
 import { DrawingMathService } from '../utils/drawing-math.service';
 import { DrawingUtilsService } from '../utils/drawing-utils.service';
 

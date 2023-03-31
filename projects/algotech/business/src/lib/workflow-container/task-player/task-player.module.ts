@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { TaskPlayerComponent } from './task-player.component';
 import { TaskPaginateComponent } from './task-paginate/task-paginate.component';
-import { PipesModule } from '@algotech/angular';
+import { PipesModule } from '@algotech-ce/angular';
 import { TaskCustomModule } from './task-custom/task-custom.module';
 import { TaskHeaderComponent } from './task-header/task-header.component';
 

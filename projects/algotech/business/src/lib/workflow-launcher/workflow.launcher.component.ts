@@ -2,8 +2,8 @@ import { Component, EventEmitter, Output, Input, OnInit } from '@angular/core';
 import {
     WorkflowModelDto, PairDto, WorkflowInstanceAbstractDto, WorkflowSettingsDto, TaskModelDto,
     WorkflowInstanceDto
-} from '@algotech/core';
-import { WorkflowInstancesService, SettingsDataService, AuthService, DataService, TranslateLangDtoService } from '@algotech/angular';
+} from '@algotech-ce/core';
+import { WorkflowInstancesService, SettingsDataService, AuthService, DataService, TranslateLangDtoService } from '@algotech-ce/angular';
 import * as _ from 'lodash';
 import { zip } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';

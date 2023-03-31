@@ -1,5 +1,5 @@
 import { IsDefined, IsOptional } from 'class-validator';
-import { SmartObjectDto, SysFile } from '@algotech/core';
+import { SmartObjectDto, SysFile } from '@algotech-ce/core';
 import { CustomResolver } from '../custom-resolver.type';
 
 export class TaskXReportDto {

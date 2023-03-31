@@ -1,4 +1,4 @@
-import { WorkflowDataDto } from '@algotech/core';
+import { WorkflowDataDto } from '@algotech-ce/core';
 import { fixtSysNotify } from './sys-objects';
 
 export const fixtDataWorkflow: WorkflowDataDto[] = [

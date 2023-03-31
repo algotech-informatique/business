@@ -1,4 +1,4 @@
-import { WorkflowParticipantDto } from '@algotech/core';
+import { WorkflowParticipantDto } from '@algotech-ce/core';
 
 export const fixtUserTechician1: WorkflowParticipantDto = {
     user: 'jbernard',

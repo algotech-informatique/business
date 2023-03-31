@@ -1,4 +1,4 @@
-import { LangDto, SmartPropertyModelDto } from '@algotech/core';
+import { LangDto, SmartPropertyModelDto } from '@algotech-ce/core';
 
 export interface ISoFormBreadCrumb {
     uuid?: string;

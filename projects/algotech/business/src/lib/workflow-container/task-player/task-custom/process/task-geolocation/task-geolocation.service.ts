@@ -4,7 +4,7 @@ import { Observable, zip, of } from 'rxjs';
 import { map, catchError, finalize, mergeMap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 
-import { WorkflowInstanceDto, GeometryDto, GeoDto, SmartObjectDto } from '@algotech/core';
+import { WorkflowInstanceDto, GeometryDto, GeoDto, SmartObjectDto } from '@algotech-ce/core';
 import { InterpretorTaskDto } from '../../../../../../../interpretor/src/dto';
 import { InterpretorValidateDto } from '../../../../../../../interpretor/src/dto';
 import * as _ from 'lodash';
@@ -14,7 +14,7 @@ import { TaskGeolocationDto } from '../../../../dto/task-geolocation.dto';
 import { UUID } from 'angular2-uuid';
 import { InterpretorTransferTransitionDto } from '../../../../../../../interpretor/src/dto';
 import { SysUtilsService } from '../../../../../workflow-interpretor/@utils/sys-utils.service';
-import { GeoLocationService } from '@algotech/angular';
+import { GeoLocationService } from '@algotech-ce/angular';
 import { WorkflowDialogService } from '../../../../../workflow-dialog/workflow-dialog.service';
 import { WorkflowDialogLoad } from '../../../../../workflow-dialog/interfaces';
 

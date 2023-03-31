@@ -8,7 +8,7 @@ import { ReportsUtilsService } from '.././@utils/reports-utils.service';
 import { WorkflowServiceService } from '../workflow-reader/workflow-task/workflow-service.service';
 import { SmartFlowUtilsService } from '.././@utils/smartflow-utils.service';
 import { TaskUtilsService } from '../@utils/task-utils.service';
-import { TaskModelDto } from '@algotech/core';
+import { TaskModelDto } from '@algotech-ce/core';
 import { WorkflowSubjectService } from '../workflow-subject/workflow-subject.service';
 
 const TASK_NO_UI = [

@@ -1,7 +1,7 @@
 import { TaskBase } from './task-base';
 import { zip, Observable, of, concat } from 'rxjs';
 import { map, catchError, toArray, first, mergeMap } from 'rxjs/operators';
-import { PairDto, SmartObjectDto, SmartModelDto } from '@algotech/core';
+import { PairDto, SmartObjectDto, SmartModelDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import { InterpretorTaskDto, InterpretorValidateDto, InterpretorTransferTransitionDto, TaskAssignObjectDto } from '../dto';
 import { TaskAssignObjectError } from '../error/tasks-error';

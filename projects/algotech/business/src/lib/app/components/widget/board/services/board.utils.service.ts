@@ -1,5 +1,5 @@
-import { AuthService } from '@algotech/angular';
-import { SnPageWidgetDto } from '@algotech/core';
+import { AuthService } from '@algotech-ce/angular';
+import { SnPageWidgetDto } from '@algotech-ce/core';
 import { Injectable } from '@angular/core';
 import * as _ from 'lodash';
 import { MagnetUtils } from '../../../../../../../interpretor/src/@utils/magnet-utils';

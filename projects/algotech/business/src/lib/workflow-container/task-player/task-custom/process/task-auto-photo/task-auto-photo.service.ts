@@ -7,9 +7,9 @@ import { InterpretorTaskDto, WorkflowTaskActionUploadDto } from '../../../../../
 import { InterpretorValidateDto } from '../../../../../../../interpretor/src/dto';
 import { InterpretorTransferTransitionDto } from '../../../../../../../interpretor/src/dto';
 
-import { SmartObjectDto, FileUploadDto, SysFile } from '@algotech/core';
+import { SmartObjectDto, FileUploadDto, SysFile } from '@algotech-ce/core';
 import { TaskAutoPhotoError } from '../../../../container-error/container-error';
-import { AuthService, DataService } from '@algotech/angular';
+import { AuthService, DataService } from '@algotech-ce/angular';
 
 import { FilesService } from '../../../../../workflow-interpretor/@utils/files.service';
 import { TaskAutoPhotoDto } from '../../../../dto/task-auto-photo.dto';

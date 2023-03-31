@@ -1,4 +1,4 @@
-import { ApplicationModelDto } from '@algotech/core';
+import { ApplicationModelDto } from '@algotech-ce/core';
 
 export const appTestReload: ApplicationModelDto = {
     uuid: '7623c5df-62dd-0870-1351-05c462214c36',

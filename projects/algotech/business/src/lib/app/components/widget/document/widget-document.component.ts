@@ -1,4 +1,4 @@
-import { SnPageWidgetDto, ApplicationModelDto, SmartObjectDto, TagDto, TagListDto, PairDto } from '@algotech/core';
+import { SnPageWidgetDto, ApplicationModelDto, SmartObjectDto, TagDto, TagListDto, PairDto } from '@algotech-ce/core';
 import { Component, EventEmitter } from '@angular/core';
 import { SoUtilsService } from '../../../../workflow-interpretor/@utils/so-utils.service';
 import { WorkflowLaunchService } from '../../../../workflow-launcher/workflow-layout.lancher.service';
@@ -6,7 +6,7 @@ import { EventData, PageData } from '../../../models';
 import { Widget } from '../widget.interface';
 import * as _ from 'lodash';
 import { of } from 'rxjs';
-import { DataService, SettingsDataService, SmartObjectsService } from '@algotech/angular';
+import { DataService, SettingsDataService, SmartObjectsService } from '@algotech-ce/angular';
 import { WidgetDocumentFileDto } from './dto/widget-document-file.dto';
 import { FilesService } from '../../../../workflow-interpretor/@utils/files.service';
 import { FileAssetDto } from '../../../../dto/file-asset.dto';

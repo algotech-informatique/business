@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as d3 from 'd3';
-import { DrawingDataDto, DrawingPenList, DrawingLineDto } from '@algotech/core';
+import { DrawingDataDto, DrawingPenList, DrawingLineDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import { UUID } from 'angular2-uuid';
 import { DrawingMathService } from '../utils/drawing-math.service';

@@ -2,7 +2,7 @@ import {
     SmartObjectDto, ScheduleDto, ScheduleReceiverDto, ScheduleWorkflowDto,
     UserDto, GroupDto, WorkflowModelDto, WorkflowSettingsSecurityGroupsDto, WorkflowProfilModelDto,
     WorkflowVariableModelDto, WorkflowEventParameterDto, AgendaTypeDto
-} from '@algotech/core';
+} from '@algotech-ce/core';
 import moment from 'moment';
 
 import { UUID } from 'angular2-uuid';

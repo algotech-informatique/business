@@ -1,6 +1,6 @@
 import { IsDefined, IsOptional } from 'class-validator';
 import { CustomResolver } from '../custom-resolver.type';
-import { SmartObjectDto, SmartModelDto } from '@algotech/core';
+import { SmartObjectDto, SmartModelDto } from '@algotech-ce/core';
 
 export class TaskObjectFilterDto {
     @IsDefined()

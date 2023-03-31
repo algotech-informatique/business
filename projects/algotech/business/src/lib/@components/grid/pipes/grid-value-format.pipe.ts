@@ -1,4 +1,4 @@
-import { GestionDisplaySettingsService } from '@algotech/angular';
+import { GestionDisplaySettingsService } from '@algotech-ce/angular';
 import { Pipe, PipeTransform } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import moment from 'moment';

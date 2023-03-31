@@ -1,4 +1,4 @@
-import { PairDto } from '@algotech/core';
+import { PairDto } from '@algotech-ce/core';
 import { AfterViewInit, ChangeDetectorRef, Component, EventEmitter, ViewChild } from '@angular/core';
 import { GridConfigurationDto } from '../../../dto/grid-configuration.dto';
 import { GridComponent } from '../../../grid.component';

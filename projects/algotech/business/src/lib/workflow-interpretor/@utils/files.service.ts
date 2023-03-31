@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as _ from 'lodash';
-import { AuthService, DataService, EnvService } from '@algotech/angular';
-import { SysFile } from '@algotech/core';
+import { AuthService, DataService, EnvService } from '@algotech-ce/angular';
+import { SysFile } from '@algotech-ce/core';
 import { from, concat, Observable, of, empty, throwError, Subject } from 'rxjs';
 import { toArray, catchError, mergeMap, map, finalize } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';

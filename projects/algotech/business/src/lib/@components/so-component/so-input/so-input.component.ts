@@ -1,4 +1,4 @@
-import { DataService } from '@algotech/angular';
+import { DataService } from '@algotech-ce/angular';
 import { Component, Input, Output, EventEmitter, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({

@@ -1,4 +1,4 @@
-import { WorkflowInstanceContextDto, SmartObjectDto, WorkflowLaunchOptionsDto } from '@algotech/core';
+import { WorkflowInstanceContextDto, SmartObjectDto, WorkflowLaunchOptionsDto } from '@algotech-ce/core';
 import { Observable } from 'rxjs';
 
 export abstract class SmartFlowUtils {

@@ -1,8 +1,8 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { Application } from '@algotech/angular';
+import { Application } from '@algotech-ce/angular';
 import { style, animate, transition, trigger } from '@angular/animations';
 import * as _ from 'lodash';
-import { SnPageBoxDto, SnPageDto, SnPageWidgetDto } from '@algotech/core';
+import { SnPageBoxDto, SnPageDto, SnPageWidgetDto } from '@algotech-ce/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

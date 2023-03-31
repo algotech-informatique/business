@@ -1,4 +1,4 @@
-import { SnPageDto } from '@algotech/core';
+import { SnPageDto } from '@algotech-ce/core';
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({ name: 'spacingFooter' })

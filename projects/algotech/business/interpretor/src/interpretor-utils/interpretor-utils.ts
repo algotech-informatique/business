@@ -1,4 +1,4 @@
-import { WorkflowInstanceDto, TaskModelDto, WorkflowStackTaskDto, WorkflowProfilModelDto, WorkflowStepModelDto } from '@algotech/core';
+import { WorkflowInstanceDto, TaskModelDto, WorkflowStackTaskDto, WorkflowProfilModelDto, WorkflowStepModelDto } from '@algotech-ce/core';
 import {
     WorkflowErrorModelNotValid,
     WorkflowErrorTransitionNotFind,
@@ -19,7 +19,7 @@ import { InterpretorService } from '../interpretor-reader/interpretor-task/inter
 import { SmartFlowUtils } from '../@utils/smartflow-utils';
 import { TaskUtils } from '../@utils/task-utils';
 import { InterpretorSubject } from '../interpretor-subject/interpretor-subject';
-import { TaskTransitionDataModelDto } from '@algotech/core';
+import { TaskTransitionDataModelDto } from '@algotech-ce/core';
 import { ClassConstructor } from 'class-transformer';
 
 const TASK_LAUNCHER = 'TaskLauncher';

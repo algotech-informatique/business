@@ -1,6 +1,6 @@
 import { IsDefined, IsOptional } from 'class-validator';
 import { CustomResolver } from '../custom-resolver.type';
-import { PairDto, SmartModelDto } from '@algotech/core';
+import { PairDto, SmartModelDto } from '@algotech-ce/core';
 
 export class TaskMappedDto {
 

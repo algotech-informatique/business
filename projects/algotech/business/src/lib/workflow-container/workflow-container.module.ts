@@ -6,7 +6,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { TaskPlayerModule } from './task-player/task-player.module';
 import { WorkflowContainerComponent } from './workflow-container.component';
 import { PipesModule,
-} from '@algotech/angular';
+} from '@algotech-ce/angular';
 import { HttpClientModule } from '@angular/common/http';
 import { TaskCustomService } from './task-player/task-custom/task-custom.service';
 import { WorkflowLaunchService } from '../workflow-launcher/workflow-layout.lancher.service';

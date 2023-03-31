@@ -1,8 +1,8 @@
 import { Component, Input, Output, EventEmitter, AfterViewInit } from '@angular/core';
 import { FilesService } from '../../../../../../../workflow-interpretor/@utils/files.service';
-import { AuthService, DataService } from '@algotech/angular';
-import { SysFile } from '@algotech/core';
-import { FileUploadDto, AnnotationDto } from '@algotech/core';
+import { AuthService, DataService } from '@algotech-ce/angular';
+import { SysFile } from '@algotech-ce/core';
+import { FileUploadDto, AnnotationDto } from '@algotech-ce/core';
 import { UUID } from 'angular2-uuid';
 import moment from 'moment';
 import { InterpretorTaskActionAssetDto, WorkflowTaskActionUploadDto } from '../../../../../../../../../interpretor/src/dto';

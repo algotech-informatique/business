@@ -1,5 +1,5 @@
 import { Observable, zip } from 'rxjs';
-import { SmartObjectDto, FileEditDto, DocumentLockStateDto, SysFile } from '@algotech/core';
+import { SmartObjectDto, FileEditDto, DocumentLockStateDto, SysFile } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import { map, catchError } from 'rxjs/operators';
 import moment from 'moment';

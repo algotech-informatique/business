@@ -1,4 +1,4 @@
-import { TagDto } from '@algotech/core';
+import { TagDto } from '@algotech-ce/core';
 
 export class FilterTag {
     checked: boolean;

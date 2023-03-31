@@ -1,5 +1,5 @@
 import { IsString, IsDefined, IsBoolean, IsOptional } from 'class-validator';
-import { SmartObjectDto } from '@algotech/core';
+import { SmartObjectDto } from '@algotech-ce/core';
 import { InterpretorTaskActionAssetDto } from './interpretor-task-action-asset.dto';
 
 // @dynamic

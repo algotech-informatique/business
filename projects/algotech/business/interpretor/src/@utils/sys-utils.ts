@@ -1,7 +1,7 @@
 import {
     WorkflowModelDto, ScheduleDto, UserDto, WorkflowProfilModelDto,
     WorkflowVariableModelDto, GeoDto, DocumentDto, ZoneDto
-} from '@algotech/core';
+} from '@algotech-ce/core';
 import * as _ from 'lodash';
 
 export class SysUtils {

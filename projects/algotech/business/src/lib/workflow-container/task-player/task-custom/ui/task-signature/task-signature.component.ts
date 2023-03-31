@@ -2,11 +2,11 @@ import { Component, Input, Output, EventEmitter, ViewChild, AfterViewInit, Eleme
 import { TaskComponent } from '../../task.interface';
 import { InterpretorTaskDto, WorkflowTaskActionSignDto } from '../../../../../../../interpretor/src/dto';
 import { TaskSignatureDto } from '../../../../dto/task-signature.dto';
-import { SmartObjectDto, ATSignatureDto } from '@algotech/core';
+import { SmartObjectDto, ATSignatureDto } from '@algotech-ce/core';
 import { InterpretorTransferTransitionDto } from '../../../../../../../interpretor/src/dto';
 import { UUID } from 'angular2-uuid';
 import { InterpretorValidateDto } from '../../../../../../../interpretor/src/dto';
-import { AuthService } from '@algotech/angular';
+import { AuthService } from '@algotech-ce/angular';
 import moment from 'moment';
 import { TaskSignatureError } from '../../../../container-error/container-error';
 import SignaturePad from 'signature_pad';

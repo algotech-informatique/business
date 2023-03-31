@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, OnDestroy, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { WorkflowInstanceDto, WorkflowModelDto, PairDto, WorkflowSettingsDto, WorkflowInstanceContextDto } from '@algotech/core';
+import { WorkflowInstanceDto, WorkflowModelDto, PairDto, WorkflowSettingsDto, WorkflowInstanceContextDto } from '@algotech-ce/core';
 import { Subject, Observable, of } from 'rxjs';
 import { takeUntil, map, tap, finalize, first, mergeMap } from 'rxjs/operators';
 import { PaginateAction } from './dto/paginate-action';
@@ -13,7 +13,7 @@ import { InterpretorTaskDto } from '../../../interpretor/src/dto';
 import { InterpretorValidateDto } from '../../../interpretor/src/dto';
 import { WorkflowInterpretorService } from '../workflow-interpretor/workflow-interpretor.service';
 import { InterpretorJumpDto } from '../../../interpretor/src/dto';
-import { DataService, AuthService, SettingsDataService } from '@algotech/angular';
+import { DataService, AuthService, SettingsDataService } from '@algotech-ce/angular';
 import {
     WorkflowErrorUnauthorizedProfil,
     WorkflowErrorOldInstance
@@ -332,6 +332,7 @@ export class WorkflowContainerComponent implements OnInit, OnDestroy {
 
         // modal
         if (!modal) {
+            this.workflowDialog.dismiss();
             this.closed.emit();
             return;
         }
@@ -421,7 +422,9 @@ export class WorkflowContainerComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy(): void {
-        if (!this.workflowUtils.isFinished(this._currentWorkflow) && !this.workflowUtils.isReadonly(this._currentWorkflow)) {
+        if (this._currentWorkflow &&
+            !this.workflowUtils.isFinished(this._currentWorkflow) &&
+            !this.workflowUtils.isReadonly(this._currentWorkflow)) {
             this.workflowData.saveInstance(this._currentWorkflow, true).subscribe();
         }
 

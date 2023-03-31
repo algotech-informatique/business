@@ -3,7 +3,7 @@ import { catchError } from 'rxjs/operators';
 import { Observable, of, throwError, zip, } from 'rxjs';
 import {
     SmartObjectDto, WorkflowDataDto, DocumentDto, WorkflowInstanceContextDto, PairDto, WorkflowVariableModelDto, ATSkillsDto, SmartModelDto, SysFile,
-} from '@algotech/core';
+} from '@algotech-ce/core';
 import * as _ from 'lodash';
 import { DownloadDataDto } from '../../dto';
 import { InterpretorAbstract } from '../../interpretor-abstract/interpretor-abstract';

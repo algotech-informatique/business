@@ -4,7 +4,7 @@ import { TaskBase } from './task-base';
 import { InterpretorTaskDto, InterpretorValidateDto, InterpretorTransferTransitionDto } from '../dto';
 import { map, mergeMap, catchError } from 'rxjs/operators';
 import { TaskRequestResultError } from '../error/tasks-error';
-import { SmartObjectDto } from '@algotech/core';
+import { SmartObjectDto } from '@algotech-ce/core';
 import { TaskRequestResultDto } from '../dto/tasks/task-request-result.dto';
 
 export class TaskRequestResult extends TaskBase {

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { SocketModelService, SocketManager } from '@algotech/angular';
+import { SocketModelService, SocketManager } from '@algotech-ce/angular';
 
 @Injectable()
 export class SocketDocumentsService extends SocketModelService {

@@ -9,7 +9,7 @@ import { TaskFileViewerDto } from '../../../../dto/task-file-viewer.dto';
 import { SoUtilsService } from '../../../../../workflow-interpretor/@utils/so-utils.service';
 import { FileAssetDto } from '../../../../../dto/file-asset.dto';
 import { FilesService } from '../../../../../workflow-interpretor/@utils/files.service';
-import { SysFile } from '@algotech/core';
+import { SysFile } from '@algotech-ce/core';
 import { NgComponentError } from '../../../../../../../interpretor/src/error/tasks-error';
 import { TaskUtilsService } from '../../../../../workflow-interpretor/@utils/task-utils.service';
 

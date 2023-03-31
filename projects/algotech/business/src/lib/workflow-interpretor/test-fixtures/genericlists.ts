@@ -1,4 +1,4 @@
-import { GenericListDto } from '@algotech/core';
+import { GenericListDto } from '@algotech-ce/core';
 
 export const fixtGlists: GenericListDto[] = [
     {

@@ -6,13 +6,13 @@ import { TaskEditDocumentError } from '../../../../container-error/container-err
 import * as _ from 'lodash';
 import { InterpretorTransferTransitionDto } from '../../../../../../../interpretor/src/dto';
 import { TaskEditDocumentDto } from '../../../../dto/task-edit-document.dto';
-import { SmartObjectDto, FileEditDto, TagListDto, SysFile, DocumentMetadatasDto } from '@algotech/core';
-import { SettingsDataService } from '@algotech/angular';
+import { SmartObjectDto, FileEditDto, TagListDto, SysFile, DocumentMetadatasDto } from '@algotech-ce/core';
+import { SettingsDataService } from '@algotech-ce/angular';
 import { InterpretorValidateDto } from '../../../../../../../interpretor/src/dto';
 import { TranslateService } from '@ngx-translate/core';
 import { SoUtilsService } from '../../../../../workflow-interpretor/@utils/so-utils.service';
 import { TagsUtilsService } from '../../../../../workflow-interpretor/@utils/tags-utilis.service';
-import { DocumentsMetaDatasSettingsDto } from '@algotech/core';
+import { DocumentsMetaDatasSettingsDto } from '@algotech-ce/core';
 import { NgComponentError } from '../../../../../../../interpretor/src/error/tasks-error';
 import { TaskUtilsService } from '../../../../../workflow-interpretor/@utils/task-utils.service';
 

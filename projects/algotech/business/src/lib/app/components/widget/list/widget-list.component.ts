@@ -1,4 +1,4 @@
-import { SnPageWidgetDto, ApplicationModelDto, SnPageDto, SmartObjectDto, PairDto, SysQueryDto } from '@algotech/core';
+import { SnPageWidgetDto, ApplicationModelDto, SnPageDto, SmartObjectDto, PairDto, SysQueryDto } from '@algotech-ce/core';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { PageData } from '../../../models';
 import { Widget } from '../widget.interface';

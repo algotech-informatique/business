@@ -1,4 +1,4 @@
-import { WorkflowStackTaskDto } from '@algotech/core';
+import { WorkflowStackTaskDto } from '@algotech-ce/core';
 import { fixtOperationsUpload, fixtOperationsNotifyReviewer,
     fixtReverseNotifyReviewer, fixtOperationsNotifyEmitter,
     fixtReverseNotifyEmitter, fixtOperationsNewDocument,

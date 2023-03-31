@@ -1,4 +1,4 @@
-import { UserDto } from '@algotech/core';
+import { UserDto } from '@algotech-ce/core';
 
 export const fixtSignInMock: {
     user: UserDto,

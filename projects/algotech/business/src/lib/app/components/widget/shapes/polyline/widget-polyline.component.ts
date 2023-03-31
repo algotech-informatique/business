@@ -1,4 +1,4 @@
-import { SnPageWidgetDto } from '@algotech/core';
+import { SnPageWidgetDto } from '@algotech-ce/core';
 import { Component, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({

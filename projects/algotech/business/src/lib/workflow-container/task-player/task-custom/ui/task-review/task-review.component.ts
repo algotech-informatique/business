@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { TaskComponent } from '../../task.interface';
 import { InterpretorTaskDto } from '../../../../../../../interpretor/src/dto';
 import { TaskReviewDto } from '../../../../dto/task-review.dto';
-import { NotificationDto, SysFile } from '@algotech/core';
+import { NotificationDto, SysFile } from '@algotech-ce/core';
 import { zip, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import * as _ from 'lodash';

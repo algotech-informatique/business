@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {
     AuthService, SettingsDataService, SmartObjectsService, DataService, ScheduleService, SmartFlowsService, LoaderService,
-} from '@algotech/angular';
+} from '@algotech-ce/angular';
 import { AlertController, Platform } from '@ionic/angular';
-import { WorkflowSettingsDto, SmartObjectDto, ScheduleDto, WorkflowModelDto } from '@algotech/core';
+import { WorkflowSettingsDto, SmartObjectDto, ScheduleDto, WorkflowModelDto } from '@algotech-ce/core';
 import { of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 import * as _ from 'lodash';
@@ -13,7 +13,7 @@ import { InterpretorFormulaParser, ThemeEngloberService, ToastService,
 import * as d3 from 'd3';
 import { WorkflowState } from '../../../projects/algotech/business/src/lib/workflow-container/dto/workflow-state.enum';
 
-const wfModelKey = 'testliste';
+const wfModelKey = 'test_primary';
 const wfi = '8fcd7528-36f4-038b-1a80-8117de1f2a25';
 const wfUuid = '78c0bb0e-5471-98dc-dccb-433598a5f3ed';
 

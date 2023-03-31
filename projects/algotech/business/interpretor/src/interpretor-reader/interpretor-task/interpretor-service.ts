@@ -1,9 +1,9 @@
 
 import { mergeMap, catchError } from 'rxjs/operators';
 import { Observable, throwError, forkJoin, of } from 'rxjs';
-import { ServiceModelDto, PairDto, SmartObjectDto, WorkflowInstanceContextDto, WorkflowLaunchOptionsDto } from '@algotech/core';
+import { ServiceModelDto, PairDto, SmartObjectDto, WorkflowInstanceContextDto, WorkflowLaunchOptionsDto } from '@algotech-ce/core';
 import { WorkflowErrorTodo } from '../../error/interpretor-error';
-import { ServiceReturnModelDto } from '@algotech/core';
+import { ServiceReturnModelDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import { InterpretorSoUtils } from '../interpretor-so/interpretor-so-utils';
 import { CustomResolverParams } from '../../dto';

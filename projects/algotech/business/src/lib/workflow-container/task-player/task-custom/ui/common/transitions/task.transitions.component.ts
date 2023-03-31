@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { TaskTransitionModelDto } from '@algotech/core';
+import { TaskTransitionModelDto } from '@algotech-ce/core';
 
 
 @Component({

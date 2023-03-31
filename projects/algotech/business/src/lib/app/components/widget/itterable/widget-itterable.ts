@@ -1,4 +1,4 @@
-import { SnPageWidgetDto, ApplicationModelDto, SnPageDto, SmartObjectDto, PairDto, SysQueryDto } from '@algotech/core';
+import { SnPageWidgetDto, ApplicationModelDto, SnPageDto, SmartObjectDto, PairDto, SysQueryDto } from '@algotech-ce/core';
 import { AfterViewInit, Component, EventEmitter, ViewChild } from '@angular/core';
 import { of, Subject, Subscription, throwError } from 'rxjs';
 import { catchError, debounceTime, tap } from 'rxjs/operators';

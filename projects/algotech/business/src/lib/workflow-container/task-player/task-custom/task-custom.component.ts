@@ -5,7 +5,7 @@ import { TaskComponent } from './task.interface';
 import { TaskDirective } from './task.directive';
 import { InterpretorTaskDto } from '../../../../../interpretor/src/dto';
 import { InterpretorValidateDto } from '../../../../../interpretor/src/dto';
-import { DataService } from '@algotech/angular';
+import { DataService } from '@algotech-ce/angular';
 import { NgComponentError } from '../../../../../interpretor/src/error/tasks-error';
 
 @Component({

@@ -3,7 +3,7 @@ import { map, catchError } from 'rxjs/operators';
 import { TaskBase } from './task-base';
 import { InterpretorValidateDto, InterpretorTaskDto, TaskConditionV2Dto } from '../dto';
 import { TaskConditionV2Error } from '../error/tasks-error';
-import { PairDto } from '@algotech/core';
+import { PairDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 
 export class TaskConditionV2 extends TaskBase {

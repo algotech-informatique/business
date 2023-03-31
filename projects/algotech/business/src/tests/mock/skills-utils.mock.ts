@@ -1,4 +1,4 @@
-import { SmartObjectDto, WorkflowInstanceContextDto } from "@algotech/core";
+import { SmartObjectDto, WorkflowInstanceContextDto } from "@algotech-ce/core";
 import { Observable, of } from "rxjs";
 import { SkillsUtils, SoUtils } from "../../../interpretor/src";
 

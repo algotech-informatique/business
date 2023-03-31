@@ -6,7 +6,7 @@ import {
     WorkflowTaskActionDto,
     SmartObjectDto,
     WorkflowInstanceContextDto,
-} from '@algotech/core';
+} from '@algotech-ce/core';
 import { Observable, of, empty } from 'rxjs';
 import * as _ from 'lodash';
 import { SaveOperationMode } from '../dto';

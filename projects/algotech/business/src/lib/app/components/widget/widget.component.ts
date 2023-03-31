@@ -1,6 +1,6 @@
 import { Subscription, zip } from 'rxjs';
 import { AppWidgetDirective } from '../../directives/app-widget.directive';
-import { SnPageWidgetDto, ApplicationModelDto, SnPageDto, PairDto, SysQueryDto } from '@algotech/core';
+import { SnPageWidgetDto, ApplicationModelDto, SnPageDto, PairDto, SysQueryDto } from '@algotech-ce/core';
 import {
     Component, Input, OnChanges, ViewChild, ViewContainerRef, ComponentRef,
     EventEmitter, SimpleChanges

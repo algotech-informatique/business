@@ -1,5 +1,5 @@
-import { AuthService, SettingsDataService, TranslateLangDtoService } from '@algotech/angular';
-import { ApplicationModelDto } from '@algotech/core';
+import { AuthService, SettingsDataService, TranslateLangDtoService } from '@algotech-ce/angular';
+import { ApplicationModelDto } from '@algotech-ce/core';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
 import { Observable, of } from 'rxjs';

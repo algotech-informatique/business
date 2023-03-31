@@ -1,4 +1,4 @@
-import { ApplicationModelDto, SnPageDto, SnPageWidgetDto, SysQueryDto } from '@algotech/core';
+import { ApplicationModelDto, SnPageDto, SnPageWidgetDto, SysQueryDto } from '@algotech-ce/core';
 import { PageData } from './page-data';
 
 export interface DSResolver {

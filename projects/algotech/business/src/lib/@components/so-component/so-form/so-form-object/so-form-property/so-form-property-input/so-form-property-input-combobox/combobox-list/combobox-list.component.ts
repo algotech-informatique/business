@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation, OnDestroy, EventEmitter } from '@angular/core';
-import { SmartPropertyModelDto } from '@algotech/core';
+import { SmartPropertyModelDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import { Subject, Subscription } from 'rxjs';
 import { debounceTime, delay, tap } from 'rxjs/operators';

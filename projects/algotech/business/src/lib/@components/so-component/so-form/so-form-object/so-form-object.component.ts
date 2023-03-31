@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, ViewChildren, QueryList } from '@angular/core';
-import { SmartObjectDto, SmartPropertyModelDto, TagListDto, SmartPropertyObjectDto, SmartModelDto } from '@algotech/core';
+import { SmartObjectDto, SmartPropertyModelDto, TagListDto, SmartPropertyObjectDto, SmartModelDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import { Subject, of } from 'rxjs';
 import { debounceTime, tap, catchError, mergeMap } from 'rxjs/operators';
@@ -7,7 +7,7 @@ import { SoUtilsService } from '../../../../workflow-interpretor/@utils/so-utils
 import { ISoFormProperty, ISoFormBreadCrumb } from '../so-form-interface';
 import { SoFormService } from '../so-form.service';
 import { SoFormPropertyComponent } from './so-form-property/so-form-property.component';
-import { SmartObjectsService, NetworkService } from '@algotech/angular';
+import { SmartObjectsService, NetworkService } from '@algotech-ce/angular';
 import { SoUtils } from '../../../../../../interpretor/src';
 
 @Component({

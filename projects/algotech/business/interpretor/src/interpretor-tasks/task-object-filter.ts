@@ -1,6 +1,6 @@
 import { zip, Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-import { SmartObjectDto, SmartModelDto, SmartPropertyObjectDto } from '@algotech/core';
+import { SmartObjectDto, SmartModelDto, SmartPropertyObjectDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import { TaskBase } from './task-base';
 import { InterpretorValidateDto, InterpretorTaskDto, TaskObjectFilterDto } from '../dto';

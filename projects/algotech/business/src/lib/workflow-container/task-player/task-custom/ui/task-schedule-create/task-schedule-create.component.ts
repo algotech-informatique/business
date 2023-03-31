@@ -11,11 +11,11 @@ import {
     SmartObjectDto, UserDto, WorkflowModelDto, ScheduleDto, ScheduleWorkflowDto, ScheduleReceiverDto,
     AgendaTypeDto,
     PairDto
-} from '@algotech/core';
+} from '@algotech-ce/core';
 import {
     AuthService, SettingsDataService,
     GenericListsDisplayService
-} from '@algotech/angular';
+} from '@algotech-ce/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { SysUtilsService } from '../../../../../workflow-interpretor/@utils/sys-utils.service';
 import { ScheduleUtilsService } from '../../../../../workflow-interpretor/@utils/schedule-utils.service';

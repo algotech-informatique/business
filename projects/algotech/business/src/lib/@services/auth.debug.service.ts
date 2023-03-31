@@ -1,4 +1,4 @@
-import { AuthService, LocalProfil } from '@algotech/angular';
+import { AuthService, LocalProfil } from '@algotech-ce/angular';
 import { Injectable } from '@angular/core';
 import * as _ from 'lodash';
 import { from } from 'rxjs';

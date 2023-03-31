@@ -1,4 +1,4 @@
-import { SignInGuard } from '@algotech/angular';
+import { SignInGuard } from '@algotech-ce/angular';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppPreviewComponent, EncodeGuard, ThemeResolver,

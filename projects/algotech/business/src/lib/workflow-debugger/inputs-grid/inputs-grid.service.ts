@@ -3,10 +3,10 @@ import * as _ from 'lodash';
 import {
     PairDto, GeoDto, PlanContainersSettingsDto, PlanLayersSettingsDto, QuerySearchResultDto, SmartObjectDto, DocumentDto,
     QuerySearchDto, UserDto, ScheduleDto, ApplicationModelDto, SnPageWidgetDto, SnAppDto,
-} from '@algotech/core';
+} from '@algotech-ce/core';
 import {
     SettingsDataService, UsersService, ScheduleService, SmartObjectsService, DocumentsService,
-} from '@algotech/angular';
+} from '@algotech-ce/angular';
 import { ModalController } from '@ionic/angular';
 import { from, throwError, of, zip, Observable } from 'rxjs';
 import { InputsSearchComponent } from './inputs-search/inputs-search.component';

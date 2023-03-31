@@ -1,5 +1,5 @@
-import { SettingsDataService } from '@algotech/angular';
-import { SnPageWidgetDto, ApplicationModelDto, SmartObjectDto, TagListDto, TagDto } from '@algotech/core';
+import { SettingsDataService } from '@algotech-ce/angular';
+import { SnPageWidgetDto, ApplicationModelDto, SmartObjectDto, TagListDto, TagDto } from '@algotech-ce/core';
 import { Component, EventEmitter, Inject } from '@angular/core';
 import { EventData } from '../../../models';
 import { Widget } from '../widget.interface';

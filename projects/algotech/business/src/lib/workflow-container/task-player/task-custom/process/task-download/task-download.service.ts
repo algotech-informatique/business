@@ -1,13 +1,13 @@
 import { TaskService } from '../../task-service.interface';
 import { Observable, zip, of } from 'rxjs';
-import { WorkflowInstanceDto, SysFile } from '@algotech/core';
+import { WorkflowInstanceDto, SysFile } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import { Injectable } from '@angular/core';
 import { InterpretorTaskDto } from '../../../../../../../interpretor/src/dto';
 import { InterpretorValidateDto } from '../../../../../../../interpretor/src/dto';
 import { TaskDownloadDto } from '../../../../dto/task-download.dto';
 import { map, catchError, tap, mergeMap } from 'rxjs/operators';
-import { SmartObjectsService } from '@algotech/angular';
+import { SmartObjectsService } from '@algotech-ce/angular';
 import { TaskDownloadError } from '../../../../container-error/container-error';
 import { FilesService } from '../../../../../workflow-interpretor/@utils/files.service';
 import { FileAssetDto } from '../../../../../dto/file-asset.dto';

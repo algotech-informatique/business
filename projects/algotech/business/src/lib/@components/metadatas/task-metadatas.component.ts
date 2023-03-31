@@ -1,8 +1,8 @@
 import { Component, Output, EventEmitter, Input, OnInit } from '@angular/core';
 import * as _ from 'lodash';
-import { DocumentMetadatasDto } from '@algotech/core';
-import { DocumentsMetaDatasSettingsDto } from '@algotech/core';
-import { TranslateLangDtoService } from '@algotech/angular';
+import { DocumentMetadatasDto } from '@algotech-ce/core';
+import { DocumentsMetaDatasSettingsDto } from '@algotech-ce/core';
+import { TranslateLangDtoService } from '@algotech-ce/angular';
 
 @Component({
     selector: 'at-form-metadatas',

@@ -1,5 +1,5 @@
 import { PageEventsService } from '../../services/page-events.service';
-import { PairDto, SnPageVariableDto, WorkflowDataDto, SnPageDto, ApplicationModelDto } from '@algotech/core';
+import { PairDto, SnPageVariableDto, WorkflowDataDto, SnPageDto, ApplicationModelDto } from '@algotech-ce/core';
 import {
     Component, HostBinding, Input, ChangeDetectorRef, DoCheck, OnChanges, SimpleChanges, AfterViewInit, ElementRef, ViewChild, OnInit,
 } from '@angular/core';

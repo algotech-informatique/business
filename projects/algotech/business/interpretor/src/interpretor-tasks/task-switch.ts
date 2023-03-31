@@ -4,7 +4,7 @@ import { TaskBase } from './task-base';
 import { InterpretorValidateDto, InterpretorTaskDto, TaskSwitchDto } from '../dto';
 import { TaskSwitchError } from '../error/tasks-error';
 import * as _ from 'lodash';
-import { PairDto } from '@algotech/core';
+import { PairDto } from '@algotech-ce/core';
 
 export class TaskSwitch extends TaskBase {
 

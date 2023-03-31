@@ -3,7 +3,7 @@ import { TaskPaginateError } from '../../container-error/container-error';
 import * as _ from 'lodash';
 import { WorkflowUtilsService } from '../../../workflow-interpretor/workflow-utils/workflow-utils.service';
 import { InterpretorTaskDto } from '../../../../../interpretor/src/dto';
-import { TranslateLangDtoService } from '@algotech/angular';
+import { TranslateLangDtoService } from '@algotech-ce/angular';
 
 @Component({
     selector: 'at-task-paginate',

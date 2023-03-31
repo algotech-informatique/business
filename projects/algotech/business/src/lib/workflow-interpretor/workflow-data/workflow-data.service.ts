@@ -3,12 +3,12 @@ import { Injectable } from '@angular/core';
 import {
     WorkflowInstanceDto, WorkflowModelDto,
     WorkflowOperationDto, SmartObjectDto, DocumentDto, WorkflowTaskActionDto, ScheduleDto, WorkflowInstanceContextDto
-} from '@algotech/core';
+} from '@algotech-ce/core';
 import { WorkflowDataApiService } from './workflow-data-api.service';
 import { WorkflowDataStorageService } from './workflow-data-storage.service';
 import { Observable, of, throwError, concat, defer, zip } from 'rxjs';
 import { mergeMap, catchError, map, toArray, first, tap } from 'rxjs/operators';
-import { SettingsDataService, DataService } from '@algotech/angular';
+import { SettingsDataService, DataService } from '@algotech-ce/angular';
 import { FilesService } from '../../workflow-interpretor/@utils/files.service';
 import * as _ from 'lodash';
 import { FileAssetDto } from '../../dto/file-asset.dto';

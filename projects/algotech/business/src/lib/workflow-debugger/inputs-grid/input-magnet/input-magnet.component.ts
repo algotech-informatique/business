@@ -1,5 +1,5 @@
-import { SettingsDataService } from '@algotech/angular';
-import { ApplicationModelDto, PairDto, SnPageWidgetDto } from '@algotech/core';
+import { SettingsDataService } from '@algotech-ce/angular';
+import { ApplicationModelDto, PairDto, SnPageWidgetDto } from '@algotech-ce/core';
 import { Component, Output, EventEmitter, Input, OnChanges } from '@angular/core';
 import * as _ from 'lodash';
 import { InputMagnet } from '../dto/input-magnet.dto';

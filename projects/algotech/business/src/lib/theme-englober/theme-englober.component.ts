@@ -1,5 +1,5 @@
-import { SettingsDataService } from '@algotech/angular';
-import { PairDto, ThemeDto } from '@algotech/core';
+import { SettingsDataService } from '@algotech-ce/angular';
+import { PairDto, ThemeDto } from '@algotech-ce/core';
 import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ThemeEngloberService } from './theme-englober.service';

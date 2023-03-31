@@ -5,7 +5,7 @@ import { TaskBase } from './task-base';
 import { InterpretorTaskDto, InterpretorTransferTransitionDto, InterpretorValidateDto } from '../dto';
 import { TaskLoopDto } from '../dto/tasks/task-loop.dto';
 import { TaskLoopError } from '../error/tasks-error';
-import { SmartObjectDto } from '@algotech/core';
+import { SmartObjectDto } from '@algotech-ce/core';
 
 const KEYWORD_INDEX = '$__i_';
 const KEYWORD_ITEMS = '$__items_';

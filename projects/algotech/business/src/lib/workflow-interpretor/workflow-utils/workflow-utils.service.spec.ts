@@ -11,7 +11,7 @@ import {
     fixtWorkflowInstanceJumpedBeforeNewDocument,
     fixtWorkflowInstanceForm
 } from '../test-fixtures/workflow-instances';
-import { TaskModelDto, WorkflowInstanceDto } from '@algotech/core';
+import { TaskModelDto, WorkflowInstanceDto } from '@algotech-ce/core';
 import {
     fixtWorkflowModelErrorNoEntryPoint,
     fixtWorkflowModelErrorManyEntryPoints,

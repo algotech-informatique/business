@@ -1,5 +1,5 @@
 import { IsString, IsDefined, ValidateNested, IsArray } from 'class-validator';
-import { TaskTransitionModelDto, WorkflowInstanceDto } from '@algotech/core';
+import { TaskTransitionModelDto, WorkflowInstanceDto } from '@algotech-ce/core';
 import { Type } from 'class-transformer';
 import { BreadCrumbDto } from './step-breadcrumb.dto';
 

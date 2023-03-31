@@ -1,4 +1,4 @@
-import { PairDto, SnPageEventPipeDto } from '@algotech/core';
+import { PairDto, SnPageEventPipeDto } from '@algotech-ce/core';
 import { Observable } from 'rxjs';
 
 export class ActionsLauncherData {

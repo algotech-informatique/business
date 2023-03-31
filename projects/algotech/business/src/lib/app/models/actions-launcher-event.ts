@@ -1,4 +1,4 @@
-import { SnPageEventPipeDto } from '@algotech/core';
+import { SnPageEventPipeDto } from '@algotech-ce/core';
 
 export class ActionsLauncherEvent {
     instance?: string;

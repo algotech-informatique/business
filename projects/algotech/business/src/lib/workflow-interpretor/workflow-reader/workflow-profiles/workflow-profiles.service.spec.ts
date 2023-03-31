@@ -5,7 +5,7 @@ import { fixtWorkflowModel1 } from '../../test-fixtures/workflow-models';
 import { fixtParticipantsEmpty, fixtParticipantsTechnician1, fixtUserTechician1, fixtUserAdmin1 } from '../../test-fixtures/profils';
 import { TestUtils } from '../../test-fixtures/mock/test-api-mock.utils';
 import * as _ from 'lodash';
-import { WorkflowInstanceDto } from '@algotech/core';
+import { WorkflowInstanceDto } from '@algotech-ce/core';
 import {
     WorkflowErrorUnauthorizedProfil,
     WorkflowErrorProfilNotFind,

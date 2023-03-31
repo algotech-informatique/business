@@ -5,7 +5,7 @@ import { InterpretorTaskDto } from '../../../../../../../interpretor/src/dto';
 import { zip, of } from 'rxjs';
 import { TaskDocumentLinkDto } from '../../../../dto/task-link-document-list.dto';
 import { SoUtilsService } from '../../../../../workflow-interpretor/@utils/so-utils.service';
-import { SmartObjectDto, DocumentDto, SysFile } from '@algotech/core';
+import { SmartObjectDto, DocumentDto, SysFile } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import { InterpretorValidateDto } from '../../../../../../../interpretor/src/dto';
 import { InterpretorTransferTransitionDto } from '../../../../../../../interpretor/src/dto';

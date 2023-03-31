@@ -1,4 +1,4 @@
-import { ApplicationModelDto, PairDto, SmartObjectDto, SnAppDto, SnPageBoxDto, SnPageWidgetDto, ZoneDto } from '@algotech/core';
+import { ApplicationModelDto, PairDto, SmartObjectDto, SnAppDto, SnPageBoxDto, SnPageWidgetDto, ZoneDto } from '@algotech-ce/core';
 import { SoUtils } from './so-utils';
 import * as _ from 'lodash';
 import { Polygon } from './polygon';

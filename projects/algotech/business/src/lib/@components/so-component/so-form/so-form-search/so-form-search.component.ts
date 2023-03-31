@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, AfterViewInit, ChangeDetectorRef } from '@angular/core';
-import { SmartObjectDto } from '@algotech/core';
-import { SmartObjectsService } from '@algotech/angular';
+import { SmartObjectDto } from '@algotech-ce/core';
+import { SmartObjectsService } from '@algotech-ce/angular';
 import * as _ from 'lodash';
 import { Observable } from 'rxjs';
 import { CustomResolverParams, InterpretorService } from '../../../../../../interpretor/src';

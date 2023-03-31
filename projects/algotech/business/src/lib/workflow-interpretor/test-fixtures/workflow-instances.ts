@@ -1,4 +1,4 @@
-import { WorkflowInstanceDto, WorkflowSettingsDto } from '@algotech/core';
+import { WorkflowInstanceDto, WorkflowSettingsDto } from '@algotech-ce/core';
 import { fixtStackTaskSelect, fixtStackTaskUploadOp, fixtStackTaskForm, fixtStackTaskNotifyReviewerOp,
     fixtStackTaskCheckNotifyReviewer, fixtStackTaskNotifyEmitter,
     fixtStackTaskComment, fixtStackTaskNotifyAll01,

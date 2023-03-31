@@ -1,4 +1,4 @@
-import { SmartObjectDto, SysFile } from '@algotech/core';
+import { SmartObjectDto, SysFile } from '@algotech-ce/core';
 import { InterpretorTaskDto } from '../interpretor.task.dto';
 
 export interface TaskUploadOptions {

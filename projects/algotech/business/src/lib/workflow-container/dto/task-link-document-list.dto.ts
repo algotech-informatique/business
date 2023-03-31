@@ -1,4 +1,4 @@
-import { SmartObjectDto } from '@algotech/core';
+import { SmartObjectDto } from '@algotech-ce/core';
 import { CustomResolver } from '../../../../interpretor/src/dto';
 import { IsDefined, IsOptional } from 'class-validator';
 export class TaskDocumentLinkDto {

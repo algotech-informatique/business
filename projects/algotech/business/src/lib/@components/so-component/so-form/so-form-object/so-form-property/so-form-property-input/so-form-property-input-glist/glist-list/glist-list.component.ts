@@ -1,9 +1,9 @@
 import { Component, EventEmitter, OnInit, ViewEncapsulation } from '@angular/core';
-import { GenericListValueDto, GenericListDto } from '@algotech/core';
+import { GenericListValueDto, GenericListDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import { Subject } from 'rxjs';
 import { debounceTime, map } from 'rxjs/operators';
-import { KeyFormaterService, NetworkService } from '@algotech/angular';
+import { KeyFormaterService, NetworkService } from '@algotech-ce/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { SoFormService } from '../../../../../so-form.service';
 import { WorkflowDialogService } from '../../../../../../../../workflow-dialog/workflow-dialog.service';

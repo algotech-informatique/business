@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter, Input, OnInit } from '@angular/core';
 import * as _ from 'lodash';
-import { TagDto, TagListDto } from '@algotech/core';
+import { TagDto, TagListDto } from '@algotech-ce/core';
 import { CustomTagsPopoverComponent } from '../custom-popover/custom-tags-popover/custom-tags-popover.component';
 import { WorkflowDialogService } from '../../workflow-dialog/workflow-dialog.service';
 

@@ -1,4 +1,4 @@
-import { SmartObjectDto, SmartPropertyObjectDto } from '@algotech/core';
+import { SmartObjectDto, SmartPropertyObjectDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 
 export class InterpretorArrayFunction {

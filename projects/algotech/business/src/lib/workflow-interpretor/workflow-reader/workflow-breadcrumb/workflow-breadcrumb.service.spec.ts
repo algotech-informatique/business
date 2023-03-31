@@ -1,5 +1,5 @@
 import { WorkflowBreadCrumbService } from './workflow-breadcrumb.service';
-import { WorkflowInstanceDto } from '@algotech/core';
+import { WorkflowInstanceDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import {
     fixtWorkflowInstanceTodo,

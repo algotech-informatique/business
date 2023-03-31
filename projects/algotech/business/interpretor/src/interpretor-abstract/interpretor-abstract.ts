@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { SmartObjectDto, DocumentDto, LangDto, WorkflowInstanceContextDto } from '@algotech/core';
+import { SmartObjectDto, DocumentDto, LangDto, WorkflowInstanceContextDto } from '@algotech-ce/core';
 
 export abstract class InterpretorAbstract {
 

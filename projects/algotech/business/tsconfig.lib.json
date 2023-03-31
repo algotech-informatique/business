@@ -1,8 +1,8 @@
 {
   "extends": "../../../tsconfig.json",
   "paths": {
-    "@algotech/business/interpretor": ["./interpretor/src/public_api.ts"],
-    "@algotech/business/drawing": ["./drawing/src/public_api.ts"],
+    "@algotech-ce/business/interpretor": ["./interpretor/src/public_api.ts"],
+    "@algotech-ce/business/drawing": ["./drawing/src/public_api.ts"],
   },
   "compilerOptions": {
     "outDir": "../../../out-tsc/lib",

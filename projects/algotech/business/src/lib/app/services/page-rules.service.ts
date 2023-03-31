@@ -1,4 +1,4 @@
-import { ApplicationModelDto, SmartObjectDto, SnPageDto, SnPageEventDto, SnPageWidgetConditionDto, SnPageWidgetDto, SnPageWidgetRuleDto } from '@algotech/core';
+import { ApplicationModelDto, SmartObjectDto, SnPageDto, SnPageEventDto, SnPageWidgetConditionDto, SnPageWidgetDto, SnPageWidgetRuleDto } from '@algotech-ce/core';
 import { Injectable } from '@angular/core';
 import { Observable, of, zip } from 'rxjs';
 import * as _ from 'lodash';

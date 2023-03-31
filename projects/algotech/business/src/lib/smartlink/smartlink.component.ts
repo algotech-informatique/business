@@ -1,8 +1,8 @@
 import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { AuthService, SmartLinkService, SettingsDataService, DataService, LoaderService } from '@algotech/angular';
+import { AuthService, SmartLinkService, SettingsDataService, DataService, LoaderService } from '@algotech-ce/angular';
 import { PairDto, WorkflowModelDto, WorkflowProfilModelDto, WorkflowSettingsDto,
-    WorkflowSettingsSecurityGroupsDto } from '@algotech/core';
+    WorkflowSettingsSecurityGroupsDto } from '@algotech-ce/core';
 import { mergeMap, map, tap } from 'rxjs/operators';
 import * as _ from 'lodash';
 import { UUID } from 'angular2-uuid';

@@ -1,7 +1,7 @@
 import {
     WorkflowInstanceDto, WorkflowModelDto,
     WorkflowStackTaskDto, WorkflowOperationDto, WorkflowInstanceContextDto
-} from '@algotech/core';
+} from '@algotech-ce/core';
 import { Observable, throwError, concat, of, defer } from 'rxjs';
 import { mergeMap, catchError, toArray, tap, map, first } from 'rxjs/operators';
 import * as _ from 'lodash';

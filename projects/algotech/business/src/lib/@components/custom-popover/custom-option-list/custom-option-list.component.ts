@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit, ViewEncapsulation } from '@angular/core';
 import { NavParams } from '@ionic/angular';
-import { ListDto } from '@algotech/core';
+import { ListDto } from '@algotech-ce/core';
 
 @Component({
   selector: 'at-custom-option-list',

@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { WorkflowInstanceDto } from '@algotech/core';
+import { WorkflowInstanceDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import moment from 'moment';
-import { NetworkService } from '@algotech/angular';
+import { NetworkService } from '@algotech-ce/angular';
 import { WorkflowSyncService } from './workflow-sync.service';
 import { ToastService } from '../@services/toast.service';
 

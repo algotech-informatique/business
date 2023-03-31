@@ -1,4 +1,4 @@
-import { PairDto, SmartObjectDto, WorkflowVariableModelDto } from "@algotech/core";
+import { PairDto, SmartObjectDto, WorkflowVariableModelDto } from "@algotech-ce/core";
 import { UUID } from "angular2-uuid";
 import * as _ from 'lodash';
 import { fixtObjectDocumentToSo, fixtObjectEquipmentToSo, fixtObjectUserToSo, fixtSOEquipmentFromAPI } from "../smart-objects";

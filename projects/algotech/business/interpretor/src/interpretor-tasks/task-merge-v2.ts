@@ -4,7 +4,7 @@ import { TaskBase } from './task-base';
 import { InterpretorTaskDto, InterpretorTransferTransitionDto, InterpretorValidateDto, TaskMergeV2Dto } from '../dto';
 import { map, catchError, mergeMap } from 'rxjs/operators';
 import { TaskMergeError } from '../error/tasks-error';
-import { SmartModelDto, SmartObjectDto, SmartPropertyObjectDto, SmartPropertyModelDto } from '@algotech/core';
+import { SmartModelDto, SmartObjectDto, SmartPropertyObjectDto, SmartPropertyModelDto } from '@algotech-ce/core';
 import { InterpretorSoUtils } from '../interpretor-reader/interpretor-so/interpretor-so-utils';
 
 export interface QuerySearch {
@@ -53,10 +53,10 @@ export class TaskMergeV2 extends TaskBase {
                         throw new TaskMergeError('ERR-045', `{{FAILED-TO-FETCH-DATA-BY-MODEL}} : ${err.message}`);
                     }),
                     map((smartObjects: SmartObjectDto[]) => {
-                        InterpretorSoUtils.pushSoIfNotExists(task.instance.smartobjects, smartObjects, task.instance.context?.custom?.indexes);
+                        InterpretorSoUtils.pushOrReplaceSo(task.instance.smartobjects, smartObjects, task.instance.context?.custom?.indexes);
                         return {
                             smartModel,
-                            smartObjectsFromDB: smartObjects,
+                            smartObjectsFromDB: _.cloneDeep(smartObjects),
                             objects,
                             propType,
                             propToMerge,

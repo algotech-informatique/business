@@ -1,6 +1,6 @@
 import { zip, Observable, of } from 'rxjs';
 import { map, flatMap, catchError, mergeMap } from 'rxjs/operators';
-import { SmartObjectDto, SysFile, PairDto, FileUploadDto, WorkflowVariableModelDto } from '@algotech/core';
+import { SmartObjectDto, SysFile, PairDto, FileUploadDto, WorkflowVariableModelDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import moment from 'moment';
 import { TaskBase } from './task-base';

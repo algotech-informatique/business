@@ -1,9 +1,9 @@
 import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 import { WidgetDocumentFileDto } from '../dto/widget-document-file.dto';
 import * as _ from 'lodash';
-import { DocumentDto, SysFile, VersionDto } from '@algotech/core';
-import { AuthService, DocumentsService, SettingsDataService, TranslateLangDtoService } from '@algotech/angular';
-import { DocumentsMetaDatasSettingsDto } from '@algotech/core';
+import { DocumentDto, SysFile, VersionDto } from '@algotech-ce/core';
+import { AuthService, DocumentsService, SettingsDataService, TranslateLangDtoService } from '@algotech-ce/angular';
+import { DocumentsMetaDatasSettingsDto } from '@algotech-ce/core';
 import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import moment from 'moment';

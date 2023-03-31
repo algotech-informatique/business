@@ -1,5 +1,5 @@
 
-import { WorkflowProfilModelDto, WorkflowParticipantDto, WorkflowInstanceDto, UserDto } from '@algotech/core';
+import { WorkflowProfilModelDto, WorkflowParticipantDto, WorkflowInstanceDto, UserDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import {
     WorkflowErrorUnauthorizedProfil,

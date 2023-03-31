@@ -1,4 +1,4 @@
-import { DirectivesModule } from '@algotech/angular';
+import { DirectivesModule } from '@algotech-ce/angular';
 import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';

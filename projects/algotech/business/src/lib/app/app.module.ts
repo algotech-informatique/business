@@ -2,7 +2,7 @@ import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { PipesModule } from '@algotech/angular';
+import { PipesModule } from '@algotech-ce/angular';
 import { PageEventsService } from './services/page-events.service';
 import { PageCustomService } from './services/page-custom.service';
 import { PageLayoutComponent } from '../app/components/page-layout/page-layout.component';

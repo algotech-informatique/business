@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { SmartObjectsService, DocumentIconDtoService, DocumentsService, GestionDisplaySettingsService } from '@algotech/angular';
-import { QuerySearchDto, QuerySearchResultDto, DocumentDto, DocumentIconDto, SettingsDto, SmartObjectDto } from '@algotech/core';
+import { SmartObjectsService, DocumentIconDtoService, DocumentsService, GestionDisplaySettingsService } from '@algotech-ce/angular';
+import { QuerySearchDto, QuerySearchResultDto, DocumentDto, DocumentIconDto, SettingsDto, SmartObjectDto } from '@algotech-ce/core';
 import { Observable, of, zip, Subject } from 'rxjs';
 import { mergeMap, catchError, map } from 'rxjs/operators';
 import * as _ from 'lodash';

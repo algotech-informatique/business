@@ -1,4 +1,4 @@
-import { SmartObjectDto } from '@algotech/core';
+import { SmartObjectDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import { SoUtils } from '../../@utils';
 
@@ -35,6 +35,13 @@ export class InterpretorSoUtils {
             if (!InterpretorSoUtils.quickFind(smartObjects, indexes, so.uuid)) {
                 InterpretorSoUtils.pushSo(smartObjects, indexes, so);
             }
+        }
+    }
+
+    static pushOrReplaceSo(smartObjects: SmartObjectDto[], toAdd: SmartObjectDto|SmartObjectDto[], indexes: any) {
+        for (const so of (Array.isArray(toAdd) ? toAdd : [toAdd]))  {
+            this.removeSo(smartObjects, indexes, so.uuid);
+            InterpretorSoUtils.pushSo(smartObjects, indexes, so);
         }
     }
 

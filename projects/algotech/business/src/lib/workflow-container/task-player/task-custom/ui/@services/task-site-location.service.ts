@@ -1,5 +1,5 @@
-import { SettingsDataService } from '@algotech/angular';
-import { GeoDto, GeometryDto, PlanContainersSettingsDto, PlanLayersSettingsDto, SmartObjectDto } from '@algotech/core';
+import { SettingsDataService } from '@algotech-ce/angular';
+import { GeoDto, GeometryDto, PlanContainersSettingsDto, PlanLayersSettingsDto, SmartObjectDto } from '@algotech-ce/core';
 import { Injectable } from '@angular/core';
 import * as _ from 'lodash';
 import { InterpretorTaskDto, InterpretorTransferTransitionDto } from '../../../../../../../interpretor/src';

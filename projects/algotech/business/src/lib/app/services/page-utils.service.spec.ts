@@ -1,7 +1,7 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { appTestReload } from './test-fixtures/app-test-reload';
 import * as _ from 'lodash';
-import { ApplicationModelDto } from '@algotech/core';
+import { ApplicationModelDto } from '@algotech-ce/core';
 import { PageUtilsService } from './page-utils.service';
 import { AppTestModule } from '../../workflow-interpretor/test-fixtures/mock/app.test.module';
 

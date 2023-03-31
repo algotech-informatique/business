@@ -1,7 +1,7 @@
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import {
     ATAngularModule, EnvService, AuthService, AuthModule,
-} from '@algotech/angular';
+} from '@algotech-ce/angular';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { WorkflowContainerModule } from '../../../workflow-container/workflow-container.module';
 import { environment } from '../../../../../../../../src/environments/environment';

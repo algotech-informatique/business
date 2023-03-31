@@ -1,9 +1,11 @@
 {
-    "name": "@algotech/business",
-    "version": "1.0.1425",
+    "name": "@algotech-ce/business",
+    "version": "2.0.0",
+    "author": "algotech-informatique",
+    "license": "MPL-2.0",
     "scripts": {
         "ng": "ng",
-        "test": "ng test @algotech/business"
+        "test": "ng test @algotech-ce/business"
     },
     "dependencies": {
         "angular-expressions": "1.1.8",
@@ -22,5 +24,15 @@
     },
     "peerDependencies": {
         "rxjs": "7.8.0"
-    }
+    },
+    "devDependencies": {},
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/algotech-informatique/business.git"
+    },
+    "bugs": {
+      "url": "https://github.com/algotech-informatique/business/issues"
+    },
+    "homepage": "https://github.com/algotech-informatique/business#readme",
+    "description": ""
 }

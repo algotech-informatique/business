@@ -1,4 +1,4 @@
-import { FileUploadDto, SysFile } from '@algotech/core';
+import { FileUploadDto, SysFile } from '@algotech-ce/core';
 import { UUID } from 'angular2-uuid';
 import { InterpretorTaskDto, InterpretorTransferTransitionDto, InterpretorValidateDto, WorkflowTaskActionUploadDto } from '../dto';
 import * as _ from 'lodash';

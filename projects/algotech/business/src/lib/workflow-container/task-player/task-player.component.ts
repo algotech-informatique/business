@@ -1,5 +1,5 @@
 import { Component, Input, ViewEncapsulation, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
-import { LangDto } from '@algotech/core';
+import { LangDto } from '@algotech-ce/core';
 import { InterpretorTaskDto } from '../../../../interpretor/src/dto';
 import { InterpretorValidateDto } from '../../../../interpretor/src/dto';
 import { NgComponentError } from '../../../../interpretor/src/error/tasks-error';

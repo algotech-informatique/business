@@ -1,4 +1,4 @@
-import { WorkflowOperationDto } from '@algotech/core';
+import { WorkflowOperationDto } from '@algotech-ce/core';
 import {
     fixtSODocument_02,
     fixtSODocument_NEW,

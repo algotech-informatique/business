@@ -1,4 +1,4 @@
-import { PairDto } from '@algotech/core';
+import { PairDto } from '@algotech-ce/core';
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({

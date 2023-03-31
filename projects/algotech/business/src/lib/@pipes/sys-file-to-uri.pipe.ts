@@ -1,4 +1,4 @@
-import { SysFile } from '@algotech/core';
+import { SysFile } from '@algotech-ce/core';
 import { Pipe, PipeTransform } from '@angular/core';
 import { map } from 'mathjs';
 import { of } from 'rxjs';

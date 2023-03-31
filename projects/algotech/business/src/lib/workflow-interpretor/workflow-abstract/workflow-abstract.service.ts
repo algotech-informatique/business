@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { InterpretorAbstract } from '../../../../interpretor/src/interpretor-abstract/interpretor-abstract';
 import { FilesService } from '../../workflow-interpretor/@utils/files.service';
-import { SmartObjectDto, LangDto, WorkflowInstanceContextDto, PairDto } from '@algotech/core';
-import { DocumentsService, SmartObjectsService, TranslateLangDtoService } from '@algotech/angular';
+import { SmartObjectDto, LangDto, WorkflowInstanceContextDto, PairDto } from '@algotech-ce/core';
+import { DocumentsService, SmartObjectsService, TranslateLangDtoService } from '@algotech-ce/angular';
 import { defer, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { WorkflowMetricsService } from '../workflow-metrics/workflow-metrics.service';

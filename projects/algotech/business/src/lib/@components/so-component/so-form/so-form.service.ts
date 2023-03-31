@@ -2,7 +2,7 @@ import { Injectable, EventEmitter } from '@angular/core';
 import {
     SmartModelDto, SmartObjectDto, SmartPropertyObjectDto, SmartPropertyModelDto, PairDto, GenericListValueDto,
     PatchPropertyDto, GenericListDto, WorkflowInstanceDto,
-} from '@algotech/core';
+} from '@algotech-ce/core';
 import moment from 'moment';
 
 import * as _ from 'lodash';
@@ -13,8 +13,8 @@ import { SoFormSearchComponent } from './so-form-search/so-form-search.component
 import { map, catchError, mergeMap, tap } from 'rxjs/operators';
 import { CustomResolverParams, InterpretorTaskActionAssetDto } from '../../../../../interpretor/src/dto';
 import { PropertiesOptionsDto } from '../../../dto/properties-options.dto';
-import { GestionDisplaySettingsService, SettingsDataService, GenericListsService } from '@algotech/angular';
-import { PatchService } from '@algotech/core';
+import { GestionDisplaySettingsService, SettingsDataService, GenericListsService } from '@algotech-ce/angular';
+import { PatchService } from '@algotech-ce/core';
 import { TranslateService } from '@ngx-translate/core';
 import { WorkflowUtilsService } from '../../../workflow-interpretor/workflow-utils/workflow-utils.service';
 import { WorkflowTaskService } from '../../../workflow-interpretor/workflow-reader/workflow-task/workflow-task.service';

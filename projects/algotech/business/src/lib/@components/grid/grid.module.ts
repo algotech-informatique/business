@@ -1,9 +1,9 @@
-import { PipesModule } from '@algotech/angular';
+import { PipesModule } from '@algotech-ce/angular';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
-import { DirectivesModule as AngularDirectivesModule } from '@algotech/angular';
+import { DirectivesModule as AngularDirectivesModule } from '@algotech-ce/angular';
 import { DirectivesModule } from '../../@directives/directives.module';
 import { PopoverModule } from '../popover/popover.module';
 import { SoInputModule } from '../so-component/so-input/so-input.module';

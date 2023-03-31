@@ -1,11 +1,11 @@
 import { Router } from '@angular/router';
-import { SmartFlowsService, SmartObjectsService, CacheNotFindError, SettingsDataService, DataService } from '@algotech/angular';
+import { SmartFlowsService, SmartObjectsService, CacheNotFindError, SettingsDataService, DataService } from '@algotech-ce/angular';
 import {
     ApplicationModelDto,
     CrudDto, DocumentDto, PairDto, SysQueryDto, SmartObjectDto, SnPageDto, SnPageEventDto, SnPageEventPipeDto,
     SnPageWidgetDto,
     WorkflowDataDto, WorkflowInstanceDto, WorkflowStackTaskDto, WorkflowTaskActionDto, SearchSODto
-} from '@algotech/core';
+} from '@algotech-ce/core';
 import { EventEmitter, Injectable, Injector } from '@angular/core';
 import { catchError, map, mergeMap, tap } from 'rxjs/operators';
 import * as _ from 'lodash';

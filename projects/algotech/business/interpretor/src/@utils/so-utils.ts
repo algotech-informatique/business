@@ -2,7 +2,7 @@ import {
     SmartObjectDto, SmartPropertyObjectDto, SmartModelDto,
     SmartPropertyModelDto, ATSkillsDto, PairDto, WorkflowInstanceContextDto, GenericListDto, GenericListValueDto,
     LangDto, DocumentDto, SysFile, ImportOptionsDto
-} from '@algotech/core';
+} from '@algotech-ce/core';
 import * as _ from 'lodash';
 import { UUID } from 'angular2-uuid';
 import moment from 'moment';

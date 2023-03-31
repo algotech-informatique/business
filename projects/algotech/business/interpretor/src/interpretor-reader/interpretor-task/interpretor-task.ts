@@ -5,7 +5,7 @@ import {
     LangDto,
     WorkflowModelDto,
     GenericListDto,
-} from '@algotech/core';
+} from '@algotech-ce/core';
 import { Observable, throwError, of, zip, defer } from 'rxjs';
 import { map, tap, mergeMap } from 'rxjs/operators';
 import * as _ from 'lodash';

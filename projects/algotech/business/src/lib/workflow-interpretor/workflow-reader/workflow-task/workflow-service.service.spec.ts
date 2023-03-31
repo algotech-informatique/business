@@ -3,12 +3,12 @@ import { fixtSmartModels } from '../../test-fixtures/smart-models';
 import * as _ from 'lodash';
 import {
     SettingsDataService,
-} from '@algotech/angular';
+} from '@algotech-ce/angular';
 import { fixtGlists } from '../../test-fixtures/genericlists';
 import { AppModule } from '../../../../../../../../src/app/app.module';
 import { WorkflowContainerModule } from '../../../workflow-container/workflow-container.module';
 import { WorkflowServiceService } from './workflow-service.service';
-import { PairDto } from '@algotech/core';
+import { PairDto } from '@algotech-ce/core';
 import { fixtWorkflowDeprecatedServiceSearch, fixtWorkflowServiceConnector, fixtWorkflowServiceSearch } from '../../test-fixtures/workflow-service';
 import { WorkflowTaskService } from './workflow-task.service';
 import { environment } from '../../../../../../../../src/environments/environment';

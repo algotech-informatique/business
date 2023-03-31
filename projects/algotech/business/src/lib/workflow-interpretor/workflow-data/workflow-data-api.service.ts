@@ -9,13 +9,13 @@ import {
     SmartObjectDto,
     WorkflowInstanceContextDto,
     WorkflowLaunchOptionsDto,
-} from '@algotech/core';
+} from '@algotech-ce/core';
 import {
     WorkflowInstancesService, SmartObjectsService,
     EmailService,
     NotificationsService,
     ScheduleService,
-} from '@algotech/angular';
+} from '@algotech-ce/angular';
 import { Observable, of, throwError } from 'rxjs';
 import * as _ from 'lodash';
 import { FilesService } from '../../workflow-interpretor/@utils/files.service';

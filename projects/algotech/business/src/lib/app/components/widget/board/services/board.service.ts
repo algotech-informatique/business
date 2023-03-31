@@ -1,5 +1,5 @@
-import { SmartObjectsService } from '@algotech/angular';
-import { ApplicationModelDto, SmartObjectDto, SnPageDto, SnPageWidgetDto, ZoneDto } from '@algotech/core';
+import { SmartObjectsService } from '@algotech-ce/angular';
+import { ApplicationModelDto, SmartObjectDto, SnPageDto, SnPageWidgetDto, ZoneDto } from '@algotech-ce/core';
 import { EventEmitter, Injectable } from '@angular/core';
 import * as _ from 'lodash';
 import * as d3 from 'd3';

@@ -1,6 +1,6 @@
 import {
     WorkflowInstanceDto, WorkflowStackTaskDto, WorkflowOperationDto, WorkflowDataDto
-} from '@algotech/core';
+} from '@algotech-ce/core';
 import { InterpretorMetricsKeys, InterpretorTaskDto } from '../dto';
 import { InterpretorValidateDto } from '../dto';
 import { Observable, of, throwError, zip } from 'rxjs';

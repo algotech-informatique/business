@@ -1,4 +1,4 @@
-import { SmartObjectDto, SnPageWidgetDto } from '@algotech/core';
+import { SmartObjectDto, SnPageWidgetDto } from '@algotech-ce/core';
 import { Pipe, PipeTransform } from '@angular/core';
 import { BoardUtilsService } from '../services/board.utils.service';
 

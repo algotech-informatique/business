@@ -5,7 +5,7 @@ import {
     GenericListValueDto,
     typesSys,
     WorkflowInstanceContextDto,
-} from '@algotech/core';
+} from '@algotech-ce/core';
 import { Observable, throwError, of, zip, defer } from 'rxjs';
 import { map, tap, mergeMap, catchError } from 'rxjs/operators';
 import * as _ from 'lodash';
@@ -148,8 +148,8 @@ export class InterpretorResolver {
         const splitClone: string[] = [...split];
         const propValue = object[splitClone[0]];
 
-        if (propValue === undefined) {
-            return throwError(new WorkflowErrorSysModelNotFind('ERR-110', `{{CANT-BROWSE-OBJECT}} : ${splitClone[0]}`));
+        if (propValue == null) {
+            return of(null);
         }
         splitClone.shift();
 

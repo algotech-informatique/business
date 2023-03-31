@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
-import { PipesModule } from '@algotech/angular';
+import { PipesModule } from '@algotech-ce/angular';
 import { TaskCustomComponent } from './task-custom.component';
 import { TaskDirective } from './task.directive';
 
 import { NgxDropzoneModule } from 'ngx-dropzone';
-import { ReportsService } from '@algotech/angular';
+import { ReportsService } from '@algotech-ce/angular';
 
 import {
     TaskSelectComponent,

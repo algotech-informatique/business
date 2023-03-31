@@ -1,5 +1,5 @@
 import { IsDefined, IsUUID, ValidateNested } from 'class-validator';
-import { ATSignatureDto } from '@algotech/core';
+import { ATSignatureDto } from '@algotech-ce/core';
 import { Type } from 'class-transformer';
 
 // @dynamic

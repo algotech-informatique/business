@@ -1,8 +1,8 @@
 import {
     ReportGenerateDto, SmartObjectDto, ReportPreviewDto,
     WorkflowInstanceContextDto, SysFile, WorkflowVariableModelDto, PairDto, FileUtils,
-} from '@algotech/core';
-import { ConvertService, NetworkService, ReportsService } from '@algotech/angular';
+} from '@algotech-ce/core';
+import { ConvertService, NetworkService, ReportsService } from '@algotech-ce/angular';
 import * as _ from 'lodash';
 import { Observable, from, of, zip, throwError } from 'rxjs';
 import { map, finalize, catchError, mergeMap } from 'rxjs/operators';

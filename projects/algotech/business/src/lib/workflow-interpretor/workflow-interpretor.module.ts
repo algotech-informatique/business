@@ -8,7 +8,7 @@ import { WorkflowReaderService } from './workflow-reader/workflow-reader.service
 import {
     SmartObjectsService, WorkflowInstancesService,
     UsersService, EmailService, PipesModule
-} from '@algotech/angular';
+} from '@algotech-ce/angular';
 import { HttpClientModule } from '@angular/common/http';
 import { WorkflowTaskService } from './workflow-reader/workflow-task/workflow-task.service';
 import { WorkflowServiceService } from './workflow-reader/workflow-task/workflow-service.service';

@@ -1,4 +1,4 @@
-import { PairDto } from '@algotech/core';
+import { PairDto } from '@algotech-ce/core';
 import { AfterViewInit, ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
 import { SoUtilsService } from '../../../../workflow-interpretor/@utils/so-utils.service';
 import { PopoverSubject } from '../../../popover/utility';

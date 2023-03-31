@@ -6,7 +6,7 @@ import {
 import { Observable, zip, of } from 'rxjs';
 import { map, mergeMap, catchError } from 'rxjs/operators';
 import { TaskConnectorError } from '../error/tasks-error';
-import { PairDto, SmartObjectDto, WorkflowLaunchOptionsDto } from '@algotech/core';
+import { PairDto, SmartObjectDto, WorkflowLaunchOptionsDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import { ATHttpException } from '../error/http-exception';
 
@@ -19,7 +19,7 @@ export class TaskConnector extends TaskBase {
         const customData = (task.custom as TaskConnectorDto);
         return zip(
             customData.smartFlow(),
-            customData.inputs ? customData.inputs() : of([]),
+            customData.inputs ? customData.inputs({ formatted: true }) : of([]),
             customData.runOutside ? customData.runOutside() : of(false)
         ).pipe(
             catchError((err) => {

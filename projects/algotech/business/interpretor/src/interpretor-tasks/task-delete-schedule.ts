@@ -1,5 +1,5 @@
 import { Observable, zip } from 'rxjs';
-import { ScheduleDto } from '@algotech/core';
+import { ScheduleDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
 import { map, catchError } from 'rxjs/operators';
 import { TaskBase } from './task-base';

@@ -23,6 +23,7 @@ import { TaskTransitionDataModelDto } from '@algotech-ce/core';
 import { ClassConstructor } from 'class-transformer';
 
 const TASK_LAUNCHER = 'TaskLauncher';
+const TASK_LOCK_GO_BACK = 'TaskLockGoBack';
 
 export interface FindTaskDto {
     task?: TaskModelDto | WorkflowStackTaskDto;
@@ -223,7 +224,7 @@ export class InterpretorUtils {
         if (!transition) {
             return null;
         }
-        return transition.data.find((d) => d.key === d.key);
+        return transition.data.find((d) => d.key === dataKey);
     }
 
     public getProfilCurrentTask(instance: WorkflowInstanceDto): WorkflowProfilModelDto {
@@ -382,6 +383,10 @@ export class InterpretorUtils {
                 if (checkTaskModel.properties.services.find((s) => s.execute === 'end')) {
                     return false;
                 }
+            }
+
+            if (checkTaskModel.type === TASK_LOCK_GO_BACK) {
+                return false;
             }
         }
 

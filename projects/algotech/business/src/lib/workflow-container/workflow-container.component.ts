@@ -331,7 +331,7 @@ export class WorkflowContainerComponent implements OnInit, OnDestroy {
         }
 
         // modal
-        if (!modal) {
+        if (!modal && debug) {
             this.workflowDialog.dismiss();
             this.closed.emit();
             return;

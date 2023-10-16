@@ -33,7 +33,7 @@ export class TaskService extends TaskBase {
     hasSysFile: boolean;
     listSysFile: string[] = [];
 
-    responseType: 'text' | 'blob' = 'text';
+    responseType: 'blob' | 'json' = 'json';
     fileName: string;
     generate: boolean;
     object: SmartObjectDto;
@@ -50,18 +50,18 @@ export class TaskService extends TaskBase {
         this._task = task;
         return zip(
             customData.url(),
-            customData.parameters ? customData.parameters() : of([]),
-            customData.headers ? customData.headers() : of([]),
-            customData.body ? customData.body() : of([]),
+            customData.parameters ? customData.parameters({ formatted: true }) : of([]),
+            customData.headers ? customData.headers({ formatted: true }) : of([]),
+            customData.body ? customData.body({ formatted: true }) : of([]),
             customData.type(),
             customData.listSysFile ? customData.listSysFile() : of([]),
-            customData.responseType ? customData.responseType() : of('text'),
+            customData.responseType ? customData.responseType() : of('json'),
             customData.fileName ? customData.fileName() : of(''),
             customData.generate ? customData.generate() : of(false),
             customData.object ? customData.object() : of(null),
             customData.version ? customData.version() : of(false),
             customData.multiVariable ? customData.multiVariable() : of(true),
-            customData.jsonObject ? customData.jsonObject() : of([]),
+            customData.jsonObject ? customData.jsonObject({ formatted: true }) : of([]),
             customData.returnHeaders ? customData.returnHeaders() : of(false),
         ).pipe(
             catchError((err) => {
@@ -77,7 +77,7 @@ export class TaskService extends TaskBase {
                 this.hasSysFile = (this.listSysFile.length !== 0);
                 this.urlFormated = (parameters.length !== 0) ? `${url}${this.interpretorService.buildQueryRoute(parameters)}` : url;
 
-                this.responseType = values[6];
+                this.responseType = values[6] === 'blob' ? 'blob' : 'json';
                 this.fileName = values[7];
                 this.generate = values[8];
                 this.object = values[9];
@@ -97,9 +97,9 @@ export class TaskService extends TaskBase {
             }),
             map((serviceResult: Object | any) => {
 
-                return (this.responseType === 'text') ?
-                    this._ValidationResponseText(serviceResult) :
-                    this._validationResponseBlob((serviceResult));
+                return (this.responseType === 'blob') ?
+                    this._validationResponseBlob(serviceResult) :
+                    this._validationResponseJson(serviceResult);
             }),
             catchError((e: ATHttpException) => {
                 return this.taskUtils.handleHttpError(e, task, TaskServiceError);
@@ -107,7 +107,7 @@ export class TaskService extends TaskBase {
         );
     }
 
-    private _ValidationResponseText(serviceResult: Object): InterpretorValidateDto {
+    private _validationResponseJson(serviceResult: Object): InterpretorValidateDto {
         const transfers: InterpretorTransferTransitionDto[] = [{
             saveOnApi: false,
             data: this._getTransitionData(0),

@@ -13,7 +13,7 @@ export class EncodeGuard implements CanActivate {
         const hasQueryParams = Object.entries(route.queryParams).length > 0;
         if (hasQueryParams) {
             const inputsPairs: PairDto[] = Object.entries(route.queryParams).map(([key, value]) => ({ key, value }));
-            let inputs = window.btoa(JSON.stringify(inputsPairs));
+            let inputs = window.btoa(encodeURIComponent(JSON.stringify(inputsPairs)));
             inputs = encodeURIComponent(inputs);
             this.router.navigate([state.url.split('?')[0] , { inputs }], { replaceUrl: true });
         }

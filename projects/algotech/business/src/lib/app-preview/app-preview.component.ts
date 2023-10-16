@@ -64,7 +64,7 @@ export class AppPreviewComponent implements OnInit, OnDestroy {
                 if (inputs) {
                     try {
                         inputs = decodeURIComponent(inputs);
-                        inputs = window.atob(inputs);
+                        inputs = decodeURIComponent(window.atob(inputs));
                         this.pageInputs = JSON.parse(inputs);
                     } catch (err) { console.error('ParseError', err); }
                 }
@@ -120,7 +120,10 @@ export class AppPreviewComponent implements OnInit, OnDestroy {
                     this.settingsDataService.apps = e.data.apps;
             
                     this.appModel = e.data.appModel;
-                    this.appModel.environment = 'debug';
+                    for (const app of [...this.settingsDataService.apps, this.appModel]) {
+                        app.environment = 'debug';
+                    }
+
                     this.snApp = e.data.snApp;
                     this.themeEnglober.theme.next(this.snApp.theme);
                     this.snPage = this.findPage(pageKey);

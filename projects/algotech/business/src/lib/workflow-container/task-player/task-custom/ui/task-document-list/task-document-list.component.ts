@@ -64,11 +64,14 @@ export class TaskDocumentListComponent implements TaskComponent {
             customData.search(),
             customData.documents ? customData.documents() : of(null),
         ).
-            subscribe((values: any[]) => {
-                this.searchVisible = values[0];
-                this.documents = _.isArray(values[1]) ? values[1] : [values[1]];
-                this.onLoad();
-            }, (err) => { this.handleError.emit(this.taskUtils.handleError('ERR-083', err, TaskDocumentListError)); });
+            subscribe({
+                next: (values: any[]) => {
+                    this.searchVisible = values[0];
+                    this.documents = _.isArray(values[1]) ? values[1] : [values[1]];
+                    this.onLoad();
+                },
+                error: (err) => { this.handleError.emit(this.taskUtils.handleError('ERR-083', err, TaskDocumentListError)); }
+            });
     }
 
     constructor(

@@ -167,10 +167,14 @@ export class InterpretorResolver {
 
         const splitClone: string[] = [...split];
         let data$;
-
+    
         if (Array.isArray(smartObject)) {
-            data$ = splitClone.length === 0 ? of(null) : of(smartObject[+splitClone[0]]);
-            splitClone.shift();
+            if (!['sys:createdDate', 'sys:updateDate'].some(r => splitClone.includes(r))) {
+                data$ = splitClone.length === 0 ? of(null) : of(smartObject[+splitClone[0]]);
+                splitClone.shift();
+            } else {
+                data$ = of(null);
+            }
         } else {
             const smartModel = smartModels.find((sm) => sm.key.toUpperCase() === smartObject.modelKey.toUpperCase());
 
@@ -178,6 +182,10 @@ export class InterpretorResolver {
                 throw new WorkflowErrorSmartModelNotFind('ERR-107', `: ${smartObject.modelKey}`);
             }
 
+            if (['sys:createdDate', 'sys:updateDate'].some(r => splitClone.includes(r))) {
+                return this._calculateSysData(splitClone[0], smartObject, params, lang); 
+            }
+        
             const propInstance = smartObject.properties.find((p) => p.key.toUpperCase() === splitClone[0].toUpperCase());
             const propModel = smartModel.properties.find((p) => p.key.toUpperCase() === splitClone[0].toUpperCase());
 
@@ -191,7 +199,6 @@ export class InterpretorResolver {
                 lang, params, context);
         }
 
-
         return data$.pipe(
             mergeMap((data: any) => {
                 if (splitClone.length === 0) {
@@ -204,6 +211,19 @@ export class InterpretorResolver {
                 }
             })
         );
+    }
+
+    _calculateSysData(key: string, so: SmartObjectDto, params: CustomResolverParams, lang: string): Observable<any> {
+
+        const data = (key === 'sys:createdDate') ? so.createdDate : so.updateDate;
+        const formatted = params?.formatted;
+        if (!data) {
+            return of(null);
+        }
+        if (formatted) {
+            return of(moment(data).format());
+        }
+        return of(new Date(data).toLocaleString(lang));
     }
 
     /** public for test */
@@ -278,7 +298,7 @@ export class InterpretorResolver {
                             return null;
                         }
                         if (formatted) {
-                            return moment(data).startOf('day').format();
+                            return moment(data).utc(true).startOf('day').format();
                         }
                         return new Date(data).toLocaleDateString(lang);
                     }

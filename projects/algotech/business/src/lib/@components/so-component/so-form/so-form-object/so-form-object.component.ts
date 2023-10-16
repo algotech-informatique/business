@@ -83,7 +83,7 @@ export class SoFormObjectComponent {
 
             const model = this.soFormUtils.getModel(this.object.modelKey);
             this.soUtils.repairInstance(this.object, model);
-            const propr = this.initializeDefaultValue(model);
+            this.initializeDefaultValue(model);
             const option = this.soFormUtils.options ? _.find(this.soFormUtils.options, (o) => o.model === model.key) : null;
             const properties = (option && option.properties.length > 0) ? _.reduce((option.properties), (results, optionProp) => {
                 const prop = _.find(model.properties, (p) => p.key === optionProp.key);
@@ -127,6 +127,7 @@ export class SoFormObjectComponent {
                 return results;
             }, []);
 
+            const propr = this.initializeUniqueKeys(model, properties);
             if (propr.length !== 0) {
                 for (const pr of propr) {
                     this.obsChange.next(pr);
@@ -138,7 +139,7 @@ export class SoFormObjectComponent {
     }
 
     initializeDefaultValue(model: SmartModelDto) {
-        const propr: SmartPropertyModelDto[] = _.reduce(model.properties, (result, smProp: SmartPropertyModelDto) => {
+        model.properties.forEach((smProp: SmartPropertyModelDto) => {
             const option = this.soFormService.getOption(smProp, this.soFormService.current);
             if (option && option.defaultValue !== undefined) {
                 const propObject = _.find(this.object.properties, (prp: SmartPropertyObjectDto) => prp.key === smProp.key);
@@ -146,12 +147,17 @@ export class SoFormObjectComponent {
                     propObject.value = option.defaultValue;
                 }
             }
+            
+        });
+    }
+
+    initializeUniqueKeys(model: SmartModelDto, properties: SmartPropertyModelDto[]): SmartPropertyModelDto[] {
+        return properties.reduce((result, smProp: SmartPropertyModelDto) => {
             if (model.uniqueKeys.indexOf(smProp.key) > -1) {
                 result.push(smProp);
             }
             return result;
         }, []);
-        return propr;
     }
 
     refresh() {

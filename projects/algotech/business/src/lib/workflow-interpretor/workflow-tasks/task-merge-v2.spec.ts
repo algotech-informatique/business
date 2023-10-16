@@ -35,7 +35,7 @@ describe('TaskMergeV2', () => {
             modelKey: 'EQUIPMENT',
             order: [],
             filter: [
-                { key: 'NAME', value: { criteria: 'equal', value: 'Equipment_01', type: 'string' }}
+                { key: 'NAME', value: { criteria: 'in', value: 'Equipment_01', type: 'string' }}
             ],
         };
         
@@ -47,7 +47,7 @@ describe('TaskMergeV2', () => {
             modelKey: 'NO-EQUP',
             order: [],
             filter: [
-                { key: 'NAME', value: {criteria: 'equal', value: ['Equipment_01'], type: 'string'}}
+                { key: 'NAME', value: {criteria: 'in', value: ['Equipment_01'], type: 'string'}}
             ],
         }
         expect(taskMergeV2._querySearch(fixtSmartModels[0], [fixtSOEquipment_01], ['NAME'])).not.toEqual(sos);
@@ -58,8 +58,8 @@ describe('TaskMergeV2', () => {
             modelKey: 'DOCUMENT',
             order: [],
             filter: [
-                { key: 'NAME', value: { criteria: 'equal', value: ['Document_01', 'Document_01_update'], type: 'string' }},
-                { key: 'VERSION', value: { criteria: 'equal', value: [['Version_01'], ['Version_01']], type: 'string' }},
+                { key: 'NAME', value: { criteria: 'in', value: ['Document_01', 'Document_01_update'], type: 'string' }},
+                { key: 'VERSION', value: { criteria: 'in', value: [['Version_01'], ['Version_01']], type: 'string' }},
             ],
         };
         
@@ -71,8 +71,8 @@ describe('TaskMergeV2', () => {
             modelKey: 'DOCUMENT',
             order: [],
             filter: [
-                { key: 'NAME', value: { criteria: 'equal', value: ['Document_01', 'Document_01_update'], type: 'string' }},
-                { key: 'VERSION', value: { criteria: 'equal', value: ['Version_01', 'Version_01'], type: 'string' }},
+                { key: 'NAME', value: { criteria: 'in', value: ['Document_01', 'Document_01_update'], type: 'string' }},
+                { key: 'VERSION', value: { criteria: 'in', value: ['Version_01', 'Version_01'], type: 'string' }},
             ],
         };
         

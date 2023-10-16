@@ -4,7 +4,6 @@
     width: 200px;
     position: absolute;
     z-index: 1;
-    height: 200px !important;
     background: var(--ALGOTECH-BACKGROUND-CONTENT);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 -1px 8px 0px rgba(0, 0, 0, 0.19), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 0px 0px 5px 5px;
@@ -14,12 +13,13 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        text-align: center;
 
         .group {
             padding: 10px 0px;
 
             &.border {
-                border-bottom: 1px solid var(--ALGOTECH-BACKGROUND-BORDER);
+                border-top: 1px solid var(--ALGOTECH-BACKGROUND-BORDER);
             }
 
             .avatar {

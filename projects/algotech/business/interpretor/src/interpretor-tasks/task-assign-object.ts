@@ -13,6 +13,7 @@ export class TaskAssignObject extends TaskBase {
     properties: PairDto[] = [];
     skills: PairDto[] = [];
     cumul = true;
+    cumulSkills: boolean;
 
     execute(task: InterpretorTaskDto): Observable<InterpretorValidateDto> {
 
@@ -27,6 +28,7 @@ export class TaskAssignObject extends TaskBase {
             customData.properties ? customData.properties({ formatted: true }) : of([]),
             customData.skills ? customData.skills() : of([]),
             customData.cumul ? customData.cumul() : of(true),
+            customData.cumulSkills ? customData.cumulSkills() : of(true),
         ).pipe(
             catchError((err) => {
                 throw this.taskUtils.handleError('ERR-001', err, TaskAssignObjectError);
@@ -56,12 +58,13 @@ export class TaskAssignObject extends TaskBase {
 
                 this.skills = values[2];
                 this.cumul = values[3];
+                this.cumulSkills = values[4];
 
                 const transfers: InterpretorTransferTransitionDto[] = [];
                 const transfers$ = concat(...this.smartObjects.map((smartObject: SmartObjectDto) => {
 
                     this._createObject(smartObject, task.instance.context.smartmodels);
-                    return this.skillsUtils.createSkills(smartObject, this.skills, task.instance).pipe(
+                    return this.skillsUtils.createSkills(smartObject, this.skills, task.instance, this.cumulSkills).pipe(
                         map((skTransfers: InterpretorTransferTransitionDto[]) => {
                             transfers.push(
                                 this._loadSOTransfer(smartObject),

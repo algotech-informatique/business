@@ -150,7 +150,7 @@ export class TaskMergeV2 extends TaskBase {
                 const criteria = {
                     key,
                     value: {
-                        criteria: 'equal',
+                        criteria: 'in',
                         value: (filterValues.length > 1) ? filterValues : filterValues[0],
                         type: (propModel) ? propModel.keyType : 'string',
                     }

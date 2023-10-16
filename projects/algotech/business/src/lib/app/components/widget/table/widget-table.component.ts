@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, EventEmitter } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, EventEmitter } from '@angular/core';
 import { GridColumnConfigurationDto } from '../../../../@components/grid/dto/grid-column-configuration.dto';
 import { GridConfigurationDto } from '../../../../@components/grid/dto/grid-configuration.dto';
 import { WidgetItterable } from '../itterable/widget-itterable';
@@ -35,8 +35,9 @@ export class WidgetTableComponent extends WidgetItterable implements Widget, Aft
         protected soUtils: SoUtilsService,
         protected settingsDataService: SettingsDataService,
         protected translateLangDto: TranslateLangDtoService,
+        protected ref: ChangeDetectorRef,
         private workflowLaucher: WorkflowLaunchService) {
-        super(pageEventsService, pageCustomService, pageUtils);
+        super(pageEventsService, pageCustomService, pageUtils, ref);
     }
 
     ngAfterViewInit() {

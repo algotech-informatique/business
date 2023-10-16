@@ -13,6 +13,7 @@ export { TaskReport } from './task-report';
 export { TaskProcessScheduleCreate } from './task-schedule-create-auto';
 export { TaskBase } from './task-base';
 export { TaskUndo } from './task-undo';
+export { TaskLockGoBack } from './task-lock-goback';
 export { TaskService } from './task-service';
 export { TaskMapped } from './task-mapped';
 export { TaskCsvMapped } from './task-csv-mapped';

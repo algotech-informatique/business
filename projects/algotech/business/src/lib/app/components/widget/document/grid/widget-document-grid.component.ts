@@ -55,7 +55,7 @@ export class WidgetDocumentGridComponent implements OnChanges {
     clickFileItem(file: WidgetDocumentFileDto) {
         if (this.mode === 'open') {
             this.openedFile.emit(file);
-        } else {
+        } else if (!file.lock || file.lock.status === 'byMe') {
             file.checked = !file.checked;
             this.selectedDocument.emit();
         }

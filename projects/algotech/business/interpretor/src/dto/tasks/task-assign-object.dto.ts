@@ -11,4 +11,6 @@ export class TaskAssignObjectDto {
     skills: CustomResolver<PairDto[]>;
     @IsOptional()
     cumul: CustomResolver<Boolean>;
+    @IsOptional()
+    cumulSkills: CustomResolver<Boolean>;
 }

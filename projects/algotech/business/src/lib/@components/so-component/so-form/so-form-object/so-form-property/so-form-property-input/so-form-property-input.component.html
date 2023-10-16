@@ -70,6 +70,8 @@
         (changed)="onChangeValue($event)"
         [error]="error"
         [autoFocus]="autoFocus"
+        [minValue]="minValue"
+        [maxValue]="maxValue"
         [(value)]="value"
         [caption]="display ? display : property.displayName | tlang">
     </at-so-input>

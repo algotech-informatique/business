@@ -1,18 +1,28 @@
 import { SmartObjectDto, SmartPropertyObjectDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
+import moment, { ISO_8601 } from 'moment';
+import { InterpretorCondition } from './interpretor-condition';
 
 export class InterpretorArrayFunction {
     static functions(smartobjects: SmartObjectDto[]) {
-        const _predicateEqual = (element: any, propValue: any, propKey: string, smartobjects: SmartObjectDto[]) => {
+        const _predicateEqual = (element: any, propValue: any, propKey: string) => {
             const value = propValue instanceof SmartObjectDto ? propValue.uuid : propValue;
-            if (element instanceof SmartObjectDto) {
-                return _.isEqual(value, element.properties.find((p) => p.key === propKey)?.value);
-            } else {
-                return _.isEqual(value, element[propKey]);
+            let compare = element instanceof SmartObjectDto ?
+                element.properties.find((p) => p.key === propKey)?.value : element[propKey];
+
+            if (value?.criteria) {
+                if (moment(value.value, ISO_8601).isValid()) {
+                    compare = moment(compare).format();
+                }
+                return InterpretorCondition.validate(compare, [value]);
+            } else if (moment(value, ISO_8601).isValid()) {
+                compare = moment(compare).format();
             }
+
+            return _.isEqual(value, compare);
         };
     
-        const toJSON = (smartobject: SmartObjectDto, smartobjects: SmartObjectDto[]): any => {
+        const toJSON = (smartobject: SmartObjectDto): any => {
             if (!(smartobject instanceof SmartObjectDto)) {
                 return smartobject;
             }
@@ -54,13 +64,22 @@ export class InterpretorArrayFunction {
                             return _.find([...array, ...inspect], { uuid });
                         });
                 }
+                // pure difference
+                if (array.length > 0 && _.isObject(array[0]) && inspect && inspect.length > 0 && _.isObject(inspect[0])) {
+                    return array.filter((item) => {
+                        return !inspect.some((compare) => JSON.stringify(item) === JSON.stringify(compare));
+                    })
+                }
                 return _.difference(array, inspect);
             },
             'every': (array: any[], propKey: string, propValue: any) => {
-                return _.every(array, (item) => _predicateEqual(item, propValue, propKey, smartobjects));
+                return _.every(array, (item) => _predicateEqual(item, propValue, propKey));
+            },
+            'find': (array: any[], propKey: string, propValue: any) => {
+                return _.find(array, (item) => _predicateEqual(item, propValue, propKey));
             },
             'filter': (array: any[], propKey: string, propValue: any) => {
-                return _.filter(array, (item) => _predicateEqual(item, propValue, propKey, smartobjects));
+                return _.filter(array, (item) => _predicateEqual(item, propValue, propKey));
             },
             'item': (array: any[], position: number) => {
                 if (array.length <= position) {
@@ -82,14 +101,14 @@ export class InterpretorArrayFunction {
                     return array;
                 }
                 return _.map(array, (item) => {
-                    return toJSON(item, smartobjects)[propKey];
+                    return toJSON(item)[propKey];
                 });
             },
             'orderBy': (array: any[], propKey: string, order: string) => {
                 const newOrder = (order && (
                     order.toUpperCase().trim().startsWith('DESC')) || order.trim() === '-1') ? 'desc': 'asc';
                 const jsonOrder = _.orderBy(
-                    _.map(array, (item) => toJSON(item, smartobjects)),
+                    _.map(array, (item) => toJSON(item)),
                     propKey,
                     newOrder
                 );
@@ -98,14 +117,20 @@ export class InterpretorArrayFunction {
                 }
                 return jsonOrder;
             },
+            'reject': (array: any[], propKey: string, propValue: any) => {
+                return _.reject(array, (item) => _predicateEqual(item, propValue, propKey));
+            },
             'reverse': (array: any[]) => {
                 return _.reverse(array);
             },
             'right': (array: any[], position: number) => {
                 return _.takeRight(array, position);
             },
+            'slice': (array: any[], start: number, end: number) => {
+                return _.slice(array, start, end);
+            },
             'some': (array: any[], propKey: string, propValue: any) => {
-                return _.some(array, (item) => _predicateEqual(item, propValue, propKey, smartobjects));
+                return _.some(array, (item) => _predicateEqual(item, propValue, propKey));
             },
             'sort': (array: any[]) => {
                 return array.sort();
@@ -115,7 +140,7 @@ export class InterpretorArrayFunction {
             },
             'uniqBy': (array: any[], propKey: string) => {
                 const uniqOrder = _.uniqBy(
-                    _.map(array, (item) => toJSON(item, smartobjects)),
+                    _.map(array, (item) => toJSON(item)),
                     propKey
                 );
                 if (array.length > 0 && array[0] instanceof SmartObjectDto) {

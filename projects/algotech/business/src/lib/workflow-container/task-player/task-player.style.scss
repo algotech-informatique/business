@@ -10,6 +10,7 @@
 }
 
 .task-container {
+    --KEYBOARD-HEIGHT: 0px;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -23,7 +24,7 @@
 
 #at-task-custom {
     display: flex;
-    height: calc(100% - var(--TASK-HEADER-HEIGHT) - var(--TASK-FOOTER-HEIGHT));
+    height: calc(100% - var(--TASK-HEADER-HEIGHT) - var(--TASK-FOOTER-HEIGHT) - var(--KEYBOARD-HEIGHT));
     width: 100%;
     background: var(--ALGOTECH-BACKGROUND-CONTENT);
     @include scrollbar();

@@ -14,7 +14,7 @@ import { SmartObjectMapped } from '../dto/interfaces/smart-object-mapped';
 export abstract class SoUtils {
 
     static EXPAND = '~__';
-    
+
     constructor(protected interpretorAbstract: InterpretorAbstract) {
     }
 
@@ -94,10 +94,10 @@ export abstract class SoUtils {
         for (const item of options.columns ?? this._bindColumn(data[0], smartModel)) {
             soProps[item.key] = item.value;
         }
-        
+
         for (let iRow = 1; iRow < data.length; iRow++) {
             const smartObject = this.createInstance(smartModel);
-            
+
             for (let iColumn = 0; iColumn < data[0].length; iColumn++) {
                 const soProp: SmartPropertyModelDto = soProps[(<string>data[0][iColumn])];
                 if (!soProp || this.typeIsSmartObject(soProp.keyType) || this.typeIsSysObject(soProp.keyType)) {
@@ -270,9 +270,41 @@ export abstract class SoUtils {
             }
         } else {
             // replace
-            so.properties[indexProp].value = _value;
+            if (!this.typeIsDate(propertyModel.keyType) ||
+                this.dateIsDifferent(so.properties[indexProp].value, _value, propertyModel.keyType, format)) {
+                so.properties[indexProp].value = _value;
+            }
         }
         return so;
+    }
+
+    typeIsDate(type: string): boolean {
+        return type === 'date' || type === 'datetime';
+    }
+
+    dateIsDifferent(current: any, value: any, type: string, format?: string): boolean {
+
+        if (!!current !== !!value) {
+            return true;
+        }
+
+        if (Array.isArray(current) !== Array.isArray(value)) {
+            return true;
+        }
+
+        if (Array.isArray(current)) {
+
+            if (current.length !== value.length) {
+                return true;
+            }
+
+            return current.some((v, index) => {
+                return !_.isEqual(this.formatProperty(type, v, format), this.formatProperty(type, value[index], format))
+            }
+            );
+        } else {
+            return !_.isEqual(this.formatProperty(type, current, format), this.formatProperty(type, value, format))
+        }
     }
 
     createSkill(key?: string): ATSkillsDto {
@@ -309,7 +341,7 @@ export abstract class SoUtils {
             case 'number':
                 return _.isString(value) ? +value.replace(',', '.') : +value;
             case 'date':
-                return moment(value, format).isValid() ? moment(value, format).startOf('day').format() : null;
+                return moment(value, format).isValid() ? moment(value, format).utc(true).startOf('day').format() : null;
             case 'time': {
                 if (moment(value, format).isValid()) {
                     return moment(value, format).format('HH:mm:ss');
@@ -347,7 +379,7 @@ export abstract class SoUtils {
     }
 
     private _createProperty(property: SmartPropertyModelDto): SmartPropertyObjectDto {
-    
+
         let value = null;
         if (property.defaultValue) {
             value = property.defaultValue;

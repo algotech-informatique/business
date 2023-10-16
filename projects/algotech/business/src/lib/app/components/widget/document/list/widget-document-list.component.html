@@ -1,12 +1,13 @@
 <ng-container *ngFor="let file of files; index as i">
     <div *ngIf="i < nbShowed && !file.hidden" [ngClass]="{'ripple': mobile}" class="file-item" (click)="clickFileItem(file)">
 
-        <at-so-input *ngIf="mode === 'selection'" type="checkbox" [value]="file.checked">
+        <at-so-input *ngIf="mode === 'selection'" type="checkbox" [value]="file.checked" [disabled]="file.lock?.status === 'byOtherOne'">
         </at-so-input>
         
         <div class="file-info">
             <at-file-component [file]="file" (click)="openDocument($event, file)">
             </at-file-component>
+            <i *ngIf="file.lock" class="fas fa-lock lock-icon lock" [title]="file.lock.caption"></i>
             <div class="tags">
                 <div *ngFor="let tag of file.displayTags" class="chip" [ngStyle]="{'background-color': tag.color}">
                     {{ tag.displayName | tlang }}

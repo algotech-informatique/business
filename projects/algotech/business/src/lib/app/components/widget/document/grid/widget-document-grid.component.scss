@@ -50,6 +50,7 @@
             .checkbox.unchecked,
             .title,
             .open,
+            .lock,
             .info-button {
                 display: none;
             }
@@ -81,6 +82,10 @@
                 @include text-ellipsis;
             }
 
+            .disabled {
+                @include disabled();
+            }
+
             padding: 10px;
             color: #FFF;
 
@@ -88,6 +93,7 @@
 
                 .title,
                 .info-button,
+                .lock,
                 .open {
                     display: block;
                 }

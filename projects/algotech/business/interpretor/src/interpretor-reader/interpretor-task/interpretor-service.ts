@@ -16,7 +16,7 @@ export abstract class InterpretorService {
     ) {
     }
 
-    abstract call(url: string, headers: PairDto[], body: any, type: 'get'|'patch'|'post'|'put'|'delete'|'update', responseType: 'text' | 'blob'): Observable<any>;
+    abstract call(url: string, headers: PairDto[], body: any, type: 'get'|'patch'|'post'|'put'|'delete'|'update', responseType: 'blob' | 'json'): Observable<any>;
 
     abstract callATService(route: string, body: object, type: string, typeReturn: ServiceReturnModelDto,
         smartObjects: SmartObjectDto[], context: WorkflowInstanceContextDto): Observable<any>;

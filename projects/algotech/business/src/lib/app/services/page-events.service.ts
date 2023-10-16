@@ -476,7 +476,7 @@ export class PageEventsService {
                             // wait for popup closed
                             this.finalizeWorkflow(instance);
                             observer.next();
-                        }, 500);
+                        }, 0);
                     });
                 }), ((e) => {
                     setTimeout(() => {
@@ -485,7 +485,7 @@ export class PageEventsService {
                             observer.next();
                         }
                         observer.error();
-                    }, 500);
+                    }, 0);
                 }),
             );
         });
@@ -622,7 +622,7 @@ export class PageEventsService {
             mergeMap((result: PairDto[]) => {
                 result = _.uniqBy([...result, ...this.workflowLauncher.computeParameters()], 'key');
 
-                let inputs = window.btoa(JSON.stringify(result));
+                let inputs = window.btoa(encodeURIComponent(JSON.stringify(result)));
                 inputs = encodeURIComponent(inputs);
                 history.pushState({}, '', window.location.href);
                 if (snPage.id !== ev.action) {

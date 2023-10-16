@@ -6,16 +6,19 @@ import { WidgetDocumentFileDto } from '../document/dto/widget-document-file.dto'
 import { FileAssetDto } from '../../../../dto/file-asset.dto';
 import { Observable, of, zip } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
-import { SmartObjectsService } from '@algotech-ce/angular';
+import { AuthService, SmartObjectsService } from '@algotech-ce/angular';
 import { SoUtilsService } from '../../../../workflow-interpretor/@utils/so-utils.service';
 import { SysUtilsService } from '../../../../workflow-interpretor/@utils/sys-utils.service';
 import { PageEventsService } from '../../../services/page-events.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()
 export class WidgetImageService {
 
     constructor(
         private filesService: FilesService,
+        private authService: AuthService,
+        private translate: TranslateService,
         private smartObjectsService: SmartObjectsService,
         private soUtils: SoUtilsService,
         private sysUtils: SysUtilsService,
@@ -49,6 +52,24 @@ export class WidgetImageService {
                 map((res) => {
                     return res.documents.map((document) => {
                         const sysFile: SysFile = this.sysUtils.transform(document, 'sys:file');
+                        
+                        if (document.lockState) {
+                            const caption = this.translate.instant('DOCUMENT-LOCK-CAPTION',
+                                    {
+                                        user: document.lockState.user,
+                                        date: new Date(document.lockState.date).toLocaleDateString(),
+                                        time: new Date(document.lockState.date).toLocaleTimeString(),
+                                    }
+                                );
+                            const status = document.lockState.userID === this.authService.localProfil.id ? 'byMe' : 'byOtherOne';
+                            Object.assign(sysFile, {
+                                lock: {
+                                    caption,
+                                    status
+                                }
+                            })
+                        }
+
                         return Object.assign(sysFile, {
                             smartObject,
                             document,

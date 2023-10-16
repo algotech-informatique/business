@@ -249,6 +249,7 @@ export class GridComponent implements AfterViewInit, OnChanges {
     }
 
     onQueryChanged() {
+        this.currentQuery.skip = 0;
         this.queryChanged.next(this.currentQuery);
     }
 
@@ -276,6 +277,7 @@ export class GridComponent implements AfterViewInit, OnChanges {
         });
         queryChanged.subscribe((dismiss: boolean) => {
             this.save();
+            this.currentQuery.skip = 0;
             this.queryChanged.next(this.currentQuery);
             if (dismiss) {
                 this.dismissPopup.next(null);

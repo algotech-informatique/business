@@ -463,7 +463,7 @@ export const fixtObjectDocumentToSo: SmartObjectDto = {
         },
         {
             key: 'DATE',
-            value: moment('2020-11-17').format(),
+            value: moment('2020-11-17').utc(true).startOf('day').format(),
         },
         {
             key: 'STATES',

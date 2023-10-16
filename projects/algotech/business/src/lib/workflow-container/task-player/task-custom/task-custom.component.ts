@@ -54,7 +54,6 @@ export class TaskCustomComponent implements OnInit, OnChanges {
         viewContainerRef.clear();
 
         const componentRef = viewContainerRef.createComponent(componentFactory);
-        (<TaskComponent>componentRef.instance).task = task;
         (<TaskComponent>componentRef.instance).validate.subscribe(($event: InterpretorValidateDto) => {
             this.validate.emit($event);
         });
@@ -67,6 +66,7 @@ export class TaskCustomComponent implements OnInit, OnChanges {
         (<TaskComponent>componentRef.instance).showToast.subscribe(($event: string) => {
             this.showToast.emit($event);
         });
+        (<TaskComponent>componentRef.instance).task = task;
     }
 
     private createTaskComponent(task: InterpretorTaskDto): Type<any> {

@@ -1,5 +1,5 @@
 import { SnPageWidgetDto, ApplicationModelDto, SnPageDto, SmartObjectDto, PairDto, SysQueryDto } from '@algotech-ce/core';
-import { AfterViewInit, Component, EventEmitter, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, EventEmitter, ViewChild } from '@angular/core';
 import { of, Subject, Subscription, throwError } from 'rxjs';
 import { catchError, debounceTime, tap } from 'rxjs/operators';
 import { EventData, PageData } from '../../../models';
@@ -47,7 +47,8 @@ export class WidgetItterable implements Widget {
     constructor(
         protected pageEventsService: PageEventsService,
         protected pageCustomService: PageCustomService,
-        protected pageUtils: PageUtilsService) {
+        protected pageUtils: PageUtilsService,
+        protected ref: ChangeDetectorRef) {
         let subscription: Subscription = null;
         this.search$.pipe(
             debounceTime(150),
@@ -125,14 +126,17 @@ export class WidgetItterable implements Widget {
             this.moreDataToLoad = true;
         }
 
-        this.elements = _.map(pageDataItems, (item: PageData) => {
-            const child: Element = {
-                widget: _.cloneDeep(this.widget),
-                item
-            };
-            return child;
-        });
-        this.loading = false;
+        this.ref.detectChanges();
+        setTimeout(() => {
+            this.elements = _.map(pageDataItems, (item: PageData) => {
+                const child: Element = {
+                    widget: _.cloneDeep(this.widget),
+                    item
+                };
+                return child;
+            });
+            this.loading = false;
+        }, 0);
     }
 
     createList(cumul = false) {

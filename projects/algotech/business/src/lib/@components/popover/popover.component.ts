@@ -11,10 +11,10 @@ import { PopoverDirective } from './directives/popover-host.directive';
         'active': popupPos
     }"></div>
 
-    <div class="alert" (click)="closeOptions()">
+    <div class="alert" (mousedown)="closeOptions()">
         <!-- popup !-->
         <div class="container" *ngIf="popupPos">
-            <div class="popup" (click)="$event.stopPropagation()" [ngStyle]="{
+            <div class="popup" (mousedown)="$event.stopPropagation()" [ngStyle]="{
                 'position': popupPos.top || popupPos.bottom ? 'absolute': 'inherit',
                 'top': popupPos.top != null ? popupPos.top + 'px' : null,
                 'left': popupPos.left != null ? popupPos.left + 'px' : null,

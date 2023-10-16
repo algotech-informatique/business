@@ -23,7 +23,7 @@ export const fixtImportSmartObjects:  SmartObjectDto[] = [
 			},
 			{
 				key: "DATE",
-				value: moment("1980-05-30").startOf('day').format()
+				value: moment("1980-05-30").utc(true).startOf('day').format()
 			},
 			{
 				key: "DATETIME",
@@ -109,7 +109,7 @@ export const fixtImportSmartObjects:  SmartObjectDto[] = [
 			},
 			{
 				key: "DATE",
-				value: moment("1980-05-01").startOf('day').format()
+				value: moment("1980-05-01").utc(true).startOf('day').format()
 			},
 			{
 				key: "DATETIME",

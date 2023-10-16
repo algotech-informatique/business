@@ -1,5 +1,5 @@
 import { SnPageWidgetDto, ApplicationModelDto, SnPageDto, SmartObjectDto, PairDto, SysQueryDto } from '@algotech-ce/core';
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { PageData } from '../../../models';
 import { Widget } from '../widget.interface';
 import * as _ from 'lodash';
@@ -26,8 +26,9 @@ export class WidgetListComponent extends WidgetItterable implements Widget, Afte
     constructor(
         protected pageEventsService: PageEventsService,
         protected pageCustomService: PageCustomService,
-        protected pageUtils: PageUtilsService) {
-        super(pageEventsService, pageCustomService, pageUtils);
+        protected pageUtils: PageUtilsService,
+        protected ref: ChangeDetectorRef) {
+        super(pageEventsService, pageCustomService, pageUtils, ref);
     }
 
     ngAfterViewInit() {

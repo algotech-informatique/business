@@ -10,8 +10,11 @@
 
                 <div class="mask"></div>
                 <div class="content">
-                    <i *ngIf="mode === 'selection'" [ngClass]="file.checked ?
-                        'checkbox checked fa-solid fa-square-check' : 'checkbox unchecked fa-solid fa-square'"></i>
+                    <i *ngIf="mode === 'selection'" [class]="file.checked ?
+                        'checkbox checked fa-solid fa-square-check' : 'checkbox unchecked fa-solid fa-square'"
+                        [ngClass]="{
+                            'disabled': file.lock?.status === 'byOtherOne'
+                        }"></i>
 
                     <span class="title">
                         {{file.name}}
@@ -21,6 +24,8 @@
                         class="info-button fa-solid fa-circle-info"></i>
                     <i *ngIf="!(mobile && mode === 'selection')" class="open fa-solid fa-eye"
                         (click)="openDocument($event, file)"></i>
+                    <i *ngIf="file.lock && !(mobile && mode === 'selection')"
+                        class="lock fas fa-lock lock-icon" [title]="file.lock.caption"></i>
                 </div>
             </div>
         </div>

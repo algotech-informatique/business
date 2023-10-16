@@ -65,6 +65,9 @@ export class WidgetDocumentListComponent implements OnChanges {
         this.infoClick.emit(file);
     }
     private selectDocument(file: WidgetDocumentFileDto) {
+        if (file.lock?.status === 'byOtherOne') {
+            return ;
+        }
         file.checked = !file.checked;
         this.selectedDocument.emit();
     }

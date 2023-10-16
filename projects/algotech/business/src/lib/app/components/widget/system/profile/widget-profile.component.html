@@ -3,13 +3,13 @@
         <i *ngIf="_widget?.custom?.icon" [class]="_widget?.custom?.icon"
             [ngStyle]="_widget?.css?.icon"></i>
     </div>
-    
-    <widget-popup-profile *ngIf="menuProfileOpen"
-        [currentUser]="currentUser"
-        [userInfo]="userInfo"
-        [widget]="_widget"
-        [snPage]="snPage"
-    >
-    </widget-popup-profile>
-
 </div>
+
+    
+<widget-popup-profile *ngIf="menuProfileOpen"
+[currentUser]="currentUser"
+[userInfo]="userInfo"
+[widget]="_widget"
+[snPage]="snPage"
+>
+</widget-popup-profile>

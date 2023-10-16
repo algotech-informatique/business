@@ -1484,7 +1484,7 @@ export const fixtSmartflowService: WorkflowModelDto = {
                         ],
                         custom: {
                             type: 'get',
-                            responseType: 'text',
+                            responseType: 'json',
                             url: 'http://',
                             listSysFile: [],
                             fileName: '',

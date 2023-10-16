@@ -54,6 +54,8 @@ export class SoFormPropertyInputComponent implements AfterViewInit, OnChanges {
 
     isLoading = false;
     isSwipe = false;
+    minValue = null;
+    maxValue = null;
 
     _actionSearch: ISoFormAction = {
         key: 'search',
@@ -133,6 +135,11 @@ export class SoFormPropertyInputComponent implements AfterViewInit, OnChanges {
 
         switch (this.property.keyType) {
             case 'number': {
+                this.minValue = this.option?.minlen;
+                this.maxValue = this.option?.maxlen;        
+                if (!this.validateBetweenNumber()) {
+                    return false;
+                } 
                 if (this.option.format) {
                     switch (this.option.format) {
                         case '0':
@@ -159,6 +166,26 @@ export class SoFormPropertyInputComponent implements AfterViewInit, OnChanges {
             }
         }
 
+        return true;
+    }
+
+    validateBetweenNumber() {
+        if (this.option?.minlen && this.option?.maxlen) {
+            if (!this.value || this.value < this.option.minlen || this.value > this.option.maxlen) {
+                this.error = this.translate.instant('SO-FORM-ITEM-NUMBER-MAX-MIN', { num: this.option.minlen, num2: this.option.maxlen });
+                return false;
+            }
+        } else if (this.option?.minlen) {
+            if (!this.value || this.value < this.option.minlen) {
+                this.error = this.translate.instant('SO-FORM-ITEM-NUMBER-MINIMUM', { num: this.option.minlen });
+                return false;
+            }
+        } else if (this.option?.maxlen) {
+            if (!this.value || this.value > this.option.maxlen) {
+                this.error = this.translate.instant('SO-FORM-ITEM-NUMBER-MAXIMUM', { num: this.option.maxlen });
+                return false;
+            }
+        }
         return true;
     }
 

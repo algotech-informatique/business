@@ -251,6 +251,7 @@ export class InterpretorReader {
             finishDate: null,
             operations: [],
             reverse: [],
+            transitionKey,
             saved: false,
             taskModel: findTask.task.uuid
         };

@@ -23,6 +23,13 @@ export class TaskDeleteDocument extends TaskBase {
                 const so: SmartObjectDto = values[0];
                 const documents: SysFile[] = _.isArray(values[1]) ? values[1] : [values[1]];
 
+                if (documents.length === 0) {
+                    return {
+                        transitionKey: 'done',
+                        transfers: [],
+                    };
+                }
+
                 const action: WorkflowTaskActionDeleteDocumentsDto = {
                     smartObject: so.uuid,
                     documentsID: _.map(documents, ((doc: SysFile) => doc.documentID))

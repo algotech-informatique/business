@@ -144,7 +144,7 @@ export class PageCustomService extends InterpretorResolver {
             }
             case 'date': {
                 if (formatted) {
-                    systemVariable = moment(moment.now()).startOf('day').format();
+                    systemVariable = moment(moment.now()).utc(true).startOf('day').format();
                 } else {
                     systemVariable = new Date(moment.now()).toLocaleDateString(lang);
                 }

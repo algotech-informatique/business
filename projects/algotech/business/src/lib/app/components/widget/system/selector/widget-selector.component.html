@@ -4,12 +4,12 @@
         <i *ngIf="_widget?.custom?.icon" [class]="_widget?.custom?.icon"
             [ngStyle]="_widget?.css?.icon"></i>
     </div>
-
-    <widget-popup-selector *ngIf="menuAppsOpen === true"
-        [applications]="applications"
-        [widget]="_widget"
-        [snPage]="snPage"
-        (selectedApp)="onSelectedApplication($event)"
-        >
-    </widget-popup-selector>
 </div>
+
+<widget-popup-selector *ngIf="menuAppsOpen === true"
+    [applications]="applications"
+    [widget]="_widget"
+    [snPage]="snPage"
+    (selectedApp)="onSelectedApplication($event)"
+    >
+</widget-popup-selector>

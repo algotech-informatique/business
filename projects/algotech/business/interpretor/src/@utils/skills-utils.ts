@@ -18,7 +18,7 @@ export abstract class SkillsUtils {
     abstract getMagnets(appKey: string, boardInstance: string, zoneKey: string,
         context?: WorkflowInstanceContextDto): Observable<SmartObjectDto[]>;
 
-    createSkills(smartObject: SmartObjectDto, skills: PairDto[], instance: WorkflowInstanceDto)
+    createSkills(smartObject: SmartObjectDto, skills: PairDto[], instance: WorkflowInstanceDto, cumul = true)
         : Observable<InterpretorTransferTransitionDto[]> {
         let transfers: Observable<InterpretorTransferTransitionDto>[] = _.map(skills, (prop: PairDto) => {
 
@@ -27,19 +27,19 @@ export abstract class SkillsUtils {
             } else {
 
                 if (prop.key === 'atDocument' && prop.value) {
-                    return this._createDocument(smartObject, prop);
+                    return this._createDocument(smartObject, prop, cumul);
                 }
                 if (prop.key === 'atSignature' && prop.value) {
                     return this._createSignature(smartObject, prop);
                 }
                 if (prop.key === 'atGeolocation' && prop.value) {
-                    return this._createLocalisation(smartObject, prop);
+                    return this._createLocalisation(smartObject, prop, cumul);
                 }
                 if (prop.key === 'atTag' && prop.value) {
-                    return this._createTags(smartObject, prop);
+                    return this._createTags(smartObject, prop, cumul);
                 }
                 if (prop.key === 'atMagnet' && prop.value) {
-                    return this._createMagnet(smartObject, prop, instance);
+                    return this._createMagnet(smartObject, prop, instance, cumul);
                 }
             }
         });
@@ -48,7 +48,7 @@ export abstract class SkillsUtils {
     }
 
     //private deleted for unit testing
-    _createDocument(smartObject: SmartObjectDto, prop: PairDto): Observable<InterpretorTransferTransitionDto>[] {
+    _createDocument(smartObject: SmartObjectDto, prop: PairDto, cumul: boolean): Observable<InterpretorTransferTransitionDto>[] {
         if ((_.isArray(prop.value) && prop.value.length > 0 && prop.value[0] instanceof SmartObjectDto) ||
             (prop.value instanceof SmartObjectDto)) {
             smartObject.skills.atDocument.documents = _.uniq(_.flatten(_.map(_.isArray(prop.value) ? prop.value : [prop.value], val => val.skills.atDocument.documents)));
@@ -62,6 +62,9 @@ export abstract class SkillsUtils {
                 }
                 return results;
             }, [])
+            if (!cumul) {
+                smartObject.skills.atDocument.documents = [];
+            }
             smartObject.skills.atDocument.documents.push(...
                 _.reduce(files, (results, file: SysFile) => {
                     if (file?.size > 0 && file?.documentID !== undefined && file?.documentID !== null) {
@@ -131,7 +134,7 @@ export abstract class SkillsUtils {
         return null;
     }
 
-    private _createLocalisation(smartObject: SmartObjectDto, prop: PairDto) {
+    private _createLocalisation(smartObject: SmartObjectDto, prop: PairDto, cumul: boolean) {
         if (prop.value instanceof SmartObjectDto) {
             smartObject.skills.atGeolocation = prop.value.skills.atGeolocation;
         } else {
@@ -140,21 +143,27 @@ export abstract class SkillsUtils {
                 layerKey: prop.value.layerKey,
                 geometries: [{ type: prop.value.type, coordinates: prop.value.coordinates }]
             };
+            if (!cumul) {
+                smartObject.skills.atGeolocation.geo = [];
+            }
             smartObject.skills.atGeolocation.geo.push(geo);
         }
         return null;
     }
 
-    private _createTags(smartObject: SmartObjectDto, prop: PairDto) {
+    private _createTags(smartObject: SmartObjectDto, prop: PairDto, cumul: boolean) {
         if (prop.value instanceof SmartObjectDto) {
             smartObject.skills.atTag = prop.value.skills.atTag;
         } else {
             const tag: string = prop.value;
+            if (!cumul) {
+                smartObject.skills.atTag.tags = [];
+            }
             smartObject.skills.atTag.tags.push(tag);
         }
     }
 
-    private _createMagnet(smartObject: SmartObjectDto, prop: PairDto, instance: WorkflowInstanceDto) {
+    private _createMagnet(smartObject: SmartObjectDto, prop: PairDto, instance: WorkflowInstanceDto, cumul: boolean) {
         if (prop.value instanceof SmartObjectDto) {
             smartObject.skills.atMagnet = prop.value.skills.atMagnet;
         } else {
@@ -185,6 +194,9 @@ export abstract class SkillsUtils {
                         boardInstance: prop.value.boardInstance,
                     };
                     _.remove(smartObject.skills.atMagnet.zones, (z: ZoneDto) => utils.predicateZone(z, prop.value.appKey, prop.value.boardInstance));
+                    if (!cumul) {
+                        smartObject.skills.atMagnet.zones = [];
+                    }
                     smartObject.skills.atMagnet.zones.push(zone);
                     return [];
                 })

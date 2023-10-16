@@ -34,6 +34,10 @@
             --HEIGHT: 100%;
         }
 
+        .lock {
+            color: var(--ALGOTECH-SECONDARY);
+        }
+
         .tags {
             display: flex;
             flex-direction: row;

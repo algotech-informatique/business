@@ -23,7 +23,7 @@ export class WorkflowServiceService extends InterpretorService {
         env.environment.subscribe((e) => this.api = e.API_URL);
     }
 
-    serviceConnection(route: string, headers: HttpHeaders, body: object, type: string, responseType: 'text' | 'blob' = 'text'): Observable<any> {
+    serviceConnection(route: string, headers: HttpHeaders, body: object, type: string, responseType: 'blob' | 'json' = 'json'): Observable<any> {
         let obs: Observable<any> = null;
         let options: any = { headers, responseType };
         switch (type) {
@@ -51,13 +51,12 @@ export class WorkflowServiceService extends InterpretorService {
         return obs.pipe(
             map((data) => {
                 try {
-                    return (responseType === 'text') ?
-                        JSON.parse(data)
-                        : {
-                            fileName: data.name,
-                            mimeType: data.type,
-                            data,
-                        }
+                    return (responseType === 'blob') ?
+                    {
+                        fileName: data.name,
+                        mimeType: data.type,
+                        data,
+                    } : data
                 } catch (e) {
                     return data;
                 }
@@ -65,7 +64,7 @@ export class WorkflowServiceService extends InterpretorService {
         );
     }
 
-    call(url: string, headers: PairDto[], body: InterpretorFormData, type: 'get' | 'patch' | 'post' | 'put' | 'delete' | 'update', responseType: 'text' | 'blob' = 'text'): Observable<any> {
+    call(url: string, headers: PairDto[], body: InterpretorFormData, type: 'get' | 'patch' | 'post' | 'put' | 'delete' | 'update', responseType: 'blob' | 'json' = 'json'): Observable<any> {
         return defer(() => {
             const heads: HttpHeaders = this.getHeaders(headers);
             if ((body.type === 'formData') || (responseType === 'blob')) {
@@ -81,7 +80,7 @@ export class WorkflowServiceService extends InterpretorService {
                     this.serviceConnection(url, heads, body, type.toUpperCase(), responseType) :
                     this.serviceConnection(url, heads, formData, type.toUpperCase(), responseType);
             }
-            return this.smartFlowsService.callApi({ url, headers, body, type: type.toUpperCase() });
+            return this.smartFlowsService.callApi({ url, headers, body, type: type.toUpperCase(), responseType });
         }).pipe(
             catchError((e) => {
                 return throwError(new ATHttpException(url, e.status, e.error, e.statusText));

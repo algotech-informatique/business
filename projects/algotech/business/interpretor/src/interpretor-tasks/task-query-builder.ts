@@ -20,7 +20,7 @@ export class TaskQueryBuilder extends TaskBase {
         return zip(
             customData.connection(),
             customData.wizardMode ? customData.wizardMode() : of(false),
-            customData.plainQuery ? customData.plainQuery() : of('')
+            customData.plainQuery ? customData.plainQuery({ formatted: true }) : of('')
         ).pipe(
             catchError((err) => {
                 throw this.taskUtils.handleError('ERR-022', err, TaskQueryBuilderError);

@@ -117,7 +117,7 @@ export class InterpretorTask extends InterpretorResolver {
             this._calculateValue(instance, '', expression.value.array, services, expressions, params, true),
             ...(_.map(expression.value.parameters, (p) => {
 
-                return this._calculateValue(instance, '', p.value, services, expressions, params, true);
+                return this._calculateValue(instance, '', p.value, services, expressions, { formatted: true }, true);
             }))
         ];
         return zip(...inputs$).pipe(
@@ -141,7 +141,7 @@ export class InterpretorTask extends InterpretorResolver {
             this._calculateValue(instance, '', expression.value.array, services, expressions, params, true),
             ...(_.map(expression.value.parameters, (p) => {
 
-                return this._calculateValue(instance, '', p.value, services, expressions, params, true);
+                return this._calculateValue(instance, '', p.value, services, expressions, { formatted: true }, true);
             }))
         ];
         return zip(...inputs$).pipe(
@@ -156,6 +156,11 @@ export class InterpretorTask extends InterpretorResolver {
                 return fResult;
             })
         );
+    }
+
+    _executeJSON(instance: WorkflowInstanceDto, expression: WorkflowExpressionDto, services: ServiceModelDto[],
+        expressions: WorkflowExpressionDto[]) {
+        return this._calculateValue(instance, '', expression.value.value, services, expressions, { formatted: true }, true)
     }
 
     _executeGListValues(instance: WorkflowInstanceDto, expression: WorkflowExpressionDto, services: ServiceModelDto[],
@@ -191,6 +196,8 @@ export class InterpretorTask extends InterpretorResolver {
             switch (type) {
                 case 'GListValues':
                     return this._executeGListValues(instance, expression, services, expressions, params, lang);
+                case 'JSON':
+                    return this._executeJSON(instance, expression, services, expressions);
                 case 'ArrayFunction':
                     return this._executeArrayFunction(instance, expression, services, expressions, params);
                 case 'ObjectFunction':

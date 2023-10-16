@@ -8,7 +8,7 @@ import { PairDto, SmartObjectDto } from '@algotech-ce/core';
 import { fixtImportSmartObjects } from '../test-fixtures/import.smart-object';
 import moment from 'moment';
 
-describe(ReportsUtilsService.name, () => {
+describe(SoUtilsService.name, () => {
 
     let soUtilsService: SoUtilsService;
     let csvFile: File;
@@ -95,5 +95,38 @@ describe(ReportsUtilsService.name, () => {
             expect(res).toEqual(fixtImportSmartObjects);
             done();
         });
+    });
+
+    it(`${SoUtilsService.prototype.dateIsDifferent.name} should return true`, () => {
+
+        expect(soUtilsService.dateIsDifferent(null, true, 'date')).toBeTrue();
+        expect(soUtilsService.dateIsDifferent(true, null, 'date')).toBeTrue();
+
+        expect(soUtilsService.dateIsDifferent(['1990-05-01T00:00:00Z'], '1990-05-01T00:00:00Z', 'datetime')).toBeTrue();
+        expect(soUtilsService.dateIsDifferent(['1990-05-01T00:00:00Z'], ['1990-05-01T00:00:00Z', '1990-06-01T00:00:00Z'], 'datetime')).toBeTrue();
+        expect(soUtilsService.dateIsDifferent('1990-05-01T00:00:00Z', ['1990-05-01T00:00:00Z'], 'datetime')).toBeTrue();
+        expect(soUtilsService.dateIsDifferent(['1990-05-01T00:00:00Z', '1990-06-01T00:00:00Z'], ['1990-05-01T00:00:00Z'], 'datetime')).toBeTrue();
+        expect(soUtilsService.dateIsDifferent(['1990-05-01T00:00:00Z', '1990-06-01T00:00:00Z'], ['1990-06-01T00:00:00Z', '1990-05-01T00:00:00Z'], 'datetime')).toBeTrue();
+        expect(soUtilsService.dateIsDifferent('1990-05-01T00:00:00Z', '1990-06-01T00:00:00Z', 'datetime')).toBeTrue();
+
+    });
+
+    it(`${SoUtilsService.prototype.dateIsDifferent.name} should return false`, () => {
+
+        expect(soUtilsService.dateIsDifferent('1990-05-01T00:00:00Z', '1990-05-01T00:00:00Z', 'date')).toBeFalse();
+        expect(soUtilsService.dateIsDifferent('1990-05-01T00:00:00Z', '1990-05-01T00:00:00Z', 'datetime')).toBeFalse();
+        expect(soUtilsService.dateIsDifferent(['1990-05-01T00:00:00Z', '1990-06-01T00:00:00Z'], ['1990-05-01T00:00:00Z', '1990-06-01T00:00:00Z'], 'date')).toBeFalse();
+        expect(soUtilsService.dateIsDifferent(['1990-05-01T00:00:00Z', '1990-06-01T00:00:00Z'], ['1990-05-01T00:00:00Z', '1990-06-01T00:00:00Z'], 'datetime')).toBeFalse();
+        expect(soUtilsService.dateIsDifferent(['1990-05-01T00:00:00Z', '1990-06-01T00:00:00Z'], ['1990-05-01T00:00:00Z', '1990-06-01T00:00:00Z'], 'datetime')).toBeFalse();
+
+    });
+
+    it(`${SoUtilsService.prototype.dateIsDifferent.name} should return false with different format of date`, () => {
+
+        expect(soUtilsService.dateIsDifferent('1990-03-01T22:00:00Z', '1990-03-02T00:00:00+02:00', 'datetime')).toBeFalse();
+        expect(soUtilsService.dateIsDifferent('1990-03-01T22:00:00Z', '1990-03-02T00:00:00+02:00', 'date')).toBeFalse();
+        expect(soUtilsService.dateIsDifferent('1990-03-01T22:00:00.000Z', '1990-03-02T00:00:00+02:00', 'datetime')).toBeFalse();
+        expect(soUtilsService.dateIsDifferent('1990-03-01T22:00:00.000Z', '1990-03-02T00:00:00+02:00', 'date')).toBeFalse();
+
     });
 });

@@ -249,6 +249,10 @@ textarea {
             border: 2px solid var(--ALGOTECH-SECONDARY);
         }
     }
+    .disabled {
+        @include disabled();
+    }
+
     .checkbox-content {
         display: flex;
         align-items: center;

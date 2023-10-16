@@ -322,7 +322,7 @@ export class WorkflowLaunchService {
             inputs: data.inputs,
             finished: onFinished,
             closed: onClose,
-            history: true,
+            history: this.dataService.mobile,
         };
 
         const top = await this.modalController.getTop();

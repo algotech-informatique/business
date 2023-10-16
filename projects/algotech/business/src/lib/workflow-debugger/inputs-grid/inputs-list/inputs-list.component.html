@@ -2,6 +2,9 @@
     <div class="input" *ngFor="let input of inputsDisplay; last as isLast;">
         <div *ngIf="!input.isObject" class="input-type">
 
+            <at-so-input type="password" *ngIf="input.type === 'password'" [caption]="input.title | translate"
+                [value]="input.value" (changed)="updateValue($event, input)"></at-so-input>
+
             <at-so-input type="textarea" *ngIf="input.type === 'object'" [caption]="input.title | translate"
                 [value]="input.value" (changed)="updateValue($event, input)"></at-so-input>
 

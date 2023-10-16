@@ -5,6 +5,7 @@ import { InterpretorValidateDto, InterpretorTaskDto, TaskConditionV2Dto } from '
 import { TaskConditionV2Error } from '../error/tasks-error';
 import { PairDto } from '@algotech-ce/core';
 import * as _ from 'lodash';
+import { InterpretorCondition } from '../interpretor-reader/interpretor-task/interpretor-condition';
 
 export class TaskConditionV2 extends TaskBase {
 
@@ -30,45 +31,6 @@ export class TaskConditionV2 extends TaskBase {
     }
 
     private validateCondition(conditionAValue: any, criterias: PairDto[]) {
-        return criterias.every(criteria => {
-            switch (criteria.value.criteria) {
-                case 'startsWith':
-                    return conditionAValue.startsWith(criteria.value.value);
-                case 'notStartsWith':
-                    return !conditionAValue.startsWith(criteria.value.value);
-                case 'endWith':
-                    return conditionAValue.endsWith(criteria.value.value);
-                case 'contains':
-                    return conditionAValue.includes(criteria.value.value);
-                case 'gt':
-                    return conditionAValue > criteria.value.value;
-                case 'lt':
-                    return conditionAValue < criteria.value.value;
-                case 'gte':
-                    return conditionAValue >= criteria.value.value;
-                case 'lte':
-                    return conditionAValue <= criteria.value.value;
-                case 'between':
-                    const min = criteria.value.value < criteria.value.secondValue ? criteria.value.value : criteria.value.secondValue;
-                    const max = criteria.value.value > criteria.value.secondValue ? criteria.value.value : criteria.value.secondValue;
-                    return min <= conditionAValue && conditionAValue <= max;
-                case 'equals':
-                    return _.isEqual(conditionAValue, criteria.value.value);
-                case 'different':
-                    return !_.isEqual(conditionAValue, criteria.value.value);
-                case 'isNull':
-                    return conditionAValue == null || conditionAValue.length === 0;
-                case 'isNotNull':
-                    return (conditionAValue != null) && (!Array.isArray(conditionAValue) || conditionAValue?.length > 0);        
-                case 'exists':
-                    return (conditionAValue != null) && (!Array.isArray(conditionAValue) || conditionAValue?.length > 0);
-                case 'in':
-                    const checkArray = Array.isArray(conditionAValue) ? conditionAValue : [conditionAValue];
-                    return checkArray.some((value: any) => criteria.value.value.includes(value));
-                default:
-                    return false;
-            }
-        });
+        return InterpretorCondition.validate(conditionAValue, criterias.map((c) => c.value));
     }
-
 }

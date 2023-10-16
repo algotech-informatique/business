@@ -1,6 +1,6 @@
 {
     "name": "@algotech-ce/interpretor",
-    "version": "2.0.0",
+    "version": "3.1.0",
     "author": "algotech-informatique",
     "license": "MPL-2.0",
     "main": "dist/public_api.js",
@@ -22,11 +22,11 @@
     },
     "devDependencies": {},
     "repository": {
-      "type": "git",
-      "url": "git+https://github.com/algotech-informatique/business.git"
+        "type": "git",
+        "url": "git+https://github.com/algotech-informatique/business.git"
     },
     "bugs": {
-      "url": "https://github.com/algotech-informatique/business/issues"
+        "url": "https://github.com/algotech-informatique/business/issues"
     },
     "homepage": "https://github.com/algotech-informatique/business#readme",
     "description": ""

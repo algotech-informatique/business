@@ -84,7 +84,7 @@ export class InputsGridService {
         if (inputs && type === 'sys:file') {
             return (this.findDisplay(inputs, 'smart-object-selected')) ? false : true;
         } else {
-            return (['sys:user', 'sys:location', 'sys:schedule'].includes(type)) ? false : true;
+            return (['sys:location', 'sys:schedule'].includes(type)) ? false : true;
         }
     }
 
@@ -152,7 +152,20 @@ export class InputsGridService {
                     return this.searchDocuments$(search ? search : '', []);
                 }
             case 'sys:user':
-                return this.userService.list();
+                return this.userService.list().pipe(
+                    map((users) => {
+                        const search: string = params?.searchParameters?.search;
+                        if (!search) {
+                            return users;
+                        }
+                        return users.filter((user) =>
+                            [user.username, user.email, user.firstName, user.lastName]
+                            .join(',')
+                            .toUpperCase()
+                            .includes(search?.toUpperCase())
+                        )
+                    })
+                );
             case 'sys:schedule':
                 const dates: PairDto[] = this.scheduleDates();
                 return this.scheduleService.getBetween(dates[0].value, dates[1].value).pipe(

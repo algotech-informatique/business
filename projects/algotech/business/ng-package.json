@@ -14,6 +14,7 @@
     "docxtemplater-image-module",
     "docxtemplater-xlsx-module",
     "signature_pad",
+    "jszip",
     "pizzip",
     "papaparse",
     "ngx-dropzone",

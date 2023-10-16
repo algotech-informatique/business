@@ -23,13 +23,19 @@ import { Component, Input, Output, EventEmitter, AfterViewInit, ViewChild, Eleme
                 'mobile': dataService.mobile
             }">
                 <span class="caption" *ngIf="caption">{{caption}}</span>
+
+                <input *ngIf="type === 'password'" #input type="password" [placeholder]="placeholder" [autofocus]="autoFocus"
+                    (keyup)="onKeyup($event)" (keyup.enter)="enter.emit(input.value)" [disabled]="disabled"
+                    (change)="onChange()" [maxlength]="maxlength" [(ngModel)]="value">
+
                 <input *ngIf="type === 'text'" #input type="text" [placeholder]="placeholder" [autofocus]="autoFocus"
                     (keyup)="onKeyup($event)" (keyup.enter)="enter.emit(input.value)" [disabled]="disabled"
                     (change)="onChange()" [maxlength]="maxlength" [(ngModel)]="value">
 
                 <input *ngIf="type === 'number'" #input type="number" [placeholder]="placeholder"
                     (keyup)="onKeyup($event)" (keyup.enter)="enter.emit(input.value)" [disabled]="disabled"
-                    (change)="onChange()" [maxlength]="maxlength" [(ngModel)]="value">
+                    (change)="onChange()" [maxlength]="maxlength" [(ngModel)]="value"
+                    [min]="minValue" [max]="maxValue">
 
                 <input class="date" *ngIf="type === 'datetime'" #input type="datetime-local" [placeholder]="placeholder"
                     (keyup)="onKeyup($event)" (keyup.enter)="enter.emit(input.value)" [disabled]="disabled"
@@ -78,7 +84,7 @@ import { Component, Input, Output, EventEmitter, AfterViewInit, ViewChild, Eleme
             }"
             (click)="onChange(!value)">
 
-            <div *ngIf="type === 'checkbox'" class="checkbox-content">
+            <div *ngIf="type === 'checkbox'" class="checkbox-content" [ngClass]="{ 'disabled': disabled }">
                 <i class="fa-regular fa-square" *ngIf="inputStyle !== 'toggle' && !value"></i>
                 <i class="fa-solid fa-square-check" *ngIf="inputStyle !== 'toggle' && value"></i>
                 <i class="fa-solid fa-toggle-off" [ngStyle]="{'font-size': '22px'}" *ngIf="inputStyle === 'toggle' && !value"></i>
@@ -109,6 +115,8 @@ export class SoInputComponent implements AfterViewInit {
     @Input() inputStyle;
     @Input() autoFocus = false;
     @Input() disabled = false;
+    @Input() minValue = null;
+    @Input() maxValue = null;
 
     _value: any = undefined;
     @Input()

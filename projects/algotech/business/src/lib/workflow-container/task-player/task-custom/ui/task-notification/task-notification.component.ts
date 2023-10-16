@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { TaskComponent } from '../../task.interface';
 import { TaskNotify } from '../../../../dto/task-notify.dto';
 import { zip, of } from 'rxjs';
@@ -40,9 +40,9 @@ import { TaskUtilsService } from '../../../../../workflow-interpretor/@utils/tas
         </div>
     </div>
     `,
-      styleUrls: ['./task-notification.component.scss']
+    styleUrls: ['./task-notification.component.scss']
 })
-export class TaskNotificationComponent implements TaskComponent {
+export class TaskNotificationComponent implements TaskComponent, OnInit {
     _task: InterpretorTaskDto;
     @Input('task')
 
@@ -52,36 +52,44 @@ export class TaskNotificationComponent implements TaskComponent {
         zip(
             customData.title ? customData.title() : of(''),
             customData.content ? customData.content() : of(''),
+            customData.destination ? customData.destination() : of('profil'),
             customData.profiles ? customData.profiles() : of([]),
             customData.profiles_viewer ? customData.profiles_viewer() : of([]),
+            customData.groups_viewer ? customData.groups_viewer() : of([]),
+            customData.users_viewer ? customData.users_viewer() : of([]),
             customData.channels ? customData.channels() : of(['web', 'mobile']),
-        ).subscribe((values: any[]) => {
-            this.title = values[0];
-            this.content = values[1];
-            this.profiles = values[2];
-            this.profiles_viewer = values[3];
-            this.channels = values[4];
+        ).subscribe({
+            next: (values: any[]) => {
+                this.title = values[0];
+                this.content = values[1];
+                this.destination = values[2];
+                this.profiles = values[3];
+                this.profiles_viewer = values[4];
+                this.groups_viewer = values[5];
+                this.users_viewer = values[6];
+                this.channels = values[7];
 
-            this.to = _.uniq([...this.profiles, ...this.profiles_viewer]).reduce((result, elt: string) => {
-                if (result !== '') {
-                    result = `${result}, `;
-                }
-                if (elt.includes('usr:')) {
-                    result = `${result}${elt.replace('usr:', '')}`;
-                } else {
-                    const grpKey = elt.replace('grp:', '');
-                    const group = this._task.instance.context.groups.find((grp) => grp.key === grpKey);
-                    result = `${result}${group ? group.name : grpKey}`;
-                }
+                this.to = _.uniq([...this.profiles, ...this.recipients_viewer]).reduce((result, elt: string) => {
+                    if (result !== '') {
+                        result = `${result}, `;
+                    }
+                    if (elt.includes('usr:')) {
+                        result = `${result}${elt.replace('usr:', '')}`;
+                    } else {
+                        const grpKey = elt.replace('grp:', '');
+                        const group = this._task.instance.context.groups.find((grp) => grp.key === grpKey);
+                        result = `${result}${group ? group.name : grpKey}`;
+                    }
 
-                return result;
-            }, '');
+                    return result;
+                }, '');
 
-            this.author = `${this.authSrv.localProfil.firstName} ${this.authSrv.localProfil.lastName}`;
-
-            this.change();
-        }, (err) => {
-            this.handleError.emit(this.taskUtils.handleError('ERR-076', err, TaskNotificationError));
+                this.author = `${this.authSrv.localProfil.firstName} ${this.authSrv.localProfil.lastName}`;
+                this.change();
+            },
+            error: (err) => {
+                this.handleError.emit(this.taskUtils.handleError('ERR-076', err, TaskNotificationError));
+            }
         });
     }
 
@@ -93,8 +101,11 @@ export class TaskNotificationComponent implements TaskComponent {
     author = '';
     title = '';
     content = '';
+    destination = 'profil';
     profiles: string[] = [];
     profiles_viewer: string[] = [];
+    groups_viewer: string[] = [];
+    users_viewer: string[] = [];
     channels: string[] = [];
     to: string;
 
@@ -104,14 +115,30 @@ export class TaskNotificationComponent implements TaskComponent {
         private readonly taskUtils: TaskUtilsService
     ) { }
 
+    get recipients_viewer() {
+        switch (this.destination) {
+            case 'profil':
+                return this.profiles_viewer;
+            case 'group':
+                return this.groups_viewer.map((g) => `grp:${g}`);
+            case 'user':
+                return this.users_viewer.map((g) => `usr:${g}`);
+        }
+    }
+
+    ngOnInit(): void {
+        this.change();
+    }
+
     change() {
         const transfers: InterpretorTransferTransitionDto[] = [];
         let notification: NotificationDto;
-        if (this.profiles_viewer && this.profiles_viewer.length !== 0) {
+
+        if (this.recipients_viewer?.length !== 0) {
             const action: NotificationActionDto = {
                 key: 'information'
             };
-            notification = this._createNotification(this.profiles_viewer, action);
+            notification = this._createNotification(this.recipients_viewer, action);
 
             transfers.push({
                 saveOnApi: true,
@@ -123,7 +150,7 @@ export class TaskNotificationComponent implements TaskComponent {
             });
         }
 
-        if (this.profiles && this.profiles.length !== 0) {
+        if (this.profiles?.length !== 0) {
             const action: NotificationActionDto = {
                 key: 'workflow',
                 object: this._task.instance.uuid
@@ -148,18 +175,19 @@ export class TaskNotificationComponent implements TaskComponent {
                 type: 'sysobjects',
                 value: notification
             });
-        }
 
-        const validation: InterpretorValidateDto = {
-            transitionKey: 'notify',
-            transfers
-        };
-        this.partialValidate.emit({ validation, authorizationToNext: true });
+            const validation: InterpretorValidateDto = {
+                transitionKey: 'notify',
+                transfers
+            };
+            this.partialValidate.emit({ validation, authorizationToNext: true });
+        }
     }
 
     _createNotification(profiles: string[], action: NotificationActionDto): NotificationDto {
+
         const additional = _.find(this.workflowUtilsService.getActiveStep(this._task.instance).displayName,
-            (name: LangDto) => name.lang === this.authSrv.localProfil.preferedLang).value;
+            (name: LangDto) => name.lang === this.authSrv.localProfil.preferedLang)?.value;
         return {
             uuid: UUID.UUID(),
             title: this.title,
@@ -179,7 +207,7 @@ export class TaskNotificationComponent implements TaskComponent {
         };
     }
 
-    private _getTransitionData(task: InterpretorTaskDto): {key: string, type: string} {
+    private _getTransitionData(task: InterpretorTaskDto): { key: string, type: string } {
         if (!task ||
             task.transitions.length === 0 ||
             task.transitions[0].data.length === 0 ||

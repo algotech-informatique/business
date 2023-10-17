@@ -32,3 +32,4 @@ export { TaskDocumentFileZip } from './task-document-filezip';
 export { TaskDocumentFileCreate } from './task-document-filecreate';
 export { TaskFinisher } from './task-finisher';
 export { TaskSwitch } from './task-switch';
+export { TaskSleep } from './task-sleep';

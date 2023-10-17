@@ -165,3 +165,8 @@ export class TaskSwitchError extends NgComponentError {
         super(code, 'SN-SWITCH', message);
     }
 }
+export class TaskSleepError extends NgComponentError {
+    constructor(code: string, message: string) {
+        super(code, 'SN-SLEEP', message);
+    }
+}

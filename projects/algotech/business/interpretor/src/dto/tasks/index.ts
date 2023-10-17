@@ -25,3 +25,4 @@ export { TaskConvertDto } from './task-convert.dto';
 export { TaskDocumentFileZipDto } from './task-document-filezip.dto'
 export { TaskFinisherDto } from './task-finisher.dto';
 export { TaskSwitchDto } from './task-switch.dto';
+export { TaskSleepDto } from './task-sleep.dto';

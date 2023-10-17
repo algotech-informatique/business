@@ -127,16 +127,15 @@ export class WidgetItterable implements Widget {
         }
 
         this.ref.detectChanges();
-        setTimeout(() => {
-            this.elements = _.map(pageDataItems, (item: PageData) => {
-                const child: Element = {
-                    widget: _.cloneDeep(this.widget),
-                    item
-                };
-                return child;
-            });
-            this.loading = false;
-        }, 0);
+        
+        this.elements = _.map(pageDataItems, (item: PageData) => {
+            const child: Element = {
+                widget: _.cloneDeep(this.widget),
+                item
+            };
+            return child;
+        });
+        this.loading = false;
     }
 
     createList(cumul = false) {

@@ -36,6 +36,7 @@ export class SoUtilsService extends SoUtils {
             papa.parse(file, {
                 delimiter: options.delimiter ?? '',
                 newline: options.newline ?? '',
+                encoding: options.encoding ?? 'utf8',
                 skipEmptyLines: true,
                 complete: (res) => {
                     observer.next(this._csvDataToSo(res.data, smartModel, options));
@@ -55,6 +56,7 @@ export class SoUtilsService extends SoUtils {
                 preview: 1,
                 delimiter: options?.delimiter ?? '',
                 newline: options?.newline ?? '',
+                encoding: options?.encoding ?? 'utf8',
                 skipEmptyLines: true,
 
                 complete: (res) => {

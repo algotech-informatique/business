@@ -10,12 +10,13 @@ export class InterpretorArrayFunction {
             let compare = element instanceof SmartObjectDto ?
                 element.properties.find((p) => p.key === propKey)?.value : element[propKey];
 
+            const isISO8601 = (str) => _.isString(str) && /^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(\.\d+)?(([+-]\d\d:\d\d)|Z)?$/i.test(str);
             if (value?.criteria) {
-                if (moment(value.value, ISO_8601).isValid()) {
+                if (isISO8601(value.value)) {
                     compare = moment(compare).format();
                 }
                 return InterpretorCondition.validate(compare, [value]);
-            } else if (moment(value, ISO_8601).isValid()) {
+            } else if (isISO8601(value)) {
                 compare = moment(compare).format();
             }
 

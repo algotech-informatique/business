@@ -17,5 +17,11 @@ export class TaskCsvMappedDto {
     saveOnApi: CustomResolver<boolean>;
 
     @IsOptional()
+    columns: CustomResolver<PairDto[]>;
+
+    @IsOptional()
     dateFormat: CustomResolver<PairDto[]>;
+
+    @IsOptional()
+    encoding: CustomResolver<string>;
 }
